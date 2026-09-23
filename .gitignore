@@ -1,0 +1,14 @@
+/vendor/
+
+# Generated documentation bundles — one directory per module, regenerated from code.
+/output/
+
+# Derived + local state
+/labels.tsv
+/modules.status.tsv
+
+# Local configuration
+/.env
+/taxonomy.php
+
+.DS_Store
