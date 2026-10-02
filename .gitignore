@@ -12,3 +12,6 @@
 /taxonomy.php
 
 .DS_Store
+
+# Regenerable extracts (the curated *.help.json is tracked)
+/generated-help/*.doc.json
