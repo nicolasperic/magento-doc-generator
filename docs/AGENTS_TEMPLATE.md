@@ -87,5 +87,5 @@ generated.**
    `inline_docs.xml`) — same data, pointed at the agent.
 6. Keep it dense. If the JSON shows a stub (no classes/wiring), say so in a line.
 
-See [`examples/Magento_CatalogInventory.AGENTS.md`](examples/Magento_CatalogInventory.AGENTS.md)
-for a worked example.
+See [`../generated-agents/`](../generated-agents/) for worked examples
+(`Magento_CatalogInventory`, `Magento_Quote`, `Magento_Checkout`, `Magento_Customer`).
