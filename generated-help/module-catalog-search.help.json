@@ -1,0 +1,4 @@
+[
+ {"elementId":"catalog_seo_search_terms","comment":"Enables the storefront Popular Search Terms page.","modal":"When enabled, a public page listing popular search terms is published, which can help search engines discover catalog pages.","confidence":"high","basis":["label","sourceModel:Enabledisable"]},
+ {"elementId":"catalog_search_autocomplete_limit","comment":"Maximum number of suggestions shown in the search autocomplete dropdown.","modal":"Caps how many suggestions the search box shows as the shopper types.","confidence":"high","basis":["label","type:text","group:Catalog Search"]}
+]

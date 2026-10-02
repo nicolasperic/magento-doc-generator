@@ -1,0 +1,4 @@
+[
+ {"elementId":"catalog_seo_product_use_categories","comment":"Whether product URLs include their category path.","modal":"When **Yes**, a product reachable under a category gets a URL that includes the category path (e.g. `/gear/bags/product`). Affects URL structure and canonicalisation.","confidence":"high","basis":["label","sourceModel:Yesno","group:Search Engine Optimization"]},
+ {"elementId":"catalog_seo_save_rewrites_history","comment":"Whether a permanent (301) redirect is created when a product or category URL key changes.","modal":"When **Yes**, changing a URL key leaves behind a permanent redirect from the old URL, so existing links and search rankings are preserved.","confidence":"high","basis":["label","sourceModel:Yesno","group:Search Engine Optimization"]}
+]

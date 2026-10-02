@@ -1,0 +1,3 @@
+[
+ {"elementId":"checkout_options_enable_agreements","comment":"Turns the Terms and Conditions step on at checkout.","modal":"When **Yes**, the configured Terms and Conditions are shown at checkout and must be accepted before an order can be placed. Can be set per store view.","confidence":"high","basis":["label","sourceModel:Yesno"]}
+]

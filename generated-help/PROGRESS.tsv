@@ -13,6 +13,7 @@ Magento_Tax	28	24	24	done
 Magento_Catalog	38	21	21	done
 Magento_Directory	21	18	18	done
 Magento_Checkout	21	16	16	done
+Magento_CatalogInventory	15	12	12	done
 Magento_Sitemap	19	12	12	done
 Magento_Captcha	18	11	11	done
 Magento_Cms	10	10	10	done
@@ -57,6 +58,8 @@ Magento_MediaStorage	4	3	2	done
 Magento_Msrp	4	3	3	done
 Magento_PageCache	9	3	3	done
 Magento_Swatches	3	3	3	done
+Magento_CatalogSearch	7	2	2	done
+Magento_CatalogUrlRewrite	6	2	2	done
 Magento_GiftMessage	2	2	2	done
 Magento_GoogleOptimizer	2	2	2	done
 Magento_LoginAsCustomerAssistance	2	2	2	done
@@ -71,6 +74,7 @@ Magento_Security	9	2	2	done
 Magento_User	6	2	2	done
 Magento_AsynchronousOperations	1	1	1	done
 MageOS_AutomaticTranslation	19	1	1	done
+Magento_CheckoutAgreements	1	1	1	done
 Magento_ConfigurableProduct	1	1	1	done
 Magento_GroupedProduct	1	1	1	done
 Magento_InstantPurchase	2	1	1	done
