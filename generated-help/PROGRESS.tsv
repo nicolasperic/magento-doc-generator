@@ -77,7 +77,7 @@ Magento_ProductAlert	10	7	pending
 Magento_InventoryInStorePickupShippingAdminUi	6	5	pending
 Magento_ReCaptchaVersion2Checkbox	10	8	pending
 Magento_ReCaptchaVersion2Invisible	10	8	pending
-Magento_Catalog	38	21	pending
+Magento_Catalog	38	21	done
 Magento_Cms	10	10	pending
 Magento_ReCaptchaCheckoutSalesRule	1	1	pending
 Magento_Securitytxt	10	5	pending
@@ -105,7 +105,7 @@ Magento_GoogleGtag	5	3	pending
 Magento_MediaGalleryUi	1	1	pending
 Magento_CatalogUrlRewrite	6	2	pending
 Magento_Search	1	1	pending
-Magento_Tax	28	24	pending
+Magento_Tax	28	24	done
 Magento_LoginAsCustomerAdminUi	2	1	pending
 Magento_WebapiSecurity	1	0	pending
 MageOS_PageBuilderTemplateImportExport	3	1	pending
