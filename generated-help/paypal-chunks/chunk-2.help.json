@@ -1,0 +1,171 @@
+[
+  { "configPath": "payment/paypal_express_bml/categorypage_position",
+    "comment": "Placement of the PayPal Pay Later (BML) banner on catalog category pages.",
+    "modal": "Chooses where the **Pay Later / Bill Me Later** promotional banner appears on catalog category pages. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:BmlPosition", "group:Catalog Category Page", "scope:website"] },
+
+  { "configPath": "payment/paypal_express_bml/homepage_position",
+    "comment": "Placement of the PayPal Pay Later (BML) banner on the storefront home page.",
+    "modal": "Chooses where the **Pay Later / Bill Me Later** promotional banner appears on the home page. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:BmlPosition", "group:Home Page", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/cartpage_color",
+    "comment": "Color of the PayPal Pay Later banner on the shopping cart page.",
+    "modal": "Selects the color variant of the **Pay Later** banner shown on the cart page. Applies only when the cart-page Pay Later banner is displayed and its style layout is set to flex. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\Color", "group:Checkout Cart Page", "depends:cartpage_display", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/cartpage_stylelayout",
+    "comment": "Layout style of the PayPal Pay Later banner on the shopping cart page.",
+    "modal": "Selects the layout style of the **Pay Later** banner on the cart page. Applies only when the cart-page Pay Later banner is displayed. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\StyleLayout", "group:Checkout Cart Page", "depends:cartpage_display", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/categorypage_logotype",
+    "comment": "Logo style of the PayPal Pay Later banner on catalog category pages.",
+    "modal": "Selects the logo style of the **Pay Later** banner on category pages. Applies only when the category-page Pay Later banner is displayed and its style layout is set to text. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\LogoType", "group:Catalog Category Page", "depends:categorypage_display", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/checkout_payment_color",
+    "comment": "Color of the PayPal Pay Later banner on the checkout payment step.",
+    "modal": "Selects the color variant of the **Pay Later** banner shown on the checkout payment step. Applies only when that banner is displayed and its style layout is set to flex. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\Color", "group:Checkout Payment Step", "depends:checkout_payment_display", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/checkout_payment_stylelayout",
+    "comment": "Layout style of the PayPal Pay Later banner on the checkout payment step.",
+    "modal": "Selects the layout style of the **Pay Later** banner on the checkout payment step. Applies only when that banner is displayed. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\StyleLayout", "group:Checkout Payment Step", "depends:checkout_payment_display", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/homepage_logotype",
+    "comment": "Logo style of the PayPal Pay Later banner on the storefront home page.",
+    "modal": "Selects the logo style of the **Pay Later** banner on the home page. Applies only when the home-page Pay Later banner is displayed and its style layout is set to text. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\LogoType", "group:Home Page", "depends:homepage_display", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/productpage_color",
+    "comment": "Color of the PayPal Pay Later banner on product detail pages.",
+    "modal": "Selects the color variant of the **Pay Later** banner shown on product pages. Applies only when that banner is displayed and its style layout is set to flex. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\Color", "group:Catalog Product Page", "depends:productpage_display", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/productpage_stylelayout",
+    "comment": "Layout style of the PayPal Pay Later banner on product detail pages.",
+    "modal": "Selects the layout style of the **Pay Later** banner on product pages. Applies only when the product-page Pay Later banner is displayed. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater\\StyleLayout", "group:Catalog Product Page", "depends:productpage_display", "scope:website"] },
+
+  { "configPath": "paypal/wpp/api_authentication",
+    "comment": "The method used to authenticate Magento's calls to the PayPal API.",
+    "modal": "Selects how the store authenticates to PayPal's API for Express Checkout (for example, by the type of API credential used). Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Config::getApiAuthenticationMethods", "group:Express Checkout", "scope:website"] },
+
+  { "configPath": "paypal/wpp/proxy_host",
+    "comment": "Hostname or IP of the proxy server used for PayPal API calls.",
+    "modal": "The proxy host that PayPal API requests are routed through. Applies only when **Use Proxy** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Express Checkout", "depends:use_proxy", "scope:website"] },
+
+  { "configPath": "paypal/wpp/button_flavor",
+    "comment": "Visual style of the PayPal Express Checkout shortcut buttons.",
+    "modal": "Selects the visual flavor of the PayPal shortcut (Express Checkout) buttons shown in the storefront. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Config::getExpressCheckoutButtonFlavors", "group:Advanced Settings", "scope:store"] },
+
+  { "configPath": "payment/paypal_billing_agreement/payment_action",
+    "comment": "How PayPal processes payment for billing-agreement orders.",
+    "modal": "Selects the payment action PayPal performs for billing-agreement orders — for example, authorizing the amount only, or authorizing and capturing it. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PaymentActions", "group:PayPal Billing Agreement Settings", "scope:website"] },
+
+  { "configPath": "paypal/style/cart_page_button_color",
+    "comment": "Color of the customized PayPal Credit button on the cart page.",
+    "modal": "Selects the color of the PayPal button on the cart page. Applies only when button customization is enabled and the button label is set to Credit. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getColor", "group:Cart Page", "depends:cart_page_button_customize", "scope:store"] },
+
+  { "configPath": "paypal/style/checkout_page_button_br_installment_period",
+    "comment": "Installment period shown on the Brazil installment PayPal button at checkout.",
+    "modal": "Selects the installment period for the Brazil installment button on the checkout page. Applies only when button customization is enabled and the button label is set to Installment. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getBrInstallmentPeriod", "group:Checkout Page", "depends:checkout_page_button_label", "scope:store"] },
+
+  { "configPath": "paypal/style/mini_cart_page_button_br_installment_period",
+    "comment": "Installment period shown on the Brazil installment PayPal button in the mini cart.",
+    "modal": "Selects the installment period for the Brazil installment button in the mini cart. Applies only when button customization is enabled and the button label is set to Installment. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getBrInstallmentPeriod", "group:Mini Cart", "depends:mini_cart_page_button_label", "scope:store"] },
+
+  { "configPath": "paypal/style/page_style",
+    "comment": "Name of a custom PayPal-hosted payment page style to apply.",
+    "modal": "The name of a custom payment page layout (page style) configured in the merchant's PayPal account, applied to the PayPal-hosted pages shown during checkout. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Frontend Experience Settings", "scope:store"] },
+
+  { "configPath": "paypal/style/product_page_button_br_installment_period",
+    "comment": "Installment period shown on the Brazil installment PayPal button on product pages.",
+    "modal": "Selects the installment period for the Brazil installment button on product pages. Applies only when button customization is enabled and the button label is set to Installment. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getBrInstallmentPeriod", "group:Product Pages", "depends:product_page_button_label", "scope:store"] },
+
+  { "configPath": "paypal/fetch_reports/time",
+    "comment": "Time of day when the PayPal settlement report is fetched.",
+    "modal": "Sets the time of day at which Magento retrieves the settlement report from PayPal, part of **Settlement Report Settings**.",
+    "confidence": "high", "basis": ["label", "type:time", "group:Settlement Report Settings"] },
+
+  { "configPath": "payment/paypal_express/visible_on_product",
+    "comment": "Whether the PayPal Express Checkout button appears on product detail pages.",
+    "modal": "**Yes** shows the PayPal Express Checkout button on product detail pages; **No** hides it. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Basic Settings - PayPal Express Checkout", "scope:store"] },
+
+  { "configPath": "payment/payflow_link/proxy_host",
+    "comment": "Hostname or IP of the proxy server used for Payflow Link API calls.",
+    "modal": "The proxy host that Payflow Link API requests are routed through. Applies only when **Use Proxy** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Payflow Link and Express Checkout", "depends:use_proxy", "scope:website"] },
+
+  { "configPath": "payment/payflow_express/allowspecific",
+    "comment": "Whether this method is offered in all allowed countries or only specific ones.",
+    "modal": "Chooses whether PayPal Express (Payflow) is available from **All Allowed Countries** or only from **Specific Countries** you select. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Allspecificcountries", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/payflow_express/title",
+    "comment": "The payment method name shown to customers at checkout.",
+    "modal": "The title displayed for this PayPal Express (Payflow) method during checkout. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Basic Settings - PayPal Express Checkout", "scope:store"] },
+
+  { "configPath": "payment/payflow_link/debug",
+    "comment": "Whether Payflow Link API calls are logged for debugging.",
+    "modal": "**Yes** logs Payflow Link API requests and responses for troubleshooting; **No** disables logging. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/payflow_link/url_method",
+    "comment": "The HTTP method used for the Payflow Link cancel and return URLs.",
+    "modal": "Selects the HTTP method used when PayPal redirects back to the store's cancel and return URLs. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:UrlMethod", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/hosted_pro/allowspecific",
+    "comment": "Whether this method is offered in all allowed countries or only specific ones.",
+    "modal": "Chooses whether PayPal Payments Pro Hosted Solution is available from **All Allowed Countries** or only from **Specific Countries**. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Allspecificcountries", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/hosted_pro/sort_order",
+    "comment": "Display order of this method relative to other payment methods at checkout.",
+    "modal": "The position of PayPal Payments Pro Hosted Solution in the list of payment methods at checkout; lower numbers appear first. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Basic Settings - PayPal Payments Pro Hosted Solution", "scope:store"] },
+
+  { "configPath": "payment/payflowpro/proxy_host",
+    "comment": "Hostname or IP of the proxy server used for Payflow Pro API calls.",
+    "modal": "The proxy host that Payflow Pro API requests are routed through. Applies only when **Use Proxy** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Payflow Pro", "depends:use_proxy", "scope:website"] },
+
+  { "configPath": "payment/payflowpro/avs_security_code",
+    "comment": "How a transaction is treated when the card security code (CVV) does not match.",
+    "modal": "Part of **CVV and AVS Settings** — controls how Payflow Pro handles a transaction when the card security code does not match (**Yes** / **No**). Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "group:CVV and AVS Settings", "scope:website"] },
+
+  { "configPath": "payment/payflowpro/specificcountry",
+    "comment": "The countries this method is available from when restricted to specific countries.",
+    "modal": "Selects which countries PayPal Payflow Pro is offered in. Applies only when **Payment Applicable From** is set to specific countries. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:multiselect", "sourceModel:BuyerCountry", "group:Advanced Settings", "depends:allowspecific", "scope:website"] },
+
+  { "configPath": "payment/payflow_advanced/partner",
+    "comment": "The Payflow partner ID that identifies the merchant's gateway account.",
+    "modal": "The **Partner** identifier issued for the Payflow (Payments Advanced) account, used with the other credentials to identify the merchant with PayPal. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Payments Advanced and Express Checkout", "scope:website"] },
+
+  { "configPath": "payment/payflow_advanced/payment_action",
+    "comment": "How PayPal processes payment for Payments Advanced.",
+    "modal": "Selects the payment action PayPal performs — for example, authorizing the amount only, or authorizing and capturing it. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PaymentActions", "group:Basic Settings - PayPal Payments Advanced", "scope:website"] },
+
+  { "configPath": "payment/payflow_advanced/sort_order",
+    "comment": "Display order of this method relative to other payment methods at checkout.",
+    "modal": "The position of PayPal Payments Advanced in the list of payment methods at checkout; lower numbers appear first. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Basic Settings - PayPal Payments Advanced", "scope:store"] }
+]

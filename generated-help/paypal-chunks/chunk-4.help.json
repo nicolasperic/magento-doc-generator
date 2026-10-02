@@ -1,0 +1,171 @@
+[
+  { "configPath": "payment/paypal_express_bml/checkout_display",
+    "comment": "Shows the PayPal Bill Me Later promotional banner on the shopping cart page.",
+    "modal": "When **Yes**, the PayPal Bill Me Later (PayPal Credit) banner appears on the shopping cart page; **No** hides it.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "configPath:paypal_express_bml/checkout_display", "group:Checkout Cart Page"] },
+
+  { "configPath": "payment/paypal_express_bml/productpage_display",
+    "comment": "Shows the PayPal Bill Me Later promotional banner on catalog product pages.",
+    "modal": "When **Yes**, the PayPal Bill Me Later (PayPal Credit) banner appears on catalog product pages; **No** hides it.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "configPath:paypal_express_bml/productpage_display", "group:Catalog Product Page"] },
+
+  { "configPath": "payment/paypal_paylater/cartpage_logoposition",
+    "comment": "Placement of the logo within the PayPal Pay Later banner on the cart page.",
+    "modal": "Sets where the logo sits inside the Pay Later messaging banner on the shopping cart page. Applies only when the cart-page Pay Later banner is displayed with a text style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/LogoPosition", "configPath:paypal_paylater/cartpage_logoposition", "depends:paylater_cartpage_display"] },
+
+  { "configPath": "payment/paypal_paylater/cartpage_textsize",
+    "comment": "Text size of the PayPal Pay Later banner on the cart page.",
+    "modal": "Sets the size of the message text in the Pay Later banner on the shopping cart page. Applies only when the cart-page Pay Later banner is displayed with a text style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/TextSize", "configPath:paypal_paylater/cartpage_textsize", "depends:paylater_cartpage_display"] },
+
+  { "configPath": "payment/paypal_paylater/categorypage_ratio",
+    "comment": "Aspect ratio of the PayPal Pay Later banner on category pages.",
+    "modal": "Sets the shape/aspect ratio of the Pay Later banner on catalog category pages. Applies only when the category-page Pay Later banner is displayed with a flex style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/Ratio", "configPath:paypal_paylater/categorypage_ratio", "depends:paylater_categorypage_display"] },
+
+  { "configPath": "payment/paypal_paylater/checkout_payment_logoposition",
+    "comment": "Placement of the logo within the PayPal Pay Later banner at the checkout payment step.",
+    "modal": "Sets where the logo sits inside the Pay Later banner on the checkout payment step. Applies only when that Pay Later banner is displayed with a text style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/LogoPosition", "configPath:paypal_paylater/checkout_payment_logoposition", "depends:paylater_checkout_payment_display"] },
+
+  { "configPath": "payment/paypal_paylater/checkout_payment_textsize",
+    "comment": "Text size of the PayPal Pay Later banner at the checkout payment step.",
+    "modal": "Sets the size of the message text in the Pay Later banner on the checkout payment step. Applies only when that Pay Later banner is displayed with a text style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/TextSize", "configPath:paypal_paylater/checkout_payment_textsize", "depends:paylater_checkout_payment_display"] },
+
+  { "configPath": "payment/paypal_paylater/homepage_ratio",
+    "comment": "Aspect ratio of the PayPal Pay Later banner on the home page.",
+    "modal": "Sets the shape/aspect ratio of the Pay Later banner on the home page. Applies only when the home-page Pay Later banner is displayed with a flex style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/Ratio", "configPath:paypal_paylater/homepage_ratio", "depends:paylater_homepage_display"] },
+
+  { "configPath": "payment/paypal_paylater/productpage_logoposition",
+    "comment": "Placement of the logo within the PayPal Pay Later banner on product pages.",
+    "modal": "Sets where the logo sits inside the Pay Later banner on catalog product pages. Applies only when the product-page Pay Later banner is displayed with a text style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/LogoPosition", "configPath:paypal_paylater/productpage_logoposition", "depends:paylater_productpage_display"] },
+
+  { "configPath": "payment/paypal_paylater/productpage_textsize",
+    "comment": "Text size of the PayPal Pay Later banner on product pages.",
+    "modal": "Sets the size of the message text in the Pay Later banner on catalog product pages. Applies only when the product-page Pay Later banner is displayed with a text style layout.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PayLater/TextSize", "configPath:paypal_paylater/productpage_textsize", "depends:paylater_productpage_display"] },
+
+  { "configPath": "paypal/wpp/api_password",
+    "comment": "Password that authenticates Express Checkout API calls to the merchant's PayPal account.",
+    "modal": "The API password used to authenticate Express Checkout API requests against the merchant's PayPal account. Stored encrypted, and can differ per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "group:Express Checkout"] },
+
+  { "configPath": "paypal/wpp/use_proxy",
+    "comment": "Whether PayPal API calls are routed through a proxy server.",
+    "modal": "When **Yes**, Express Checkout API requests are sent through a proxy host; **No** connects to PayPal directly.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Express Checkout"] },
+
+  { "configPath": "payment/paypal_billing_agreement/allow_billing_agreement_wizard",
+    "comment": "Whether customers can create a PayPal billing agreement from their account.",
+    "modal": "When **Yes**, customers can set up a PayPal billing agreement through the wizard in their account area; **No** disables it.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:PayPal Billing Agreement Settings"] },
+
+  { "configPath": "payment/paypal_billing_agreement/specificcountry",
+    "comment": "Countries whose buyers may use the PayPal billing agreement method.",
+    "modal": "Restricts the PayPal billing agreement method to buyers from the selected countries. Applies only when payment is limited to specific countries.",
+    "confidence": "medium", "basis": ["label", "type:multiselect", "sourceModel:BuyerCountry", "depends:allowspecific"] },
+
+  { "configPath": "paypal/style/cart_page_button_layout",
+    "comment": "Visual layout of the PayPal checkout button on the cart page.",
+    "modal": "Chooses the layout style of the PayPal smart button on the shopping cart page. Applies only when button customization is enabled for the cart page, and can be set per store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getLayout", "depends:cart_page_button_customize", "scope:store", "group:Cart Page"] },
+
+  { "configPath": "paypal/style/checkout_page_button_customize",
+    "comment": "Whether to customize the PayPal button's appearance on the checkout page.",
+    "modal": "When **Yes**, you can override the default style of the PayPal button on the checkout page; **No** keeps the defaults. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:store", "group:Checkout Page"] },
+
+  { "configPath": "paypal/style/mini_cart_page_button_customize",
+    "comment": "Whether to customize the PayPal button's appearance in the mini cart.",
+    "modal": "When **Yes**, you can override the default style of the PayPal button in the mini cart; **No** keeps the defaults. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:store", "group:Mini Cart"] },
+
+  { "configPath": "paypal/style/paypal_hdrbordercolor",
+    "comment": "Color of the header border shown on PayPal-hosted pages.",
+    "modal": "Sets the color used for the border of the header area on PayPal-hosted checkout pages. Can be set per store view.",
+    "confidence": "low", "basis": ["label", "scope:store", "group:Frontend Experience Settings"] },
+
+  { "configPath": "paypal/style/product_page_button_customize",
+    "comment": "Whether to customize the PayPal button's appearance on product pages.",
+    "modal": "When **Yes**, you can override the default style of the PayPal button on product pages; **No** keeps the defaults. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:store", "group:Product Pages"] },
+
+  { "configPath": "paypal/fetch_reports/active",
+    "comment": "Whether PayPal settlement reports are fetched automatically on a schedule.",
+    "modal": "When **Yes**, settlement reports are retrieved from PayPal automatically on a schedule; **No** requires fetching them manually.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Settlement Report Settings"] },
+
+  { "configPath": "payment/paypal_express/skip_order_review_step",
+    "comment": "Whether the order review step is skipped after returning from PayPal.",
+    "modal": "When **Yes**, the order is placed immediately after PayPal instead of showing the order review page; **No** keeps the review step.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/payflow_link/active",
+    "comment": "Turns the PayPal Payflow Link payment method on or off.",
+    "modal": "Enables or disables Payflow Link as a checkout payment method.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Required PayPal Settings"] },
+
+  { "configPath": "payment/payflow_link/sandbox_flag",
+    "comment": "Runs Payflow Link against the PayPal sandbox instead of live processing.",
+    "modal": "When **Yes**, transactions use the PayPal sandbox (test) environment rather than live processing.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "configPath:sandbox_flag"] },
+
+  { "configPath": "payment/payflow_express/line_items_enabled",
+    "comment": "Whether individual cart line items are sent to PayPal with the order.",
+    "modal": "When **Yes**, the cart's individual line items are transferred to PayPal alongside the order totals; **No** sends only totals.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/payflow_link/payment_action",
+    "comment": "Whether the order amount is authorized only, or authorized and captured, at checkout.",
+    "modal": "Chooses how Payflow Link processes the payment when an order is placed, such as authorizing the amount only or authorizing and capturing it. Uses PayPal's payment-action options.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PaymentActions", "group:Basic Settings - PayPal Payflow Link"] },
+
+  { "configPath": "payment/payflow_link/sort_order",
+    "comment": "Display order of Payflow Link among the payment methods at checkout.",
+    "modal": "Sets the position of the Payflow Link method relative to other payment methods in the checkout list; a lower number places it higher.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Basic Settings - PayPal Payflow Link"] },
+
+  { "configPath": "payment/payflowpro/active",
+    "comment": "Turns the PayPal Payflow Pro solution on or off.",
+    "modal": "Enables or disables the Payflow Pro payment solution.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Required PayPal Settings"] },
+
+  { "configPath": "payment/payflowpro/sandbox_flag",
+    "comment": "Runs Payflow Pro against the PayPal sandbox instead of live processing.",
+    "modal": "When **Yes**, transactions use the PayPal sandbox (test) environment rather than live processing.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "configPath:sandbox_flag"] },
+
+  { "configPath": "payment/payflowpro/payment_action",
+    "comment": "Whether the order amount is authorized only, or authorized and captured, at checkout.",
+    "modal": "Chooses how Payflow Pro processes the payment when an order is placed, such as authorizing the amount only or authorizing and capturing it. Uses PayPal's payment-action options.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PaymentActions", "group:Basic Settings - PayPal Payflow Pro"] },
+
+  { "configPath": "payment/payflowpro/avs_zip",
+    "comment": "Whether to reject a transaction when the AVS ZIP check does not match.",
+    "modal": "When **Yes**, a transaction is rejected if the card's AVS ZIP/postal-code check does not match; **No** allows it through.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:CVV and AVS Settings"] },
+
+  { "configPath": "payment/payflowpro/verify_peer",
+    "comment": "Whether SSL peer verification is applied to Payflow Pro API calls.",
+    "modal": "When **Yes**, the SSL certificate of the Payflow API endpoint is verified on each call; **No** skips verification.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/paypal_payment_pro/active",
+    "comment": "Turns the PayPal Payments Pro solution on or off.",
+    "modal": "Enables or disables the PayPal Payments Pro payment solution.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Required PayPal Settings"] },
+
+  { "configPath": "payment/payflow_advanced/pwd",
+    "comment": "Password that authenticates the merchant's Payments Advanced / Payflow account for API calls.",
+    "modal": "The API password used to authenticate requests to the merchant's Payments Advanced / Payflow account. Stored encrypted, and can differ per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "group:Payments Advanced and Express Checkout"] },
+
+  { "configPath": "payment/payflow_advanced/csc_editable",
+    "comment": "Whether the customer can edit the card security code (CVV) field.",
+    "modal": "When **Yes**, the CVV/card security code field can be edited by the customer during checkout; **No** locks it.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] }
+]

@@ -15,3 +15,6 @@
 
 # Regenerable extracts (the curated *.help.json is tracked)
 /generated-help/*.doc.json
+
+# PayPal chunk task-inputs (regenerable from extract-config-live); *.help.json + aliases.json kept
+/generated-help/paypal-chunks/chunk-[0-9].json

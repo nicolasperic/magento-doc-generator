@@ -61,6 +61,42 @@ foreach (glob("$dir/*.help.json") ?: [] as $helpFile) {
     }
 }
 
+// PayPal (and any config_path-keyed help with an alias map): one logical field's
+// help is expanded to every DOM element-id alias it appears under. The help is
+// keyed by config_path in generated-help/paypal-chunks/chunk-*.help.json; the
+// alias map lives in generated-help/paypal-chunks/aliases.json.
+$aliasMapFile = "$dir/paypal-chunks/aliases.json";
+if (is_file($aliasMapFile)) {
+    $aliasMap = json_decode(file_get_contents($aliasMapFile), true) ?: [];
+    $cfgHelp = [];
+    foreach (glob("$dir/paypal-chunks/*.help.json") ?: [] as $hf) {
+        foreach ((array)json_decode(file_get_contents($hf), true) as $h) {
+            $cp = trim((string)($h['configPath'] ?? ''));
+            $comment = trim((string)($h['comment'] ?? ''));
+            if ($cp !== '' && $comment !== '') {
+                $cfgHelp[$cp] = ['comment' => $comment, 'modal' => trim((string)($h['modal'] ?? ''))];
+            }
+        }
+    }
+    $expanded = 0;
+    foreach ($cfgHelp as $cp => $h) {
+        foreach ((array)($aliasMap[$cp]['aliases'] ?? []) as $elementId) {
+            $elementId = trim((string)$elementId);
+            if ($elementId === '' || isset($entries[$elementId])) {
+                continue; // don't clobber a field that already ships its own note
+            }
+            $entries[$elementId] = [
+                'comment' => $h['comment'],
+                'modal'   => $h['modal'],
+                'module'  => 'Magento_Paypal',
+                'section' => 'PayPal',
+            ];
+            $expanded++;
+        }
+    }
+    fwrite(STDERR, sprintf("expanded %d config-path help entries to %d alias element ids\n", count($cfgHelp), $expanded));
+}
+
 ksort($entries); // stable, diff-friendly output
 
 // Build the XML with DOMDocument so escaping is always correct.

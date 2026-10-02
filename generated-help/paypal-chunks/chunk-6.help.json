@@ -1,0 +1,171 @@
+[
+  { "configPath": "payment/paypal_express_bml/checkout_size",
+    "comment": "Display size of the PayPal Credit (BML) banner on the shopping cart page.",
+    "modal": "Sets the size of the PayPal Credit / Banner-based-lending promo banner shown on the **Checkout Cart Page**. Applies only when the cart-page banner's **Position** is set to the matching layout option. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:BmlSize", "group:Checkout Cart Page", "depends:bml_checkout_position"] },
+
+  { "configPath": "payment/paypal_express_bml/productpage_size",
+    "comment": "Display size of the PayPal Credit (BML) banner on the product page.",
+    "modal": "Sets the size of the PayPal Credit / Banner-based-lending promo banner shown on the **Catalog Product Page**. Applies only when the product-page banner's **Position** is set to the matching layout option. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:BmlSize", "group:Catalog Product Page", "depends:bml_productpage_position"] },
+
+  { "configPath": "payment/paypal_paylater/cartpage_position",
+    "comment": "Where the PayPal Pay Later banner is placed on the shopping cart page.",
+    "modal": "Chooses the placement of the Pay Later banner on the **Checkout Cart Page** from the available positions. Applies only when the cart-page Pay Later banner **Display** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\Position", "group:Checkout Cart Page", "depends:paylater_cartpage_display"] },
+
+  { "configPath": "payment/paypal_paylater/categorypage_display",
+    "comment": "Whether the PayPal Pay Later banner is shown on category pages.",
+    "modal": "When **Yes**, the PayPal Pay Later promotional banner appears on the **Catalog Category Page**; when **No**, it is hidden. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Catalog Category Page"] },
+
+  { "configPath": "payment/paypal_paylater/categorypage_textcolor",
+    "comment": "Text color of the Pay Later banner on category pages.",
+    "modal": "Selects the text color for the Pay Later banner on the **Catalog Category Page** from PayPal's allowed color options. Applies only when the category-page banner **Display** is enabled and its style layout is **Text**. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\TextColor", "group:Catalog Category Page", "depends:paylater_categorypage_display", "depends:paylater_categorypage_stylelayout"] },
+
+  { "configPath": "payment/paypal_paylater/checkout_payment_position",
+    "comment": "Where the PayPal Pay Later banner is placed at the checkout payment step.",
+    "modal": "Chooses the placement of the Pay Later banner on the **Checkout Payment Step** from the available positions. Applies only when the payment-step Pay Later banner **Display** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\Position", "group:Checkout Payment Step", "depends:paylater_checkout_payment_display"] },
+
+  { "configPath": "payment/paypal_paylater/homepage_display",
+    "comment": "Whether the PayPal Pay Later banner is shown on the home page.",
+    "modal": "When **Yes**, the PayPal Pay Later promotional banner appears on the **Home Page**; when **No**, it is hidden. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Home Page"] },
+
+  { "configPath": "payment/paypal_paylater/homepage_textcolor",
+    "comment": "Text color of the Pay Later banner on the home page.",
+    "modal": "Selects the text color for the Pay Later banner on the **Home Page** from PayPal's allowed color options. Applies only when the home-page banner **Display** is enabled and its style layout is **Text**. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\TextColor", "group:Home Page", "depends:paylater_homepage_display", "depends:paylater_homepage_stylelayout"] },
+
+  { "configPath": "payment/paypal_paylater/productpage_position",
+    "comment": "Where the PayPal Pay Later banner is placed on product pages.",
+    "modal": "Chooses the placement of the Pay Later banner on the **Catalog Product Page** from the available positions. Applies only when the product-page Pay Later banner **Display** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\Position", "group:Catalog Product Page", "depends:paylater_productpage_display"] },
+
+  { "configPath": "payment/paypal_paylater/experience_active",
+    "comment": "Enables or disables the PayPal Pay Later experience.",
+    "modal": "Turns the PayPal Pay Later experience on or off for this PayPal solution. When **No**, Pay Later messaging and banners are not offered. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Required PayPal Settings"] },
+
+  { "configPath": "paypal/wpp/api_username",
+    "comment": "The PayPal API username that identifies the merchant's account for Express Checkout.",
+    "modal": "The API username used to identify and authenticate the merchant's PayPal account for Express Checkout API calls. Stored encrypted. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "group:Express Checkout"] },
+
+  { "configPath": "payment/paypal_express/payment_action",
+    "comment": "The payment action used when an order is placed through PayPal Express Checkout.",
+    "modal": "Selects how a PayPal Express Checkout order is processed at placement — the payment action applied to the transaction. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PaymentActions\\Express", "group:Basic Settings - PayPal Express Checkout"] },
+
+  { "configPath": "payment/paypal_billing_agreement/debug",
+    "comment": "Logs PayPal API request and response data for Billing Agreement troubleshooting.",
+    "modal": "When **Yes**, PayPal Billing Agreement API calls are logged to help with troubleshooting; when **No**, logging is off. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:PayPal Billing Agreement Settings"] },
+
+  { "configPath": "payment/paypal_billing_agreement/verify_peer",
+    "comment": "Whether SSL/TLS peer verification is enforced on Billing Agreement API connections.",
+    "modal": "When **Yes**, the SSL certificate of PayPal's endpoint is verified on Billing Agreement API connections; when **No**, verification is skipped. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:PayPal Billing Agreement Settings"] },
+
+  { "configPath": "paypal/style/cart_page_button_shape",
+    "comment": "Shape of the PayPal smart button on the cart page.",
+    "modal": "Chooses the shape of the PayPal smart payment button shown on the cart page, from PayPal's available button shapes. Applies only when button customization is enabled for the checkout and cart pages. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:ButtonStyles::getShape", "group:Cart Page", "depends:checkout_page_button_customize", "depends:cart_page_button_customize"] },
+
+  { "configPath": "paypal/style/checkout_page_button_mx_installment_period",
+    "comment": "Installment period shown on the PayPal button for Mexico on the checkout page.",
+    "modal": "Sets the Mexico installment period presented on the checkout-page PayPal smart button, from PayPal's available periods. Applies only when button customization is enabled and the button label is set to the installment option. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getMxInstallmentPeriod", "group:Checkout Page", "depends:checkout_page_button_customize", "depends:checkout_page_button_label"] },
+
+  { "configPath": "paypal/style/mini_cart_page_button_mx_installment_period",
+    "comment": "Installment period shown on the PayPal button for Mexico in the mini cart.",
+    "modal": "Sets the Mexico installment period presented on the mini-cart PayPal smart button, from PayPal's available periods. Applies only when button customization is enabled and the button label is set to the installment option. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getMxInstallmentPeriod", "group:Mini Cart", "depends:mini_cart_page_button_customize", "depends:mini_cart_page_button_label"] },
+
+  { "configPath": "paypal/style/product_page_button_mx_installment_period",
+    "comment": "Installment period shown on the PayPal button for Mexico on product pages.",
+    "modal": "Sets the Mexico installment period presented on the product-page PayPal smart button, from PayPal's available periods. Applies only when button customization is enabled and the button label is set to the installment option. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles::getMxInstallmentPeriod", "group:Product Pages", "depends:product_page_button_customize", "depends:product_page_button_label"] },
+
+  { "configPath": "paypal/fetch_reports/ftp_password",
+    "comment": "The SFTP password used to fetch PayPal settlement reports.",
+    "modal": "The password for the SFTP account PayPal uses to deliver settlement reports. Stored encrypted. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "group:Settlement Report Settings"] },
+
+  { "configPath": "payment/paypal_express/verify_peer",
+    "comment": "Whether SSL/TLS peer verification is enforced on Express Checkout API connections.",
+    "modal": "When **Yes**, the SSL certificate of PayPal's endpoint is verified on Express Checkout API connections; when **No**, verification is skipped. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/payflow_link/buyer_country",
+    "comment": "Buyer country used to simulate transactions while sandbox mode is on.",
+    "modal": "A country selected from the directory country list, used to simulate the buyer's country for Payflow Link testing. Applies only when **Sandbox Mode** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Directory\\Country", "group:Payflow Link and Express Checkout", "depends:sandbox_flag"] },
+
+  { "configPath": "payment/payflow_link/vendor",
+    "comment": "The vendor (merchant login) that identifies the merchant's Payflow account.",
+    "modal": "The Payflow vendor / merchant login ID that identifies the merchant's PayPal Payflow account when connecting to the gateway. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Payflow Link and Express Checkout"] },
+
+  { "configPath": "payment/payflow_express/verify_peer",
+    "comment": "Whether SSL/TLS peer verification is enforced on Payflow Express API connections.",
+    "modal": "When **Yes**, the SSL certificate of PayPal's endpoint is verified on Payflow Express API connections; when **No**, verification is skipped. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/payflow_link/csc_editable",
+    "comment": "Whether the buyer can edit the card security code (CVV) field.",
+    "modal": "When **Yes**, the CVV / card security code entry is editable by the buyer; when **No**, it is not. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/hosted_pro/display_ec",
+    "comment": "Whether the Express Checkout button appears in the Payment Information step.",
+    "modal": "When **Yes**, the PayPal Express Checkout button is shown during the Payment Information step of checkout; when **No**, it is hidden. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Basic Settings - PayPal Payments Pro Hosted Solution"] },
+
+  { "configPath": "payment/hosted_pro/specificcountry",
+    "comment": "The countries from which this payment method may be used.",
+    "modal": "Selects the countries allowed to use this payment method. Applies only when payment is restricted to specific countries. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:multiselect", "sourceModel:BuyerCountry", "group:Advanced Settings", "depends:allowspecific"] },
+
+  { "configPath": "payment/payflowpro/buyer_country",
+    "comment": "Buyer country used to simulate transactions while sandbox mode is on.",
+    "modal": "A country selected from the directory country list, used to simulate the buyer's country for Payflow Pro testing. Applies only when **Sandbox Mode** is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Directory\\Country", "group:Payflow Pro", "depends:sandbox_flag"] },
+
+  { "configPath": "payment/payflowpro/user",
+    "comment": "The Payflow Pro user credential used to authenticate with the gateway.",
+    "modal": "The user credential that identifies and authenticates the merchant's PayPal Payflow Pro account. Stored encrypted. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "group:Payflow Pro"] },
+
+  { "configPath": "payment/payflowpro/debug",
+    "comment": "Logs PayPal Payflow Pro API request and response data for troubleshooting.",
+    "modal": "When **Yes**, Payflow Pro API calls are logged to help with troubleshooting; when **No**, logging is off. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/wps_express/active",
+    "comment": "Enables or disables this PayPal payment solution.",
+    "modal": "When **Yes**, this PayPal solution is active and available at checkout; when **No**, it is turned off. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Required PayPal Settings"] },
+
+  { "configPath": "payment/payflow_advanced/active",
+    "comment": "Enables or disables this PayPal payment solution.",
+    "modal": "When **Yes**, this PayPal Payments Advanced solution is active and available at checkout; when **No**, it is turned off. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Required PayPal Settings"] },
+
+  { "configPath": "payment/payflow_advanced/use_proxy",
+    "comment": "Whether PayPal API calls are routed through a proxy server.",
+    "modal": "When **Yes**, Payflow Advanced API requests are sent through a proxy server; when **No**, they connect directly. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Payments Advanced and Express Checkout"] },
+
+  { "configPath": "payment/payflow_advanced/debug",
+    "comment": "Logs PayPal Payments Advanced API request and response data for troubleshooting.",
+    "modal": "When **Yes**, Payflow Advanced API calls are logged to help with troubleshooting; when **No**, logging is off. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings"] },
+
+  { "configPath": "payment/payflow_advanced/url_method",
+    "comment": "The URL method used for the Cancel URL and Return URL sent to PayPal.",
+    "modal": "Selects the URL method applied to the Cancel URL and Return URL that PayPal redirects buyers to. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:UrlMethod", "group:Advanced Settings"] }
+]

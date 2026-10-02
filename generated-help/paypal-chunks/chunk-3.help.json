@@ -1,0 +1,166 @@
+[
+  { "configPath": "payment/paypal_express_bml/categorypage_size",
+    "comment": "Size of the PayPal Credit (Bill Me Later) banner shown on catalog category pages.",
+    "modal": "Chooses the display size of the PayPal Credit / Bill Me Later promotional banner on the **Catalog Category Page**, from the available banner sizes. Applies only for the configured category-page banner position, and can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:BmlSize", "group:Catalog Category Page", "depends:bml_categorypage_position", "scope:website", "configPath:categorypage"] },
+
+  { "configPath": "payment/paypal_express_bml/homepage_size",
+    "comment": "Size of the PayPal Credit (Bill Me Later) banner shown on the home page.",
+    "modal": "Chooses the display size of the PayPal Credit / Bill Me Later promotional banner on the **Home Page**, from the available banner sizes. Applies only for the configured home-page banner position, and can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:BmlSize", "group:Home Page", "depends:bml_homepage_position", "scope:website", "configPath:homepage"] },
+
+  { "configPath": "payment/paypal_paylater/cartpage_display",
+    "comment": "Whether the PayPal Pay Later message is shown on the shopping cart page.",
+    "modal": "When **Yes**, the PayPal Pay Later promotional message appears on the **Checkout Cart Page**; when **No**, it is hidden. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Checkout Cart Page", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/cartpage_textcolor",
+    "comment": "Text color of the PayPal Pay Later message on the cart page.",
+    "modal": "Selects the text color of the PayPal Pay Later message on the **Checkout Cart Page**, from the available color options. Applies only when the cart-page Pay Later message is enabled and its style layout is set to Text. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\TextColor", "group:Checkout Cart Page", "depends:cartpage_display=1", "depends:cartpage_stylelayout=text", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/categorypage_position",
+    "comment": "Placement of the PayPal Pay Later message on catalog category pages.",
+    "modal": "Chooses where the PayPal Pay Later message is placed on the **Catalog Category Page**, from the available positions. Applies only when the category-page Pay Later message is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\Position", "group:Catalog Category Page", "depends:categorypage_display=1", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/checkout_payment_display",
+    "comment": "Whether the PayPal Pay Later message is shown at the checkout payment step.",
+    "modal": "When **Yes**, the PayPal Pay Later promotional message appears at the **Checkout Payment Step**; when **No**, it is hidden. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Checkout Payment Step", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/checkout_payment_textcolor",
+    "comment": "Text color of the PayPal Pay Later message at the checkout payment step.",
+    "modal": "Selects the text color of the PayPal Pay Later message at the **Checkout Payment Step**, from the available color options. Applies only when that message is enabled and its style layout is set to Text. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\TextColor", "group:Checkout Payment Step", "depends:checkout_payment_display=1", "depends:checkout_payment_stylelayout=text", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/homepage_position",
+    "comment": "Placement of the PayPal Pay Later message on the home page.",
+    "modal": "Chooses where the PayPal Pay Later message is placed on the **Home Page**, from the available positions. Applies only when the home-page Pay Later message is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\Position", "group:Home Page", "depends:homepage_display=1", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/productpage_display",
+    "comment": "Whether the PayPal Pay Later message is shown on product detail pages.",
+    "modal": "When **Yes**, the PayPal Pay Later promotional message appears on the **Catalog Product Page**; when **No**, it is hidden. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Catalog Product Page", "scope:website"] },
+
+  { "configPath": "payment/paypal_paylater/productpage_textcolor",
+    "comment": "Text color of the PayPal Pay Later message on product detail pages.",
+    "modal": "Selects the text color of the PayPal Pay Later message on the **Catalog Product Page**, from the available color options. Applies only when the product-page message is enabled and its style layout is set to Text. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:PayLater\\TextColor", "group:Catalog Product Page", "depends:productpage_display=1", "depends:productpage_stylelayout=text", "scope:website"] },
+
+  { "configPath": "paypal/wpp/api_cert",
+    "comment": "API certificate file used to authenticate the store's PayPal account for Express Checkout.",
+    "modal": "Uploads the PayPal API certificate that identifies and authenticates the merchant's PayPal account for **Express Checkout** API calls. Used instead of API signature credentials when certificate authentication is selected. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:file", "backendModel:Cert", "group:Express Checkout", "depends:api_authentication=1", "scope:website"] },
+
+  { "configPath": "paypal/wpp/sandbox_flag",
+    "comment": "Whether Express Checkout runs against the PayPal sandbox instead of the live environment.",
+    "modal": "When **Yes**, Express Checkout uses the PayPal sandbox for testing; when **No**, it processes live transactions. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Express Checkout", "scope:website"] },
+
+  { "configPath": "payment/paypal_express/debug",
+    "comment": "Whether PayPal Express Checkout API calls are logged for debugging.",
+    "modal": "When **Yes**, requests and responses exchanged with PayPal for Express Checkout are written to the debug log. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/paypal_billing_agreement/sort_order",
+    "comment": "Display order of PayPal Billing Agreement among payment methods at checkout.",
+    "modal": "Sets the position of the **PayPal Billing Agreement** method relative to other payment methods at checkout; lower values appear first. Can be set per website and per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:PayPal Billing Agreement Settings", "scope:store"] },
+
+  { "configPath": "paypal/style/cart_page_button_customize",
+    "comment": "Whether the PayPal smart button on the cart page uses custom styling.",
+    "modal": "When **Yes**, the PayPal button on the **Cart Page** uses the custom appearance settings; when **No**, it uses PayPal's defaults. Can be set per website and per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Cart Page", "scope:store"] },
+
+  { "configPath": "paypal/style/checkout_page_button_color",
+    "comment": "Color of the PayPal smart button on the checkout page.",
+    "modal": "Chooses the color of the PayPal button shown on the **Checkout Page**, from the available button colors. Applies only when button customization is enabled for that location. Can be set per website and per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:ButtonStyles", "group:Checkout Page", "depends:checkout_page_button_customize=1", "scope:store"] },
+
+  { "configPath": "paypal/style/mini_cart_page_button_color",
+    "comment": "Color of the PayPal smart button in the mini cart.",
+    "modal": "Chooses the color of the PayPal button shown in the **Mini Cart**, from the available button colors. Applies only when button customization is enabled for that location. Can be set per website and per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:ButtonStyles", "group:Mini Cart", "depends:mini_cart_page_button_customize=1", "scope:store"] },
+
+  { "configPath": "paypal/style/paypal_hdrbackcolor",
+    "comment": "Background color of the header area on PayPal-hosted checkout pages.",
+    "modal": "Sets the header background color shown on PayPal-hosted pages during checkout, part of the **Frontend Experience Settings**. Can be set per website and per store view.",
+    "confidence": "low", "basis": ["label", "group:Frontend Experience Settings", "scope:store"] },
+
+  { "configPath": "paypal/style/product_page_button_color",
+    "comment": "Color of the PayPal smart button on product detail pages.",
+    "modal": "Chooses the color of the PayPal button shown on **Product Pages**, from the available button colors. Applies only when button customization is enabled for that location. Can be set per website and per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:ButtonStyles", "group:Product Pages", "depends:product_page_button_customize=1", "scope:store"] },
+
+  { "configPath": "payment/paypal_express/line_items_enabled",
+    "comment": "Whether individual cart line items are sent to PayPal with the order.",
+    "modal": "When **Yes**, each cart line item is transferred to PayPal so the itemized breakdown appears on the PayPal side; when **No**, only the order total is sent. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/payflow_express/active",
+    "comment": "Turns the Payflow Express Checkout payment method on or off.",
+    "modal": "When **Yes**, the Payflow **Express Checkout** method is available to shoppers; when **No**, it is disabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Required PayPal Settings", "scope:website"] },
+
+  { "configPath": "payment/payflow_link/pwd",
+    "comment": "Encrypted password that authenticates the store's PayPal Payflow Link account.",
+    "modal": "The password used to authenticate the merchant's **Payflow Link** account with PayPal. Stored encrypted. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "group:Payflow Link and Express Checkout", "scope:website"] },
+
+  { "configPath": "payment/payflow_express/debug",
+    "comment": "Whether Payflow Express Checkout API calls are logged for debugging.",
+    "modal": "When **Yes**, requests and responses exchanged with PayPal for Payflow Express Checkout are written to the debug log. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/payflow_express/visible_on_product",
+    "comment": "Whether the Payflow Express Checkout button appears on product detail pages.",
+    "modal": "When **Yes**, the Payflow Express Checkout button is shown on the product details page; when **No**, it is not. Can be set per website and per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Basic Settings - PayPal Express Checkout", "scope:store"] },
+
+  { "configPath": "payment/payflow_link/email_confirmation",
+    "comment": "Whether PayPal sends an order confirmation email for Payflow Link transactions.",
+    "modal": "When **Yes**, PayPal sends an email confirmation for Payflow Link payments; when **No**, it does not. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/payflow_link/verify_peer",
+    "comment": "Whether SSL peer verification is enforced on Payflow Link connections.",
+    "modal": "When **Yes**, the SSL certificate of the Payflow Link endpoint is verified on each connection; when **No**, verification is skipped. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/hosted_pro/debug",
+    "comment": "Whether Payments Pro Hosted Solution API calls are logged for debugging.",
+    "modal": "When **Yes**, requests and responses exchanged with PayPal for the Hosted Pro method are written to the debug log. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/payflowpro/pwd",
+    "comment": "Encrypted password that authenticates the store's PayPal Payflow Pro account.",
+    "modal": "The password used to authenticate the merchant's **Payflow Pro** account with PayPal. Stored encrypted. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "group:Payflow Pro", "scope:website"] },
+
+  { "configPath": "payment/payflowpro_cc_vault/title",
+    "comment": "Checkout label shown for saved (vaulted) Payflow Pro cards.",
+    "modal": "The method title displayed to customers for stored Payflow Pro cards (card vault) at checkout. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Basic Settings - PayPal Payflow Pro", "scope:website"] },
+
+  { "configPath": "payment/payflowpro/avs_street",
+    "comment": "Whether a Payflow Pro AVS street-address mismatch is treated as a failed check.",
+    "modal": "When **Yes**, a transaction where the Address Verification Service reports the street address does not match is treated as a failed address check. Part of the **CVV and AVS Settings**. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "group:CVV and AVS Settings", "scope:website"] },
+
+  { "configPath": "payment/payflowpro/useccv",
+    "comment": "Whether customers must enter the card CVV for Payflow Pro payments.",
+    "modal": "When **Yes**, the card security code (CVV) is required for Payflow Pro card payments; when **No**, it is not requested. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Advanced Settings", "scope:website"] },
+
+  { "configPath": "payment/payflow_advanced/proxy_host",
+    "comment": "Hostname or IP of the proxy server used for Payflow Advanced connections.",
+    "modal": "The proxy server address used when connecting to PayPal for Payments Advanced / Payflow. Applies only when proxy use is enabled. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Payments Advanced and Express Checkout", "depends:use_proxy=1", "scope:website"] },
+
+  { "configPath": "payment/payflow_advanced/allowspecific",
+    "comment": "Whether Payflow Advanced is offered to all allowed countries or only specific ones.",
+    "modal": "Chooses whether the Payflow Advanced method is available for all allowed countries or only a specified list of countries. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Allspecificcountries", "group:Advanced Settings", "scope:website"] }
+]
