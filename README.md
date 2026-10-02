@@ -2,8 +2,15 @@
 
 Turns a Magento 2 codebase into browsable documentation: it reads every module's PHP and
 XML, extracts the **wiring** a developer actually needs (plugins, observers, preferences,
-cron, web API, GraphQL, queues, DB schema, DI graph), and publishes a page per module to
-[DocuHub](https://github.com/nicolasperic/docuhub).
+cron, web API, GraphQL, queues, DB schema, DI graph, admin config fields), and publishes a
+page per module to [DocuHub](https://github.com/nicolasperic/docuhub).
+
+The admin **config fields** (`etc/adminhtml/system.xml`) are extracted into `doc.config[]` —
+each field's path, admin element id, label, type, source/backend model, scope, dependencies
+and whether it already has `<comment>` help. This is the ground truth behind three
+consumers: the `MageOS_InlineDocs` popovers (matched by element id), the longer modal
+content, and the Config section of a module's AGENTS.md. Across Mage-OS core it finds 1,120
+fields, only 356 (≈32%) with any help text.
 
 Two repos, one job each: **DocuHub** is the wiki that stores and serves the docs;
 **this** is the pipeline that keeps them true to the code.

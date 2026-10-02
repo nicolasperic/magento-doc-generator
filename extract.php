@@ -56,12 +56,19 @@ require $autoload;
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-function xml_load(string $file): ?SimpleXMLElement {
+function xml_load(string $file, int $flags = 0): ?SimpleXMLElement {
     if (!is_file($file)) return null;
     $prev = libxml_use_internal_errors(true);
-    $xml = simplexml_load_file($file);
+    $xml = simplexml_load_file($file, SimpleXMLElement::class, $flags);
     libxml_use_internal_errors($prev);
     return $xml ?: null;
+}
+
+/** Clean a system.xml <label>/<comment>/<tooltip>: drop HTML, collapse whitespace. */
+function cleanFieldText(?string $raw): ?string {
+    if ($raw === null) return null;
+    $s = trim(preg_replace('/\s+/', ' ', strip_tags($raw)));
+    return $s === '' ? null : $s;
 }
 
 /** First sentence/line of a phpdoc block, cleaned. */
@@ -393,6 +400,91 @@ if ($acl = xml_load("$moduleDir/etc/acl.xml")) {
     if (isset($acl->acl->resources)) $walk($acl->acl->resources);
 }
 
+// system.xml — admin Stores → Configuration fields.
+// This is ground truth for three consumers: the inline-docs popovers (matched by
+// `elementId`), the longer modal content, and the Config section of a module's
+// AGENTS.md. We record what the field IS (path, label, type, models, scope,
+// dependencies) and whether it already has help text — so the narrative layer can
+// write a note only where one is missing, and never invent a field.
+$config = [];
+
+$processField = function (SimpleXMLElement $field, string $sectionId, ?string $sectionLabel, array $groupPath, array $groupLabels) use (&$config) {
+    $fieldId = (string)($field['id'] ?? '');
+    if ($fieldId === '') return;
+
+    $pathParts = array_merge([$sectionId], $groupPath, [$fieldId]);
+    $path      = implode('/', $pathParts);
+    // Magento's admin DOM id: str_replace('/', '_', path). This is the join key
+    // the InlineDocs module sends back from the page.
+    $elementId = str_replace('/', '_', $path);
+
+    $scope = [];
+    if ((string)($field['showInDefault'] ?? '') === '1') $scope[] = 'default';
+    if ((string)($field['showInWebsite'] ?? '') === '1') $scope[] = 'website';
+    if ((string)($field['showInStore'] ?? '')   === '1') $scope[] = 'store';
+
+    $depends = [];
+    if (isset($field->depends)) {
+        foreach ($field->depends->field as $df) {
+            $depends[] = ['field' => (string)($df['id'] ?? ''), 'value' => trim((string)$df)];
+        }
+    }
+
+    $innerGroup      = $groupPath   ? $groupPath[count($groupPath) - 1]     : null;
+    $innerGroupLabel = $groupLabels ? $groupLabels[count($groupLabels) - 1] : null;
+
+    $config[] = [
+        'path'          => $path,
+        'elementId'     => $elementId,
+        'configPath'    => isset($field->config_path) ? trim((string)$field->config_path) : null,
+        'sectionId'     => $sectionId,
+        'sectionLabel'  => $sectionLabel,
+        'groupId'       => $innerGroup,
+        'groupLabel'    => $innerGroupLabel,
+        'groupPath'     => $groupPath,
+        'label'         => cleanFieldText((string)($field->label ?? '')),
+        'type'          => (string)($field['type'] ?? '') ?: null,
+        'comment'       => cleanFieldText(isset($field->comment) ? (string)$field->comment : null),
+        'tooltip'       => cleanFieldText(isset($field->tooltip) ? (string)$field->tooltip : null),
+        'sourceModel'   => isset($field->source_model)   ? trim((string)$field->source_model)   : null,
+        'backendModel'  => isset($field->backend_model)  ? trim((string)$field->backend_model)  : null,
+        'frontendModel' => isset($field->frontend_model) ? trim((string)$field->frontend_model) : null,
+        'depends'       => $depends,
+        'scope'         => $scope,
+    ];
+};
+
+$walkGroups = function (SimpleXMLElement $parent, string $sectionId, ?string $sectionLabel, array $groupPath, array $groupLabels) use (&$walkGroups, $processField) {
+    foreach ($parent->group as $group) {
+        $gid    = (string)($group['id'] ?? '');
+        $gp     = array_merge($groupPath,   [$gid]);
+        $gl     = array_merge($groupLabels, [cleanFieldText((string)($group->label ?? ''))]);
+        foreach ($group->field as $field) {
+            $processField($field, $sectionId, $sectionLabel, $gp, $gl);
+        }
+        $walkGroups($group, $sectionId, $sectionLabel, $gp, $gl); // nested groups
+    }
+};
+
+// The main file, plus any split fragments that carry their own <system> root.
+$systemFiles = array_filter(array_merge(
+    ["$moduleDir/etc/adminhtml/system.xml"],
+    glob("$moduleDir/etc/adminhtml/system/*.xml") ?: []
+), 'is_file');
+
+foreach ($systemFiles as $sysFile) {
+    $sys = xml_load($sysFile, LIBXML_NOCDATA); // NOCDATA so <comment><![CDATA[…]]></comment> is readable
+    if (!$sys || !isset($sys->system)) continue;
+    foreach ($sys->system->section as $section) {
+        $sid    = (string)($section['id'] ?? '');
+        $slabel = cleanFieldText((string)($section->label ?? ''));
+        foreach ($section->field as $field) {                 // fields directly under a section (rare)
+            $processField($field, $sid, $slabel, [], []);
+        }
+        $walkGroups($section, $sid, $slabel, [], []);
+    }
+}
+
 // Constructor-dependency edges (DI graph) — only for types that look like classes.
 foreach ($classes as $c) {
     foreach ($c['constructorDeps'] as $dep) {
@@ -502,10 +594,13 @@ $doc = [
         'graphql'   => count($graphql),
         'tables'    => count($wiring['db']),
         'components'=> count($components),
+        'configFields'         => count($config),
+        'configFieldsWithHelp' => count(array_filter($config, fn($f) => $f['comment'] !== null)),
     ],
     'configFiles'   => array_values(array_unique($configPresent)),
     'classes'       => $classes,
     'wiring'        => $wiring + ['graphql' => $graphql],
+    'config'        => $config,
     'edges'         => $edges,
     'components'    => $components,
 ];
