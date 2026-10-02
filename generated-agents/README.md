@@ -9,18 +9,33 @@ extracted (observers, plugins, preferences, tables, web API), the prose
 (Boundary, seams, gotchas) is written from those facts — never invented. The
 **Config** section reuses the `inline_docs` help.
 
-## Scope
+## Distribution
 
-Started with the **high-traffic** modules an agent most often needs to change:
+The guides are authored here in one place (easy to generate and maintain), but the
+**unit is one `AGENTS.md` per module** — placed at each module's own root, where an
+agent working in that module finds it. [`INDEX.md`](INDEX.md) is the small pointer:
+an agent reads the index, finds the module it needs, and opens that module's guide.
+A concatenated mega-doc is deliberately avoided — too large to load, too hard to
+keep true. (A deploy step places each file at `<module>/AGENTS.md` and the index at
+the project root; until then, this bundle is the source of truth.)
 
-| Module | Shape it demonstrates |
+## Scope — high-traffic first
+
+The modules an agent most often needs to change. 8 done:
+
+| Module | What it covers |
 |---|---|
-| `Magento_CatalogInventory` | stock + event-chain + index-table traps |
-| `Magento_Quote` | the cart data model + submit service + masked guest id |
+| `Magento_Catalog` | product/category EAV, indexing, API data lifecycle |
+| `Magento_Sales` | orders + invoice/shipment/creditmemo, grid read-models |
+| `Magento_Customer` | customer EAV entity + repository/API surface |
+| `Magento_Quote` | the cart model + submit service + masked guest id |
 | `Magento_Checkout` | flow orchestration with no persistence of its own |
-| `Magento_Customer` | an EAV entity + large repository/API surface |
+| `Magento_CatalogInventory` | stock + event-chain + index-table traps |
+| `Magento_Payment` | payment-method abstraction + gateway framework |
+| `Magento_Tax` | tax classes/rules/rates + calculation vs display |
 
-More core modules (Catalog, Sales, Payment, Tax, …) to follow.
+More core modules (SalesRule, ConfigurableProduct, Eav, Directory, Cms, …) to
+follow.
 
 ## Regenerating
 
