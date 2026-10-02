@@ -1,0 +1,10 @@
+[
+  { "elementId": "recaptcha_backend_failure_messages_validation_failure_message",
+    "comment": "The message shown in the Admin when reCAPTCHA validation fails for a submitted form.",
+    "modal": "The text displayed to an admin user when their reCAPTCHA check does not pass and the form is rejected. Shown for the Admin Panel reCAPTCHA.",
+    "confidence": "high", "basis": ["label", "type:textarea", "section:Google reCAPTCHA Admin Panel", "group:reCAPTCHA Failure Messages"] },
+  { "elementId": "recaptcha_backend_failure_messages_technical_failure_message",
+    "comment": "The message shown in the Admin when reCAPTCHA cannot be verified due to a technical error.",
+    "modal": "The text displayed to an admin user when the reCAPTCHA service cannot be reached or verified, as opposed to a failed challenge. Shown for the Admin Panel reCAPTCHA.",
+    "confidence": "high", "basis": ["label", "type:textarea", "section:Google reCAPTCHA Admin Panel", "group:reCAPTCHA Failure Messages"] }
+]

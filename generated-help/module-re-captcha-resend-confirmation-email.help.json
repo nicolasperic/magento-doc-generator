@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_resend_confirmation_email",
+    "comment": "Which reCAPTCHA protects the storefront Resend Confirmation Email form, or none.",
+    "modal": "Selects the reCAPTCHA type applied to the storefront **Resend Confirmation Email** form. The choices come from the reCAPTCHA types configured under the reCAPTCHA settings; leave unset to apply no reCAPTCHA here. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ReCaptchaAdminUi\\Type", "scope:website"] }
+]

@@ -1,0 +1,6 @@
+[
+  { "elementId": "checkout_cart_configurable_product_image",
+    "comment": "Whether the cart shows the chosen variation's image or the configurable parent product's image.",
+    "modal": "Controls which image appears in the shopping cart for a configurable product line: the image of the specific variation the customer selected, or the parent product's image. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Product\\Thumbnail", "path:checkout/cart", "scope:website,store"] }
+]

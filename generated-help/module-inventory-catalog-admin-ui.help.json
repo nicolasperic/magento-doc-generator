@@ -1,0 +1,6 @@
+[
+  { "elementId": "cataloginventory_bulk_operations_batch_size",
+    "comment": "How many items are processed per batch in asynchronous admin bulk operations.",
+    "modal": "Sets the number of records handled in each batch when admin bulk stock/source operations run asynchronously. Applies only when asynchronous bulk operations are enabled. Larger batches finish in fewer passes but use more memory per run.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:async=1", "group:Admin bulk operations"] }
+]

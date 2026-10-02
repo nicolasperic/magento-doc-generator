@@ -1,0 +1,18 @@
+[
+  { "elementId": "catalog_recently_products_scope",
+    "comment": "The scope recently viewed/compared product lists are tracked across.",
+    "modal": "Sets whether recently viewed and compared products are tracked per **Website**, **Store**, or **Store View**. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Reports\\Scope", "group:Recently Viewed/Compared Products", "scope:website"] },
+  { "elementId": "catalog_recently_products_viewed_count",
+    "comment": "The number of products shown in the Recently Viewed block.",
+    "modal": "The maximum number of items displayed in the Recently Viewed Products block. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Recently Viewed/Compared Products", "scope:store"] },
+  { "elementId": "catalog_recently_products_compared_count",
+    "comment": "The number of products shown in the Recently Compared block.",
+    "modal": "The maximum number of items displayed in the Recently Compared Products block. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Recently Viewed/Compared Products", "scope:store"] },
+  { "elementId": "reports_dashboard_ytd_start",
+    "comment": "The month and day the admin dashboard's Year-To-Date period begins.",
+    "modal": "Sets the start month and day used for Year-To-Date totals shown on the admin dashboard.",
+    "confidence": "medium", "basis": ["label", "type:select", "group:Dashboard"] }
+]

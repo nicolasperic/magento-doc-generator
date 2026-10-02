@@ -1,0 +1,14 @@
+[
+  { "elementId": "sales_msrp_display_price_type",
+    "comment": "When the actual price is revealed for products using a Minimum Advertised Price.",
+    "modal": "Chooses where the real price is shown instead of the MAP: **On Gesture** (after a click/popup), **In Cart**, or **Before Order Confirmation**. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Attribute\\Source\\Type", "group:Minimum Advertised Price", "scope:website"] },
+  { "elementId": "sales_msrp_explanation_message",
+    "comment": "The default text shown in the MAP price popup.",
+    "modal": "The message displayed in the popup that explains why the actual price is hidden for Minimum Advertised Price products. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:Minimum Advertised Price", "scope:website,store"] },
+  { "elementId": "sales_msrp_explanation_message_whats_this",
+    "comment": "The default text shown in the MAP \"What's This\" popup.",
+    "modal": "The message displayed in the \"What's This\" popup linked from Minimum Advertised Price products. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:Minimum Advertised Price", "scope:website,store"] }
+]

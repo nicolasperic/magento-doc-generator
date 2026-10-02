@@ -1,0 +1,18 @@
+[
+  { "elementId": "sendfriend_email_allow_guest",
+    "comment": "Whether guests, not only signed-in customers, can use Email to a Friend.",
+    "modal": "When **Yes**, visitors who are not signed in can send the **Email to a Friend** product share. Applies only when the feature is enabled. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled=1", "scope:default,website,store"] },
+  { "elementId": "sendfriend_email_max_recipients",
+    "comment": "The maximum number of recipients allowed per Email to a Friend message.",
+    "modal": "The maximum number of recipient addresses allowed in a single Email to a Friend message. Applies only when the feature is enabled. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:enabled=1", "scope:default,website,store"] },
+  { "elementId": "sendfriend_email_max_per_hour",
+    "comment": "The maximum number of products a sender can share by email within one hour.",
+    "modal": "Rate limit for how many products a single sender may share via Email to a Friend within one hour. Applies only when the feature is enabled. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:enabled=1", "scope:default,website,store"] },
+  { "elementId": "sendfriend_email_check_by",
+    "comment": "How senders are identified when enforcing the Email to a Friend sending limits.",
+    "modal": "Selects the method used to identify a sender when applying the sending limits. Applies only when the feature is enabled. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Checktype", "depends:enabled=1", "scope:default,website,store"] }
+]

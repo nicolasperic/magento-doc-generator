@@ -1,0 +1,6 @@
+[
+  { "elementId": "dev_js_move_script_to_bottom",
+    "comment": "Whether JavaScript is output at the bottom of the page instead of in the head.",
+    "modal": "When **Yes**, `<script>` tags are moved to the end of the HTML body so page content can render before scripts load, which can improve perceived load time. Applies globally (default scope).",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:default"] }
+]

@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_contact",
+    "comment": "Selects which configured reCAPTCHA protects the storefront Contact Us form.",
+    "modal": "Chooses which configured reCAPTCHA type is required on the Contact Us form; leave unset to not protect it. The reCAPTCHA keys must be configured first. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type", "scope:website"] }
+]

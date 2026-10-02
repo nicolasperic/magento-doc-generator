@@ -1,0 +1,10 @@
+[
+  { "elementId": "recaptcha_frontend_failure_messages_validation_failure_message",
+    "comment": "The message shown to shoppers when reCAPTCHA validation rejects their submission.",
+    "modal": "The text displayed on storefront forms when the reCAPTCHA check fails and the submission is treated as a bot. Can differ per website or store view, so the wording can be localised per store.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:reCAPTCHA Failure Messages", "scope:website,store"] },
+  { "elementId": "recaptcha_frontend_failure_messages_technical_failure_message",
+    "comment": "The message shown when reCAPTCHA cannot be verified due to a technical error.",
+    "modal": "The text displayed on storefront forms when reCAPTCHA verification cannot complete for a technical reason (for example the service is unreachable), rather than because the shopper failed the check. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:reCAPTCHA Failure Messages", "scope:website,store"] }
+]

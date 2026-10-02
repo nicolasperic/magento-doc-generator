@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_place_order",
+    "comment": "Which configured reCAPTCHA protects the checkout order placement step, or none.",
+    "modal": "Selects which of the reCAPTCHA types set up under the reCAPTCHA configuration guards the checkout / place-order step, or disables the check for it. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Type", "scope:website"] }
+]

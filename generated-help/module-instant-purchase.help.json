@@ -1,0 +1,6 @@
+[
+  { "elementId": "sales_instant_purchase_button_text",
+    "comment": "The label shown on the Instant Purchase button.",
+    "modal": "The text displayed on the Instant Purchase button that lets customers check out in one click. Applies only when **Instant Purchase** is enabled. Can be set per store view for localised wording.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:active=1", "scope:store", "group:Instant Purchase"] }
+]

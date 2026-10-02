@@ -1,0 +1,10 @@
+[
+  { "elementId": "multishipping_options_checkout_multiple",
+    "comment": "Whether customers can ship a single order to multiple addresses.",
+    "modal": "When **Yes**, customers can split an order across several shipping addresses during checkout; when **No**, each order ships to one address. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Options", "scope:default,website"] },
+  { "elementId": "multishipping_options_checkout_multiple_maximum_qty",
+    "comment": "The maximum item quantity allowed when shipping to multiple addresses.",
+    "modal": "Caps the total quantity of items a customer may ship across multiple addresses in one order. Applies only when **Allow Shipping to Multiple Addresses** is set to Yes. Can be set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Options", "depends:checkout_multiple=1", "scope:default,website"] }
+]

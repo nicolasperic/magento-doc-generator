@@ -1,0 +1,14 @@
+[
+  { "elementId": "catalog_frontend_swatches_per_product",
+    "comment": "How many swatches are shown per product in product listings.",
+    "modal": "The maximum number of swatches displayed for a single product in category and search listings. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "scope:default,website,store"] },
+  { "elementId": "catalog_frontend_show_swatches_in_product_list",
+    "comment": "Whether swatches appear in product listings.",
+    "modal": "When **Yes**, attribute swatches are shown for products in category and search listings; when **No**, they are hidden there. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:default,website,store"] },
+  { "elementId": "catalog_frontend_show_swatch_tooltip",
+    "comment": "Whether a tooltip preview is shown when hovering over a swatch.",
+    "modal": "When **Yes**, hovering over a swatch displays a tooltip preview of the option. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:default,website,store"] }
+]

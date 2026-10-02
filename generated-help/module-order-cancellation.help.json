@@ -1,0 +1,10 @@
+[
+  { "elementId": "sales_cancellation_enabled",
+    "comment": "Whether customers can cancel their own orders through GraphQL.",
+    "modal": "When **Yes**, customers can cancel eligible orders through the GraphQL API. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Order cancellation", "scope:website,store"] },
+  { "elementId": "sales_cancellation_reasons",
+    "comment": "The list of reasons a customer can choose from when cancelling an order.",
+    "modal": "Defines the selectable reasons offered to customers when they cancel an order. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "backendModel:Config\\Backend\\Reasons", "group:Order cancellation", "scope:website,store"] }
+]

@@ -1,0 +1,14 @@
+[
+  { "elementId": "cataloginventory_source_selection_distance_based_provider",
+    "comment": "Which distance provider is used to rank sources for distance-based source selection.",
+    "modal": "Selects the service that calculates the distance between a shipping destination and each source when the Distance Based source selection algorithm runs.",
+    "confidence": "medium", "basis": ["label", "sourceModel:DistanceProvider", "group:Distance Provider for Distance Based SSA"] },
+  { "elementId": "cataloginventory_source_selection_distance_based_google_mode",
+    "comment": "The travel mode Google uses to measure distance — driving, walking, or bicycling.",
+    "modal": "Chooses the Google travel mode for distance calculation: **Driving**, **Walking**, or **Bicycling**. Used when the Google distance provider is selected.",
+    "confidence": "high", "basis": ["label", "sourceModel:GoogleDistanceProvider\\Mode", "group:Google Distance Provider"] },
+  { "elementId": "cataloginventory_source_selection_distance_based_google_value",
+    "comment": "Whether sources are ranked by physical distance or by travel time.",
+    "modal": "Chooses the metric Google returns for ranking sources: **Distance** (physical distance) or **Time to destination** (travel time). Used when the Google distance provider is selected.",
+    "confidence": "high", "basis": ["label", "sourceModel:GoogleDistanceProvider\\Value", "group:Google Distance Provider"] }
+]

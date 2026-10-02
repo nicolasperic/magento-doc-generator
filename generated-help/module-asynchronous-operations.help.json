@@ -1,0 +1,6 @@
+[
+  { "elementId": "system_bulk_lifetime",
+    "comment": "How many days bulk (asynchronous) operation log entries are kept before being purged.",
+    "modal": "The retention period, in days, for bulk action log records; older entries are removed after this many days.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Bulk Actions"] }
+]

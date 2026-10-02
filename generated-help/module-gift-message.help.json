@@ -1,0 +1,10 @@
+[
+  { "elementId": "sales_gift_options_allow_order",
+    "comment": "Whether shoppers can add a single gift message to the whole order.",
+    "modal": "When **Yes**, customers can attach one gift message at the order level during checkout. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Gift Options", "scope:website"] },
+  { "elementId": "sales_gift_options_allow_items",
+    "comment": "Whether shoppers can add a gift message to individual order items.",
+    "modal": "When **Yes**, customers can attach a separate gift message to each item in the order during checkout. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Gift Options", "scope:website"] }
+]

@@ -1,0 +1,10 @@
+[
+  { "elementId": "google_analytics_experiments",
+    "comment": "Enables Google Content Experiments (A/B testing) integration for the storefront.",
+    "modal": "When **Yes**, Google Content Experiments code is injected for A/B testing. Applies only when the associated Google Analytics integration is enabled. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:active=1", "scope:website,store"] },
+  { "elementId": "google_gtag_analytics4_experiments",
+    "comment": "Enables Google Content Experiments (A/B testing) integration for Google Analytics 4.",
+    "modal": "When **Yes**, Google Content Experiments code is injected for A/B testing under the Google Analytics 4 integration. Applies only when Google Analytics 4 is enabled. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:active=1", "scope:website,store"] }
+]

@@ -1,0 +1,10 @@
+[
+  { "elementId": "newrelicreporting_general_enable",
+    "comment": "Turns the New Relic reporting integration on or off.",
+    "modal": "When **Yes**, the New Relic reporting integration is active; **No** disables it. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:General", "scope:website,store"] },
+  { "elementId": "newrelicreporting_cron_enable_cron",
+    "comment": "Enables the scheduled job that reports data to New Relic.",
+    "modal": "When **Yes**, the cron job that collects and sends reporting data to New Relic runs on its schedule; **No** stops it. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Cron", "scope:website,store"] }
+]

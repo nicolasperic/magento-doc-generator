@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_sendfriend",
+    "comment": "Which reCAPTCHA type protects the storefront Email to a Friend form.",
+    "modal": "Selects the reCAPTCHA variant applied to the storefront **Send to Friend** form, chosen from the reCAPTCHA types configured for the frontend. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:ReCaptchaAdminUi\\Type", "scope:default,website"] }
+]

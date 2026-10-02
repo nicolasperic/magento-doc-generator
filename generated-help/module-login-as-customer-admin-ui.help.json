@@ -1,0 +1,6 @@
+[
+  { "elementId": "login_as_customer_general_enabled",
+    "comment": "Turns the Login as Customer feature on or off for admin users.",
+    "modal": "When **Yes**, administrators can open the storefront as a customer to troubleshoot or assist with their account. Set to **No** to disable the feature entirely.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Login as Customer Settings"] }
+]

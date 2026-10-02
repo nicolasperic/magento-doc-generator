@@ -1,0 +1,22 @@
+[
+  { "elementId": "wishlist_email_email_identity",
+    "comment": "Which store email identity wish list sharing emails are sent from.",
+    "modal": "Selects the sender identity used when a customer shares a wish list by email — one of the **Store Email Addresses** identities (General Contact, Sales Representative, Customer Support, Custom 1/2). Can differ per store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Email\\Identity", "group:Share Options", "scope:website,store"] },
+  { "elementId": "wishlist_general_active",
+    "comment": "Turns the storefront wish list feature on or off.",
+    "modal": "When **Yes**, customers can add products to a wish list; **No** disables the feature. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:General Options", "scope:website,store"] },
+  { "elementId": "wishlist_general_show_in_sidebar",
+    "comment": "Whether the wish list block appears in the storefront sidebar.",
+    "modal": "When **Yes**, a wish list block is shown in the storefront sidebar. Applies only when **Enabled** (wish list) is set to Yes. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:General Options", "depends:active=1", "scope:website,store"] },
+  { "elementId": "wishlist_wishlist_link_use_qty",
+    "comment": "What the My Wish List link summary displays for its contents.",
+    "modal": "Controls how the **My Wish List** link summarises the list's contents (such as item count versus quantity). Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Wishlist\\Summary", "group:My Wish List Link", "scope:website"] },
+  { "elementId": "rss_wishlist_active",
+    "comment": "Enables an RSS feed for shared wish lists.",
+    "modal": "When enabled, a shared wish list can be followed via RSS. Options are **Enable** and **Disable**. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Enabledisable", "group:Wish List", "scope:website,store"] }
+]

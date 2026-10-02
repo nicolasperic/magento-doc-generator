@@ -1,0 +1,22 @@
+[
+  { "elementId": "magento_securitytxt_securitytxt_general_enabled",
+    "comment": "Turns the published security.txt file on or off.",
+    "modal": "When set to **Yes**, the store publishes a `security.txt` file (under `/.well-known/`) describing how security researchers should report issues. Can be set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "section:Security.txt", "group:General", "scope:website"] },
+  { "elementId": "magento_securitytxt_securitytxt_contact_information_email",
+    "comment": "The security contact email address published in security.txt.",
+    "modal": "The email address researchers should use to report security issues; it is listed as a Contact entry in the published `security.txt`. Can differ per website.",
+    "confidence": "high", "basis": ["label", "section:Security.txt", "group:Contact Information", "scope:website"] },
+  { "elementId": "magento_securitytxt_securitytxt_contact_information_phone",
+    "comment": "The security contact phone number published in security.txt.",
+    "modal": "A phone number researchers can use to report security issues; it is listed as a Contact entry in the published `security.txt`. Can differ per website.",
+    "confidence": "high", "basis": ["label", "section:Security.txt", "group:Contact Information", "scope:website"] },
+  { "elementId": "magento_securitytxt_securitytxt_other_information_policy",
+    "comment": "The URL of your security policy, published in security.txt; must be a secure (HTTPS) URL.",
+    "modal": "The address of your vulnerability-disclosure or security policy page, published as the Policy entry in `security.txt`. The value must be a secure (HTTPS) URL. Can differ per website.",
+    "confidence": "high", "basis": ["label", "backendModel:SecureUrl", "section:Security.txt", "group:Other Information", "scope:website"] },
+  { "elementId": "magento_securitytxt_securitytxt_other_information_signature_text",
+    "comment": "The signature used to sign the published security.txt file.",
+    "modal": "Optional signature text associated with the `security.txt` file, letting researchers verify its authenticity. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "type:textarea", "section:Security.txt", "group:Other Information", "scope:website"] }
+]

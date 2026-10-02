@@ -1,0 +1,10 @@
+[
+  { "elementId": "system_adminnotification_use_https",
+    "comment": "Whether the admin fetches the notification feed over HTTPS.",
+    "modal": "When **Yes**, the Magento notifications feed is retrieved over a secure HTTPS connection rather than plain HTTP.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Notifications"] },
+  { "elementId": "system_adminnotification_frequency",
+    "comment": "How often the admin checks the notification feed for new messages.",
+    "modal": "The interval at which Magento polls its notifications feed for new messages. Choose a longer interval to check less frequently.",
+    "confidence": "medium", "basis": ["label", "sourceModel:AdminNotification\\Frequency", "group:Notifications"] }
+]

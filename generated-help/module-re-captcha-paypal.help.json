@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_paypal_payflowpro",
+    "comment": "Which configured reCAPTCHA protects the PayPal Payflow Pro payment form, or none.",
+    "modal": "Selects which of the reCAPTCHA types set up under the reCAPTCHA configuration guards the PayPal Payflow Pro payment form, or disables the check for it. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Type", "scope:website"] }
+]

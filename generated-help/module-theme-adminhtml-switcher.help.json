@@ -1,0 +1,6 @@
+[
+  { "elementId": "admin_system_admin_design_active_theme",
+    "comment": "Selects which installed theme is used for the Admin panel interface.",
+    "modal": "Chooses the active Admin theme from the themes installed for the backend, changing the look of the Admin panel.",
+    "confidence": "high", "basis": ["label", "sourceModel:AdminThemeList", "group:Admin Design"] }
+]

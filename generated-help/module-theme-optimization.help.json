@@ -1,0 +1,6 @@
+[
+  { "elementId": "system_view_transitions_enable_admin",
+    "comment": "Whether to enable animated View Transitions in the Admin panel.",
+    "modal": "When **Yes**, the browser View Transitions API is used to animate navigation within the Admin panel. Set to **No** to disable the effect.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:View Transitions"] }
+]

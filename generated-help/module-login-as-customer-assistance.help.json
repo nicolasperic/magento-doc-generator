@@ -1,0 +1,10 @@
+[
+  { "elementId": "login_as_customer_general_shopping_assistance_checkbox_title",
+    "comment": "The label shown next to the customer opt-in checkbox for Login as Customer assistance.",
+    "modal": "The text displayed beside the opt-in checkbox customers use to allow store staff to sign in as them (Login as Customer). Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "scope:default,website,store"] },
+  { "elementId": "login_as_customer_general_shopping_assistance_checkbox_tooltip",
+    "comment": "The tooltip text explaining the Login as Customer opt-in checkbox to customers.",
+    "modal": "The tooltip shown with the Login as Customer opt-in checkbox, explaining to customers what granting assistance permission means. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "scope:default,website,store"] }
+]

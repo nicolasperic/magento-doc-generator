@@ -1,0 +1,10 @@
+[
+  { "elementId": "admin_security_lockout_threshold",
+    "comment": "How long, in minutes, an admin account stays locked after too many failed logins.",
+    "modal": "The duration, in minutes, that an admin account is locked once the failed-login limit is reached, after which sign-in is allowed again.",
+    "confidence": "high", "basis": ["label"] },
+  { "elementId": "admin_security_password_is_forced",
+    "comment": "Whether a periodic admin password change is forced or only recommended.",
+    "modal": "Chooses whether admins are required to change their password once the password lifetime elapses, or merely prompted to. Governs how the password-expiry policy is applied.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Password"] }
+]

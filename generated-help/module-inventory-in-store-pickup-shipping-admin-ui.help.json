@@ -1,0 +1,22 @@
+[
+  { "elementId": "carriers_instore_active",
+    "comment": "Whether the In-Store Delivery (in-store pickup) shipping method is offered at checkout.",
+    "modal": "When Yes, the In-Store Delivery method is available as a delivery option during checkout. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "section:Delivery Methods", "group:In-Store Delivery", "scope:website"] },
+  { "elementId": "carriers_instore_name",
+    "comment": "The method name shown to shoppers for the In-Store Delivery option.",
+    "modal": "The label shown for this specific In-Store Delivery method in the checkout shipping options. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "section:Delivery Methods", "group:In-Store Delivery", "scope:website,store"] },
+  { "elementId": "carriers_instore_title",
+    "comment": "The title shown to shoppers for the In-Store Delivery carrier.",
+    "modal": "The heading shown for the In-Store Delivery carrier above its method at checkout. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "section:Delivery Methods", "group:In-Store Delivery", "scope:website,store"] },
+  { "elementId": "carriers_instore_price",
+    "comment": "The price charged for the In-Store Delivery method.",
+    "modal": "The amount charged to the shopper when they choose In-Store Delivery. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:text", "section:Delivery Methods", "group:In-Store Delivery", "scope:website"] },
+  { "elementId": "carriers_instore_specificerrmsg",
+    "comment": "The message shown when the In-Store Delivery method is unavailable.",
+    "modal": "The error text displayed to shoppers when In-Store Delivery cannot be offered for their cart. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "section:Delivery Methods", "group:In-Store Delivery", "scope:website,store"] }
+]

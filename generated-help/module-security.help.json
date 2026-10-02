@@ -1,0 +1,10 @@
+[
+  { "elementId": "admin_security_password_reset_protection_type",
+    "comment": "How admin password-reset requests are rate-limited — by IP, email, both, or not at all.",
+    "modal": "Limits admin forgot-password requests by **By IP and Email**, **By IP**, **By Email**, or **None**, to throttle abuse of the password-reset flow.",
+    "confidence": "high", "basis": ["label", "sourceModel:ResetMethod"] },
+  { "elementId": "customer_password_password_reset_protection_type",
+    "comment": "How storefront password-reset requests are rate-limited — by IP, email, both, or not at all.",
+    "modal": "Limits storefront customer forgot-password requests by **By IP and Email**, **By IP**, **By Email**, or **None**, to throttle abuse. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:ResetMethod", "scope:store"] }
+]

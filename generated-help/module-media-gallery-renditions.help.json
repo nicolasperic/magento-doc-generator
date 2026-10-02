@@ -1,0 +1,6 @@
+[
+  { "elementId": "system_media_gallery_renditions_enabled",
+    "comment": "Turns on generation of optimized, resized renditions of media gallery images.",
+    "modal": "When **Yes**, Magento generates optimized renditions (smaller resized copies) of media gallery images. Set to **No** to turn rendition generation off.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Media Gallery Image Optimization"] }
+]

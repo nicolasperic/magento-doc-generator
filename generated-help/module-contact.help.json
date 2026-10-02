@@ -1,0 +1,23 @@
+[
+  {
+    "elementId": "contact_contact_enabled",
+    "comment": "Turns the storefront Contact Us page and form on or off.",
+    "modal": "Controls whether the **Contact Us** page and its `/contact` form are available on the storefront. Set to **No** to remove the page entirely. Can be set per website or store view, so the form can be live on one store and hidden on another.",
+    "confidence": "high",
+    "basis": ["label", "group:Contact Us", "sourceModel:Yesno", "scope:website,store"]
+  },
+  {
+    "elementId": "contact_email_recipient_email",
+    "comment": "The email address that receives messages submitted through the Contact Us form.",
+    "modal": "The inbox that Contact Us submissions are delivered to. Applies only when **Enable Contact Us** is set to Yes. Can differ per website or store view, so each store can route enquiries to its own team.",
+    "confidence": "high",
+    "basis": ["label", "group:Email Options", "depends:contact/enabled=1", "scope:website,store"]
+  },
+  {
+    "elementId": "contact_email_sender_email_identity",
+    "comment": "Which store email identity the Contact Us notification is sent from.",
+    "modal": "Selects the sender identity used for the Contact Us notification — one of the **Store Email Addresses** identities (General Contact, Sales Representative, Customer Support, Custom 1/2), configured under *Stores → Configuration → General → Store Email Addresses*. Applies only when **Enable Contact Us** is Yes.",
+    "confidence": "medium",
+    "basis": ["label", "sourceModel:Email\\Identity", "depends:contact/enabled=1"]
+  }
+]

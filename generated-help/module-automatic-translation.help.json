@@ -1,0 +1,6 @@
+[
+  { "elementId": "ai_integration_automatic_translation_general_enable",
+    "comment": "Turns AI automatic translation on or off.",
+    "modal": "When **Yes**, the AI Integration automatic translation feature is active. Can be set per website or store view, so translation can run on some stores and not others.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "section:AI Integration", "group:General", "scope:website,store"] }
+]

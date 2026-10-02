@@ -1,0 +1,18 @@
+[
+  { "elementId": "sales_backpressure_enabled",
+    "comment": "Whether rate limiting is applied to order placement requests.",
+    "modal": "When Yes, the number of order-placement requests is capped per customer and per guest to protect the store from bursts of checkout traffic. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Rate limiting", "scope:website,store"] },
+  { "elementId": "sales_backpressure_limit",
+    "comment": "Maximum order-placement requests allowed per authenticated customer in the period.",
+    "modal": "The cap on how many order-placement requests a single signed-in customer may make within the configured reset period. Applies only when rate limiting is enabled. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Rate limiting", "depends:enabled=1", "scope:website,store"] },
+  { "elementId": "sales_backpressure_guest_limit",
+    "comment": "Maximum order-placement requests allowed per guest in the period.",
+    "modal": "The cap on how many order-placement requests a single guest may make within the configured reset period. Applies only when rate limiting is enabled. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Rate limiting", "depends:enabled=1", "scope:website,store"] },
+  { "elementId": "sales_backpressure_period",
+    "comment": "The length of the time window after which the request counter resets.",
+    "modal": "Selects the time period over which order-placement requests are counted before the per-customer and per-guest limits reset. Applies only when rate limiting is enabled. Can differ per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:PeriodSource", "group:Rate limiting", "depends:enabled=1", "scope:website,store"] }
+]

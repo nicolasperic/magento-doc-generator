@@ -1,0 +1,14 @@
+[
+  { "elementId": "catalog_search_search_recommendations_count",
+    "comment": "How many search term recommendations to show.",
+    "modal": "The number of alternative search-term recommendations shown for a query. Applies only when search recommendations are enabled. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:search_recommendations_enabled=1", "scope:website,store"] },
+  { "elementId": "catalog_search_search_recommendations_count_results_enabled",
+    "comment": "Whether to show the number of results next to each search recommendation.",
+    "modal": "When **Yes**, each search recommendation displays how many results it would return. Applies only when search recommendations are enabled. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:search_recommendations_enabled=1", "scope:website,store"] },
+  { "elementId": "catalog_search_search_suggestion_count",
+    "comment": "How many search suggestions to show.",
+    "modal": "The number of search suggestions offered for a query. Applies only when search suggestions are enabled. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:search_suggestion_enabled=1", "scope:website,store"] }
+]

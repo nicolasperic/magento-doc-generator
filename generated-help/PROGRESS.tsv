@@ -1,116 +1,97 @@
-module	total	undocumented	status
-Magento_RemoteStorage	1	0	pending
-Magento_GiftMessage	2	2	pending
-Magento_Elasticsearch8	9	8	pending
-Magento_Eav	1	0	pending
-Magento_Cookie	5	0	pending
-Magento_ReCaptchaCheckout	1	1	pending
-Magento_ReCaptchaPaypal	1	1	pending
-Magento_Translation	1	0	pending
-Magento_Paypal	45	44	pending
-Magento_SalesRule	8	4	pending
-Magento_ReCaptchaReview	1	1	pending
-Magento_Swatches	3	3	pending
-Magento_Theme	2	1	pending
-Magento_Review	2	2	pending
-Magento_Developer	2	0	pending
-Magento_Reports	12	4	pending
-Magento_User	6	2	pending
-Magento_PaypalCaptcha	1	0	pending
-Magento_GraphQl	8	5	pending
-MageOS_ThemeOptimization	13	1	pending
-Magento_CatalogInventory	15	12	pending
-Magento_Downloadable	8	7	pending
-Magento_GoogleAnalytics	3	3	pending
-Magento_Multishipping	2	2	pending
-Magento_ReCaptchaUser	2	2	pending
-Magento_Quote	5	4	pending
-Magento_Sitemap	19	12	done
-Magento_AsynchronousOperations	1	1	pending
-Magento_ReCaptchaAdminUi	4	4	pending
-Magento_PageBuilder	7	1	pending
-Magento_ReCaptchaContact	1	1	pending
-Magento_GoogleAdwords	9	9	pending
-Magento_Msrp	4	3	pending
-Magento_MediaGalleryRenditions	3	1	pending
-Magento_ReCaptchaSendFriend	1	1	pending
-Magento_Backup	0	0	pending
-Magento_ConfigurableProduct	1	1	pending
-Magento_Cron	7	7	pending
-Magento_Payment	8	7	pending
-Magento_Captcha	18	11	pending
-Magento_TwoFactorAuth	13	7	pending
-Magento_ReCaptchaResendConfirmationEmail	1	1	pending
-Magento_Contact	4	3	pending
-Magento_Csp	2	0	pending
-Magento_Sales	79	43	pending
-Magento_ReCaptchaVersion3Invisible	12	8	pending
-MageOS_RMA	13	2	pending
-Magento_MysqlMq	4	4	pending
-Magento_Fedex	31	29	pending
-Magento_LoginAsCustomerPageCache	1	0	pending
-Magento_InventoryInStorePickupSalesAdminUi	6	3	pending
-Magento_ProductVideo	4	4	pending
-Magento_Ui	2	0	pending
-Magento_AdvancedSearch	6	3	pending
-Magento_MediaStorage	4	3	pending
-Magento_InventoryCatalogAdminUi	4	1	pending
-Magento_SendFriend	6	4	pending
-Magento_GroupedProduct	1	1	pending
-Magento_Wishlist	8	5	pending
-Magento_Customer	53	27	pending
-Magento_InventoryDistanceBasedSourceSelectionAdminUi	4	3	pending
-Magento_ReCaptchaCustomer	4	4	pending
-Magento_AdminAnalytics	1	0	pending
-Magento_Checkout	21	16	done
-Magento_Shipping	8	8	pending
-Magento_Backend	96	57	pending
-Magento_ReCaptchaNewsletter	1	0	pending
-Magento_OfflinePayments	38	38	pending
-Magento_AdminNotification	3	3	pending
-Magento_NewRelicReporting	13	2	pending
-Magento_ReCaptchaWishlist	1	1	pending
-Magento_Dhl	32	28	pending
-Magento_OpenSearch	9	8	pending
-Magento_Persistent	6	6	pending
-Magento_ProductAlert	10	7	pending
-Magento_InventoryInStorePickupShippingAdminUi	6	5	pending
-Magento_ReCaptchaVersion2Checkbox	10	8	pending
-Magento_ReCaptchaVersion2Invisible	10	8	pending
-Magento_Catalog	38	21	done
-Magento_Cms	10	10	pending
-Magento_ReCaptchaCheckoutSalesRule	1	1	pending
-Magento_Securitytxt	10	5	pending
-Magento_OrderCancellation	2	2	pending
-Magento_Security	9	2	pending
-MageOS_AdminActivityLog	4	3	pending
-Magento_Directory	21	18	pending
-Magento_Newsletter	9	6	pending
-MageOS_AutomaticTranslation	19	1	pending
-Magento_InstantPurchase	2	1	pending
-Magento_Weee	8	8	pending
-Magento_CatalogSearch	7	2	pending
-Magento_LoginAsCustomerAssistance	2	2	pending
-Magento_ReCaptchaFrontendUi	2	2	pending
-Magento_CardinalCommerce	5	5	pending
-Magento_CheckoutAgreements	1	1	pending
-Magento_Ups	37	34	pending
-MageOS_ThemeAdminhtmlSwitcher	1	1	pending
-Magento_GoogleOptimizer	2	2	pending
-Magento_OfflineShipping	36	36	pending
-Magento_JwtUserToken	4	0	pending
-Magento_Usps	42	41	pending
-Magento_LayeredNavigation	6	3	pending
-Magento_GoogleGtag	5	3	pending
-Magento_MediaGalleryUi	1	1	pending
-Magento_CatalogUrlRewrite	6	2	pending
-Magento_Search	1	1	pending
-Magento_Tax	28	24	done
-Magento_LoginAsCustomerAdminUi	2	1	pending
-Magento_WebapiSecurity	1	0	pending
-MageOS_PageBuilderTemplateImportExport	3	1	pending
-Magento_Integration	10	1	pending
-Magento_Webapi	5	1	pending
-Magento_PageCache	9	3	pending
-MageOS_InventoryReservationsGrid	1	0	pending
-Magento_Rss	1	1	pending
+module	total	undocumented	documented	status
+Magento_Backend	96	57	57	done
+Magento_Paypal	45	44	0	abstained
+Magento_Sales	79	43	43	done
+Magento_Usps	42	41	41	done
+Magento_OfflinePayments	38	38	36	done
+Magento_OfflineShipping	36	36	36	done
+Magento_Ups	37	34	34	done
+Magento_Fedex	31	29	29	done
+Magento_Dhl	32	28	28	done
+Magento_Customer	53	27	25	done
+Magento_Tax	28	24	24	done
+Magento_Catalog	38	21	21	done
+Magento_Directory	21	18	18	done
+Magento_Checkout	21	16	16	done
+Magento_Sitemap	19	12	12	done
+Magento_Captcha	18	11	11	done
+Magento_Cms	10	10	10	done
+Magento_GoogleAdwords	9	9	7	done
+Magento_Elasticsearch8	9	8	7	done
+Magento_OpenSearch	9	8	7	done
+Magento_ReCaptchaVersion2Checkbox	10	8	8	done
+Magento_ReCaptchaVersion2Invisible	10	8	8	done
+Magento_ReCaptchaVersion3Invisible	12	8	8	done
+Magento_Shipping	8	8	8	done
+Magento_Weee	8	8	8	done
+Magento_Cron	7	7	7	done
+Magento_Downloadable	8	7	7	done
+Magento_Payment	8	7	6	done
+Magento_ProductAlert	10	7	7	done
+Magento_TwoFactorAuth	13	7	7	done
+Magento_Newsletter	9	6	6	done
+Magento_Persistent	6	6	6	done
+Magento_CardinalCommerce	5	5	5	done
+Magento_GraphQl	8	5	5	done
+Magento_InventoryInStorePickupShippingAdminUi	6	5	5	done
+Magento_Securitytxt	10	5	5	done
+Magento_Wishlist	8	5	5	done
+Magento_MysqlMq	4	4	4	done
+Magento_ProductVideo	4	4	4	done
+Magento_Quote	5	4	4	done
+Magento_ReCaptchaAdminUi	4	4	2	done
+Magento_ReCaptchaCustomer	4	4	4	done
+Magento_Reports	12	4	4	done
+Magento_SalesRule	8	4	4	done
+Magento_SendFriend	6	4	4	done
+MageOS_AdminActivityLog	4	3	3	done
+Magento_AdminNotification	3	3	2	done
+Magento_AdvancedSearch	6	3	3	done
+Magento_Contact	4	3	3	done
+Magento_GoogleAnalytics	3	3	3	done
+Magento_GoogleGtag	5	3	3	done
+Magento_InventoryDistanceBasedSourceSelectionAdminUi	4	3	3	done
+Magento_InventoryInStorePickupSalesAdminUi	6	3	3	done
+Magento_LayeredNavigation	6	3	3	done
+Magento_MediaStorage	4	3	2	done
+Magento_Msrp	4	3	3	done
+Magento_PageCache	9	3	3	done
+Magento_Swatches	3	3	3	done
+Magento_GiftMessage	2	2	2	done
+Magento_GoogleOptimizer	2	2	2	done
+Magento_LoginAsCustomerAssistance	2	2	2	done
+Magento_Multishipping	2	2	2	done
+Magento_NewRelicReporting	13	2	2	done
+Magento_OrderCancellation	2	2	2	done
+Magento_ReCaptchaFrontendUi	2	2	2	done
+Magento_ReCaptchaUser	2	2	2	done
+Magento_Review	2	2	2	done
+MageOS_RMA	13	2	2	done
+Magento_Security	9	2	2	done
+Magento_User	6	2	2	done
+Magento_AsynchronousOperations	1	1	1	done
+MageOS_AutomaticTranslation	19	1	1	done
+Magento_ConfigurableProduct	1	1	1	done
+Magento_GroupedProduct	1	1	1	done
+Magento_InstantPurchase	2	1	1	done
+Magento_Integration	10	1	1	done
+Magento_InventoryCatalogAdminUi	4	1	1	done
+Magento_LoginAsCustomerAdminUi	2	1	1	done
+Magento_MediaGalleryRenditions	3	1	1	done
+Magento_MediaGalleryUi	1	1	1	done
+MageOS_PageBuilderTemplateImportExport	3	1	1	done
+Magento_PageBuilder	7	1	0	abstained
+Magento_ReCaptchaCheckoutSalesRule	1	1	1	done
+Magento_ReCaptchaCheckout	1	1	1	done
+Magento_ReCaptchaContact	1	1	1	done
+Magento_ReCaptchaPaypal	1	1	1	done
+Magento_ReCaptchaResendConfirmationEmail	1	1	1	done
+Magento_ReCaptchaReview	1	1	1	done
+Magento_ReCaptchaSendFriend	1	1	1	done
+Magento_ReCaptchaWishlist	1	1	1	done
+Magento_Rss	1	1	1	done
+Magento_Search	1	1	1	done
+MageOS_ThemeAdminhtmlSwitcher	1	1	1	done
+MageOS_ThemeOptimization	13	1	1	done
+Magento_Theme	2	1	1	done
+Magento_Webapi	5	1	1	done

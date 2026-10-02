@@ -1,0 +1,22 @@
+[
+  { "elementId": "three_d_secure_cardinal_config_environment",
+    "comment": "Whether CardinalCommerce 3-D Secure requests use the sandbox or production environment.",
+    "modal": "Selects the CardinalCommerce target: **Sandbox** for testing or **Production** for live transactions. Applies only when the CardinalCommerce integration is enabled. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Source\\Environment", "depends:enabled_authorize=1", "scope:website"] },
+  { "elementId": "three_d_secure_cardinal_config_org_unit_id",
+    "comment": "The CardinalCommerce Org Unit ID used to authenticate 3-D Secure requests.",
+    "modal": "The Org Unit ID credential issued by CardinalCommerce for the Cardinal Cruise API. Stored encrypted. Applies only when the integration is enabled. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "depends:enabled_authorize=1", "scope:website"] },
+  { "elementId": "three_d_secure_cardinal_config_api_key",
+    "comment": "The CardinalCommerce API key used to authenticate 3-D Secure requests.",
+    "modal": "The API key credential issued by CardinalCommerce. Stored encrypted. Applies only when the integration is enabled. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "depends:enabled_authorize=1", "scope:website"] },
+  { "elementId": "three_d_secure_cardinal_config_api_identifier",
+    "comment": "The CardinalCommerce API Identifier used to authenticate 3-D Secure requests.",
+    "modal": "The API Identifier credential issued by CardinalCommerce. Stored encrypted. Applies only when the integration is enabled. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "depends:enabled_authorize=1", "scope:website"] },
+  { "elementId": "three_d_secure_cardinal_config_debug",
+    "comment": "Whether CardinalCommerce request and response details are written to the debug log.",
+    "modal": "When **Yes**, CardinalCommerce communication is logged for troubleshooting. Applies only when the integration is enabled. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled_authorize=1", "scope:website"] }
+]

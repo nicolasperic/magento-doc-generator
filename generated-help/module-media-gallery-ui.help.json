@@ -1,0 +1,6 @@
+[
+  { "elementId": "system_media_gallery_enabled",
+    "comment": "Whether the legacy (old) media gallery is used instead of the enhanced one.",
+    "modal": "When **Yes**, the old media gallery interface is used for managing images and media; when **No**, the enhanced media gallery is used.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Media Gallery"] }
+]

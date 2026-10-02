@@ -1,0 +1,14 @@
+[
+  { "elementId": "system_full_page_cache_caching_application",
+    "comment": "Selects which application handles full page caching.",
+    "modal": "Chooses the full page caching backend — the built-in Magento cache or an external caching application such as Varnish. The Varnish Configuration options apply when Varnish is selected.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Application", "group:Full Page Cache"] },
+  { "elementId": "system_full_page_cache_varnish_export_button_version6",
+    "comment": "Downloads a Varnish 6 configuration (VCL) file based on the current cache settings.",
+    "modal": "Generates and downloads a Varnish 6 VCL configuration file from the current cache settings. Shown in the Varnish Configuration group when Varnish is selected as the caching application.",
+    "confidence": "medium", "basis": ["elementId", "type:button", "group:Varnish Configuration", "depends:caching_application=1"] },
+  { "elementId": "system_full_page_cache_varnish_export_button_version7",
+    "comment": "Downloads a Varnish 7 configuration (VCL) file based on the current cache settings.",
+    "modal": "Generates and downloads a Varnish 7 VCL configuration file from the current cache settings. Shown in the Varnish Configuration group when Varnish is selected as the caching application.",
+    "confidence": "medium", "basis": ["elementId", "type:button", "group:Varnish Configuration", "depends:caching_application=1"] }
+]

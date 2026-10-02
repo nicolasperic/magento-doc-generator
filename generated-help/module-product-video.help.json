@@ -1,0 +1,18 @@
+[
+  { "elementId": "catalog_product_video_youtube_api_key",
+    "comment": "The YouTube Data API key used to fetch video details when adding product videos.",
+    "modal": "The API key the admin uses to call the YouTube Data API when retrieving metadata for product videos hosted on YouTube. Obtain it from the Google API console.",
+    "confidence": "high", "basis": ["label", "group:Product Video"] },
+  { "elementId": "catalog_product_video_play_if_base",
+    "comment": "Whether a product's base video plays automatically on the product page.",
+    "modal": "When **Yes**, the video marked as the product's base media starts playing automatically on the product page. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Product Video", "scope:website,store"] },
+  { "elementId": "catalog_product_video_show_related",
+    "comment": "Whether related videos are shown when a product video ends.",
+    "modal": "When **Yes**, related videos are displayed after a product video finishes playing. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "group:Product Video", "scope:website,store"] },
+  { "elementId": "catalog_product_video_video_auto_restart",
+    "comment": "Whether a product video restarts automatically after it finishes.",
+    "modal": "When **Yes**, a product video loops, restarting automatically once it reaches the end. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Product Video", "scope:website,store"] }
+]

@@ -1,0 +1,10 @@
+[
+  { "elementId": "recaptcha_backend_type_for_user_login",
+    "comment": "Selects which configured reCAPTCHA protects the Admin Panel login form.",
+    "modal": "Chooses which configured reCAPTCHA type is required on the admin sign-in form; leave unset to not protect it. The reCAPTCHA keys must be configured first.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type"] },
+  { "elementId": "recaptcha_backend_type_for_user_forgot_password",
+    "comment": "Selects which configured reCAPTCHA protects the admin forgot-password form.",
+    "modal": "Chooses which configured reCAPTCHA type is required on the admin forgot-password form; leave unset to not protect it. The reCAPTCHA keys must be configured first.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type"] }
+]

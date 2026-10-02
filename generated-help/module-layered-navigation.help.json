@@ -1,0 +1,14 @@
+[
+  { "elementId": "catalog_layered_navigation_display_product_count",
+    "comment": "Whether the number of matching products is shown next to each filter option.",
+    "modal": "When **Yes**, layered navigation shows a count of matching products beside each filter value. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Layered Navigation", "scope:store"] },
+  { "elementId": "catalog_layered_navigation_price_range_calculation",
+    "comment": "How price filter ranges are calculated — automatically or by a manual step.",
+    "modal": "Chooses how price-filter buckets are built: automatically, or using a manual fixed step set in Default Price Navigation Step. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Price\\Step", "group:Layered Navigation", "scope:store"] },
+  { "elementId": "catalog_layered_navigation_price_range_step",
+    "comment": "The fixed price interval used to build price-filter ranges.",
+    "modal": "The price interval for each price-filter range. Applies only when Price Navigation Step Calculation is set to Manual. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:price_range_calculation=manual", "scope:store"] }
+]

@@ -1,0 +1,10 @@
+[
+  { "elementId": "catalog_review_active",
+    "comment": "Turns product reviews on or off on the storefront.",
+    "modal": "Controls whether the **Product Reviews** feature is available on the storefront, letting shoppers read and submit reviews. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Product Reviews", "scope:website,store"] },
+  { "elementId": "catalog_review_allow_guest",
+    "comment": "Whether visitors who aren't logged in can submit product reviews.",
+    "modal": "When **Yes**, guests who are not signed-in customers can write product reviews; when **No**, only registered customers can. Applies only when **Product Reviews** is enabled. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Product Reviews", "depends:catalog/review/active=1", "scope:website"] }
+]

@@ -1,0 +1,14 @@
+[
+  { "elementId": "google_gtag_analytics4_active",
+    "comment": "Turns on Google Analytics 4 tracking via gtag.js.",
+    "modal": "When **Yes**, the storefront loads Google Analytics 4 tracking through gtag.js. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Google Analytics4", "scope:website,store"] },
+  { "elementId": "google_gtag_adwords_active",
+    "comment": "Turns on Google Ads (AdWords) conversion tracking.",
+    "modal": "When **Yes**, Google Ads conversion tracking is added to the storefront via gtag.js. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Google AdWords", "scope:website,store"] },
+  { "elementId": "google_gtag_adwords_conversion_label",
+    "comment": "The Google Ads conversion label reported when a conversion occurs.",
+    "modal": "The conversion label from your Google Ads account, used to attribute conversions. Applies only when Google AdWords tracking is enabled. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Google AdWords", "depends:active=1", "scope:website,store"] }
+]

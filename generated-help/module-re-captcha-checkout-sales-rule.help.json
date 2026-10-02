@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_coupon_code",
+    "comment": "Selects which configured reCAPTCHA protects the cart coupon-code form.",
+    "modal": "Chooses which configured reCAPTCHA type is required when a shopper applies a coupon code; leave unset to not protect it. The reCAPTCHA keys must be configured first. Can be set per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type", "scope:website"] }
+]

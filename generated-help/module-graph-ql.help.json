@@ -1,0 +1,22 @@
+[
+  { "elementId": "webapi_graphql_validation_input_limit_enabled",
+    "comment": "Whether to enforce configured limits on GraphQL query input size.",
+    "modal": "When **Yes**, the configured GraphQL input limits are enforced, rejecting queries that exceed them. A safeguard against overly large or abusive queries. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:website,store", "group:GraphQl Input Limits"] },
+  { "elementId": "webapi_graphql_validation_alias_limit_enabled",
+    "comment": "Whether to enforce a maximum number of field aliases in a GraphQL query.",
+    "modal": "When **Yes**, GraphQL queries using more than the allowed number of aliases are rejected, limiting a known request-amplification technique. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:website,store", "group:GraphQl Input Limits"] },
+  { "elementId": "webapi_graphql_validation_query_length_limit_enabled",
+    "comment": "Whether to enforce a maximum character length for GraphQL queries.",
+    "modal": "When **Yes**, GraphQL queries longer than the allowed character count are rejected. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:website,store", "group:GraphQl Input Limits"] },
+  { "elementId": "webapi_graphql_session_disabled",
+    "comment": "Whether to disable PHP session handling for GraphQL requests.",
+    "modal": "When **Yes**, GraphQL requests are served without starting a PHP session, which can improve performance for stateless API traffic.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:GraphQl Session Management"] },
+  { "elementId": "web_api_graphql_include_dynamic_attributes_as_entity_type_fields",
+    "comment": "Whether dynamically-defined attributes are exposed as fields on their entity types in the GraphQL schema.",
+    "modal": "When **Yes**, dynamic (store-defined) attributes appear as typed fields on their entity in the GraphQL schema rather than only through generic containers. Can be set per website or store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "scope:website,store", "group:GraphQl"] }
+]

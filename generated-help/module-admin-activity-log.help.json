@@ -1,0 +1,14 @@
+[
+  { "elementId": "admin_admin_activity_enable",
+    "comment": "Turns admin activity logging on or off.",
+    "modal": "When Yes, actions performed by admin users are recorded to the admin activity log. Set to No to stop collecting this log.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Admin Activity Logs"] },
+  { "elementId": "admin_admin_activity_login_activity",
+    "comment": "Whether admin login activity is recorded.",
+    "modal": "When Yes, admin user sign-in activity is captured in the admin activity log.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Admin Activity Logs"] },
+  { "elementId": "admin_admin_activity_page_visit",
+    "comment": "Whether admin page visits are recorded.",
+    "modal": "When Yes, the admin pages visited by admin users are captured in the admin activity log.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Admin Activity Logs"] }
+]

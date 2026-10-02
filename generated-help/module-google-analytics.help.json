@@ -1,0 +1,14 @@
+[
+  { "elementId": "google_analytics_active",
+    "comment": "Enables Google Analytics tracking on the storefront.",
+    "modal": "When **Yes**, the Google Analytics tracking script is added to storefront pages. Can be configured per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Google Analytics", "scope:default,website,store"] },
+  { "elementId": "google_analytics_account",
+    "comment": "The Google Analytics measurement/tracking ID that storefront data is sent to.",
+    "modal": "The Google Analytics account identifier (tracking/measurement ID) for the storefront. Applies only when **Enable** is set to Yes. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:active=1", "scope:default,website,store"] },
+  { "elementId": "google_analytics_anonymize",
+    "comment": "Whether visitor IP addresses are anonymized before being sent to Google Analytics.",
+    "modal": "When **Yes**, visitor IP addresses are anonymized before being sent to Google Analytics, which helps with privacy compliance. Applies only when **Enable** is Yes.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:active=1"] }
+]

@@ -1,0 +1,6 @@
+[
+  { "elementId": "cms_pagebuilder_template_importexport_enable",
+    "comment": "Turns Page Builder template import and export on or off.",
+    "modal": "When set to **Yes**, the import and export actions for Page Builder templates are available in the admin, letting you move templates between stores.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Pagebuilder template import/export"] }
+]

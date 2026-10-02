@@ -1,0 +1,18 @@
+[
+  { "elementId": "system_mysqlmq_retry_inprogress_after",
+    "comment": "How long a message may stay in progress before it is retried.",
+    "modal": "The waiting period after which a message still marked as in progress is released and retried, so stalled messages are not lost.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:MySQL Message Queue Cleanup"] },
+  { "elementId": "system_mysqlmq_successful_messages_lifetime",
+    "comment": "How long successfully processed messages are kept before cleanup removes them.",
+    "modal": "The retention period for messages that have been processed successfully, after which the queue cleanup removes them.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:MySQL Message Queue Cleanup"] },
+  { "elementId": "system_mysqlmq_failed_messages_lifetime",
+    "comment": "How long failed messages are kept before cleanup removes them.",
+    "modal": "The retention period for messages that failed processing, after which the queue cleanup removes them.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:MySQL Message Queue Cleanup"] },
+  { "elementId": "system_mysqlmq_new_messages_lifetime",
+    "comment": "How long new, unprocessed messages are kept before cleanup removes them.",
+    "modal": "The retention period for new messages that have not yet been processed, after which the queue cleanup removes them.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:MySQL Message Queue Cleanup"] }
+]

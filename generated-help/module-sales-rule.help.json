@@ -1,0 +1,18 @@
+[
+  { "elementId": "promo_auto_generated_coupon_codes_format",
+    "comment": "The character format used when coupon codes are auto-generated.",
+    "modal": "Selects the format of automatically generated coupon codes, such as alphanumeric, alphabetical, or numeric character sets.",
+    "confidence": "high", "basis": ["label", "sourceModel:Coupon\\Format", "group:Auto Generated Specific Coupon Codes"] },
+  { "elementId": "promo_auto_generated_coupon_codes_prefix",
+    "comment": "Text added to the start of every auto-generated coupon code.",
+    "modal": "An optional prefix prepended to each automatically generated coupon code, useful for grouping or branding codes.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Auto Generated Specific Coupon Codes"] },
+  { "elementId": "promo_auto_generated_coupon_codes_suffix",
+    "comment": "Text added to the end of every auto-generated coupon code.",
+    "modal": "An optional suffix appended to each automatically generated coupon code.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Auto Generated Specific Coupon Codes"] },
+  { "elementId": "rss_catalog_discounts",
+    "comment": "Enables the RSS feed of coupons and discounts.",
+    "modal": "When enabled, a public RSS feed of current coupons and discounts is published. (RSS feeds must also be enabled globally.) Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Enabledisable", "scope:default,website,store"] }
+]

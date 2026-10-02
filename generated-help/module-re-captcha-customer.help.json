@@ -1,0 +1,18 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_customer_login",
+    "comment": "Which reCAPTCHA type protects the storefront customer login form, or turns it off there.",
+    "modal": "Selects the reCAPTCHA implementation applied to the storefront customer **login** form, chosen from the reCAPTCHA types configured on this store, or disables reCAPTCHA for that form. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type", "scope:website"] },
+  { "elementId": "recaptcha_frontend_type_for_customer_forgot_password",
+    "comment": "Which reCAPTCHA type protects the storefront forgot-password form, or turns it off there.",
+    "modal": "Selects the reCAPTCHA implementation applied to the storefront **forgot password** form, chosen from the reCAPTCHA types configured on this store, or disables reCAPTCHA for that form. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type", "scope:website"] },
+  { "elementId": "recaptcha_frontend_type_for_customer_create",
+    "comment": "Which reCAPTCHA type protects the create-new-account form, or turns it off there.",
+    "modal": "Selects the reCAPTCHA implementation applied to the storefront **create new customer account** form, chosen from the reCAPTCHA types configured on this store, or disables reCAPTCHA for that form. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type", "scope:website"] },
+  { "elementId": "recaptcha_frontend_type_for_customer_edit",
+    "comment": "Which reCAPTCHA type protects the edit-account form, or turns it off there.",
+    "modal": "Selects the reCAPTCHA implementation applied to the storefront **edit customer account** form, chosen from the reCAPTCHA types configured on this store, or disables reCAPTCHA for that form. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type", "scope:website"] }
+]

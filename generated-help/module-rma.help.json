@@ -1,0 +1,10 @@
+[
+  { "elementId": "rma_email_sender_identity",
+    "comment": "Which store email identity RMA notification emails are sent from.",
+    "modal": "Selects the sender identity used for RMA (return) notification emails — one of the **Store Email Addresses** identities (General Contact, Sales Representative, Customer Support, Custom 1/2) configured under *General → Store Email Addresses*. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Identity", "scope:store", "section:RMA - Return Management", "group:Email Notifications"] },
+  { "elementId": "rma_attachments_allowed_extensions",
+    "comment": "The file types customers may attach to an RMA request.",
+    "modal": "The set of file extensions accepted for attachments on a return request; files of other types are rejected. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:multiselect", "sourceModel:AllowedExtensions", "scope:website", "section:RMA - Return Management", "group:Attachments"] }
+]

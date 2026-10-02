@@ -1,0 +1,6 @@
+[
+  { "elementId": "checkout_cart_grouped_product_image",
+    "comment": "Which image represents a grouped product's items in the cart — the grouped parent's or each associated product's own.",
+    "modal": "Chooses whether the shopping cart shows the grouped (parent) product's image or each associated product's own image for items added as part of a grouped product. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Product\\Thumbnail", "scope:store"] }
+]

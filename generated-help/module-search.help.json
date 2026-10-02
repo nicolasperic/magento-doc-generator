@@ -1,0 +1,6 @@
+[
+  { "elementId": "catalog_search_engine",
+    "comment": "Which search engine backend powers catalog search.",
+    "modal": "Selects the search engine used to index and query the catalog (from the engines installed on the store, such as OpenSearch or Elasticsearch). Changing it typically requires reindexing.",
+    "confidence": "medium", "basis": ["label", "sourceModel:System\\Config\\Source\\Engine"] }
+]

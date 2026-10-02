@@ -1,0 +1,14 @@
+[
+  { "elementId": "sales_email_order_ready_for_pickup_enabled",
+    "comment": "Whether the \"order ready for pickup\" notification email is sent to customers.",
+    "modal": "Controls whether customers receive the **Order Ready For Pickup** email when their in-store pickup order is ready to collect. Can be set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Order Ready For Pickup in Store", "scope:website,store"] },
+  { "elementId": "sales_email_order_ready_for_pickup_identity",
+    "comment": "Which store email identity the \"order ready for pickup\" email is sent from.",
+    "modal": "Selects the sender identity for the Order Ready For Pickup email — one of the **Store Email Addresses** identities (General Contact, Sales Representative, Customer Support, Custom 1/2). Can differ per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Identity", "group:Order Ready For Pickup in Store"] },
+  { "elementId": "sales_email_order_ready_for_pickup_copy_method",
+    "comment": "Whether copies of the \"order ready for pickup\" email are sent as Bcc or as a separate email.",
+    "modal": "Chooses how copy recipients receive the Order Ready For Pickup email: **Bcc** (hidden on the customer's copy) or as a **Separate Email**. Can differ per store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Method", "group:Order Ready For Pickup in Store"] }
+]

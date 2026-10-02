@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_wishlist",
+    "comment": "Selects which configured reCAPTCHA type protects the storefront wishlist sharing form.",
+    "modal": "Chooses the reCAPTCHA type applied to the **Share Wish List** form on the storefront. Options are the reCAPTCHA integrations configured under the reCAPTCHA settings; leave unset to protect the form with no reCAPTCHA. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:OptionSource\\Type", "scope:default,website"] }
+]

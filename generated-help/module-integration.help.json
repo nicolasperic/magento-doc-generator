@@ -1,0 +1,6 @@
+[
+  { "elementId": "oauth_consumer_enable_integration_as_bearer",
+    "comment": "Whether an integration's OAuth access token can be used directly as a standalone Bearer token in API requests.",
+    "modal": "When set to **Yes**, an integration's OAuth access token can be passed as a standalone Bearer token to authenticate Web API requests, instead of signing each call with the full OAuth 1.0a flow. Found under **OAuth → Consumer Settings**.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "section:OAuth", "group:Consumer Settings"] }
+]

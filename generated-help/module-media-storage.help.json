@@ -1,0 +1,10 @@
+[
+  { "elementId": "system_media_storage_configuration_media_storage",
+    "comment": "Where product and catalog media files are stored — the file system or the database.",
+    "modal": "Selects the backend for media files: **File System** (the default) or **Database (Deprecated)**. Choose Database only for legacy multi-server setups that relied on it; File System is recommended for new stores.",
+    "confidence": "high", "basis": ["label", "sourceModel:Storage\\Media\\Storage", "group:Storage Configuration for Media"] },
+  { "elementId": "system_media_storage_configuration_media_database",
+    "comment": "Which configured database connection media files are stored in.",
+    "modal": "Picks the database resource (from the connections defined in the deployment config) used to hold media files. Applies only when **Media Storage** is set to Database.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Storage\\Media\\Database", "depends:media_storage=1", "group:Storage Configuration for Media"] }
+]

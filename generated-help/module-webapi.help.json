@@ -1,0 +1,6 @@
+[
+  { "elementId": "webapi_validation_input_limit_enabled",
+    "comment": "Whether Web API requests enforce limits on the size of input arrays and collections.",
+    "modal": "When **Yes**, the Web API enforces input limits, such as the maximum number of items accepted in a request, rejecting oversized payloads to protect the store. Configured under **Magento Web API → Web Api Input Limits**.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "section:Magento Web API", "group:Web Api Input Limits"] }
+]

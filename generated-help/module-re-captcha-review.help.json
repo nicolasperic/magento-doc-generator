@@ -1,0 +1,6 @@
+[
+  { "elementId": "recaptcha_frontend_type_for_product_review",
+    "comment": "Which reCAPTCHA type protects the storefront product review form.",
+    "modal": "Selects the reCAPTCHA type applied to the product review form, or disables it. The available types are those configured in the storefront reCAPTCHA settings. Can differ per website.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ReCaptchaAdminUi\\Type", "scope:website"] }
+]

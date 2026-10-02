@@ -1,0 +1,6 @@
+[
+  { "elementId": "rss_config_active",
+    "comment": "Enables RSS feed generation across the storefront.",
+    "modal": "Enables or disables RSS feeds site-wide. Individual feeds (catalog, wishlist, and others) require this master switch to be enabled. Can differ per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Enabledisable", "group:Rss Config", "scope:website,store"] }
+]
