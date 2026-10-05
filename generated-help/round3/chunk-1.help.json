@@ -1,0 +1,111 @@
+[
+  { "configPath": "admin/e119_admin_logos/login",
+    "comment": "Replaces the default logo shown on the admin sign-in screen.",
+    "modal": "Uploads a custom logo for the Magento admin login page, replacing the stock one. Supported formats are jpg, jpeg, gif, and png. Applies to every admin user signing in.",
+    "confidence": "high", "basis": ["label", "backendModel:AdminLoginLogo", "group:Admin Logos", "nativeComment"] },
+
+  { "configPath": "checkout/options/enable_guest_checkout_login",
+    "comment": "Lets guests check if an email already has an account — convenient, but it discloses account existence.",
+    "modal": "Scoped per website and store view, so the email lookup can be turned on only where you want it. Weigh the smoother guest checkout against revealing to unauthenticated users whether an email is already registered.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "scope:website,store", "nativeComment"] },
+
+  { "configPath": "orangecat_quickorder/general/enabled",
+    "comment": "Turns the Quick Order feature on or off.",
+    "modal": "Enables Quick Order, which lets shoppers add many products to the cart at once by entering SKUs and quantities instead of browsing. Yes/No, scoped per website and store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "section:Quick Order", "scope:website,store"] },
+
+  { "configPath": "paypal/wpp/proxy_port",
+    "comment": "TCP port of the proxy server used for PayPal API calls.",
+    "modal": "The port on the proxy host that PayPal API requests are routed through. Applies only when Use Proxy is enabled. Valid range is 0–65535. Website-scoped.",
+    "confidence": "high", "basis": ["label", "depends:use_proxy=1", "scope:website", "nativeComment"] },
+
+  { "configPath": "paypal/style/cart_page_button_label",
+    "comment": "Chooses the label text shown on the PayPal button on the cart page.",
+    "modal": "Selects which label the PayPal Express button displays on the shopping-cart page. Applies only when cart-page button customization is turned on. Scoped per website and store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles", "group:Cart Page", "depends:cart_page_button_customize=1"] },
+
+  { "configPath": "paypal/fetch_reports/ftp_path",
+    "comment": "Directory on PayPal's SFTP server where settlement reports are fetched from.",
+    "modal": "The remote path from which PayPal settlement reports are downloaded. Used for live (non-sandbox) fetching. Website-scoped; leave at the default /ppreports/outgoing unless PayPal directs otherwise.",
+    "confidence": "high", "basis": ["label", "depends:settlement_reports_ftp_sandbox=0", "group:Settlement Report Settings", "nativeComment"] },
+
+  { "configPath": "payment/paypal_express/title",
+    "comment": "The PayPal Express method name customers see at checkout.",
+    "modal": "The label shown for PayPal Express during checkout. Store-view scoped, so it can be translated or named differently per store view.",
+    "confidence": "high", "basis": ["label", "scope:store", "nativeComment"] },
+
+  { "configPath": "payment/banktransfer/max_order_total",
+    "comment": "Largest order total that can use Bank Transfer payment.",
+    "modal": "The maximum order total for which Bank Transfer is offered at checkout; orders above this amount won't see the method. Leave blank for no upper limit. Website-scoped.",
+    "confidence": "high", "basis": ["label", "group:Bank Transfer Payment", "scope:website"] },
+
+  { "configPath": "payment/cashondelivery/active",
+    "comment": "Enables the Cash On Delivery payment method at checkout.",
+    "modal": "Turns Cash On Delivery on or off as a checkout payment option. Yes/No, scoped per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Cash On Delivery Payment", "scope:website"] },
+
+  { "configPath": "payment/cashondelivery/sort_order",
+    "comment": "Position of Cash On Delivery in the payment-method list at checkout.",
+    "modal": "Controls where Cash On Delivery appears relative to other payment methods at checkout; lower numbers show first.",
+    "confidence": "high", "basis": ["label", "group:Cash On Delivery Payment"] },
+
+  { "configPath": "payment/checkmo/max_order_total",
+    "comment": "Largest order total that can use Check / Money Order.",
+    "modal": "The maximum order total for which the Check / Money Order method is offered; orders above it won't see the method. Website-scoped.",
+    "confidence": "high", "basis": ["label", "group:Check / Money Order", "scope:website"] },
+
+  { "configPath": "payment/checkmo/title",
+    "comment": "The Check / Money Order method name customers see at checkout.",
+    "modal": "The label shown for the Check / Money Order payment method. Store-view scoped, so it can differ per store view.",
+    "confidence": "high", "basis": ["label", "group:Check / Money Order", "scope:store"] },
+
+  { "configPath": "payment/companycredit/title",
+    "comment": "The Company Credit method name customers see at checkout.",
+    "modal": "The checkout label for the Company Credit payment method (Orangecat B2B). Store-view scoped, so it can be renamed per store view.",
+    "confidence": "medium", "basis": ["label", "group:Company Credit (Orangecat B2B)", "scope:store"] },
+
+  { "configPath": "payment/free/allowspecific",
+    "comment": "Whether Zero Subtotal Checkout is available in all countries or only specific ones.",
+    "modal": "Chooses whether the Zero Subtotal Checkout method is offered to all allowed countries or only to a specific list set in Payment from Specific Countries. Website-scoped.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Allspecificcountries", "group:Zero Subtotal Checkout", "scope:website"] },
+
+  { "configPath": "payment/purchaseorder/max_order_total",
+    "comment": "Largest order total that can use the Purchase Order method.",
+    "modal": "The maximum order total for which Purchase Order is offered at checkout; orders above it won't see the method. Website-scoped.",
+    "confidence": "high", "basis": ["label", "group:Purchase Order", "scope:website"] },
+
+  { "configPath": "system/cron/consumers/schedule_lifetime",
+    "comment": "Minutes after its scheduled time a 'consumers' cron job may still run before it's marked missed.",
+    "modal": "The grace window, in minutes, for the consumers cron group: a job not started within this many minutes of its scheduled time is flagged as missed instead of run.",
+    "confidence": "medium", "basis": ["label", "group:Cron options for group:consumers"] },
+
+  { "configPath": "system/cron/default/schedule_generate_every",
+    "comment": "How often (in minutes) cron schedule entries are generated for the 'default' group.",
+    "modal": "Sets how frequently Magento pre-generates upcoming schedule rows for the default cron group, in minutes.",
+    "confidence": "medium", "basis": ["label", "group:Cron options for group:default"] },
+
+  { "configPath": "system/cron/index/schedule_ahead_for",
+    "comment": "How far ahead (in minutes) schedules are generated for the 'index' cron group.",
+    "modal": "How many minutes into the future Magento pre-creates schedule rows for the index cron group, so jobs are queued before their run time.",
+    "confidence": "medium", "basis": ["label", "group:Cron options for group:index"] },
+
+  { "configPath": "system/cron/translate_products/history_success_lifetime",
+    "comment": "How long (in minutes) successful 'translate_products' cron records are kept.",
+    "modal": "Retention time, in minutes, for successfully completed job records in the translate_products cron group before they are cleaned up.",
+    "confidence": "medium", "basis": ["label", "group:Cron options for group:translate_products"] },
+
+  { "configPath": "system/cron/translate_select_attributes/history_failure_lifetime",
+    "comment": "How long (in minutes) failed 'translate_select_attributes' cron records are kept.",
+    "modal": "Retention time, in minutes, for failed job records in the translate_select_attributes cron group before they are cleaned up.",
+    "confidence": "medium", "basis": ["label", "group:Cron options for group:translate_select_attributes"] },
+
+  { "configPath": "system/full_page_cache/varnish/enable_404_cache",
+    "comment": "Caches 404 responses in Varnish; applies only when Varnish is the caching application.",
+    "modal": "Beyond caching Not-Found pages: this takes effect only when Full Page Cache is set to use Varnish. Caching 404s spares the backend from repeated hits on missing URLs, but cached 404s persist until purged.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "depends:caching_application=1", "nativeComment"] },
+
+  { "configPath": "system/full_page_cache/varnish/use_soft_purging",
+    "comment": "Marks cached pages stale instead of deleting them on purge; needs the Xkey vmod.",
+    "modal": "Soft purging flags cached objects as stale rather than removing them, so Varnish can keep serving the old page while it fetches a fresh copy — smoother than hard purges under load. Requires the Xkey vmod.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "depends:use_xkey_vmod=1", "nativeComment"] }
+]

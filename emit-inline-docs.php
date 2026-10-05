@@ -68,15 +68,24 @@ foreach ($helpFiles as $helpFile) {
     }
 }
 
-// PayPal (and any config_path-keyed help with an alias map): one logical field's
-// help is expanded to every DOM element-id alias it appears under. The help is
-// keyed by config_path in generated-help/paypal-chunks/chunk-*.help.json; the
-// alias map lives in generated-help/paypal-chunks/aliases.json.
-$aliasMapFile = "$dir/paypal-chunks/aliases.json";
-if (is_file($aliasMapFile)) {
+// Config_path-keyed help expanded to every DOM element-id alias a logical field
+// appears under (PayPal's regional multiplication, and round 3's merged/include
+// fields the file-based extractor missed).
+// Each group pairs a dir of config_path-keyed help with an aliases.json
+// ({configPath: {aliases, section?, module?}}). An alias entry may carry its own
+// section/module (round 3 spans many modules); otherwise the group default wins.
+$aliasGroups = [
+    ['dir' => 'paypal-chunks', 'module' => 'Magento_Paypal', 'section' => 'PayPal'],
+    ['dir' => 'round3',        'module' => '',                'section' => ''],
+];
+foreach ($aliasGroups as $group) {
+    $aliasMapFile = "$dir/{$group['dir']}/aliases.json";
+    if (!is_file($aliasMapFile)) {
+        continue;
+    }
     $aliasMap = json_decode(file_get_contents($aliasMapFile), true) ?: [];
     $cfgHelp = [];
-    foreach (glob("$dir/paypal-chunks/*.help.json") ?: [] as $hf) {
+    foreach (glob("$dir/{$group['dir']}/*.help.json") ?: [] as $hf) {
         foreach ((array)json_decode(file_get_contents($hf), true) as $h) {
             $cp = trim((string)($h['configPath'] ?? ''));
             $comment = trim((string)($h['comment'] ?? ''));
@@ -87,7 +96,13 @@ if (is_file($aliasMapFile)) {
     }
     $expanded = 0;
     foreach ($cfgHelp as $cp => $h) {
-        foreach ((array)($aliasMap[$cp]['aliases'] ?? []) as $elementId) {
+        $map = $aliasMap[$cp] ?? null;
+        if (!$map) {
+            continue; // not in the (core-filtered) alias map — skip
+        }
+        $section = ($map['section'] ?? '') !== '' ? $map['section'] : $group['section'];
+        $module  = ($map['module'] ?? '') !== '' ? $map['module'] : $group['module'];
+        foreach ((array)($map['aliases'] ?? []) as $elementId) {
             $elementId = trim((string)$elementId);
             if ($elementId === '' || isset($entries[$elementId])) {
                 continue; // don't clobber a field that already ships its own note
@@ -95,13 +110,13 @@ if (is_file($aliasMapFile)) {
             $entries[$elementId] = [
                 'comment' => $h['comment'],
                 'modal'   => $h['modal'],
-                'module'  => 'Magento_Paypal',
-                'section' => 'PayPal',
+                'module'  => $module,
+                'section' => $section,
             ];
             $expanded++;
         }
     }
-    fwrite(STDERR, sprintf("expanded %d config-path help entries to %d alias element ids\n", count($cfgHelp), $expanded));
+    fwrite(STDERR, sprintf("[%s] expanded %d config-path entries to %d alias element ids\n", $group['dir'], count($cfgHelp), $expanded));
 }
 
 ksort($entries); // stable, diff-friendly output

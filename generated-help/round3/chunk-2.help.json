@@ -1,0 +1,131 @@
+[
+  { "configPath": "admin/e119_admin_logos/menu",
+    "comment": "Replaces the default logo at the top of the admin menu with your uploaded image.",
+    "modal": "Uploads a custom logo shown at the top of the admin navigation menu, replacing the default logo for every admin user. Added by the Element119 CustomAdminLogo module. Global (default) scope.",
+    "confidence": "medium", "basis": ["label", "backendModel:AdminMenuLogo", "type:image", "nativeComment", "scope:default"] },
+
+  { "configPath": "customer/create_account/email_domain",
+    "comment": "Default email domain used by the Create New Account flow for this store.",
+    "modal": "Provides a default email domain for the new-account creation flow. Website/store scoped, so it can differ per store view.",
+    "confidence": "low", "basis": ["label", "type:text", "group:Create New Account Options", "scope:store"] },
+
+  { "configPath": "paypal/general/merchant_country",
+    "comment": "Sets the merchant's country, which determines the PayPal solutions available to configure.",
+    "modal": "The merchant's country of operation. PayPal offers country-specific payment solutions, so this controls which PayPal methods appear and can be configured. If left unset, the Default Country from General config is used. Website scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:MerchantCountry", "nativeComment", "scope:website"] },
+
+  { "configPath": "payment/paypal_express/authorization_honor_period",
+    "comment": "Days a PayPal order authorization stays honored; must match your PayPal account setting.",
+    "modal": "The authorization honor period (in days) that PayPal guarantees funds for an order authorization. Applies only when Payment Action is **Order**, and it must mirror the value configured on your PayPal account. Website scope.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:payment_action=Order", "nativeComment", "scope:website"] },
+
+  { "configPath": "paypal/style/paypal_payflowcolor",
+    "comment": "Background color for the PayPal-hosted checkout/payment pages.",
+    "modal": "Sets the page background color shown on the PayPal-hosted (Payflow) checkout and payment pages, so they can match your store's look. Part of the Frontend Experience styling; applies per store view.",
+    "confidence": "medium", "basis": ["label", "group:Frontend Experience Settings", "scope:store"] },
+
+  { "configPath": "paypal/fetch_reports/schedule",
+    "comment": "How often Magento fetches PayPal settlement reports.",
+    "modal": "Frequency at which Magento retrieves settlement reports from PayPal via SFTP. PayPal retains these reports for 45 days, so fetch often enough to avoid gaps. Global (default) scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:FetchingSchedule", "nativeComment", "scope:default"] },
+
+  { "configPath": "payment/payflow_express_bml/active",
+    "comment": "Turns the PayPal Credit financing option on or off for Payflow Link express checkout.",
+    "modal": "Yes/No toggle that enables the PayPal Credit (formerly Bill Me Later) financing button for Payflow Link express checkout, letting customers pay over time while you are paid up front. Website scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+  { "configPath": "payment/payflowpro/proxy_port",
+    "comment": "TCP port of the proxy server used for Payflow Pro API calls (0-65535).",
+    "modal": "The port of the proxy server Magento connects through for Payflow Pro API requests. Applies only when Use Proxy is enabled, and accepts a value from 0 to 65535. Website scope.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:use_proxy=1", "nativeComment", "scope:website"] },
+
+  { "configPath": "payment/banktransfer/min_order_total",
+    "comment": "Smallest order total for which Bank Transfer is offered at checkout.",
+    "modal": "Orders whose total is below this amount will not see Bank Transfer as a payment option. Leave empty for no minimum. Website scope.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Bank Transfer Payment", "scope:website"] },
+
+  { "configPath": "payment/cashondelivery/allowspecific",
+    "comment": "Whether Cash On Delivery is offered to all countries or only selected ones.",
+    "modal": "Chooses whether Cash On Delivery is available to all allowed countries or only to specific countries picked in 'Payment from Specific Countries'. Website scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Allspecificcountries", "scope:website"] },
+
+  { "configPath": "payment/cashondelivery/specificcountry",
+    "comment": "The countries Cash On Delivery is limited to.",
+    "modal": "The list of countries allowed to use Cash On Delivery. Takes effect only when 'Payment from Applicable Countries' is set to specific countries. Website scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Country", "type:multiselect", "scope:website"] },
+
+  { "configPath": "payment/checkmo/min_order_total",
+    "comment": "Smallest order total for which Check / Money Order is offered at checkout.",
+    "modal": "Orders whose total is below this amount will not see Check / Money Order as a payment option. Leave empty for no minimum. Website scope.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Check / Money Order", "scope:website"] },
+
+  { "configPath": "payment/companycredit/active",
+    "comment": "Enables the Company Credit (B2B) payment method at checkout.",
+    "modal": "Yes/No toggle that makes the Company Credit payment method available, letting approved B2B companies pay against a credit line. Provided by the Orangecat B2B suite. Website scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Company Credit (Orangecat B2B)", "scope:website"] },
+
+  { "configPath": "payment/free/order_status",
+    "comment": "The status assigned to new zero-total orders placed via Zero Subtotal Checkout.",
+    "modal": "The order status given to new orders paid through Zero Subtotal Checkout (free orders), chosen from the available new/processing statuses. Website scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Newprocessing", "group:Zero Subtotal Checkout", "scope:website"] },
+
+  { "configPath": "payment/purchaseorder/min_order_total",
+    "comment": "Smallest order total for which Purchase Order is offered at checkout.",
+    "modal": "Orders whose total is below this amount will not see Purchase Order as a payment option. Leave empty for no minimum. Website scope.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Purchase Order", "scope:website"] },
+
+  { "configPath": "payment/payflow_advanced/title",
+    "comment": "The payment method name customers see at checkout for PayPal Payments Advanced.",
+    "modal": "The label shown to customers for this method at checkout. Store-view scoped, so it can differ per store view; PayPal recommends setting it to \"Debit or Credit Card\".",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:store"] },
+
+  { "configPath": "payment/wps_express_bml/active",
+    "comment": "Turns the PayPal Credit financing option on or off for Express Checkout.",
+    "modal": "Yes/No toggle that enables the PayPal Credit (formerly Bill Me Later) financing button for PayPal Express Checkout, letting customers pay over time while you are paid up front. Website scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+  { "configPath": "payment/paypal_payment_gateways/paypal_payflowpro_with_express_checkout/settings_paypal_payflow/settings_paypal_payflow_advanced/paypal_payflow_frontend/paypal_pages",
+    "comment": "Name of the custom page style configured in your PayPal account for hosted pages.",
+    "modal": "The page style name applied to PayPal-hosted merchant pages, matching a style created in your PayPal account profile. Part of Frontend Experience settings; applies per store view.",
+    "confidence": "medium", "basis": ["label", "group:Frontend Experience Settings", "scope:store"] },
+
+  { "configPath": "system/cron/consumers/history_cleanup_every",
+    "comment": "How often (in minutes) completed cron history for the consumers group is purged.",
+    "modal": "Interval, in minutes, between cleanups of the cron schedule history for the message-queue consumers group. Older success/failure records are removed on this cadence. Global scope.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:consumers"] },
+
+  { "configPath": "system/cron/consumers/use_separate_process",
+    "comment": "Whether the consumers cron group runs in its own PHP process.",
+    "modal": "When **Yes**, jobs in the message-queue consumers cron group run in a separate process from other cron groups, isolating their execution. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Cron configuration options for group:consumers"] },
+
+  { "configPath": "system/cron/default/schedule_lifetime",
+    "comment": "Grace period (in minutes) before a pending default-group job is marked missed.",
+    "modal": "If a scheduled job in the default cron group is not executed within this many minutes of its scheduled time, it is flagged as 'missed' rather than run. Global scope.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:default"] },
+
+  { "configPath": "system/cron/index/schedule_generate_every",
+    "comment": "How often (in minutes) the indexer cron group pre-generates its schedule entries.",
+    "modal": "Interval, in minutes, at which Magento generates upcoming schedule rows for the index cron group. Global scope.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:index"] },
+
+  { "configPath": "system/cron/translate_products/schedule_ahead_for",
+    "comment": "How far ahead (in minutes) schedules are pre-generated for the translate_products group.",
+    "modal": "The window, in minutes, for which Magento pre-generates upcoming schedule entries for the translate_products cron group. Global scope.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:translate_products"] },
+
+  { "configPath": "system/cron/translate_select_attributes/history_success_lifetime",
+    "comment": "How long (in minutes) successful job records are kept in the group's cron history.",
+    "modal": "Retention, in minutes, for successfully completed job records in the translate_select_attributes cron group before they are cleaned up. Global scope.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:translate_select_attributes"] },
+
+  { "configPath": "system/full_page_cache/varnish/enable_bfcache",
+    "comment": "Allows the browser back/forward cache (bfcache) when serving pages through Varnish.",
+    "modal": "Enables back/forward cache support so browsers can instantly restore pages on back/forward navigation. Applies only when the caching application is Varnish. See web.dev for details. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:caching_application=1", "nativeComment"] },
+
+  { "configPath": "system/full_page_cache/varnish/use_xkey_vmod",
+    "comment": "Uses the Varnish xkey vmod for tag-based cache invalidation instead of the default purge.",
+    "modal": "When **Yes**, Magento uses the Varnish xkey vmod for more efficient, tag-based cache invalidation. Requires the xkey vmod to be installed in your Varnish instance. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] }
+]

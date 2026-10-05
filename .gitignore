@@ -21,3 +21,6 @@
 
 # Round-2 task-inputs (regenerable); *.help.json kept
 /generated-help/commented/chunk-[0-9].json
+
+# Round-3 task-inputs (regenerable); *.help.json + aliases.json kept
+/generated-help/round3/chunk-[0-9].json

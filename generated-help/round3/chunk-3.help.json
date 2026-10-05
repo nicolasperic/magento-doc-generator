@@ -1,0 +1,136 @@
+[
+ { "configPath": "ai_integration/automatic_translation/catalog/enable_url_rewrite",
+   "comment": "Set to No to skip URL rewrite generation during automatic translation and save performance; translated URLs then need rebuilding separately.",
+   "modal": "**Yes/No.** Controls whether URL rewrites are generated for translated URLs during automatic translation. Setting **No** saves processing time, but newly translated-language URLs stay unbrowsable until you regenerate the rewrites by another means. Can be set per website and store view.",
+   "confidence": "high", "basis": ["nativeComment", "sourceModel:Yesno", "scope:store", "group:Catalog translation options"] },
+
+ { "configPath": "google/adwords/conversion_color",
+   "comment": "Color of the Google AdWords conversion-tracking snippet; applies only when Google AdWords is enabled.",
+   "modal": "Sets the color value used by the Google AdWords conversion-tracking tag. A backend model validates the entered color. Applies only when **Enable Google AdWords** is set to Yes. Can differ per website and store view.",
+   "confidence": "medium", "basis": ["label", "backendModel:Color", "depends:google/adwords/active=1", "scope:store", "group:Google AdWords"] },
+
+ { "configPath": "payment/paypal_express_bml/publisher_id",
+   "comment": "Your PayPal-issued publisher ID that identifies the account the PayPal Credit advertising banner is served for.",
+   "modal": "The publisher identifier PayPal issues for the Advertise PayPal Credit program. It must be supplied for the credit banner to render; without it no banner is displayed. Enter the value from your PayPal account rather than guessing. Can be set per website.",
+   "confidence": "medium", "basis": ["nativeComment", "label", "scope:website", "group:Advertise PayPal Credit"] },
+
+ { "configPath": "payment/paypal_express/child_authorization_number",
+   "comment": "How many child authorizations PayPal may create under one order authorization; the account default is 1.",
+   "modal": "Number of child (partial) authorizations allowed against a single PayPal order authorization. The PayPal account default is 1; raising it requires PayPal to increase your limit. Applies only when the Express Checkout payment action is **Order**. Can be set per website.",
+   "confidence": "high", "basis": ["nativeComment", "label", "depends:payment_action=Order", "scope:website", "group:Basic Settings - PayPal Express Checkout"] },
+
+ { "configPath": "paypal/style/checkout_page_button_label",
+   "comment": "Text/label variant shown on the PayPal button on the checkout page; applies only when button customization is on.",
+   "modal": "Chooses which label the PayPal smart button shows on the checkout page (for example a standard pay label or an installment/credit label). Applies only when the checkout-page button is set to be customized. The installment label is available only in the locales en_MX, es_MX, en_BR and pt_BR. Can differ per store view.",
+   "confidence": "medium", "basis": ["nativeComment", "label", "sourceModel:ButtonStyles", "depends:checkout_page_button_customize=1", "scope:store", "group:Checkout Page"] },
+
+ { "configPath": "paypal/style/product_page_button_label",
+   "comment": "Text/label variant shown on the PayPal button on product pages; applies only when the product-page button is customized.",
+   "modal": "Chooses which label the PayPal smart button shows on product pages. Applies only when both the frontend and product-page button customization options are enabled. The installment label is available only in the locales en_MX, es_MX, en_BR and pt_BR. Can differ per store view.",
+   "confidence": "medium", "basis": ["nativeComment", "label", "sourceModel:ButtonStyles", "depends:product_page_button_customize=1", "scope:store", "group:Product Pages"] },
+
+ { "configPath": "payment/paypal_express/require_billing_address",
+   "comment": "Whether a customer billing address is required during PayPal Express Checkout; must first be enabled on your PayPal account.",
+   "modal": "Controls when a billing address is required for PayPal Express Checkout orders (for example never, always, or only for virtual orders). This capability must first be enabled for your merchant account through PayPal technical support. Can be set per website.",
+   "confidence": "medium", "basis": ["nativeComment", "label", "sourceModel:RequireBillingAddress", "scope:website", "group:Advanced Settings"] },
+
+ { "configPath": "payment/payflow_link/proxy_port",
+   "comment": "TCP port of the proxy server for Payflow Link; valid range is 0 to 65535. Applies only when Use Proxy is enabled.",
+   "modal": "The port of the HTTP proxy used for Payflow Link gateway requests. Must be between 0 and 65535. Applies only when **Use Proxy** is enabled. Can be set per website.",
+   "confidence": "high", "basis": ["nativeComment", "label", "depends:use_proxy=1", "scope:website", "group:Payflow Link and Express Checkout"] },
+
+ { "configPath": "payment/payflow_link/title",
+   "comment": "The Payflow Link method name shown to customers at checkout; recommended value is \"Debit or Credit Card\".",
+   "modal": "The label customers see for the Payflow Link payment method at checkout. It is recommended to set this to \"Debit or Credit Card\", and it can be set differently per store view.",
+   "confidence": "high", "basis": ["nativeComment", "label", "scope:store", "group:Basic Settings - PayPal Payflow Link"] },
+
+ { "configPath": "payment/payflowpro/cctypes",
+   "comment": "Which credit card brands Payflow Pro accepts; American Express requires a separate agreement with PayPal.",
+   "modal": "Multiselect of the credit card types accepted through Payflow Pro. Only the selected brands are offered at checkout. Supporting American Express cards requires an additional agreement (see paypal.com/amexupdate). Can be set per website.",
+   "confidence": "high", "basis": ["nativeComment", "label", "type:multiselect", "scope:website", "group:Basic Settings - PayPal Payflow Pro"] },
+
+ { "configPath": "payment/payflowpro/title",
+   "comment": "The Payflow Pro method name shown to customers at checkout; recommended value is \"Debit or Credit Card\".",
+   "modal": "The label customers see for the Payflow Pro payment method at checkout. It is recommended to set this to \"Debit or Credit Card\", and it can be set differently per store view.",
+   "confidence": "high", "basis": ["nativeComment", "label", "scope:store", "group:Basic Settings - PayPal Payflow Pro"] },
+
+ { "configPath": "payment/banktransfer/order_status",
+   "comment": "The order status assigned to new Bank Transfer orders when they are placed.",
+   "modal": "The initial status given to a newly placed Bank Transfer order, chosen from the statuses mapped to the New order state. Can be set per website.",
+   "confidence": "high", "basis": ["label", "sourceModel:NewStatus", "scope:website", "group:Bank Transfer Payment"] },
+
+ { "configPath": "payment/cashondelivery/instructions",
+   "comment": "Free-text instructions shown to the customer when they choose Cash On Delivery.",
+   "modal": "The instructions displayed to shoppers at checkout and on the order for the Cash On Delivery method (for example how payment is collected on delivery). Can be set per store view.",
+   "confidence": "high", "basis": ["label", "type:textarea", "scope:store", "group:Cash On Delivery Payment"] },
+
+ { "configPath": "payment/cashondelivery/title",
+   "comment": "The Cash On Delivery method name shown to customers at checkout.",
+   "modal": "The label customers see for the Cash On Delivery payment method at checkout. Can be set differently per store view.",
+   "confidence": "high", "basis": ["label", "scope:store", "group:Cash On Delivery Payment"] },
+
+ { "configPath": "payment/checkmo/order_status",
+   "comment": "The order status assigned to new Check / Money Order orders when they are placed.",
+   "modal": "The initial status given to a newly placed Check / Money Order order, chosen from the statuses mapped to the New order state. Can be set per website.",
+   "confidence": "high", "basis": ["label", "sourceModel:NewStatus", "scope:website", "group:Check / Money Order"] },
+
+ { "configPath": "payment/companycredit/allowspecific",
+   "comment": "Whether Company Credit is offered to all countries or only to a selected list of countries.",
+   "modal": "Controls country availability for the Company Credit (Orangecat B2B) method: offer it to all allowed countries, or restrict it to a specific set chosen in the related Payment from Specific Countries field. Can be set per website.",
+   "confidence": "high", "basis": ["label", "sourceModel:Allspecificcountries", "scope:website", "group:Company Credit (Orangecat B2B)"] },
+
+ { "configPath": "payment/free/payment_action",
+   "comment": "Whether zero-total orders are automatically invoiced; setting Yes places the order in Processing.",
+   "modal": "For the Zero Subtotal Checkout method, chooses whether all items are automatically invoiced when the order is placed. When set to **Yes**, the order is created directly in the **Processing** state. Can be set per website.",
+   "confidence": "high", "basis": ["nativeComment", "label", "sourceModel:Invoice", "scope:website", "group:Zero Subtotal Checkout"] },
+
+ { "configPath": "payment/purchaseorder/order_status",
+   "comment": "The order status assigned to new Purchase Order orders when they are placed.",
+   "modal": "The initial status given to a newly placed Purchase Order order, chosen from the statuses mapped to the New order state. Can be set per website.",
+   "confidence": "high", "basis": ["label", "sourceModel:NewStatus", "scope:website", "group:Purchase Order"] },
+
+ { "configPath": "payment/payflow_advanced/proxy_port",
+   "comment": "TCP port of the proxy server for Payments Advanced; valid range is 0 to 65535. Applies only when Use Proxy is enabled.",
+   "modal": "The port of the HTTP proxy used for Payments Advanced / Express Checkout gateway requests. Must be between 0 and 65535. Applies only when **Use Proxy** is enabled. Can be set per website.",
+   "confidence": "high", "basis": ["nativeComment", "label", "depends:use_proxy=1", "scope:website", "group:Payments Advanced and Express Checkout"] },
+
+ { "configPath": "system/cron/consumers/history_failure_lifetime",
+   "comment": "How long records of failed cron jobs in the consumers group are kept before cleanup removes them.",
+   "modal": "Retention period for failed cron schedule records belonging to the **consumers** group; once older than this they are purged during cron history cleanup. A global (default-scope) setting.",
+   "confidence": "medium", "basis": ["label", "group:Cron configuration options for group:consumers", "scope:default"] },
+
+ { "configPath": "system/cron/default/history_cleanup_every",
+   "comment": "How often cron history cleanup runs for the default job group.",
+   "modal": "The interval at which Magento purges old cron schedule records for the **default** group. A global (default-scope) setting.",
+   "confidence": "medium", "basis": ["label", "group:Cron configuration options for group:default", "scope:default"] },
+
+ { "configPath": "system/cron/default/use_separate_process",
+   "comment": "Yes runs the default group's cron jobs in their own PHP process instead of the main cron run.",
+   "modal": "**Yes/No.** When **Yes**, cron jobs in the **default** group are executed in a separate PHP process, isolating them from other groups in the same cron run. A global (default-scope) setting.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Cron configuration options for group:default", "scope:default"] },
+
+ { "configPath": "system/cron/index/schedule_lifetime",
+   "comment": "Grace window after a scheduled time within which an index-group job must run, or it is marked missed.",
+   "modal": "How long after its scheduled time a cron job in the **index** group may still start; if it has not run within this window the schedule is flagged as missed. A global (default-scope) setting.",
+   "confidence": "medium", "basis": ["label", "group:Cron configuration options for group:index", "scope:default"] },
+
+ { "configPath": "system/cron/translate_products/schedule_generate_every",
+   "comment": "How often Magento pre-generates upcoming schedule entries for the translate_products cron group.",
+   "modal": "The interval at which future cron schedule rows are generated for the **translate_products** group. A global (default-scope) setting.",
+   "confidence": "medium", "basis": ["label", "group:Cron configuration options for group:translate_products", "scope:default"] },
+
+ { "configPath": "system/cron/translate_select_attributes/schedule_ahead_for",
+   "comment": "How far into the future schedule entries are generated for the translate_select_attributes cron group.",
+   "modal": "How far ahead cron schedule rows are pre-created for the **translate_select_attributes** group. A global (default-scope) setting.",
+   "confidence": "medium", "basis": ["label", "group:Cron configuration options for group:translate_select_attributes", "scope:default"] },
+
+ { "configPath": "system/full_page_cache/varnish/enable_media_cache",
+   "comment": "Yes lets Varnish cache media files as well as pages; applies only when Varnish is the caching application.",
+   "modal": "**Yes/No.** When **Yes**, media files are included in Varnish caching rather than only HTML pages. Applies only when the caching application is set to Varnish. A global (default-scope) setting.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:caching_application=1", "group:Varnish Configuration", "scope:default"] },
+
+ { "configPath": "system/media_storage_configuration/configuration_update_time",
+   "comment": "The time of day the scheduled media storage environment update runs.",
+   "modal": "Sets when the media storage environment synchronization/update is scheduled to run. A global (default-scope) setting.",
+   "confidence": "medium", "basis": ["label", "group:Storage Configuration for Media", "scope:default"] }
+]

@@ -1,0 +1,131 @@
+[
+  { "configPath": "cataloginventory/reservation/allow_delete",
+    "comment": "Adds a Delete mass action to the Reservations grid, able to remove even uncompensated reservations.",
+    "modal": "Beyond the native note: this exposes a **Delete** mass action on the inventory Reservations grid (gated by ACL) that drops reservations outright, unlike **Clean** which only clears compensated ones. It is a global setting — leave it off except for deliberate recovery, since deleting live reservations can desync salable quantity.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Reservation", "nativeComment"] },
+
+  { "configPath": "mageos_inlinedocs/general/show_full_documentation_link",
+    "comment": "Adds a \"Full documentation\" link to any inline note that carries a URL.",
+    "modal": "Beyond the native note: this applies only when **Inline Documentation** is enabled (its dependency), and affects every config note that defines a documentation URL — notes without a URL are untouched. Set once globally.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled=1", "group:General", "nativeComment"] },
+
+  { "configPath": "paypal/general/business_account",
+    "comment": "The email address of the PayPal merchant account that will receive payments.",
+    "modal": "The email tied to your PayPal merchant (business) account — the address payments are credited to. Optional on this screen; PayPal can also be set up via the API credentials instead. Can be set per website for stores that bill under different PayPal accounts.",
+    "confidence": "medium", "basis": ["label", "group:Express Checkout", "scope:website"] },
+
+  { "configPath": "payment/paypal_billing_agreement/active",
+    "comment": "Enables the PayPal Billing Agreement payment option at checkout.",
+    "modal": "Turns the **PayPal Billing Agreement** method on or off. As the native note says, it surfaces at checkout only for customers who already hold at least one active billing agreement, letting them pay without re-entering PayPal each time. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:PayPal Billing Agreement Settings", "scope:website", "nativeComment"] },
+
+  { "configPath": "paypal/style/mini_cart_page_button_label",
+    "comment": "Chooses the wording shown on the PayPal Smart Button in the mini cart.",
+    "modal": "Selects which label text appears on the PayPal checkout button in the mini cart (the choice comes from PayPal's allowed button labels). Applies only when the mini-cart button customization options it depends on are enabled. Can be set per website and store view.",
+    "confidence": "medium", "basis": ["label", "sourceModel:ButtonStyles", "depends", "group:Mini Cart", "scope:store"] },
+
+  { "configPath": "paypal/fetch_reports/ftp_ip",
+    "comment": "Hostname or IP of the server PayPal settlement reports are fetched from.",
+    "modal": "The endpoint the settlement-report fetch job connects to; the native note records the default as `reports.paypal.com`. Used only for live fetching — it depends on the sandbox FTP flag being off. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:ftp_sandbox=0", "group:Settlement Report Settings", "scope:website", "nativeComment"] },
+
+  { "configPath": "payment/paypal_express/visible_on_cart",
+    "comment": "Shows the PayPal Express shortcut button on the shopping cart.",
+    "modal": "Whether the PayPal Express Checkout shortcut button appears on the cart so shoppers can jump straight to PayPal. As the native note says, this also governs the mini-shopping-cart button. Can be set per website and store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesnoshortcut", "group:Advanced Settings", "scope:store", "nativeComment"] },
+
+  { "configPath": "payment/hosted_pro/title",
+    "comment": "The method name shown to customers for PayPal Payments Pro Hosted Solution at checkout.",
+    "modal": "The label buyers see for this payment method during checkout and on order documents. The native note suggests setting it to \"PayPal\" per store view; being store-scoped, it can differ by store view (e.g. for localisation).",
+    "confidence": "high", "basis": ["label", "type:text", "group:Basic Settings - PayPal Payments Pro Hosted Solution", "scope:store", "nativeComment"] },
+
+  { "configPath": "payment/banktransfer/instructions",
+    "comment": "Instructions shown to the customer for paying by bank transfer.",
+    "modal": "Free-text instructions for the Bank Transfer method (such as the bank account details to transfer to), displayed to the customer at checkout and on the order confirmation. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:Bank Transfer Payment", "scope:store"] },
+
+  { "configPath": "payment/banktransfer/title",
+    "comment": "The method name shown to customers for bank transfer at checkout.",
+    "modal": "The label customers see for the Bank Transfer payment method during checkout and on order documents. Store-scoped, so it can be worded differently per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Bank Transfer Payment", "scope:store"] },
+
+  { "configPath": "payment/cashondelivery/order_status",
+    "comment": "The order status assigned to new Cash On Delivery orders.",
+    "modal": "The status given to a newly placed Cash On Delivery order, chosen from the statuses mapped to the Processing/New order state. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:NewStatus", "group:Cash On Delivery Payment", "scope:website"] },
+
+  { "configPath": "payment/checkmo/mailing_address",
+    "comment": "The postal address customers should send checks or money orders to.",
+    "modal": "The mailing address shown to customers paying by Check / Money Order, telling them where to post payment; appears at checkout and on the order. Can be set per store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:Check / Money Order", "scope:store"] },
+
+  { "configPath": "payment/checkmo/specificcountry",
+    "comment": "Restricts Check / Money Order to customers in the chosen countries.",
+    "modal": "The set of countries allowed to use Check / Money Order, applied when the method is limited to specific countries rather than all. Choose one or more from the country list. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:multiselect", "sourceModel:Country", "group:Check / Money Order", "scope:website"] },
+
+  { "configPath": "payment/companycredit/specificcountry",
+    "comment": "Restricts Company Credit (Orangecat B2B) to customers in the chosen countries.",
+    "modal": "The countries allowed to use the Company Credit (Orangecat B2B) method when it is limited to specific countries rather than all. Pick one or more from the country list. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:multiselect", "sourceModel:Country", "group:Company Credit (Orangecat B2B)", "scope:website"] },
+
+  { "configPath": "payment/free/active",
+    "comment": "Enables the Zero Subtotal Checkout method for orders that total zero.",
+    "modal": "Turns on the Zero Subtotal Checkout payment method, used when an order's payable total is zero (for example, fully covered by a discount or store credit) so no real payment method is needed. Can be enabled per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Zero Subtotal Checkout", "scope:website"] },
+
+  { "configPath": "payment/free/title",
+    "comment": "The method name shown to customers for Zero Subtotal Checkout.",
+    "modal": "The label customers see for the Zero Subtotal Checkout method at checkout and on order documents. Store-scoped, so it can be worded per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Zero Subtotal Checkout", "scope:store"] },
+
+  { "configPath": "payment/purchaseorder/allowspecific",
+    "comment": "Whether Purchase Order is offered in all countries or only specific ones.",
+    "modal": "Controls country availability for the Purchase Order method: offer it to all countries, or restrict it to a specific list (chosen in the companion Payment from Specific Countries field). Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Allspecificcountries", "group:Purchase Order", "scope:website"] },
+
+  { "configPath": "payment/purchaseorder/title",
+    "comment": "The method name shown to customers for Purchase Order at checkout.",
+    "modal": "The label customers see for the Purchase Order payment method during checkout and on order documents. Store-scoped, so it can be worded per store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Purchase Order", "scope:store"] },
+
+  { "configPath": "productlists/general/enable_productlists",
+    "comment": "Turns the Product List feature on or off.",
+    "modal": "Beyond the native note: enables or disables the Product List feature. Being website/store scoped, it can be switched on for some store views and off for others.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Product List General Settings", "scope:store", "nativeComment"] },
+
+  { "configPath": "system/cron/consumers/schedule_generate_every",
+    "comment": "How often (in minutes) cron schedules are generated for the consumers group.",
+    "modal": "The interval, in minutes, at which Magento pre-generates schedule rows for the `consumers` cron group. A larger value means fewer, larger batches of scheduled jobs. Global setting.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:consumers"] },
+
+  { "configPath": "system/cron/default/schedule_ahead_for",
+    "comment": "How far ahead (in minutes) schedules are generated for the default cron group.",
+    "modal": "How far into the future, in minutes, Magento pre-creates schedule rows for the `default` cron group. It sets the window of pending jobs that the generator fills. Global setting.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:default"] },
+
+  { "configPath": "system/cron/index/history_success_lifetime",
+    "comment": "How long (in minutes) successful job records are kept for the index cron group.",
+    "modal": "The retention period, in minutes, for successfully completed job history in the `index` cron group; older success records are pruned by cleanup. Global setting.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:index"] },
+
+  { "configPath": "system/cron/translate_products/history_failure_lifetime",
+    "comment": "How long (in minutes) failed job records are kept for the translate_products cron group.",
+    "modal": "The retention period, in minutes, for failed job history in the `translate_products` cron group; older failure records are pruned by cleanup. Global setting.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:translate_products"] },
+
+  { "configPath": "system/cron/translate_select_attributes/history_cleanup_every",
+    "comment": "How often (in minutes) job history is cleaned up for the translate_select_attributes cron group.",
+    "modal": "The interval, in minutes, between cleanup runs that purge aged job-history rows for the `translate_select_attributes` cron group (using the success/failure lifetimes). Global setting.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:Cron configuration options for group:translate_select_attributes"] },
+
+  { "configPath": "system/cron/translate_select_attributes/use_separate_process",
+    "comment": "Whether the translate_select_attributes cron group runs in its own PHP process.",
+    "modal": "When Yes, jobs in the `translate_select_attributes` cron group run in a separate PHP process, isolating them from other groups so a long or stuck job does not block them. Global setting.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Cron configuration options for group:translate_select_attributes"] },
+
+  { "configPath": "system/full_page_cache/varnish/tracking_parameters",
+    "comment": "Query parameters stripped from incoming requests to raise the Varnish cache hit rate.",
+    "modal": "Beyond the native note: these tracking query parameters are removed from incoming URLs before caching, so requests that differ only by them (e.g. campaign tags) still match one cached page. Stored as a serialized list and applied only when Varnish is the selected caching application (its dependency). Global setting.",
+    "confidence": "high", "basis": ["label", "backendModel:ArraySerialized", "depends:caching_application=1", "group:Varnish Configuration", "nativeComment"] }
+]
