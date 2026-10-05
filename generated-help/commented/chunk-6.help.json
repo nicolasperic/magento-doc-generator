@@ -1,0 +1,221 @@
+[
+  { "elementId": "ai_integration_automatic_translation_general_source_language",
+    "comment": "The base language the AI translates from; set it wrong and every translation starts from the wrong source text.",
+    "modal": "Tells the translation engine which language your product data is already written in, so it translates *from* the correct base. Set it to the wrong language and otherwise-correct content gets mistranslated. Applies store-wide.",
+    "confidence": "high", "basis": ["label", "nativeComment", "group:General"] },
+
+  { "elementId": "ai_integration_automatic_translation_catalog_product_translation_cron",
+    "comment": "How often product translations are processed; too frequent adds API load, too rare delays new translations.",
+    "modal": "Schedule, in Unix crontab syntax, for the batch job that translates product data. Tighter intervals pick up changes sooner but add translation-API calls and server load; wider intervals save cost but delay new translations. The expression is validated before saving.",
+    "confidence": "high", "basis": ["label", "nativeComment", "backendModel:CatalogCron"] },
+
+  { "elementId": "ai_integration_automatic_translation_translations_engine_gemini_api_key",
+    "comment": "Credential for the Gemini engine; stored encrypted. Without a valid key, Gemini translation calls fail.",
+    "modal": "API key used to authenticate with Google Gemini, stored encrypted. Used only when the translation engine is set to Google Gemini. If it is missing or invalid, translation requests to Gemini fail.",
+    "confidence": "high", "basis": ["label", "nativeComment", "backendModel:Encrypted", "depends:engine=GoogleGemini"] },
+
+  { "elementId": "dev_js_defer_non_critical",
+    "comment": "Yes defers non-critical head scripts to speed first render, but order-dependent inline scripts can break.",
+    "modal": "When **Yes**, non-critical scripts in the head get a `defer` attribute so they no longer block page parsing, improving initial render. Those scripts then run later and in a different order, which can break inline code that expects them immediately. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno", "scope:store"] },
+
+  { "elementId": "system_upload_configuration_enable_resize",
+    "comment": "Yes resizes images in the browser before upload, cutting upload size and server load.",
+    "modal": "When **Yes**, images are resized via JavaScript in the browser before being uploaded, reducing upload size, transfer time and server-side processing. It relies on client-side JS, so the browser does the work before the file is sent.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno"] },
+
+  { "elementId": "admin_security_session_lifetime",
+    "comment": "How long an idle admin stays signed in; shorter is safer but logs admins out more often.",
+    "modal": "Idle time, in seconds, before an admin session expires and the user must log in again. Shorter values limit the risk of unattended sessions; longer values are more convenient but less secure. Must be between 60 and 31536000 (one year).",
+    "confidence": "high", "basis": ["label", "nativeComment", "backendModel:SessionLifetime"] },
+
+  { "elementId": "web_unsecure_base_media_url",
+    "comment": "Where the storefront loads media from; point it at a CDN or separate host to offload image traffic.",
+    "modal": "Base URL the storefront uses for user media files such as product images. Set it to a CDN or dedicated media host to offload asset traffic from the web server. May be empty or start with the {{unsecure_base_url}} placeholder. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "backendModel:Baseurl", "scope:store"] },
+
+  { "elementId": "web_secure_enable_upgrade_insecure",
+    "comment": "Adds a header so browsers auto-upgrade http asset requests to https, avoiding mixed-content warnings.",
+    "modal": "When **Yes**, sends the `upgrade-insecure-requests` CSP directive so browsers automatically fetch http assets over https, preventing mixed-content blocks. Relevant only when secure URLs are used on the storefront and admin. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno", "depends:use_in_frontend,use_in_adminhtml", "scope:store"] },
+
+  { "elementId": "cataloginventory_options_show_out_of_stock",
+    "comment": "Changing this reindexes the catalogue, so the storefront keeps the old behaviour until reindex finishes.",
+    "modal": "When **Yes**, out-of-stock products appear in category listings and search, not only via their direct URLs. Changing it invalidates the catalog and search indexes, so the storefront keeps showing the old behaviour until reindexing completes.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno", "backendModel:ShowOutOfStock"] },
+
+  { "elementId": "catalog_seo_category_url_suffix",
+    "comment": "Appended to every category URL; changing it rewrites all category URLs and can break old links.",
+    "modal": "Suffix (e.g. `.html`) added to category URLs. Changing it rewrites every category URL, so existing inbound links break unless redirects are in place, and you must refresh the cache afterwards. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "backendModel:Suffix", "scope:store"] },
+
+  { "elementId": "catalog_frontend_grid_per_page_values",
+    "comment": "The choices in the storefront per-page selector; the default per-page value must be one of these.",
+    "modal": "Comma-separated list of options offered in the 'products per page' selector on grid category pages. The configured default per-page value must appear in this list, otherwise the selector falls back unexpectedly. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "scope:store"] },
+
+  { "elementId": "catalog_price_scope",
+    "comment": "Global vs per-website pricing; switching to website lets each site set its own prices but needs a reindex.",
+    "modal": "Sets whether product prices are shared globally or managed per website (which also fixes the base-currency scope). Switching to Website lets each website keep its own prices but is disruptive to reverse and requires a price reindex.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Price\\Scope", "backendModel:PriceScope"] },
+
+  { "elementId": "checkout_payment_failed_copy_to",
+    "comment": "Extra recipients who get a copy of payment-failed emails; handy for monitoring failed checkouts.",
+    "modal": "Additional addresses copied on the payment-failed notification email, separated by commas. Useful for routing failed-payment alerts to staff or a monitoring inbox. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "scope:store"] },
+
+  { "elementId": "csp_mode_storefront_report_uri",
+    "comment": "Where browsers send CSP violation reports; use it in report-only mode before enforcing a stricter policy.",
+    "modal": "URI that browsers POST CSP violation reports to, for storefront pages without their own report URI. Point it at a collector and run report-only mode first to see what a stricter policy would block before you enforce it. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "scope:store"] },
+
+  { "elementId": "customer_password_remind_email_template",
+    "comment": "Which template the password-reminder email uses; pick a custom one to override the default.",
+    "modal": "Selects the email template for the password-reminder message. Choosing a custom template overrides the theme default, which is used when 'Default' is selected. Set per website/store for store-specific branding.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Email\\Template", "scope:store"] },
+
+  { "elementId": "customer_account_information_change_email_and_password_template",
+    "comment": "Template for the email confirming a customer changed their email and password; a security notification.",
+    "modal": "Selects the template for the notification sent when a customer changes their email and password — a security alert for the account owner. A custom template overrides the theme default. Set per website/store for branding.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Email\\Template", "scope:store"] },
+
+  { "elementId": "customer_startup_redirect_dashboard",
+    "comment": "Yes always sends customers to the dashboard after login; No keeps them on the current page.",
+    "modal": "When **Yes**, customers go to their account dashboard immediately after logging in. When **No**, they stay on the current page, which keeps cart and checkout flows uninterrupted. Can differ per website.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno", "scope:website"] },
+
+  { "elementId": "carriers_dhl_divide_order_weight",
+    "comment": "Only matters for orders over DHL's 70 kg limit; Yes gets rates by splitting them into multiple packages.",
+    "modal": "When **Yes**, DHL may split an order exceeding 70 kg into multiple packages to optimise shipping charges. Has no effect on orders under that weight. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno", "scope:store"] },
+
+  { "elementId": "carriers_fedex_account",
+    "comment": "Your FedEx account for rate requests; stored encrypted. Use digits only, no dashes, or lookups fail.",
+    "modal": "FedEx account ID used to authenticate rate requests, stored encrypted. Enter digits only with no dashes; a wrongly formatted value causes FedEx rate lookups to fail. Can differ per website.",
+    "confidence": "high", "basis": ["label", "nativeComment", "backendModel:Encrypted", "scope:website"] },
+
+  { "elementId": "oauth_access_token_lifetime_customer",
+    "comment": "How long a customer API token stays valid; shorter is safer, empty means tokens never expire.",
+    "modal": "Validity period, in hours, for customer REST/OAuth access tokens. Shorter lifetimes limit exposure if a token leaks but force customers to re-authenticate sooner; leaving it empty disables expiry so tokens never time out.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text"] },
+
+  { "elementId": "oauth_authentication_lock_timeout",
+    "comment": "How long an account stays locked after too many failed OAuth attempts; longer slows brute-force attacks.",
+    "modal": "Time, in seconds, an account stays locked once it hits the failed-authentication threshold before it unlocks automatically. Longer periods slow brute-force attempts but can inconvenience legitimate users who mistype.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text"] },
+
+  { "elementId": "carriers_instore_search_radius",
+    "comment": "How far from the customer the storefront searches for pickup stores; larger finds more but less local.",
+    "modal": "Radius, in kilometres, used to find in-store pickup locations during storefront checkout. A larger radius surfaces more stores but may list distant ones; a smaller radius keeps results local but may find none. Can differ per website.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "scope:website"] },
+
+  { "elementId": "catalog_layered_navigation_interval_division_limit",
+    "comment": "Only used with Improved price-range calculation; controls how price filters split into sub-ranges.",
+    "modal": "Number of products that will not be divided into sub-intervals in layered-navigation price filters. Applies only when the price range calculation is set to 'Improved'. Tune it to balance filter granularity against usability. Can differ per website/store.",
+    "confidence": "medium", "basis": ["label", "nativeComment", "type:text", "depends:price_range_calculation=improved", "scope:store"] },
+
+  { "elementId": "newrelicreporting_general_nerd_graph_api_url",
+    "comment": "Endpoint deployment markers are sent to; only used when New Relic is on and in NerdGraph mode.",
+    "modal": "NerdGraph API endpoint that deployment events are reported to (recommended). Used only when New Relic reporting is enabled and the API mode is NerdGraph. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "depends:enable,api_mode=nerdgraph", "scope:store"] },
+
+  { "elementId": "newrelicreporting_general_app_name",
+    "comment": "Must match your New Relic app name so Magento data lands in the right APM app; used only when enabled.",
+    "modal": "Application name Magento reports under; it must match the app configured in New Relic so data lands in the correct APM application. Applies only when New Relic reporting is enabled. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "depends:enable", "scope:store"] },
+
+  { "elementId": "cms_pagebuilder_enabled",
+    "comment": "Turning Page Builder off reverts content editing to the legacy editor, where existing PB content may not render.",
+    "modal": "When **Yes**, Page Builder's layout tools are available for CMS content and as a product-attribute input type. Turning it off reverts editing to the legacy WYSIWYG, where content already built in Page Builder may not display correctly.",
+    "confidence": "medium", "basis": ["label", "nativeComment", "sourceModel:Yesno"] },
+
+  { "elementId": "system_full_page_cache_varnish_access_list",
+    "comment": "IPs allowed to purge Varnish; only relevant when Varnish is the cache, defaults to localhost if empty.",
+    "modal": "Comma-separated IPs written into the generated Varnish VCL that are permitted to issue purge requests. Relevant only when the caching application is Varnish. If left empty, localhost is saved as the default.",
+    "confidence": "high", "basis": ["label", "nativeComment", "backendModel:AccessList", "depends:caching_application=1"] },
+
+  { "elementId": "cataloginventory_options_enable_inventory_check",
+    "comment": "Yes re-checks stock on every cart load (accurate, more queries); No is faster but skips that validation.",
+    "modal": "When **Yes**, cart item stock is re-validated each time the cart loads, keeping availability accurate at the cost of extra queries. When **No**, that pre-validation is skipped for a faster cart, but out-of-stock items may linger until checkout.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno"] },
+
+  { "elementId": "recaptcha_frontend_type_recaptcha_v3_score_threshold",
+    "comment": "Requests scoring below this are treated as bots; raise it to be stricter, lower it to be more lenient.",
+    "modal": "Minimum reCAPTCHA v3 score (0.0–1.0) an interaction must reach to be allowed; 1.0 is very likely human, 0.0 very likely a bot. Raise the threshold to block more aggressively at the risk of false positives; lower it to be more permissive.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text"] },
+
+  { "elementId": "reports_options_product_to_cart_enabled",
+    "comment": "Yes logs add-to-cart events for the report, adding some overhead; active only when reporting is enabled.",
+    "modal": "When **Yes**, add-to-cart events are recorded to populate the 'Product Added To Cart' report, which adds some write overhead. Takes effect only when the parent reporting option is enabled.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Yesno", "depends:enabled=1"] },
+
+  { "elementId": "rma_email_customer_new_template",
+    "comment": "Template for the email a customer gets when a new RMA is created; pick a custom one to brand it.",
+    "modal": "Selects the email template sent to the customer when a new RMA is created. Choose a custom template to tailor wording and branding. Set per website/store for store-specific messaging.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Email\\Template", "scope:store"] },
+
+  { "elementId": "promo_auto_generated_coupon_codes_dash",
+    "comment": "Inserts dashes to group generated coupon codes for readability; purely cosmetic, leave empty for none.",
+    "modal": "Inserts a dash after every X characters in auto-generated coupon codes to make them easier to read (e.g. ABCD-EFGH). Cosmetic only — it doesn't affect code uniqueness. Leave empty for no separators.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text"] },
+
+  { "elementId": "sales_minimum_order_multi_address_description",
+    "comment": "Overrides the default minimum-order message on multi-address checkout; leave empty to use the default.",
+    "modal": "Custom message shown for the minimum order amount during multi-address checkout. Leave it empty to fall back to the default description configured above. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:textarea", "scope:store"] },
+
+  { "elementId": "sales_email_order_comment_guest_template",
+    "comment": "Template for the email sent when a comment is added to a guest's order; only when these emails are on.",
+    "modal": "Selects the email template used when a comment is added to a guest order. Applies only when order-comment emails are enabled; a custom template overrides the theme default. Set per website/store for branding.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Email\\Template", "depends:enabled=1", "scope:store"] },
+
+  { "elementId": "sales_email_shipment_template",
+    "comment": "Template for shipment notification emails; only sent when shipment emails are enabled.",
+    "modal": "Selects the template for shipment notification emails sent to customers. Applies only when shipment emails are enabled; a custom template overrides the theme default. Set per website/store for branding.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Email\\Template", "depends:enabled=1", "scope:store"] },
+
+  { "elementId": "sales_email_creditmemo_copy_to",
+    "comment": "Extra recipients copied on credit-memo emails; active only when credit-memo emails are enabled.",
+    "modal": "Additional comma-separated addresses copied on credit-memo emails, useful for finance or audit trails. Takes effect only when credit-memo emails are enabled. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "depends:enabled=1", "scope:store"] },
+
+  { "elementId": "admin_security_min_time_between_password_reset_requests",
+    "comment": "Throttles repeated admin password-reset requests to curb abuse; 0 disables the delay.",
+    "modal": "Minimum delay, in minutes, between successive password-reset requests, limiting abuse and email flooding. Use 0 to disable. Applies only under the matching password-reset protection type.",
+    "confidence": "medium", "basis": ["label", "nativeComment", "type:text", "depends:password_reset_protection_type=0"] },
+
+  { "elementId": "magento_securitytxt_securitytxt_other_information_preferred_languages",
+    "comment": "Fills the Preferred-Languages field of your published security.txt, signalling which languages your team reads.",
+    "modal": "Populates the Preferred-Languages field of the published security.txt file, telling security researchers which languages your team can handle reports in. Enter comma-separated language codes (e.g. en, es, de). Can differ per website.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "scope:website"] },
+
+  { "elementId": "sitemap_generate_generation_method",
+    "comment": "Choose Batch for large catalogs to avoid running out of memory during sitemap generation.",
+    "modal": "Selects how the XML sitemap is built: the standard method holds all data in memory, while the batch method uses memory-optimised processing. Choose batch for large catalogs to avoid memory exhaustion. Applies only when the sitemap is enabled. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:GenerationMethod", "depends:enabled=1", "scope:store"] },
+
+  { "elementId": "system_speculation_rules_mode",
+    "comment": "Picks how aggressively browsers preload next pages; prerender is fastest but can skew analytics.",
+    "modal": "Chooses the speculative-loading strategy browsers use to fetch likely next pages. Prerender is fastest but runs page JS before the page is opened, which can distort analytics unless accounted for. Applies only when speculative loading is enabled. Can differ per website/store.",
+    "confidence": "medium", "basis": ["label", "nativeComment", "depends:enable=1", "scope:store"] },
+
+  { "elementId": "system_bfcache_scope_exclude_url_patterns",
+    "comment": "Pages matching these substrings skip the back/forward cache; exclude cart, checkout and account pages.",
+    "modal": "URL substrings (one per line) that exclude matching pages from the browser back/forward cache. Use it for dynamic or personalised pages — cart, checkout, account — that must not be restored from a cached snapshot. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:textarea", "scope:store"] },
+
+  { "elementId": "twofactorauth_general_auth_lock_expire",
+    "comment": "How long a user is locked out after hitting the failed-2FA threshold; longer deters brute-force attempts.",
+    "modal": "Time, in seconds, a user stays locked out once they reach the failed two-factor-attempt threshold. Longer periods deter brute-forcing codes; shorter ones reduce lockout frustration. Must be between 120 and 1800 (30 minutes).",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text"] },
+
+  { "elementId": "admin_emails_user_notification_template",
+    "comment": "Template for admin-user notification emails; pick a custom one to override the theme default.",
+    "modal": "Selects the email template for admin user notification messages. A custom template overrides the theme default, which is used when 'Default' is selected.",
+    "confidence": "high", "basis": ["label", "nativeComment", "sourceModel:Email\\Template"] },
+
+  { "elementId": "webapi_validation_maximum_page_size",
+    "comment": "Caps items per page on API searches to block oversized, expensive requests; only when input limits are on.",
+    "modal": "Maximum number of items allowed in a paginated API search result, preventing oversized and resource-heavy requests. Enforced only when API input limits are enabled. Can differ per website/store.",
+    "confidence": "high", "basis": ["label", "nativeComment", "type:text", "depends:input_limit_enabled=1", "scope:store"] }
+]

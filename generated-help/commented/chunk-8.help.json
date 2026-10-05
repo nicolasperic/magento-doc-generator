@@ -1,0 +1,216 @@
+[
+ { "elementId": "ai_integration_automatic_translation_catalog_text_attribute_to_translate",
+   "comment": "More selected attributes means more content sent to the translation engine — higher cost and processing time.",
+   "modal": "Each attribute you pick here is sent to the translation engine, so adding more raises translation volume, cost and processing time. Only text attributes are eligible. Set per website or store view, so different locales can translate different fields.",
+   "confidence": "high", "basis": ["label", "type:multiselect", "sourceModel:TextAttributes", "scope:store", "nativeComment"] },
+
+ { "elementId": "ai_integration_automatic_translation_translations_engine_engine",
+   "comment": "Chooses the external translation service; each engine has its own quality, cost and API credentials.",
+   "modal": "Sets which external service performs all automatic translation (DeepL, OpenAI, etc.). Switching it changes translation quality and cost, and requires that engine's own API credentials to be configured. Store-wide setting.",
+   "confidence": "high", "basis": ["label", "sourceModel:TranslationEngineList", "nativeComment"] },
+
+ { "elementId": "dev_debug_template_hints_storefront_show_with_parameter",
+   "comment": "Yes lets developers toggle storefront template hints via a URL parameter instead of for all visitors.",
+   "modal": "With **Yes**, developers can switch storefront template path hints on per request by adding the URL parameter, instead of showing them to every visitor. Applies only when storefront template hints are enabled, and can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:template_hints_storefront=1", "scope:store", "nativeComment"] },
+
+ { "elementId": "dev_image_default_adapter",
+   "comment": "Picks the imaging library for catalog images; flush Catalog Images cache or old renders persist.",
+   "modal": "Selects the PHP imaging library used to resize and process catalog images, which affects image quality and generation speed. Already-processed images stay cached, so the storefront keeps serving the old renders until you flush the Catalog Images cache.",
+   "confidence": "high", "basis": ["label", "sourceModel:Image\\Adapter", "nativeComment"] },
+
+ { "elementId": "system_upload_configuration_max_height",
+   "comment": "Caps uploaded image height, scaling taller images down; active only when upload resize is on.",
+   "modal": "Uploaded images taller than this are scaled down on upload, which lowers stored file size and keeps media dimensions consistent. Takes effect only when resize-on-upload is enabled.",
+   "confidence": "high", "basis": ["label", "type:text", "depends:enable_resize=1", "nativeComment"] },
+
+ { "elementId": "admin_grid_records_limit",
+   "comment": "Caps products loaded in the admin grid to keep large catalogs responsive (minimum 20000).",
+   "modal": "Caps how many products the admin product grid loads so very large catalogs stay responsive; the minimum is 20000. Applies only when limiting the total number of products in the grid is enabled.",
+   "confidence": "high", "basis": ["label", "type:text", "depends:limit_total_number_of_products=1", "nativeComment"] },
+
+ { "elementId": "web_secure_base_link_url",
+   "comment": "HTTPS base for building storefront links; use the placeholder to track the base URL automatically.",
+   "modal": "The HTTPS base used to build links on the storefront. Using the `{{secure_base_url}}`/`{{unsecure_base_url}}` placeholder keeps it in step with the base URL instead of hardcoding it. Can differ per website or store view; a wrong value breaks generated secure links.",
+   "confidence": "high", "basis": ["label", "backendModel:Baseurl", "scope:store", "nativeComment"] },
+
+ { "elementId": "admin_captcha_length",
+   "comment": "Number of CAPTCHA characters (max 8, range allowed); higher is harder for bots and humans.",
+   "modal": "How many characters the CAPTCHA challenge shows (8 max; a range like 3-5 randomises the count). More characters make it harder for bots but also for people. Applies only when CAPTCHA is enabled.",
+   "confidence": "high", "basis": ["label", "type:text", "depends:enable=1", "nativeComment"] },
+
+ { "elementId": "cataloginventory_item_options_backorders",
+   "comment": "Sets if and how out-of-stock items can be ordered; saving reprocesses the whole catalog.",
+   "modal": "Controls whether out-of-stock items can still be ordered and how backorders are handled, which changes stock status and salability across the whole storefront. Saving reprocesses the entire catalog, so expect the save to take time.",
+   "confidence": "high", "basis": ["label", "sourceModel:Backorders", "nativeComment"] },
+
+ { "elementId": "catalog_seo_generate_category_product_rewrites",
+   "comment": "Yes builds category-path product URLs; No permanently deletes them with no restore.",
+   "modal": "**Yes** generates URL rewrites that include the category path for products, shaping storefront URLs and their SEO. Turning it **No** permanently deletes those existing rewrites with no way to restore them, which can break indexed links.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "backendModel:TableCleaner", "nativeComment"] },
+
+ { "elementId": "catalog_frontend_list_per_page_values",
+   "comment": "Comma-separated page-size options shown in the category list per-page selector.",
+   "modal": "The comma-separated list of page-size options shoppers can pick from on category list pages; each value becomes one choice in the per-page selector. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "type:text", "scope:store", "nativeComment"] },
+
+ { "elementId": "cms_wysiwyg_use_static_urls_in_catalog",
+   "comment": "Yes hardcodes media URLs (break if base URL changes); No keeps dynamic references.",
+   "modal": "**Yes** inserts media as absolute static URLs; because they are hardcoded they break if you later change the base URL. **No** stores dynamic references that follow the base URL. Applies only when the WYSIWYG editor is disabled.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled=disabled", "nativeComment"] },
+
+ { "elementId": "contact_email_email_template",
+   "comment": "Template for Contact Us form emails; Default follows theme fallback, custom overrides it.",
+   "modal": "The email template used for messages sent from the Contact Us form. **Default** follows theme fallback; pick a custom template to override it. Applies only when Contact Us is enabled, and can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:*/contact/enabled=1", "scope:store", "nativeComment"] },
+
+ { "elementId": "customer_create_account_vat_frontend_visibility",
+   "comment": "Yes shows a VAT number field on storefront account/address forms; needed for VAT validation.",
+   "modal": "**Yes** adds a VAT number field to the storefront account and address forms so customers can supply it, which is needed for VAT validation and B2B pricing. Can be set per website, so only some sites show it.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:website", "nativeComment"] },
+
+ { "elementId": "customer_password_reset_link_expiration_period",
+   "comment": "Hours a password-recovery link stays valid; shorter is safer, longer is more forgiving.",
+   "modal": "How many hours a password-recovery link stays valid (enter 1 or more). A shorter window is more secure but the link may expire before the customer uses it; a longer window is more forgiving but widens exposure if the email is intercepted.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:Expirationperiod", "nativeComment"] },
+
+ { "elementId": "customer_address_street_lines",
+   "comment": "Number of street input lines on address forms (1-4); more suits longer addresses.",
+   "modal": "How many street address input lines appear on customer address forms (valid range 1-4). More lines suit longer or structured addresses. Can be set per website.",
+   "confidence": "high", "basis": ["label", "backendModel:Address\\Street", "scope:website", "nativeComment"] },
+
+ { "elementId": "customer_online_customers_online_minutes_interval",
+   "comment": "Minutes a visitor counts as online in the report; empty uses the 15-minute default.",
+   "modal": "The number of minutes a visitor keeps counting as active in the Now Online report after their last request; leave empty for the 15-minute default. A larger value reports more concurrent visitors.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment"] },
+
+ { "elementId": "currency_options_base",
+   "comment": "Currency prices are stored and payments charged in; changing it needs prices and rates rechecked.",
+   "modal": "The currency all product prices are stored in and every online payment is charged in; its scope follows Catalog Price Scope. Changing it does not reconvert stored prices, so review currency rates and prices afterwards. Can be set per website.",
+   "confidence": "high", "basis": ["label", "sourceModel:Locale\\Currency", "backendModel:Currency\\Base", "scope:website", "nativeComment"] },
+
+ { "elementId": "google_gtag_analytics4_measurement_id",
+   "comment": "GA4 Measurement ID tying tracking tags to your Analytics property; must match or no data lands.",
+   "modal": "The GA4 Measurement ID (G-XXXXXXXX) linking storefront tracking tags to your Google Analytics property; it must match that property or no data is recorded. Applies only when the integration is active, and can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "type:text", "depends:active=1", "scope:store", "nativeComment"] },
+
+ { "elementId": "oauth_cleanup_cleanup_probability",
+   "comment": "Runs token cleanup on about 1 in X OAuth requests; lower cleans more often, 0 disables it.",
+   "modal": "A probabilistic trigger: roughly one in every X OAuth requests also runs token cleanup. A lower number cleans up more often with slightly more overhead per request; 0 disables cleanup and lets expired tokens accumulate (not recommended).",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment"] },
+
+ { "elementId": "cataloginventory_bulk_operations_async",
+   "comment": "Yes runs bulk inventory actions via the message queue; requires a running queue consumer.",
+   "modal": "**Yes** routes admin bulk inventory actions through the message queue so large updates run in the background instead of blocking the admin screen. It needs a running queue consumer; without one the queued jobs never process.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+ { "elementId": "webapi_jwtauth_jwt_alg",
+   "comment": "Algorithm for auth JWTs; signing gives a readable JWS, encryption a confidential JWE.",
+   "modal": "The algorithm used to sign or encrypt authentication JWTs. A signing algorithm produces a JWS (tamper-evident but readable); an encryption algorithm produces a JWE (also confidential). It must match what your API clients expect or tokens are rejected.",
+   "confidence": "high", "basis": ["label", "sourceModel:JwtAlgorithmSource", "nativeComment"] },
+
+ { "elementId": "login_as_customer_general_disable_page_cache",
+   "comment": "Yes disables page cache during Login-as-Customer so personalized pages aren't served to others.",
+   "modal": "**Yes** turns off full-page cache while an admin is logged in as a customer, so the impersonated session's personalized pages are not cached and later served to real shoppers. It trades some performance during the session for that safety.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+ { "elementId": "newrelicreporting_general_api_url",
+   "comment": "Legacy v2 REST endpoint for New Relic deployment markers; needs reporting on and v2 REST mode.",
+   "modal": "The endpoint Magento posts New Relic deployment markers to, using the legacy v2 REST API. Applies only when New Relic reporting is enabled and the API mode is set to v2 REST. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "type:text", "depends:enable=1", "depends:api_mode=v2_rest", "scope:store", "nativeComment"] },
+
+ { "elementId": "newsletter_subscription_confirm_email_template",
+   "comment": "Template for the newsletter double opt-in confirmation email; Default follows theme fallback.",
+   "modal": "The template for the confirmation (double opt-in) email sent when a visitor subscribes to the newsletter. **Default** follows theme fallback; a custom template overrides it. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "scope:store", "nativeComment"] },
+
+ { "elementId": "cms_pagebuilder_google_maps_api_key",
+   "comment": "Google Maps API key enabling Page Builder's Map content type; maps won't render without it.",
+   "modal": "The Google Maps API key that authorizes Page Builder's Map content type to render maps; without a valid key, maps do not display. Usage is billed by Google, so restrict the key to your own domains.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment"] },
+
+ { "elementId": "system_full_page_cache_varnish_backend_port",
+   "comment": "Backend port in the generated Varnish config; must match your web server port (empty saves 8080).",
+   "modal": "The port written into the generated Varnish config pointing back at Magento; it must match the port your web server listens on or Varnish cannot reach the backend. Empty saves the default 8080. Applies only when Varnish is the caching application.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:Varnish", "depends:caching_application=1", "nativeComment"] },
+
+ { "elementId": "recaptcha_backend_type_recaptcha_lang",
+   "comment": "Pins the reCAPTCHA widget language; empty auto-detects from the visitor's browser.",
+   "modal": "Forces the reCAPTCHA widget to render in a specific language regardless of the visitor's locale; leave empty and it auto-detects from the browser. Optional.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment"] },
+
+ { "elementId": "reports_options_wishlist_share_enabled",
+   "comment": "Yes collects data for the shared-wishlist report; only useful if you review that report.",
+   "modal": "**Yes** records statistics for the shared-wishlist report, adding a little logging overhead; it only pays off if you actually review that report. Applies only when the parent reporting option is enabled.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled=1", "nativeComment"] },
+
+ { "elementId": "rma_email_admin_new_template",
+   "comment": "Template for the admin new-RMA notification email; custom overrides the theme default.",
+   "modal": "Selects which template formats the notification emailed to the admin when a new RMA is created. **Default** follows theme fallback; a custom template overrides it. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "scope:store", "nativeComment"] },
+
+ { "elementId": "sales_general_hide_customer_ip",
+   "comment": "Yes hides the customer IP on orders, invoices, shipments and credit memos (privacy/GDPR).",
+   "modal": "**Yes** stops the stored customer IP address from appearing on orders, invoices, shipments and credit memos, which helps with privacy and GDPR obligations. It affects what is shown, not whether the IP was recorded. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:store", "nativeComment"] },
+
+ { "elementId": "sales_dashboard_use_aggregated_data",
+   "comment": "Yes reads the dashboard from aggregated tables (fast, not realtime); No uses live data (slower).",
+   "modal": "**Yes** draws the admin dashboard from pre-aggregated report tables, which is fast but only as current as the last report aggregation (cron). **No** queries live sales data: accurate but slower on busy stores.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+ { "elementId": "sales_email_invoice_template",
+   "comment": "Template for the customer invoice email; Default follows theme fallback. Needs invoice emails on.",
+   "modal": "The template for the invoice email sent to customers. **Default** follows theme fallback; a custom template overrides it. Applies only when invoice emails are enabled, and can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled=1", "scope:store", "nativeComment"] },
+
+ { "elementId": "sales_email_shipment_copy_to",
+   "comment": "Comma-separated addresses that get a copy of every shipment email; needs shipment emails on.",
+   "modal": "A comma-separated list of addresses that each receive a copy of every shipment email, useful for warehouse or monitoring inboxes. Applies only when shipment emails are enabled, and can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "type:text", "depends:enabled=1", "scope:store", "nativeComment"] },
+
+ { "elementId": "sales_email_creditmemo_comment_guest_template",
+   "comment": "Template for guest credit-memo comment emails; Default follows theme fallback. Needs the emails on.",
+   "modal": "The template for the credit-memo comment email sent to guest (non-account) customers. **Default** follows theme fallback; a custom template overrides it. Applies only when these emails are enabled, and can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled=1", "scope:store", "nativeComment"] },
+
+ { "elementId": "system_security_max_session_size_storefront",
+   "comment": "Caps storefront session size in bytes to curb memory abuse; 0 disables the limit.",
+   "modal": "Caps how large a storefront session may grow, in bytes; sessions that exceed it are rejected to curb runaway growth and memory abuse. Use 0 to remove the limit entirely.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:SessionSize", "nativeComment"] },
+
+ { "elementId": "sendfriend_email_enabled",
+   "comment": "Yes enables Email to a Friend; pair with CAPTCHA since it sends mail on a visitor's behalf.",
+   "modal": "**Yes** exposes the Email to a Friend product-sharing feature on the storefront. Because it sends mail on a visitor's behalf it is a spam vector, so enable a CAPTCHA alongside it. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:store", "nativeComment"] },
+
+ { "elementId": "sitemap_limit_max_file_size",
+   "comment": "Max bytes per sitemap file; larger sitemaps split into several files under an index.",
+   "modal": "When a generated XML sitemap would exceed this size (in bytes), it is split into multiple files tied together by a sitemap index, keeping each file within search-engine limits. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "type:text", "scope:store", "nativeComment"] },
+
+ { "elementId": "system_speculation_rules_exclude_paths",
+   "comment": "URL patterns (one per line) kept out of speculative prefetch/prerender, e.g. logout or cart actions.",
+   "modal": "URLs matching these patterns (one per line) are excluded from speculative prefetch and prerender. Use it for logout, add-to-cart or anything with side effects you don't want triggered before the shopper clicks. Applies only when speculative loading is enabled.",
+   "confidence": "high", "basis": ["label", "type:textarea", "depends:enable=1", "scope:store", "nativeComment"] },
+
+ { "elementId": "system_view_transitions_enable_for_bfcache",
+   "comment": "Yes animates back/forward navigation but may forgo the faster Back/Forward Cache restore.",
+   "modal": "**Yes** animates back/forward navigation with view transitions, but doing so can bypass the browser's Back/Forward Cache that would otherwise restore the page instantly. **No** keeps that faster cached restore without the animation. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:store", "nativeComment"] },
+
+ { "elementId": "twofactorauth_u2fkey_webapi_challenge_domain",
+   "comment": "WebAuthn domain for U2F key challenges via Web API; must match registration or auth fails.",
+   "modal": "The WebAuthn relying-party domain used when issuing and verifying U2F security-key challenges over the Web API. It must match the domain where keys were registered or authentication fails; leave blank to use the store domain.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment"] },
+
+ { "elementId": "admin_security_lockout_failures",
+   "comment": "Failed admin logins before lockout; lower is safer but risks locking out admins, empty disables it.",
+   "modal": "How many consecutive failed admin logins trigger an account lockout. A lower number hardens against brute-force attempts but risks locking out legitimate admins; leaving it empty disables lockout entirely.",
+   "confidence": "high", "basis": ["label", "nativeComment"] },
+
+ { "elementId": "wishlist_email_email_template",
+   "comment": "Template for the shared wish-list email; Default follows theme fallback.",
+   "modal": "The template for the email sent when a customer shares their wish list. **Default** follows theme fallback; a custom template overrides it. Can differ per website or store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "scope:store", "nativeComment"] }
+]

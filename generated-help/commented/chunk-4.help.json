@@ -1,0 +1,221 @@
+[
+  { "elementId": "catalog_search_search_suggestion_enabled",
+    "comment": "Yes offers as-you-type search suggestions; each adds index queries, so weigh the speed hit on busy stores.",
+    "modal": "When **Yes**, the storefront search box offers suggested terms as shoppers type. The native warning reflects the cost: every keystroke can hit the search index, so on high-traffic stores or large catalogues this adds real load. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "ai_integration_automatic_translation_catalog_translate_disabled",
+    "comment": "Yes lets the scheduled auto-translation also process disabled products, spending translation credits on items not on the storefront.",
+    "modal": "When **Yes**, the periodic automatic-translation run (not the manual button, per the note) also translates products that are disabled. Effect: translation-API calls and credits are spent on items that aren't visible on the storefront. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "ai_integration_automatic_translation_translations_engine_openai_project_id",
+    "comment": "Scopes OpenAI usage and billing to one project; stored encrypted. Only used when the OpenAI translation engine is selected.",
+    "modal": "The OpenAI project this store's translation calls are billed and tracked against; stored encrypted. Applies only when the translation engine is set to **OpenAI**. Left blank, OpenAI uses your default project (per the note), so set it to isolate spend or usage limits per project.",
+    "confidence": "high", "basis": ["label", "backendModel:Encrypted", "depends:engine=OpenAI", "nativeComment"] },
+
+  { "elementId": "dev_translate_inline_active_admin",
+    "comment": "Yes turns on in-place translation of Admin text; a dev aid only, and heed the note about disabling caches.",
+    "modal": "When **Yes**, Admin interface strings can be translated inline in the browser — a development aid, not for production. The native note matters: with block/translate output caches on, your edits won't appear until caches are cleared. Default scope only.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "backendModel:Translate", "nativeComment"] },
+
+  { "elementId": "system_smtp_username",
+    "comment": "The account name used to authenticate to your SMTP server for outgoing mail; blank means no SMTP login.",
+    "modal": "The username Magento uses to log in to the SMTP server when sending mail. Applies only when the mail transport is **SMTP**. Leave blank only if the server accepts unauthenticated relay. Set per website or store view so each can send through a different mail account.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:transport=smtp", "scope:website,store"] },
+
+  { "elementId": "admin_security_password_reset_link_expiration_period",
+    "comment": "Hours an admin password-recovery link stays valid; shorter limits the window a leaked link can be used.",
+    "modal": "How many hours an admin password-reset link remains usable before it expires (enter 1 or more, per the note). Shorter periods reduce the window in which an intercepted or forwarded recovery link could reset an admin password. Default scope.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "group:Security"] },
+
+  { "elementId": "web_unsecure_base_link_url",
+    "comment": "Base HTTP URL used to build storefront links; the {{unsecure_base_url}} placeholder keeps it tied to your main base URL.",
+    "modal": "The base address Magento uses to build non-secure (HTTP) links to store pages. The `{{unsecure_base_url}}` placeholder (per the note) keeps it derived from the main base URL so you set the domain once. Changing it affects all generated links. Set per website or store view for multi-domain setups.",
+    "confidence": "high", "basis": ["label", "backendModel:Baseurl", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "web_secure_use_in_adminhtml",
+    "comment": "Yes forces the Admin over HTTPS; needs a valid cert on the secure base URL or you risk locking yourself out.",
+    "modal": "When **Yes**, the Admin panel is served over HTTPS so login and session cookies are encrypted. Gotcha: this requires a working SSL certificate on the secure base URL (enter the https protocol, per the note) — if it's missing you can lock yourself out of the Admin. Default scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "backendModel:Secure", "nativeComment"] },
+
+  { "elementId": "customer_captcha_length",
+    "comment": "How many characters the CAPTCHA shows (max 8, ranges like 3-5 allowed); more deters bots but is harder for people.",
+    "modal": "Number of characters in the CAPTCHA challenge — up to 8, or a range like 3-5 (per the note). More characters make automated solving harder but also raise the chance a genuine customer mistypes. Applies only when CAPTCHA is enabled. Set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:enable=1", "nativeComment", "scope:website"] },
+
+  { "elementId": "catalog_search_max_count_cacheable_search_terms",
+    "comment": "How many popular search terms to cache; 0 caches all after a term's second search. Higher speeds more searches but uses more cache.",
+    "modal": "Caps how many popular search terms are cached for faster results; `0` caches every term after its second search (per the note). A higher cap serves more searches from cache at the cost of more cache storage. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "catalog_fields_masks_meta_keyword",
+    "comment": "Template that auto-builds a product's Meta Keywords from placeholders like {{name}} and {{sku}}.",
+    "modal": "The pattern used to auto-generate a product's Meta Keywords, built from placeholders such as `{{name}}` and `{{sku}}` (per the note). It fills the SEO meta-keywords field for products that don't have one set, saving manual entry across a catalogue. Default scope.",
+    "confidence": "medium", "basis": ["label", "type:text", "nativeComment", "group:Product Fields Auto-Generation"] },
+
+  { "elementId": "catalog_frontend_list_allow_all",
+    "comment": "Yes adds an 'All' choice to the per-page dropdown; on big categories loading every product at once can be slow.",
+    "modal": "When **Yes**, the storefront's 'Show X Per Page' dropdown includes an **All** option (per the note). Gotcha: on large categories, letting shoppers render every product on one page is slow and easy to abuse for scraping. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "checkout_cart_cart_merge_preference",
+    "comment": "Decides how item quantities combine when a returning customer's guest cart and saved cart overlap.",
+    "modal": "When a logged-in customer has the same item in both their guest cart and their saved cart, this chooses how the quantities are combined. The options set the merge rule — such as which quantity wins or whether they add together. Default scope.",
+    "confidence": "medium", "basis": ["label", "sourceModel:CartMergePreference", "nativeComment"] },
+
+  { "elementId": "web_cookie_cookie_httponly",
+    "comment": "Yes sets the HttpOnly flag so scripts can't read cookies; No exposes session cookies to XSS — don't.",
+    "modal": "When **Yes**, cookies carry the HttpOnly flag, so client-side JavaScript cannot read them — this blocks session theft via cross-site scripting. The native warning is serious: **No** leaves session cookies readable by scripts. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "customer_create_account_email_confirmed_template",
+    "comment": "Which email template greets a customer after they confirm their new account, in place of the default welcome mail.",
+    "modal": "Selects the email template sent once a customer confirms their newly created account, replacing the default welcome email (per the note). Choose a custom template to brand that message, or leave **Default** to follow theme fallback. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "customer_password_lockout_threshold",
+    "comment": "Minutes a customer account stays locked after too many failed logins before it auto-unlocks.",
+    "modal": "How long (in minutes) a customer account remains locked after exceeding the failed-login limit, after which it unlocks automatically (per the note). Longer periods slow brute-force attempts but also keep genuine locked-out customers waiting. Default scope.",
+    "confidence": "high", "basis": ["label", "nativeComment", "group:Password Options"] },
+
+  { "elementId": "customer_address_suffix_show",
+    "comment": "Whether the name Suffix field (Jr., Sr., etc.) is hidden, optional, or required on storefront forms.",
+    "modal": "Controls whether the name **Suffix** field (Jr., Sr., and the like, per the note) appears on storefront name and address forms, and if shown whether it is optional or required. Set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Nooptreq", "nativeComment", "scope:website"] },
+
+  { "elementId": "carriers_dhl_content_type",
+    "comment": "Picks Documents vs Non-Documents service for international DHL shipments, which determines the rates quoted.",
+    "modal": "Selects which DHL service — Documents or Non-Documents (per the note) — is used for non-domestic shipments, with EU shipments counted as domestic. The choice drives which rate set DHL returns, so the wrong type can produce wrong or missing rates. Set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Contenttype", "nativeComment", "scope:website"] },
+
+  { "elementId": "dev_caching_cache_user_defined_attributes",
+    "comment": "Yes also caches custom EAV attributes, not just system ones; speeds loads but needs a cache flush after attribute changes.",
+    "modal": "By default only system EAV attributes are cached (per the note); setting **Yes** also caches user-defined attributes, speeding attribute loading. Trade-off: after creating or editing custom attributes you may need to flush the cache for changes to show. Default scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+  { "elementId": "webapi_graphql_validation_query_length_limit",
+    "comment": "Max characters allowed in a GraphQL request; longer queries are rejected. Applies only when the length limit is on.",
+    "modal": "The maximum number of characters a GraphQL query string may contain; larger requests are rejected. It guards against oversized or abusive queries. Applies only when the GraphQL query-length limit is enabled. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:query_length_limit_enabled=1", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "oauth_consumer_post_timeout",
+    "comment": "Seconds Magento waits for the remote endpoint when posting OAuth consumer credentials; too low fails on slow endpoints.",
+    "modal": "How many seconds Magento waits for a response when posting OAuth consumer credentials to an integration's endpoint during setup. Set too low, the handshake fails against slow endpoints; too high, a stuck request ties things up longer. Default scope.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "group:Consumer Settings"] },
+
+  { "elementId": "sales_email_order_ready_for_pickup_guest_template",
+    "comment": "Email template telling guest shoppers their in-store pickup order is ready; choose a custom one or keep Default.",
+    "modal": "The email template used to notify guest (non-registered) customers that their in-store pickup order is ready for collection. Choose a custom template to brand it, or leave **Default**, which follows theme fallback (per the note). Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "catalog_layered_navigation_price_range_max_intervals",
+    "comment": "Caps how many price brackets layered navigation builds in manual mode (max 100); more means finer filters but a longer list.",
+    "modal": "The upper limit on the number of price intervals layered navigation generates, up to 100 (per the note). More intervals give finer price filters but a longer sidebar list. Applies only when price-range calculation is set to **manual**. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:price_range_calculation=manual", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "sales_msrp_enabled",
+    "comment": "Yes turns on Minimum Advertised Price store-wide — and, per the warning, hides all storefront prices until a MAP action.",
+    "modal": "Enables Minimum Advertised Price (MAP) handling as the store default. The native warning is key: turning it **Yes** hides product prices on the storefront until the configured action (such as adding to cart) reveals them. Set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+  { "elementId": "newrelicreporting_general_account_id",
+    "comment": "The New Relic account reporting data is sent to; must match your license/key account or nothing shows up.",
+    "modal": "The New Relic account ID that Magento's reporting data is sent to. It must correspond to the account tied to your New Relic license and API key, or data won't appear in the dashboards. Applies only when New Relic reporting is enabled. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:enable=1", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "cms_pagebuilder_template_importexport_sync_templates_by_cron",
+    "comment": "Yes syncs remote Page Builder templates from Dropbox on a schedule instead of on demand; suited to large libraries.",
+    "modal": "When **Yes**, remote Page Builder templates are pulled from Dropbox by cron rather than fetched manually — recommended for large remote libraries. It requires the `pbTemplateImport` consumer in env.php, and re-saving this config before creating new credentials (per the note). Default scope.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+  { "elementId": "system_full_page_cache_ttl",
+    "comment": "Seconds public pages stay cached before regenerating (empty = 86400); longer lifts hit rate but serves stale content longer.",
+    "modal": "How long, in seconds, public (non-personalised) content stays in the full page cache before it's regenerated; an empty field saves the 86400 default (per the note). A longer TTL raises the cache hit rate but serves stale pages longer after content changes. Default scope.",
+    "confidence": "high", "basis": ["label", "type:text", "backendModel:Ttl", "nativeComment"] },
+
+  { "elementId": "catalog_productalert_email_stock_template",
+    "comment": "Email template for the 'back in stock' alert customers subscribe to; choose a custom one or keep Default.",
+    "modal": "The template for the stock (back-in-stock) alert email sent to customers who subscribed to be notified when a product is available again. Pick a custom template to brand it, or leave **Default**, which follows theme fallback (per the note). Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "recaptcha_backend_type_recaptcha_v3_score_threshold",
+    "comment": "Requests scoring below this (0.0-1.0) are treated as bots; raise it to block harder, at the risk of blocking real users.",
+    "modal": "reCAPTCHA v3 scores each interaction from 0.0 (likely bot) to 1.0 (likely human), per the note. Requests scoring below this threshold are blocked. Raising it blocks more aggressively but risks false positives on genuine customers; lowering it lets more through. Default scope.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "group:reCAPTCHA v3 Invisible"] },
+
+  { "elementId": "reports_options_product_send_enabled",
+    "comment": "Yes records stats for the 'Email a product to a friend' feature so it appears in reports; off collects nothing.",
+    "modal": "When **Yes**, Magento collects statistics on product links customers email to friends (per the note), feeding the related report. With it off, no such data is gathered. Applies only when the parent reporting option is enabled. Default scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled=1", "nativeComment"] },
+
+  { "elementId": "rma_policy_auto_approve",
+    "comment": "Yes auto-approves new return requests, skipping manual review — faster for customers, but no gate against bad returns.",
+    "modal": "When **Yes**, new RMA (return) requests are approved automatically instead of waiting for staff review (per the note). This speeds the customer's return but removes the manual check against invalid or fraudulent requests. Set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+  { "elementId": "promo_auto_generated_coupon_codes_length",
+    "comment": "Number of characters in the random part of auto-generated coupon codes (excludes prefix/suffix/separators).",
+    "modal": "The length of the random portion of auto-generated coupon codes, not counting any prefix, suffix, or separators (per the note). Longer codes are harder to guess or brute-force but less convenient to type. Default scope.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "group:Auto Generated Specific Coupon Codes"] },
+
+  { "elementId": "sales_minimum_order_include_discount_amount",
+    "comment": "Yes measures the minimum order amount after discounts; discounted carts can then fall below the threshold.",
+    "modal": "Decides whether the minimum order amount is checked against the subtotal **after** discount (**Yes**) or the plain subtotal (**No**), per the note. With Yes, a discount can pull a cart under the minimum and block checkout. Set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+  { "elementId": "sales_email_order_copy_to",
+    "comment": "Addresses that receive a copy of every order email, comma-separated; applies only when order emails are enabled.",
+    "modal": "One or more addresses (comma-separated, per the note) that receive a copy of each order confirmation email — useful for a staff or archive mailbox. Applies only when order emails are enabled. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:enabled=1", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "sales_email_invoice_comment_guest_template",
+    "comment": "Email template for invoice-comment notices sent to guests; applies only when invoice comment emails are enabled.",
+    "modal": "The template for the email sent to guest customers when a comment is added to their invoice. Leave **Default** to follow theme fallback (per the note), or pick a custom template. Applies only when invoice comment emails are enabled. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled=1", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "sales_email_creditmemo_template",
+    "comment": "Email template for the credit-memo (refund) notice; applies only when credit memo emails are enabled.",
+    "modal": "The template for the credit memo email that notifies a customer of a refund. Leave **Default** for theme fallback (per the note), or choose a custom template to brand it. Applies only when credit memo emails are enabled. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled=1", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "admin_security_admin_account_sharing",
+    "comment": "No blocks concurrent logins to one admin account (more secure); Yes allows the same account from multiple machines.",
+    "modal": "When **No** (the safer default, per the note), a new login elsewhere ends the existing session, so an admin account can't be used from two machines at once. **Yes** permits concurrent sessions — needed only when a team genuinely shares one login. Default scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+  { "elementId": "magento_securitytxt_securitytxt_other_information_encryption",
+    "comment": "HTTPS URL to your PGP key, published in security.txt so researchers can encrypt vulnerability reports.",
+    "modal": "The URL published in your site's security.txt that points to a PGP key (e.g. https://example.com/pgp-key.txt, per the note), letting security researchers encrypt the vulnerability reports they send you. Must be an https address. Set per website.",
+    "confidence": "high", "basis": ["label", "backendModel:SecureUrl", "nativeComment", "scope:website"] },
+
+  { "elementId": "sitemap_page_priority",
+    "comment": "Priority (0.0-1.0) written for CMS pages in the XML sitemap; a crawl hint search engines may ignore.",
+    "modal": "The priority value, from 0.0 to 1.0 (per the note), written for CMS pages in the XML sitemap to signal their relative importance to crawlers. It is only a hint — search engines may disregard it — and is relative within your own site. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "backendModel:Priority", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "tax_calculation_cross_border_trade_enabled",
+    "comment": "Yes keeps tax-inclusive catalog prices identical across regions, absorbing differing tax rates into margin.",
+    "modal": "When catalog prices include tax, setting **Yes** fixes the displayed price regardless of the customer's tax rate (per the note) — the advertised figure stays constant across regions and the differing tax is absorbed into your margin rather than changing the price. Only meaningful with tax-inclusive pricing. Set per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+  { "elementId": "system_bfcache_general_enable_user_interaction_reload_minicart",
+    "comment": "Yes defers the mini-cart refresh until the shopper interacts after a bfcache restore, protecting page-speed scores.",
+    "modal": "On a bfcache page restore, **Yes** refreshes the mini cart only after the shopper interacts, while **No** refreshes immediately (per the note). Deferring avoids a JS/layout cost on restore, helping Core Web Vitals; the trade-off is a briefly stale cart count. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "twofactorauth_general_webapi_notification_url",
+    "comment": "Custom URL for the 2FA setup link in Web API auth emails; must include the :tfat placeholder for the token.",
+    "modal": "Overrides the default 2FA configuration link sent in Web API authentication emails, pointing it at a URL you choose (per the note). It must contain the `:tfat` placeholder marking where the token is injected, or the generated link won't work. Default scope.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "group:General"] },
+
+  { "elementId": "carriers_ups_shipper_number",
+    "comment": "Your 6-character UPS account number; required to return your negotiated rates instead of published ones.",
+    "modal": "Your UPS shipper (account) number — 6 characters, per the note. It is required for UPS to return your contracted/negotiated rates rather than standard published rates. Set per website.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website"] },
+
+  { "elementId": "webapi_soap_charset",
+    "comment": "Character set declared on SOAP API responses; empty uses UTF-8. Change only if a client needs another encoding.",
+    "modal": "The character set declared on SOAP Web API responses; left empty, UTF-8 is used (per the note). Change it only when a consuming client requires a different encoding, since UTF-8 is the safe default for most integrations. Set per website or store view.",
+    "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website,store"] }
+]

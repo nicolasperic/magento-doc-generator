@@ -1,0 +1,211 @@
+[
+  { "elementId": "ai_integration_automatic_translation_catalog_select_attribute_translation_cron",
+    "comment": "Schedules the background job that translates select-attribute values; uses standard cron syntax.",
+    "modal": "Cron schedule for the job that translates dropdown/select attribute values. The native note gives the syntax. Running it too frequently can run up translation-API calls and cost, while infrequent runs leave new values untranslated longer. Global (default) scope only.",
+    "confidence": "high", "basis": ["label", "type:text", "backendModel:SelectAttributeCron", "nativeComment"] },
+
+  { "elementId": "ai_integration_automatic_translation_translations_engine_gemini_model",
+    "comment": "Picks the Google Gemini model used for translation; options load after a valid API key is saved.",
+    "modal": "Which Gemini model performs translations. Applies only when the translation engine is set to Google Gemini. The choice trades translation quality against speed and API cost; the list appears once a valid API key is saved, per the native note. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:GeminiModels", "depends:engine=GoogleGemini", "nativeComment"] },
+
+  { "elementId": "dev_css_minify_files",
+    "comment": "Combines and shrinks CSS to cut file size and requests; ignored in developer mode.",
+    "modal": "Minifies storefront CSS to reduce file size and speed page loads. As the native note says, it is skipped in developer mode. Can differ per website/store view, and changes take effect after static content is redeployed and caches are flushed.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "system_upload_configuration_max_width",
+    "comment": "Caps the width of uploaded images; wider images are scaled down on upload.",
+    "modal": "Maximum pixel width for newly uploaded images. Applies only when image resize on upload is enabled. Oversized uploads are scaled down to save storage and bandwidth; images already stored are not affected.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:enable_resize=1", "nativeComment"] },
+
+  { "elementId": "admin_grid_limit_total_number_of_products",
+    "comment": "Caps the product count loaded into the admin grid to speed it up on large catalogs.",
+    "modal": "When Yes, limits how many products the admin grid collection loads. On large catalogs this noticeably speeds up the grid, but reported totals and some filtering become approximate. When No, the full count is used. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Admin Grids", "nativeComment"] },
+
+  { "elementId": "web_secure_base_url",
+    "comment": "The HTTPS base URL for storefront pages, links and assets; supports {{base_url}} placeholders.",
+    "modal": "Base HTTPS URL for secure pages, links and static assets. Can differ per website/store view for multi-domain setups. A wrong value breaks secure pages and asset loading; flush caches after changing. Placeholders such as {{base_url}} are accepted.",
+    "confidence": "high", "basis": ["label", "backendModel:Baseurl", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "admin_captcha_failed_attempts_login",
+    "comment": "Failed-login threshold before the admin CAPTCHA appears; 0 means it is always shown.",
+    "modal": "Number of failed admin logins allowed before CAPTCHA is required. Applies only when admin CAPTCHA is enabled and set to show after failures. Lower values block brute-force attempts sooner; as the native note says, 0 shows CAPTCHA on every login attempt.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:mode=after_fail,enable=1", "nativeComment"] },
+
+  { "elementId": "cataloginventory_item_options_manage_stock",
+    "comment": "Global default for whether Magento tracks product quantities and stock status.",
+    "modal": "The catalog-wide default for stock tracking: Yes makes Magento track quantities and in/out-of-stock status, No lets products sell regardless of quantity. Per-product settings can override it. As the native note warns, changing it reprocesses the whole catalog and can take time.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "backendModel:Managestock", "nativeComment"] },
+
+  { "elementId": "catalog_seo_product_url_suffix",
+    "comment": "Suffix appended to product URLs (e.g. .html); changing it rewrites every product URL.",
+    "modal": "The suffix added to product URLs, such as .html. Can differ per website/store view. Changing it alters every product URL and requires URL rewrites to regenerate plus a cache refresh; old URLs may 404 unless redirects exist.",
+    "confidence": "high", "basis": ["label", "backendModel:Url\\Rewrite\\Suffix", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "catalog_frontend_grid_per_page",
+    "comment": "Default products-per-page for grid view; must be one of the allowed values.",
+    "modal": "Default number of products shown per page in grid view. As the native note says, it must be one of the configured 'allowed values' list or it is rejected. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Storefront", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "catalog_custom_options_year_range",
+    "comment": "Sets the from-to years offered by date custom options; use a four-digit year.",
+    "modal": "Limits the span of years selectable in product date/time custom-option dropdowns. Use a four-digit year format for both ends, per the native note. The range can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Date & Time Custom Options", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "csp_mode_storefront_checkout_index_index_report_uri",
+    "comment": "Where CSP violation reports from one-page checkout are sent; falls back to the storefront default.",
+    "modal": "Endpoint that receives Content-Security-Policy violation reports for the one-page checkout. If empty, the storefront default report URI is used. Lets you monitor blocked scripts on checkout without enforcing the policy. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Storefront > One Page Checkout", "nativeComment"] },
+
+  { "elementId": "csp_mode_admin_report_uri",
+    "comment": "Where CSP violation reports from admin pages are sent; the fallback for pages without their own URI.",
+    "modal": "Endpoint that receives CSP violation reports for admin pages (the fallback for any admin page without its own URI). Collecting reports lets you tune the policy and spot blocked resources before switching admin CSP from report-only to enforced. Can differ per scope.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Admin Default", "nativeComment"] },
+
+  { "elementId": "customer_password_reset_password_template",
+    "comment": "Email template for the customer password-reset message.",
+    "modal": "The email template used for the customer password-reset message. As the native note says, Default follows theme fallback. Can differ per website/store view so each storefront can use its own branding.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "customer_account_information_graphql_share_customer_group",
+    "comment": "Whether the applied customer group is exposed via the GraphQL customer query.",
+    "modal": "When No, the applied customer group is withheld from the GraphQL customer query. Set No to avoid exposing segmentation or pricing-tier information to headless/front-end clients; Yes returns it. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:Account Information Options", "nativeComment"] },
+
+  { "elementId": "customer_address_templates_html",
+    "comment": "HTML layout used to render customer addresses; only a small set of tags is allowed.",
+    "modal": "Defines the HTML template for rendering customer addresses across the storefront and documents. Only the inline tags listed in the native note are permitted; others are stripped. Can differ per website/store view for locale-specific formats.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:Address Templates", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "carriers_dhl_ready_time",
+    "comment": "Hours after order submission before a DHL package is ready; feeds DHL rate and transit quotes.",
+    "modal": "Lead time in hours between order submission and the package being ready for DHL pickup. It shifts the ship date DHL uses when returning rate and transit-time quotes. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:DHL", "scope:website", "nativeComment"] },
+
+  { "elementId": "carriers_fedex_smartpost_hubid",
+    "comment": "FedEx-assigned SmartPost hub ID; required for SmartPost shipments.",
+    "modal": "The FedEx-assigned hub ID used for SmartPost shipments. Only relevant when the SmartPost method is selected; without a valid hub ID, SmartPost rate requests and labels fail. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:text", "group:FedEx", "scope:website", "nativeComment"] },
+
+  { "elementId": "oauth_access_token_lifetime_admin",
+    "comment": "Hours an admin OAuth token stays valid; empty disables expiry.",
+    "modal": "How many hours an admin integration OAuth token remains valid before expiring. Shorter lifetimes limit the damage from a leaked token; as the native note says, leaving it empty turns expiry off so tokens never lapse.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Access Token Expiration", "nativeComment"] },
+
+  { "elementId": "cataloginventory_options_synchronize_with_catalog",
+    "comment": "Whether inventory data is auto-synced when the catalog changes.",
+    "modal": "When Yes, inventory stock and source data is kept in step automatically as products are added to or removed from the catalog. When No, that reconciliation must be triggered manually. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+  { "elementId": "login_as_customer_general_store_view_manual_choice_enabled",
+    "comment": "Which store view a Login-as-Customer session opens in.",
+    "modal": "Controls which store view the admin's Login-as-Customer session starts in. As the native note explains, choose Manual Selection on multi-website setups that share customer accounts so the admin picks the store after logging in; otherwise the store is resolved automatically.",
+    "confidence": "medium", "basis": ["label", "sourceModel:StoreViewLogin", "nativeComment"] },
+
+  { "elementId": "newrelicreporting_general_entity_guid",
+    "comment": "New Relic entity GUID for NerdGraph; leave empty to auto-detect from the App ID.",
+    "modal": "Identifies the New Relic entity that receives data via NerdGraph. Applies only when New Relic reporting is enabled and the API mode is NerdGraph. Leave empty to auto-detect from the App ID. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "type:obscure", "depends:enable=1,api_mode=nerdgraph", "nativeComment"] },
+
+  { "elementId": "newrelicreporting_general_separate_apps",
+    "comment": "Also reports each Magento area (adminhtml, frontend...) as its own New Relic app.",
+    "modal": "In addition to the main app, creates a separate New Relic app per Magento area code so each can be monitored on its own. Applies only when reporting is enabled and requires the New Relic application name to be set. More granularity means more NR apps to manage.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enable=1", "nativeComment"] },
+
+  { "elementId": "cms_pagebuilder_enable_content_preview",
+    "comment": "Previews Page Builder content on product and category edit pages; No can improve admin performance.",
+    "modal": "Renders a live Page Builder preview on product and category edit pages. Applies only when Page Builder is enabled. As the native note says, setting No can speed up the admin when several attributes are Page Builder-editable, at the cost of the inline preview.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled=1", "nativeComment"] },
+
+  { "elementId": "system_full_page_cache_varnish_backend_host",
+    "comment": "Magento backend host written into the generated Varnish config; defaults to localhost if empty.",
+    "modal": "The backend (Magento) host written into the generated Varnish VCL. Applies only when the caching application is Varnish. If left empty, localhost is saved. Set it to the host Varnish should forward cache misses to.",
+    "confidence": "high", "basis": ["label", "backendModel:Varnish", "depends:caching_application=1", "nativeComment"] },
+
+  { "elementId": "recaptcha_frontend_type_for_newsletter",
+    "comment": "Enables reCAPTCHA on the newsletter signup form to block bot subscriptions.",
+    "modal": "Turns on reCAPTCHA validation for the newsletter subscription form to stop automated signups; the chosen value picks which configured reCAPTCHA type is used. Note the native warning that enabling it shows the reCAPTCHA badge on every page. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Type", "scope:website", "nativeComment"] },
+
+  { "elementId": "recaptcha_frontend_type_recaptcha_v3_lang",
+    "comment": "Optional language code forcing the reCAPTCHA v3 widget language; auto-detects if blank.",
+    "modal": "Optional code that forces the reCAPTCHA v3 widget to render in a specific language; left blank, it auto-detects the visitor's language. Can be set per website/store view so each storefront matches its own locale.",
+    "confidence": "medium", "basis": ["label", "type:text", "group:reCAPTCHA v3 Invisible", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "reports_options_product_to_wishlist_enabled",
+    "comment": "Collects 'added to wishlist' statistics that power the matching report.",
+    "modal": "When enabled, Magento records products added to wishlists, supplying the data for the 'Product Added To WishList' report. Applies only when the reports feature is enabled. Collecting this adds some database writes. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled=1", "nativeComment"] },
+
+  { "elementId": "rma_email_customer_status_change_template",
+    "comment": "Email template for the customer notification when an RMA's status changes.",
+    "modal": "The template for the email sent to the customer whenever their RMA (return) changes status. Can differ per website/store view so each storefront can brand the notification.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "promo_graphql_share_applied_cart_rule",
+    "comment": "Whether applied cart price rules are exposed via the GraphQL API.",
+    "modal": "When No, the list of applied cart price rules is withheld from GraphQL responses. Set No to avoid revealing promotion logic to headless or front-end clients; Yes returns it. Global scope.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:GraphQl Configurations", "nativeComment"] },
+
+  { "elementId": "sales_minimum_order_multi_address_error_message",
+    "comment": "Custom message shown when a multi-address order is below the minimum order amount.",
+    "modal": "The error shown in the cart when an order shipped to multiple addresses falls below the minimum order amount. Leave it empty to reuse the default minimum-order error. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "type:textarea", "group:Minimum Order Amount", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "sales_email_order_comment_copy_to",
+    "comment": "Extra recipients, comma-separated, for order-comment emails.",
+    "modal": "Addresses that receive a copy of order-comment emails, comma-separated. Applies only when order comment emails are enabled. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "type:text", "depends:enabled=1", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "sales_email_shipment_guest_template",
+    "comment": "Email template for shipment emails sent to guest (non-registered) customers.",
+    "modal": "The template for shipment notification emails sent to guest customers. Applies only when shipment emails are enabled; Default follows theme fallback. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled=1", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "sales_email_creditmemo_comment_template",
+    "comment": "Email template for credit memo comment emails.",
+    "modal": "The template for emails sent with credit memo comments. Applies only when credit memo comment emails are enabled; Default follows theme fallback. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled=1", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "system_security_max_session_size_admin",
+    "comment": "Caps admin session size in bytes; 0 disables the limit.",
+    "modal": "Maximum size, in bytes, an admin session may reach. Guards against oversized sessions that can trigger errors or slow the admin; as the native note says, 0 removes the cap. Global scope.",
+    "confidence": "high", "basis": ["label", "type:text", "backendModel:SessionSize", "nativeComment"] },
+
+  { "elementId": "magento_securitytxt_securitytxt_other_information_hiring",
+    "comment": "Optional https URL in security.txt pointing to security-related job openings.",
+    "modal": "Optional URL published in the site's security.txt file to point security researchers at relevant job openings. Must be an https URL. Can differ per website.",
+    "confidence": "high", "basis": ["label", "type:text", "backendModel:SecureUrl", "scope:website", "nativeComment"] },
+
+  { "elementId": "sitemap_generate_error_email_template",
+    "comment": "Email template for notifications when scheduled sitemap generation fails.",
+    "modal": "The template for the email sent when scheduled XML sitemap generation fails. Applies only when error notifications are enabled; Default follows theme fallback. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled=1", "scope:website", "nativeComment"] },
+
+  { "elementId": "system_speculation_rules_eagerness",
+    "comment": "How aggressively the browser preloads likely next pages; higher is faster but wastes more.",
+    "modal": "Controls how eagerly the browser speculatively loads probable next pages. Applies only when speculative loading is enabled. As the native note says, higher eagerness loads pages sooner but may fetch ones never visited, adding server load and bandwidth. Can differ per scope.",
+    "confidence": "high", "basis": ["label", "type:select", "depends:enable=1", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "system_view_transitions_enable",
+    "comment": "Adds animated transitions between same-domain page loads.",
+    "modal": "When enabled, animates transitions between pages loaded on the same domain for a smoother, app-like feel. Relies on browser support and degrades gracefully where absent. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "group:View Transitions", "scope:website,store", "nativeComment"] },
+
+  { "elementId": "twofactorauth_google_leeway",
+    "comment": "Clock-drift tolerance (seconds) for Google Authenticator OTPs; must be below the period.",
+    "modal": "Seconds of clock-drift tolerance when validating Google Authenticator OTPs, and must stay below the OTP period (see the native example). A larger leeway accepts more server/device time skew but widens the window each code stays valid, a small security trade-off.",
+    "confidence": "high", "basis": ["label", "type:text", "backendModel:Leeway", "nativeComment"] },
+
+  { "elementId": "admin_emails_new_user_notification_template",
+    "comment": "Email template for notifying a newly created admin user.",
+    "modal": "The template for the email sent to a newly created admin user. As the native note says, Default follows theme fallback. Global scope.",
+    "confidence": "medium", "basis": ["label", "sourceModel:Email\\Template", "nativeComment"] },
+
+  { "elementId": "webapi_validation_default_page_size",
+    "comment": "Default page size for API search results when the client doesn't specify one.",
+    "modal": "Number of records returned per page for REST/GraphQL search results when the request omits a page size. Larger values mean fewer round-trips but heavier responses and more memory per call. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "type:text", "group:Web Api Input Limits", "scope:website,store", "nativeComment"] }
+]

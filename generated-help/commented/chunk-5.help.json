@@ -1,0 +1,211 @@
+[
+  { "elementId": "catalog_search_search_suggestion_count_results_enabled",
+    "comment": "Adds a result count beside each search suggestion; computing a count per suggestion adds queries, which is why it can slow the storefront.",
+    "modal": "Shows how many products match each search suggestion. Each suggestion needs its own count query, which is the load the native note warns about. Applies only when search suggestions are enabled. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:search_suggestion_enabled", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "ai_integration_automatic_translation_translations_engine_openai_model",
+    "comment": "Picks the OpenAI model used for translation; higher-tier models cost more per request and differ in quality and speed.",
+    "modal": "Chooses which OpenAI model performs the translations. Options appear only after a valid API key and organization ID are saved. The choice trades translation quality against per-request cost and speed — see the linked OpenAI docs. Applies only when the OpenAI engine is selected.",
+    "confidence": "high", "basis": ["label", "sourceModel:GPTModels", "depends:engine=OpenAI", "nativeComment"] },
+
+  { "elementId": "dev_js_minify_files",
+    "comment": "Yes strips whitespace from JS to shrink downloads and speed the storefront; No serves it unminified. Ignored in developer mode.",
+    "modal": "When Yes, JavaScript files are minified to cut payload size and speed page loads; No serves them unminified for easier debugging. As the native note says, minification is skipped in developer mode, so the effect shows only in default/production mode. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "system_smtp_password",
+    "comment": "The password for the SMTP account used to send store email; stored encrypted and used only when the SMTP transport is selected.",
+    "modal": "The password Magento uses to authenticate with your SMTP server when sending outgoing mail. Stored encrypted by the backend model. Applies only when the mail transport is set to SMTP. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "backendModel:Encrypted", "depends:transport=smtp", "scope:website,store"] },
+
+  { "elementId": "admin_security_minimum_password_length",
+    "comment": "Shortest allowed admin password; longer minimums resist brute-force guessing. The enforced floor is 7 characters.",
+    "modal": "Sets the minimum character count for admin passwords, applied whenever one is set or changed. Longer minimums make admin accounts harder to brute-force. The native note states values below 7 are rejected. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "backendModel:MinimumLength", "nativeComment", "scope:default"] },
+
+  { "elementId": "web_unsecure_base_static_url",
+    "comment": "HTTP base URL for static view files (CSS/JS/images); set it to a CDN to offload assets, or leave empty to inherit the base URL.",
+    "modal": "The base URL from which static view files (CSS, JavaScript, images) are served over HTTP. Point it at a CDN to serve assets from a separate host; leave empty or use the {{unsecure_base_url}} placeholder to inherit the store base URL. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "backendModel:Baseurl", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "web_secure_enable_hsts",
+    "comment": "Yes sends the HSTS header telling browsers to use HTTPS only; enable only once HTTPS fully works, as browsers then refuse HTTP.",
+    "modal": "When Yes, Magento sends the HTTP Strict Transport Security header, instructing browsers to connect only over HTTPS and blocking downgrade attacks. Requires secure URLs on both storefront and admin (depends). Browsers cache it for its max-age, so enable only once HTTPS is fully working. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:use_in_frontend,use_in_adminhtml", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "customer_captcha_symbols",
+    "comment": "The pool of characters CAPTCHA images are drawn from; a clearer pool improves customer success (letters/numbers only, no spaces).",
+    "modal": "Defines the character pool CAPTCHA images are built from. The native note allows only letters and digits (no spaces) and warns that look-alike characters (i, l, 1) hurt recognition — a clear pool is easier for customers to read. Applies only when CAPTCHA is enabled; can differ per website.",
+    "confidence": "high", "basis": ["label", "depends:enable", "nativeComment", "scope:website"] },
+
+  { "elementId": "catalog_search_enable_eav_indexer",
+    "comment": "Yes maintains a dedicated product EAV index to speed reindexing; check no third-party extension relies on it before disabling.",
+    "modal": "When Yes, Magento keeps a separate product EAV indexer, speeding up indexation. Relevant with the MySQL search engine (depends). As the native note warns, confirm no third-party extension uses this index before turning it off. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:engine=mysql", "nativeComment", "scope:default"] },
+
+  { "elementId": "catalog_fields_masks_meta_description",
+    "comment": "Template that auto-fills a product's meta description when none is set, keeping SEO metadata consistent; use {{name}}/{{description}}.",
+    "modal": "A mask that auto-generates the meta description for products that lack one, keeping SEO metadata consistent across the catalog. Use {{name}} and {{description}} as placeholders for the product name and description. Applies only when a product has no manual meta description. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:default"] },
+
+  { "elementId": "catalog_frontend_remember_pagination",
+    "comment": "Yes remembers each visitor's per-page choice across category pages; this multiplies cached page variants and can create duplicate SEO URLs.",
+    "modal": "When Yes, the storefront remembers each visitor's chosen products-per-page setting as they browse categories. The native note's SEO and cache warnings follow from this: storing per-page variants multiplies cached page versions and creates duplicate-content URL parameters. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:default"] },
+
+  { "elementId": "checkout_payment_failed_template",
+    "comment": "Email template for the notice sent to customers when a checkout payment attempt fails.",
+    "modal": "Selects the email template used to notify customers that a payment attempt failed during checkout. Choosing Default falls back to the theme's template (native note); pick a custom template to override it. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "web_cookie_cookie_restriction",
+    "comment": "Yes enables cookie-consent mode: visitors are told cookies are needed and some are withheld until accepted (GDPR/privacy compliance).",
+    "modal": "When Yes, Cookie Restriction Mode shows storefront visitors a consent notice (native note) and holds back non-essential cookies until they accept — used to meet GDPR and similar privacy requirements. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "backendModel:Cookie", "nativeComment", "scope:website"] },
+
+  { "elementId": "customer_password_forgot_email_template",
+    "comment": "Email template sent when a customer requests a password reset.",
+    "modal": "Selects the email template for the message sent when a customer uses Forgot Password to request a reset link. Choosing Default falls back to the theme's template (native note). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "customer_account_information_change_email_template",
+    "comment": "Email template for the security notice sent when a customer changes their account email address.",
+    "modal": "Selects the email template used to notify a customer that their account email address was changed — a security alert about the change. Choosing Default falls back to the theme's template (native note). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "customer_address_suffix_options",
+    "comment": "Preset options for the name-suffix dropdown (e.g. Jr., Sr.); semicolon-separated. Leave empty for a free-text field.",
+    "modal": "Defines the selectable values for the customer name-suffix dropdown. Enter options separated by semicolons (native note); leaving it empty turns the suffix into an open text field instead of a dropdown. Can differ per website.",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:website"] },
+
+  { "elementId": "carriers_dhl_handling_action",
+    "comment": "Whether the DHL handling fee applies once per order or once per package, which changes the total on multi-package shipments.",
+    "modal": "Per Order charges one handling fee for the whole order; Per Package charges the fee for each package (native note). The choice changes total handling cost whenever a shipment splits into multiple packages. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:HandlingAction", "nativeComment", "scope:website"] },
+
+  { "elementId": "catalog_search_elasticsearch8_minimum_should_match",
+    "comment": "How many query terms a product must match to appear in Elasticsearch results; stricter values return fewer, more relevant hits.",
+    "modal": "Sets Elasticsearch's minimum_should_match for catalog search: how many of the query's terms a product must contain to be returned. Stricter values give fewer, more precise results; looser ones return more but noisier matches. Applies only with the Elasticsearch 8 engine (depends).",
+    "confidence": "high", "basis": ["label", "backendModel:MinimumShouldMatch", "depends:engine=elasticsearch8", "nativeComment", "scope:default"] },
+
+  { "elementId": "sales_instant_purchase_active",
+    "comment": "Yes shows the one-click Instant Purchase button using a customer's stored card and address; needs a vault-capable payment method.",
+    "modal": "When Yes, logged-in customers get a one-click Instant Purchase button that checks out with their saved (vaulted) payment token and default addresses. As the native note says, a payment method supporting vault and instant purchase must be enabled first. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "oauth_authentication_lock_max_failures_count",
+    "comment": "Number of failed OAuth/API logins before the account is locked, throttling brute-force attempts; lower is stricter.",
+    "modal": "The count of consecutive authentication failures allowed before the OAuth/API account is locked out, limiting brute-force attacks. Lower values are stricter but risk locking legitimate integrations after a few mistakes. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:default"] },
+
+  { "elementId": "sales_email_order_ready_for_pickup_copy_to",
+    "comment": "Extra recipients copied on the 'order ready for pickup' email (e.g. store staff); comma-separated list.",
+    "modal": "Additional addresses that receive a copy of the Order Ready For Pickup email — useful for notifying store or pickup-location staff. Enter them comma-separated (native note). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "catalog_layered_navigation_one_price_interval",
+    "comment": "Yes shows a price bucket as a single price instead of a range when every item in it has the same price.",
+    "modal": "When Yes, a layered-navigation price filter bucket displays one price rather than a from–to range if all prices within it are equal (native note). Applies only with the Improved price range calculation (depends). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:price_range_calculation=improved", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "newrelicreporting_general_api_mode",
+    "comment": "Selects the New Relic API used for reporting: legacy v2 REST or the current NerdGraph (GraphQL).",
+    "modal": "Chooses how Magento talks to New Relic: the legacy v2 REST API or the modern NerdGraph (GraphQL) interface (native note). Prefer NerdGraph for current accounts; v2 suits older setups still on that API. Applies only when New Relic reporting is enabled (depends). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:ApiMode", "depends:enable", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "newrelicreporting_general_insights_insert_key",
+    "comment": "The New Relic Insights insert key that authorizes Magento to push event/metric data; stored encrypted.",
+    "modal": "The Insights insert key used to authenticate Magento when it sends custom event and metric data to New Relic. Generate it under Insights → API Keys → Insert Keys (native note); stored encrypted. Used only when reporting is enabled (depends). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "backendModel:Encrypted", "depends:enable", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "cms_pagebuilder_template_importexport_dropbox_credentials",
+    "comment": "Dropbox app credentials (key/secret/refresh token) that let Page Builder sync templates to and from Dropbox; stored serialized.",
+    "modal": "Holds the Dropbox App key, secret and refresh token Page Builder uses to import/export templates from a Dropbox repository. The native note explains how to generate the refresh token; without valid credentials the sync won't connect. Applies only when the feature is enabled (depends). Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "backendModel:ApiKeySerialized", "depends:enable", "nativeComment", "scope:default"] },
+
+  { "elementId": "system_full_page_cache_handles_size",
+    "comment": "Caps how many layout handles feed the full-page-cache key; too small risks wrong cached content, too large hurts performance (50–100 suggested).",
+    "modal": "Limits how many layout handles are hashed into the full-page cache key. Too small a value can make different pages share one cache entry (wrong content shown); too large slows cache lookups — the native note suggests 50–100. Global setting (default scope).",
+    "confidence": "medium", "basis": ["label", "nativeComment", "scope:default"] },
+
+  { "elementId": "catalog_productalert_cron_error_email_template",
+    "comment": "Email template for the alert sent when the product-alert cron job (price/stock alerts) fails.",
+    "modal": "Selects the template for the email sent to administrators when the product alerts cron run encounters an error. Choosing Default falls back to the theme's template (native note). Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:default"] },
+
+  { "elementId": "recaptcha_backend_type_recaptcha_v3_lang",
+    "comment": "Optional language code to force the reCAPTCHA widget's display language; affects only display, not verification.",
+    "modal": "Optionally forces the reCAPTCHA v3 widget to render in a specific language instead of auto-detecting the visitor's (native note). It changes only the widget's display language, not how verification works. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:default"] },
+
+  { "elementId": "reports_options_product_compare_enabled",
+    "comment": "Yes collects statistics on products added to the Compare list to power the related report; adds a little write overhead.",
+    "modal": "When Yes, Magento records each time a product is added to a compare list, feeding the Products in Compare List report (native note). Collecting the data adds minor write overhead per action. Applies only when reports are enabled (depends). Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "depends:enabled", "nativeComment", "scope:default"] },
+
+  { "elementId": "rma_policy_allowed_order_statuses",
+    "comment": "Order statuses that are eligible for return requests; orders in other statuses won't offer an RMA option.",
+    "modal": "Selects which order statuses allow a customer to open a return (RMA) request (native note). Orders whose status isn't chosen here won't show a return option. Can differ per website.",
+    "confidence": "high", "basis": ["label", "sourceModel:OrderStatuses", "nativeComment", "scope:website"] },
+
+  { "elementId": "promo_auto_generated_coupon_codes_quantity_limit",
+    "comment": "Caps how many coupon codes a cart rule can auto-generate at once; large batches strain generation and storage (max 250,000, 0 disables).",
+    "modal": "Limits the number of coupon codes a single cart price rule can auto-generate in one batch. The native note caps it at 250,000 for performance and lets 0 disable the limit — large batches are heavy to create and store. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:default"] },
+
+  { "elementId": "sales_minimum_order_description",
+    "comment": "Message shown in the cart when the discounted subtotal is below the minimum order amount; can be localized per store view.",
+    "modal": "The text displayed in the shopping cart when the subtotal after discount falls below the minimum allowed order amount (native note). Because it's store-view scoped, you can tailor or translate it per store view. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "sales_email_order_comment_template",
+    "comment": "Email template for the message sent when an order comment is added and the customer is notified.",
+    "modal": "Selects the template for the email sent to customers when a comment is added to their order. Choosing Default falls back to the theme's template (native note). Applies only when order comment emails are enabled (depends). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "sales_email_invoice_comment_copy_to",
+    "comment": "Extra recipients copied on invoice-comment emails; comma-separated. Applies only when those emails are enabled.",
+    "modal": "Additional addresses copied on the email sent when a comment is added to an invoice. Enter them comma-separated (native note). Applies only when invoice comment emails are enabled (depends). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "depends:enabled", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "sales_email_creditmemo_guest_template",
+    "comment": "Credit memo email template used for guest (non-registered) customers.",
+    "modal": "Selects the credit memo email template sent specifically to guest customers, separate from the registered-customer template. Choosing Default falls back to the theme's template (native note). Applies only when credit memo emails are enabled (depends). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "depends:enabled", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "admin_security_max_number_password_reset_requests",
+    "comment": "Caps admin password-reset requests per hour to curb abuse; 0 disables the limit. Tied to the chosen reset-protection type.",
+    "modal": "Limits how many admin password-reset requests are accepted per hour, throttling abuse and denial-of-service attempts (native note). Set 0 to disable the cap. Applies under the selected password reset protection type (depends). Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "depends:password_reset_protection_type", "nativeComment", "scope:default"] },
+
+  { "elementId": "magento_securitytxt_securitytxt_other_information_acknowledgements",
+    "comment": "HTTPS URL published in security.txt crediting security researchers (e.g. a hall-of-fame page).",
+    "modal": "The Acknowledgements URL written into your site's security.txt, typically linking to a page thanking security researchers (native example). Must be a secure (HTTPS) URL, enforced by the backend model. Can differ per website.",
+    "confidence": "high", "basis": ["label", "backendModel:SecureUrl", "nativeComment", "scope:website"] },
+
+  { "elementId": "sitemap_store_priority",
+    "comment": "Priority hint (0.0–1.0) written into the XML sitemap for store URLs, signalling relative importance to crawlers.",
+    "modal": "Sets the <priority> value for store URLs in the generated XML sitemap, hinting their importance relative to other pages (valid 0.0–1.0, native note). Higher suggests greater importance, but crawlers may ignore the hint. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "backendModel:Priority", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "system_speculation_rules_enable",
+    "comment": "Yes uses the browser Speculation Rules API to prefetch/prerender likely next pages for faster navigation; adds speculative server load.",
+    "modal": "When Yes, Magento emits Speculation Rules so supporting browsers prefetch or prerender pages before a link is clicked, making navigation feel faster (native note). The trade-off is extra load from speculative requests, and only modern browsers honour it. Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "system_bfcache_general_auto_close_menu_mobile",
+    "comment": "Yes closes open menus when a page is restored from back/forward cache, so a menu left open doesn't reappear open.",
+    "modal": "When Yes, menus left open are closed when the browser restores the page from its back/forward cache, preventing a stale open menu from reappearing on navigation. Works only with compatible themes (native note). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+  { "elementId": "twofactorauth_general_twofactorauth_retry",
+    "comment": "How many 2FA attempts are allowed before a temporary lockout; lower resists code-guessing but risks locking out admins who mistype.",
+    "modal": "Sets how many times an admin can attempt the two-factor step before a temporary lockout (native note). Lower values harden against code-guessing; set it too low and legitimate admins who mistype get locked out. Global setting (default scope).",
+    "confidence": "high", "basis": ["label", "nativeComment", "scope:default"] },
+
+  { "elementId": "webapi_validation_complex_array_limit",
+    "comment": "Maximum items allowed in an array property of a Web API request, blocking oversized payloads; applies only when input limiting is on.",
+    "modal": "Caps how many elements an array property may contain in a Web API request body, guarding against oversized or abusive payloads (native note). Applies only when Web API input limits are enabled (depends). Can differ per website/store view.",
+    "confidence": "high", "basis": ["label", "depends:input_limit_enabled", "nativeComment", "scope:website,store"] }
+]

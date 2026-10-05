@@ -1,0 +1,226 @@
+[
+ { "elementId": "admin_admin_activity_clearlog",
+   "comment": "Retention window for admin activity log entries; older ones are pruned.",
+   "modal": "How long admin activity log entries are kept before cleanup removes them. The field note asks for a number of days; a shorter window keeps the log table small, a longer one preserves more audit history for investigations.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Admin Activity Logs"] },
+
+ { "elementId": "ai_integration_automatic_translation_catalog_select_attribute_to_translate",
+   "comment": "Picks which select/multiselect product attributes get their options auto-translated; set per store view.",
+   "modal": "Chooses the select and multiselect product attributes whose options are automatically translated. As the field note says, empty options are always translated and the auto-retranslation toggle below has no effect here. Scoped to default/website/store, so each store view can translate a different set.",
+   "confidence": "medium", "basis": ["label", "nativeComment", "scope:store", "group:Catalog translation options"] },
+
+ { "elementId": "ai_integration_automatic_translation_translations_engine_deepl_auth_key",
+   "comment": "DeepL API key used for translations; stored encrypted and only used when DeepL is the engine.",
+   "modal": "The DeepL authentication key the module uses to call the translation API; the field note links where to create one. It is stored encrypted at rest, and applies only when the translation engine is set to DeepL.",
+   "confidence": "high", "basis": ["label", "nativeComment", "backendModel:Encrypted", "depends:engine=DeepL"] },
+
+ { "elementId": "dev_debug_template_hints_parameter_value",
+   "comment": "Secret token added to the URL to switch storefront template hints on; applies only when hints-by-parameter is enabled.",
+   "modal": "The token you append as `?templatehints=<value>` to reveal template hints on the storefront. It applies only when storefront template hints and the show-with-parameter option are both enabled, letting developers toggle hints without exposing them to every visitor. Scoped per store view.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:template_hints_storefront=1", "depends:show_with_parameter=1", "scope:store"] },
+
+ { "elementId": "general_single_store_mode_enabled",
+   "comment": "Yes hides the store-view switcher and scope selectors to simplify a single-store admin.",
+   "modal": "When **Yes**, the admin drops store-view switchers and scope selectors for a simpler single-store experience. As the field note says, it is ignored once the system has more than one store view, so it has no effect on a multi-store setup.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "group:Single-Store Mode"] },
+
+ { "elementId": "admin_emails_forgot_email_template",
+   "comment": "Template used for the admin forgot-password email.",
+   "modal": "The email template sent when an admin user requests a password reset. As the field note says, the **Default** option resolves through theme fallback; pick a custom template to override the wording or branding of that message.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "group:Admin User Emails"] },
+
+ { "elementId": "web_url_use_store",
+   "comment": "Adds the store code to storefront URLs; changing it rewrites every storefront link.",
+   "modal": "When **Yes**, the active store code is inserted into storefront URLs so different store views are addressable. As the field note warns, hard-coded URLs without a store code in third-party services (e.g. PayPal) may then break, so change it with care.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "group:Url Options"] },
+
+ { "elementId": "web_secure_base_static_url",
+   "comment": "Overrides where static view files are served over HTTPS, e.g. a CDN; can differ per store view.",
+   "modal": "Sets the HTTPS base URL for static view files (CSS, JS, fonts), typically to point them at a CDN. As the field note says, it may be empty or use the `{{secure_base_url}}` / `{{unsecure_base_url}}` placeholders. Scoped to website/store, so each store view can use a different host.",
+   "confidence": "high", "basis": ["label", "nativeComment", "scope:store", "group:Base URLs (Secure)"] },
+
+ { "elementId": "admin_captcha_symbols",
+   "comment": "The character pool CAPTCHA images are drawn from; applies only when CAPTCHA is enabled.",
+   "modal": "Defines which characters can appear in generated CAPTCHA images. The field note restricts this to letters and digits and warns that look-alike characters lower recognition. Applies only when admin CAPTCHA is enabled.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:enable=1", "group:CAPTCHA"] },
+
+ { "elementId": "catalog_search_engine",
+   "comment": "Selects the search engine backend; falls back to the default engine when unset.",
+   "modal": "Chooses which search engine backend powers catalog search. As the field note says, the default search engine is used when nothing is specified. Changing the engine requires the matching service to be running and a search reindex before results reflect the new backend.",
+   "confidence": "medium", "basis": ["nativeComment", "backendModel:Engine", "group:Catalog Search"] },
+
+ { "elementId": "catalog_seo_product_rewrite_context",
+   "comment": "Whether product URL rewrites are generated at website or store-view scope.",
+   "modal": "Controls the scope at which product URL rewrites are created when a product is edited: per website or per store view, as the field note describes. Store-view scope yields more granular URLs per view but produces more rewrite records to maintain.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Search Engine Optimization"] },
+
+ { "elementId": "catalog_frontend_list_per_page",
+   "comment": "Default number of products shown per page in list mode; must be one of the allowed values.",
+   "modal": "The default products-per-page for the catalog list view. As the field note says, the value must appear in the allowed-values list configured alongside it, or it is rejected. Scoped to website/store, so each store view can default differently.",
+   "confidence": "high", "basis": ["label", "nativeComment", "scope:store", "group:Storefront"] },
+
+ { "elementId": "web_url_catalog_media_url_format",
+   "comment": "Chooses image-proxy vs legacy catalog media URLs; switching back to legacy needs a CLI image regen.",
+   "modal": "Selects how catalog image URLs are built: a query-parameter format your CDN/web server optimizes, or the legacy per-size path for backward compatibility. As the field note warns, switching back to legacy means you must regenerate images via the CLI before they appear correctly.",
+   "confidence": "high", "basis": ["label", "sourceModel:CatalogMediaUrlFormat", "nativeComment"] },
+
+ { "elementId": "web_cookie_cookie_lifetime",
+   "comment": "How long cookies persist, in seconds; shorter values log customers out sooner. Can differ per store view.",
+   "modal": "The cookie lifetime in seconds, as the field note states. A shorter value expires sessions and stored preferences sooner (more frequent re-logins), a longer one keeps them around. Scoped to website/store, so it can vary per store view.",
+   "confidence": "high", "basis": ["label", "nativeComment", "scope:store", "group:Default Cookie Settings"] },
+
+ { "elementId": "customer_create_account_email_template",
+   "comment": "Template for the welcome email sent to new customers; can differ per store view.",
+   "modal": "The email template used for the welcome message when a customer creates an account. As the field note says, **Default** resolves through theme fallback. Scoped to website/store, so each store view can send its own branded welcome.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:store", "group:Create New Account Options"] },
+
+ { "elementId": "customer_password_required_character_classes_number",
+   "comment": "How many distinct character classes a customer password must include; higher is stricter.",
+   "modal": "The number of different character classes a customer password must contain, drawn from the four the field note lists (lowercase, uppercase, digits, special). Raising it forces more varied passwords and rejects weaker ones at registration and password change.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Password Options"] },
+
+ { "elementId": "customer_address_prefix_show",
+   "comment": "Whether the name-prefix field is hidden, optional, or required on forms; can differ per website.",
+   "modal": "Controls whether the prefix field (the title before a name, as the field note explains) is hidden, shown as optional, or made required on customer name and address forms. Scoped to website, so it can differ per website.",
+   "confidence": "high", "basis": ["label", "sourceModel:Nooptreq", "nativeComment", "scope:website", "group:Name and Address Options"] },
+
+ { "elementId": "customer_online_customers_section_data_lifetime",
+   "comment": "How long, in minutes, a visitor counts as online in the Online Customers grid.",
+   "modal": "The window, in minutes as the field note says, during which a customer is still considered online after their last activity. A longer value keeps more people listed in the Online Customers grid; a shorter one trims it to recent activity only.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Online Customers Options"] },
+
+ { "elementId": "currency_fixerio_api_key",
+   "comment": "API key for the legacy Fixer.io currency feed; stored encrypted.",
+   "modal": "The key for fetching exchange rates from Fixer.io. As the field note says, use this only for keys generated at Fixer.io directly; keys from ApiLayer belong in the separate Fixer-via-APILayer field. It is stored encrypted at rest.",
+   "confidence": "high", "basis": ["label", "nativeComment", "backendModel:Encrypted", "group:Fixer.io (legacy)"] },
+
+ { "elementId": "google_gtag_adwords_conversion_id",
+   "comment": "Google Ads conversion ID for gtag tracking; applies only when AdWords is active. Can differ per store view.",
+   "modal": "The Google Ads conversion ID (the field note shows the `AW-XXXXXXXX` form) that the gtag conversion tag reports against. Applies only when Google AdWords tracking is active, and is scoped to website/store so each view can report to its own account.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:active=1", "scope:store", "group:Google AdWords"] },
+
+ { "elementId": "oauth_cleanup_expiration_period",
+   "comment": "How long, in minutes, expired OAuth entries are retained before cleanup removes them.",
+   "modal": "The age, in minutes as the field note says, past which expired OAuth tokens and nonces are purged by the cleanup routine. A shorter period keeps the OAuth tables lean; too short could remove entries still useful for debugging.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Cleanup Settings"] },
+
+ { "elementId": "cataloginventory_indexer_async",
+   "comment": "Sync vs async reindex of stock/source data; async offloads the work to the message queue.",
+   "modal": "Chooses whether stock/source index updates run inline or are queued for asynchronous processing. As the field note says, async mode needs a configured queue manager (consumers running). Async keeps admin saves and imports fast by deferring the reindex off the request.",
+   "confidence": "high", "basis": ["label", "sourceModel:ReindexStrategyOptions", "nativeComment", "group:Inventory Indexer Settings"] },
+
+ { "elementId": "webapi_jwtauth_jwe_alg",
+   "comment": "Content-encryption algorithm used when API tokens are issued as encrypted JWEs.",
+   "modal": "Selects the algorithm that encrypts the payload of JWT tokens. As the field note says, it takes effect when a JWE (encrypted) algorithm is in use rather than a plain signed token, keeping the token contents opaque to the client.",
+   "confidence": "medium", "basis": ["label", "sourceModel:JweAlgorithmSource", "nativeComment", "group:JWT Authentication"] },
+
+ { "elementId": "system_media_gallery_renditions_width",
+   "comment": "Maximum width, in pixels, for optimized media-gallery renditions.",
+   "modal": "The maximum width in pixels, as the field note says, for the optimized rendition copies generated for media-gallery images. Images wider than this are scaled down to produce lighter previews; it does not alter the original uploaded file.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Media Gallery Image Optimization"] },
+
+ { "elementId": "newrelicreporting_general_app_id",
+   "comment": "New Relic application ID data is reported to; applies only when New Relic reporting is enabled. Can differ per store view.",
+   "modal": "The numeric New Relic application ID the module reports to; the field note explains it sits in the APM URL after `/applications/`. Applies only when New Relic reporting is enabled, and is scoped to website/store.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:enable=1", "scope:store", "group:General"] },
+
+ { "elementId": "newsletter_subscription_success_email_template",
+   "comment": "Template for the newsletter subscription-success email; can differ per store view.",
+   "modal": "The email template sent to confirm a successful newsletter subscription. As the field note says, **Default** resolves through theme fallback. Scoped to website/store, so each store view can confirm with its own template.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:store", "group:Subscription Options"] },
+
+ { "elementId": "cms_pagebuilder_google_maps_style",
+   "comment": "Custom Google Maps style JSON that restyles the Page Builder Map content type.",
+   "modal": "Holds the Google Maps style JSON that, as the field note says, changes the look and feel of the Map content type in Page Builder. Leave it empty for the default map appearance; paste a valid style array to recolor or simplify the map.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Advanced Content Tools"] },
+
+ { "elementId": "system_full_page_cache_varnish_grace_period",
+   "comment": "Varnish grace window, in seconds, for serving stale cached content; applies only when Varnish is the cache.",
+   "modal": "The grace period written into the generated Varnish config. As the field note says, an empty value saves 300 seconds; within it stale content is served while a fresh copy is fetched, and if the backend is unhealthy cached content is served for up to 3 days. Applies only when Varnish is the caching application.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:caching_application=1", "group:Varnish Configuration"] },
+
+ { "elementId": "recaptcha_frontend_type_recaptcha_lang",
+   "comment": "Forces the reCAPTCHA v2 widget into a specific language; auto-detects when blank. Can differ per store view.",
+   "modal": "Forces the reCAPTCHA v2 checkbox widget to render in a specific language code; as the field note says, it is optional and auto-detects the visitor's language when left blank. Scoped to website/store, so each localized store view can pin its own language.",
+   "confidence": "high", "basis": ["label", "nativeComment", "scope:store", "group:reCAPTCHA v2 (\"I am not a robot\")"] },
+
+ { "elementId": "reports_dashboard_mtd_start",
+   "comment": "Day of the month the dashboard's month-to-date range begins on.",
+   "modal": "Sets which day of the month, as the field note says, the admin dashboard treats as the start of the month-to-date range. Change it to align MTD figures with a billing or fiscal month that does not begin on the 1st.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Dashboard"] },
+
+ { "elementId": "rma_general_enabled",
+   "comment": "Turns RMA return handling on or off; can differ per website.",
+   "modal": "Enables or disables the RMA return-management functionality, as the field note says. Turning it **Yes** exposes the return request flows to customers and staff. Scoped to website, so RMA can run on some websites but not others.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website", "group:General"] },
+
+ { "elementId": "rma_email_admin_notify_email",
+   "comment": "Address that receives admin RMA notification emails; can differ per store view.",
+   "modal": "The email address, per the field note, that receives admin notifications about RMA activity. Scoped to website/store, so returns from different store views can route to different inboxes or teams.",
+   "confidence": "high", "basis": ["label", "nativeComment", "scope:store", "group:Email Notifications"] },
+
+ { "elementId": "sales_identity_logo",
+   "comment": "Logo image used on PDF invoices and packing slips; can differ per store view.",
+   "modal": "The logo placed on printed PDF invoices and packing slips. As the field note says, it accepts jpeg/tiff/png and a larger file helps if the PDF image looks distorted. Scoped to website/store, so each store view can print its own branding.",
+   "confidence": "high", "basis": ["label", "nativeComment", "scope:store", "group:Invoice and Packing Slip Design"] },
+
+ { "elementId": "sales_email_general_sending_limit",
+   "comment": "Caps how many sales emails are processed per cron run; applies only when async sending is on.",
+   "modal": "Limits how many entities (orders, shipments, etc.) are processed in a single cron run, as the field note says. Applies only when asynchronous email sending is enabled; lower it to ease load per run, raise it to clear the queue faster.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:async_sending=1", "group:General Settings"] },
+
+ { "elementId": "sales_email_invoice_guest_template",
+   "comment": "Invoice email template for guest orders; applies only when invoice emails are enabled. Can differ per store view.",
+   "modal": "The email template used to send invoices to guest (not registered) customers. As the field note says, **Default** resolves through theme fallback. Applies only when invoice emails are enabled, and is scoped per store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "depends:enabled=1", "scope:store", "group:Invoice"] },
+
+ { "elementId": "sales_email_shipment_comment_template",
+   "comment": "Email template for shipment-comment notifications; applies only when shipment emails are enabled. Can differ per store view.",
+   "modal": "The template used when a comment is added to a shipment and emailed to the customer. As the field note says, **Default** resolves through theme fallback. Applies only when shipment comment emails are enabled, and is scoped per store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "depends:enabled=1", "scope:store", "group:Shipment Comments"] },
+
+ { "elementId": "sales_email_creditmemo_comment_copy_to",
+   "comment": "Extra recipients copied on credit-memo comment emails; applies only when those emails are enabled.",
+   "modal": "A comma-separated list of addresses copied on credit-memo comment notifications, as the field note indicates. Applies only when credit-memo comment emails are enabled, and is scoped per store view so different views can copy different teams.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:enabled=1", "scope:store", "group:Credit Memo Comments"] },
+
+ { "elementId": "customer_password_max_number_password_reset_requests",
+   "comment": "Caps customer password-reset requests per hour; 0 disables the limit. Applies under the matching protection mode.",
+   "modal": "Limits how many password-reset requests a customer can make per hour, with 0 disabling the limit as the field note says. It applies only under the corresponding password-reset protection mode; raising it eases legitimate retries but weakens brute-force protection.",
+   "confidence": "medium", "basis": ["label", "nativeComment", "depends:password_reset_protection_type=0", "scope:store"] },
+
+ { "elementId": "sendfriend_email_template",
+   "comment": "Template for the Email-to-a-Friend message; applies only when the feature is enabled. Can differ per store view.",
+   "modal": "The email template used by the Email to a Friend feature. As the field note says, **Default** resolves through theme fallback. Applies only when the feature is enabled, and is scoped per store view.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "depends:enabled=1", "scope:store", "group:Email Templates"] },
+
+ { "elementId": "tax_calculation_price_includes_tax",
+   "comment": "Whether catalog prices entered in admin already include tax; can differ per website.",
+   "modal": "Tells the tax engine whether catalog prices entered in the admin are tax-inclusive, as the field note says. It changes whether tax is extracted from the entered price or added on top, so switching it shifts the effective shelf prices. Scoped to website.",
+   "confidence": "high", "basis": ["label", "sourceModel:PriceType", "nativeComment", "scope:website", "group:Calculation Settings"] },
+
+ { "elementId": "system_speculation_rules_exclude_extensions",
+   "comment": "File extensions excluded from speculative prefetch/prerender; applies only when speculative loading is on.",
+   "modal": "A comma-separated list of file extensions whose URLs are excluded from speculative prefetching/prerendering. Applies only when speculative loading is enabled, and is scoped per store view. Use it to keep downloads or heavy endpoints from being fetched ahead of a click.",
+   "confidence": "high", "basis": ["label", "nativeComment", "depends:enable=1", "scope:store", "group:Speculative Loading"] },
+
+ { "elementId": "dev_css_use_css_critical_path",
+   "comment": "Yes inlines critical CSS and loads the rest asynchronously to speed first render; needs a theme critical.css.",
+   "modal": "When **Yes**, critical CSS is inlined and the remaining stylesheets load asynchronously, improving first render. As the field note warns, your theme must provide a `critical.css` file, or styling will be incomplete until the async CSS arrives.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+ { "elementId": "dev_js_session_storage_logging",
+   "comment": "Yes records JS errors in the browser's session storage for test/diagnostic reporting.",
+   "modal": "When **Yes**, JavaScript errors are captured into the browser's session storage. As the field note says, functional tests can read these for extended reporting; it is a diagnostic aid rather than a storefront feature.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment"] },
+
+ { "elementId": "admin_security_password_lifetime",
+   "comment": "Days before an admin password must be changed; leave empty to disable expiry.",
+   "modal": "The number of days an admin password stays valid before the user must change it. As the field note says, leaving the field empty disables password expiry entirely, so admins are never forced to rotate.",
+   "confidence": "high", "basis": ["label", "nativeComment"] },
+
+ { "elementId": "wishlist_email_number_limit",
+   "comment": "Caps how many recipients a single wishlist-share email can have; can differ per store view.",
+   "modal": "The maximum number of recipient addresses allowed when sharing a wish list by email. As the field note says, the default is 10 and the ceiling is 10000. Scoped to website/store, so each store view can set its own limit.",
+   "confidence": "high", "basis": ["label", "nativeComment", "scope:store", "group:Share Options"] }
+]

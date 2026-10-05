@@ -18,3 +18,6 @@
 
 # PayPal chunk task-inputs (regenerable from extract-config-live); *.help.json + aliases.json kept
 /generated-help/paypal-chunks/chunk-[0-9].json
+
+# Round-2 task-inputs (regenerable); *.help.json kept
+/generated-help/commented/chunk-[0-9].json

@@ -39,9 +39,16 @@ foreach (glob("$dir/*.doc.json") ?: [] as $docFile) {
     }
 }
 
-// Collect all help entries (prose).
+// Collect all help entries (prose). Round 1 lives in generated-help/*.help.json
+// (undocumented fields); round 2 in generated-help/commented/*.help.json
+// (fields that already had a native <comment>, now enriched). Both are keyed by
+// elementId with meta resolved from the extracts.
 $entries = [];
-foreach (glob("$dir/*.help.json") ?: [] as $helpFile) {
+$helpFiles = array_merge(
+    glob("$dir/*.help.json") ?: [],
+    glob("$dir/commented/*.help.json") ?: []
+);
+foreach ($helpFiles as $helpFile) {
     $help = json_decode(file_get_contents($helpFile), true);
     if (!is_array($help)) {
         continue;

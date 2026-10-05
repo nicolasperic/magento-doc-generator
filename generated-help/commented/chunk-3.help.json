@@ -1,0 +1,211 @@
+[
+ { "elementId": "catalog_search_search_recommendations_enabled",
+   "comment": "Suggests alternative searches for weak queries; adds query-time work that can slow the storefront.",
+   "modal": "When **Yes**, search result pages offer recommended alternative queries. Generating them adds processing on each search — the native note's slowdown warning — so weigh it against the extra help for shoppers. Website/store scoped, so you can enable it per store view.",
+   "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "ai_integration_automatic_translation_catalog_retranslation_period",
+   "comment": "Days before an already-translated product is retranslated; lower means more frequent, costlier re-runs.",
+   "modal": "Sets how stale a translation may get before periodic retranslation redoes it, measured from each product's Last translation date. A shorter period keeps catalog copy fresher but triggers more translation-engine calls and cost. Applies only when periodic retranslation is enabled; website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "depends:enable_periodic_retranslation", "scope:website,store"] },
+
+ { "elementId": "ai_integration_automatic_translation_translations_engine_openai_api_key",
+   "comment": "Credential for the OpenAI translation engine; stored encrypted and used only when that engine is selected.",
+   "modal": "Authenticates calls to OpenAI for automatic translation. Entered as an obscured field and stored encrypted, and only used when the translation engine is set to OpenAI. Set at default scope — a single key serves all stores.",
+   "confidence": "high", "basis": ["label", "type:obscure", "backendModel:Encrypted", "depends:engine=OpenAI", "scope:default"] },
+
+ { "elementId": "dev_template_minify_html",
+   "comment": "Strips whitespace from rendered HTML to cut page size; has no effect in developer mode.",
+   "modal": "When **Yes**, page HTML is minified to reduce transfer size. As the native note says, it is skipped in developer mode, so test it in production mode. Changing it affects cached output — flush the page cache to see the result. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "system_smtp_port",
+   "comment": "TCP port Magento connects to for sending mail; must match the mail server's listening port.",
+   "modal": "The port used for outgoing SMTP. It must match the port your mail server actually listens on, or mail silently fails to send. Accepts 0–65535 per the native note. Website/store scoped, so stores can use different mail servers.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "admin_url_custom_path",
+   "comment": "Replaces the default /admin path with a custom one; you are signed out and must re-login after saving.",
+   "modal": "Changes the admin panel's URL path for obscurity, so the panel no longer answers at the default address. Applies only when 'Use Custom Admin Path' is enabled. After saving you are logged out and must sign in at the new path, and old bookmarks break.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "depends:use_custom_path", "scope:default"] },
+
+ { "elementId": "web_unsecure_base_url",
+   "comment": "Root HTTP URL for building storefront links and assets; a wrong value can break the whole site.",
+   "modal": "The base for all non-secure (http) URLs — links, images, scripts. You may use the `{{base_url}}` placeholder. An incorrect value breaks asset loading and can lock you out, and changes usually need a cache flush. Website/store scoped for multi-domain setups.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:Baseurl", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "web_secure_use_in_frontend",
+   "comment": "Forces the storefront onto HTTPS using the Secure Base URL; needs a valid certificate.",
+   "modal": "When **Yes**, the storefront is served over HTTPS via the Secure Base URL. That URL must use the https protocol and have a valid certificate, or customers hit errors. Website/store scoped, so you can secure specific store views.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "backendModel:Secure", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "customer_captcha_failed_attempts_login",
+   "comment": "Failed logins allowed before the storefront CAPTCHA appears; 0 shows it on every attempt.",
+   "modal": "How many unsuccessful customer logins are permitted before CAPTCHA is required. Per the native note, 0 keeps CAPTCHA always on. Applies only when CAPTCHA is enabled with mode 'after a number of failed attempts'. Website scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "depends:enable,mode=after_fail", "scope:website"] },
+
+ { "elementId": "catalog_search_max_query_length",
+   "comment": "Longest search string accepted; must stay compatible with the configured search engine's limit.",
+   "modal": "Caps the length of storefront search queries. Set it beyond what your search engine allows and searches can error, so keep the two in sync as the native note warns. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "catalog_fields_masks_meta_title",
+   "comment": "Template for auto-filling a product's meta title when left blank; {{name}} inserts the product name.",
+   "modal": "Pattern used to generate a product's Meta Title when it isn't set manually, with `{{name}}` standing in for the product name. Applied when products are saved, so existing products keep their current titles until re-saved.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "group:Product Fields Auto-Generation"] },
+
+ { "elementId": "catalog_frontend_default_sort_by_order",
+   "comment": "Default sort order for category product listings; shoppers can still re-sort.",
+   "modal": "The initial sort applied to category product lists. It only sets the default — shoppers can re-sort — and applies to category pages per the native note. Website/store scoped, so store views can differ.",
+   "confidence": "high", "basis": ["label", "sourceModel:SortOrder", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "web_cookie_cookie_domain",
+   "comment": "Domain cookies are issued for; a mismatch with the real site domain breaks login and sessions.",
+   "modal": "Scopes session and other cookies to a domain. It must match the domain customers actually use (a leading dot shares across subdomains); a mismatch silently breaks sessions and login. Leave empty to use the current domain. Website/store scoped for multi-domain stores.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:Domain", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "customer_create_account_email_confirmation_template",
+   "comment": "Email template for the account-confirmation link message sent to new customers.",
+   "modal": "Selects which transactional template sends the account confirmation link to new customers. Choosing Default resolves via theme fallback per the native note. Website/store scoped, so each store view can use its own branded template.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "customer_password_lockout_failures",
+   "comment": "Failed customer logins before the account is locked; 0 disables locking entirely.",
+   "modal": "Number of consecutive failed logins before a customer account is locked out. Setting 0 disables lockout completely per the native note — a convenience-versus-security tradeoff. Works together with the lockout-time setting that controls how long the lock lasts.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Password Options", "scope:default"] },
+
+ { "elementId": "customer_address_middlename_show",
+   "comment": "Shows the middle-name/initial field on customer name and address forms; it stays optional.",
+   "modal": "Controls whether the middle name (initial) field appears on customer and address forms. Even when shown it is never required, per the native note. Website scoped, so store groups can collect it differently.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+ { "elementId": "dev_restrict_allow_ips",
+   "comment": "Limits developer features (like template hints) to these IPs; empty means no IP restriction.",
+   "modal": "Restricts developer client features to a comma-separated IP allowlist. Leave empty to allow any location per the native note; set it to expose debugging tools only to your own addresses. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:AllowedIps", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "catalog_downloadable_disable_guest_checkout",
+   "comment": "Forces account creation when the cart has downloadable items, so download links belong to an account.",
+   "modal": "When **Yes**, guest checkout is blocked for carts containing downloadable products, so purchases tie to a registered account. As the native note says, guest checkout still works only for shareable downloads. Website scoped.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+ { "elementId": "webapi_graphql_validation_maximum_alias_allowed",
+   "comment": "Caps aliases per GraphQL request to curb abuse; set too low and legitimate queries fail.",
+   "modal": "Limits how many aliases a single GraphQL request may use, a guard against resource-exhaustion attacks. Applies only when the alias limit is enabled. Set it too low and complex but legitimate queries are rejected. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "depends:alias_limit_enabled", "scope:website,store"] },
+
+ { "elementId": "oauth_consumer_post_maxredirects",
+   "comment": "How many HTTP redirects the OAuth consumer-credentials POST will follow.",
+   "modal": "Maximum redirects followed when posting OAuth consumer credentials to the integration endpoint. Raise it if the endpoint legitimately redirects; keep it low to avoid chasing unexpected hops. Default scope only.",
+   "confidence": "medium", "basis": ["label", "type:text", "nativeComment", "scope:default"] },
+
+ { "elementId": "sales_email_order_ready_for_pickup_template",
+   "comment": "Email template for the 'order ready for pickup' notification.",
+   "modal": "Selects the template for the notification sent when an in-store-pickup order is ready. Choosing Default resolves via theme fallback per the native note. Website/store scoped for per-store branding.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "webapi_jwtauth_admin_expiration",
+   "comment": "Lifetime in minutes of an admin API JWT before it must be reissued.",
+   "modal": "How long, in minutes, an admin user's JWT stays valid for API calls. Shorter lifetimes limit the damage of a leaked token but force more frequent re-authentication; longer ones are more convenient but riskier. Default scope only.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:default"] },
+
+ { "elementId": "newrelicreporting_general_insights_api_url",
+   "comment": "Endpoint Magento posts New Relic Insights events to; %s is replaced with the account ID.",
+   "modal": "The URL events are sent to for New Relic Insights reporting, with `%s` substituted by your account ID per the native note. Applies only when New Relic reporting is enabled. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "depends:enable", "scope:website,store"] },
+
+ { "elementId": "catalog_search_opensearch_minimum_should_match",
+   "comment": "How many query terms a document must match to be returned; stricter values narrow results.",
+   "modal": "Passes a minimum-should-match rule to OpenSearch controlling how many of a query's terms a result must contain. Stricter settings return fewer, more precise matches; looser ones broaden recall. Applies only when the OpenSearch engine is selected. Default scope.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:MinimumShouldMatch", "depends:engine=opensearch", "scope:default"] },
+
+ { "elementId": "cms_pagebuilder_column_grid_max",
+   "comment": "Upper limit on the number of columns a Page Builder column layout can hold.",
+   "modal": "Sets the maximum grid size, which caps how many columns editors can add to a Page Builder row. Raising it allows denser layouts; lowering it constrains content authors. Default scope.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:default"] },
+
+ { "elementId": "catalog_productalert_email_price_template",
+   "comment": "Email template for product price-drop alert notifications.",
+   "modal": "Selects the template used for price-alert emails sent when a watched product's price drops. Choosing Default resolves via theme fallback per the native note. Website/store scoped, so each store view can brand it.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "recaptcha_frontend_type_invisible_lang",
+   "comment": "Forces the invisible reCAPTCHA widget to render in a specific language; cosmetic only.",
+   "modal": "Optionally overrides the display language of the invisible reCAPTCHA widget; left blank it auto-detects the visitor's language. It affects only how the challenge is presented, not whether it is required. Website/store scoped.",
+   "confidence": "medium", "basis": ["label", "type:text", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "reports_options_product_view_enabled",
+   "comment": "Records product-page views to power the Product Views report; adds a write on each view.",
+   "modal": "When **Yes**, Magento logs product-page views to build the Product Views report. Collecting this data adds a database write per view, so it carries a small performance cost. Applies only when reports collection is enabled. Default scope.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "depends:enabled", "scope:default"] },
+
+ { "elementId": "rma_general_return_period",
+   "comment": "Days after order completion a customer may still request a return.",
+   "modal": "The window, in days from order completion, during which returns can be requested; after it, customers can no longer open an RMA. Website scoped, so return policy can vary per store.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website"] },
+
+ { "elementId": "rma_attachments_max_files",
+   "comment": "Maximum number of files attachable per RMA submission or comment.",
+   "modal": "Caps how many files a customer can attach in one RMA creation or comment. Lower limits reduce storage use and abuse; higher limits let customers document issues more fully. Website scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website"] },
+
+ { "elementId": "sales_minimum_order_amount",
+   "comment": "Smallest order subtotal (after discount) allowed through checkout.",
+   "modal": "The minimum order value required to place an order, measured on the subtotal after discounts per the native note. Carts below it are blocked at checkout. Website scoped, so the threshold can differ per store.",
+   "confidence": "high", "basis": ["label", "nativeComment", "group:Minimum Order Amount", "scope:website"] },
+
+ { "elementId": "sales_email_order_guest_template",
+   "comment": "Email template for order confirmations sent to guest (non-account) buyers.",
+   "modal": "Selects the confirmation template used for orders placed by guests, separate from the registered-customer template. Default resolves via theme fallback. Applies only when order emails are enabled. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "depends:enabled", "scope:website,store"] },
+
+ { "elementId": "sales_email_invoice_comment_template",
+   "comment": "Email template for invoice-comment notifications.",
+   "modal": "Selects the template for emails sent when a comment is added to an invoice. Default resolves via theme fallback per the native note. Applies only when invoice emails are enabled. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "sourceModel:Email\\Template", "nativeComment", "depends:enabled", "scope:website,store"] },
+
+ { "elementId": "sales_email_shipment_comment_copy_to",
+   "comment": "Extra addresses copied on shipment-comment emails; comma-separated.",
+   "modal": "Additional recipients who receive a copy of shipment-comment emails, entered comma-separated. Useful for a warehouse or support mailbox. Applies only when shipment emails are enabled. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "depends:enabled", "scope:website,store"] },
+
+ { "elementId": "csp_mode_admin_sales_order_create_index_report_uri",
+   "comment": "URL that CSP violation reports for admin order creation are sent to; blank uses the default.",
+   "modal": "Where the browser posts Content-Security-Policy violation reports for the admin Create Order page. Leave empty to use the admin area's default report URI per the native note. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "magento_securitytxt_securitytxt_contact_information_contact_page",
+   "comment": "Contact URL published in your security.txt file; must be an https address.",
+   "modal": "The contact page advertised in security.txt for reporting vulnerabilities. It must be a valid secure (https) URL, which the backend enforces. Website scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:SecureUrl", "nativeComment", "scope:website"] },
+
+ { "elementId": "sitemap_product_priority",
+   "comment": "Crawl-priority hint (0.0–1.0) given to product URLs in the XML sitemap.",
+   "modal": "Sets the `<priority>` value for product URLs in the generated sitemap, from 0.0 to 1.0, hinting their relative importance to crawlers. It is only a hint — search engines may ignore it. Website/store scoped.",
+   "confidence": "high", "basis": ["label", "type:text", "backendModel:Priority", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "tax_calculation_discount_tax",
+   "comment": "Whether discounts apply to prices including or excluding tax; changes the taxable base.",
+   "modal": "Chooses whether cart discounts are calculated on prices including or excluding tax, which shifts the taxable base. As the native note warns, applying the discount on tax-included prices requires Catalog Prices set to Including Tax. Saving flags a tax-configuration notice; website scoped.",
+   "confidence": "high", "basis": ["label", "sourceModel:PriceType", "backendModel:Notification", "nativeComment", "scope:website"] },
+
+ { "elementId": "system_bfcache_general_enable",
+   "comment": "Lets browsers keep whole pages in memory for instant back/forward; may show stale content.",
+   "modal": "When **Yes**, enables the browser back/forward cache so revisited pages load instantly from memory. The tradeoff is that dynamic content such as the cart or prices can appear stale on back navigation. Website/store scoped.",
+   "confidence": "medium", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website,store"] },
+
+ { "elementId": "twofactorauth_general_force_providers",
+   "comment": "Which 2FA methods admin users are allowed to use at login.",
+   "modal": "Restricts the two-factor authentication methods admin users may use when signing in. Selecting several providers lets each admin choose among them; narrowing to one enforces that method for everyone. Default scope — it applies to all admins.",
+   "confidence": "high", "basis": ["label", "type:multiselect", "sourceModel:Provider", "nativeComment", "scope:default"] },
+
+ { "elementId": "carriers_ups_include_taxes",
+   "comment": "Requests tax-inclusive shipping rates from UPS, changing the quoted shipping cost.",
+   "modal": "When **Yes**, UPS rate requests ask for tax-inclusive rates, so applicable taxes (sales tax, VAT) are folded into the quoted shipping price. Affects what customers see at checkout where UPS applies. Website scoped.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:website"] },
+
+ { "elementId": "webapi_webapisecurity_allow_insecure",
+   "comment": "Permits anonymous access to normally-protected CMS, Catalog and Store APIs; a security risk.",
+   "modal": "When **Yes**, allows unauthenticated access to API resources that are otherwise protected, limited to CMS, Catalog and Store APIs per the native note. It exposes data without auth, so review the risk with developers before enabling. Default scope.",
+   "confidence": "high", "basis": ["label", "sourceModel:Yesno", "nativeComment", "scope:default"] }
+]
