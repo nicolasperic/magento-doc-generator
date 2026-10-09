@@ -36,9 +36,12 @@ bold `summary` + `usage` + "Accepted values" + "Technical details" + footer (mod
       +6,342 path, +6,259 scope, +5,356 models, +4,321 default, +483 validation, +4,934 values.
       Values capped at 10 options and filtered by a denylist of store-data sources (customer
       group / CMS page / tax class / admin theme correctly skipped). Runtime smoke test passes.
-- [ ] **USER REVIEW GATE** — verify the card in-browser; approve before the prose fan-out.
-- [ ] **Tier 2 prose fan-out** — generate clean summary + rich usage + per-value DESCRIPTIONS
-      for the non-pilot fields (values now have id+label; descriptions are what's left). Batched.
+- [x] **Per-value descriptions (reusable)** — generated-help/value-descriptions.json: 65 semantic
+      source models described once each, reused across every field (Yes/No + PayPal visual styling
+      skipped on purpose). Wired into emit's value backfill; propagates to ~500 fields' value lists.
+- [ ] **Tier 2 summary/usage at scale** — the remaining per-field prose. Existing notes are decent;
+      lift to pilot depth section by section (priority: Sales, Catalog, Customer, Checkout, Payment,
+      Shipping, General, Web). Large; batched and reviewable per section.
 
 ## Rendering contract (block keys JS consumes)
 summary, usage(HTML, client-sanitized), values[{id,label,description}], technical[{label,value}],
