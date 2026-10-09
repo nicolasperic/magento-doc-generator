@@ -63,6 +63,34 @@ $recordField = static function ($field, string $path) use (&$fields, $structure,
     $sectionEl = $structure->getElement($parts[0]);
     $groupEl   = count($parts) >= 3 ? $structure->getElementByPathParts(array_slice($parts, 0, count($parts) - 1)) : null;
 
+    // Resolved accepted values. Field::getOptions() applies the source_model (or
+    // inline <options>) exactly as the admin <select> does. Option groups nest
+    // their children under a 'value' array; flatten those and drop the empty
+    // "-- Please Select --" placeholder (value ''), keeping real values like '0'.
+    $options = [];
+    try {
+        $raw = method_exists($field, 'getOptions') ? (array)$field->getOptions() : [];
+        $flatten = static function ($list, $self) use (&$options, $clean): void {
+            foreach ((array)$list as $opt) {
+                if (!is_array($opt) || !array_key_exists('value', $opt)) {
+                    continue;
+                }
+                if (is_array($opt['value'])) {
+                    $self($opt['value'], $self); // option group
+                    continue;
+                }
+                $value = (string)$opt['value'];
+                if ($value === '') {
+                    continue;
+                }
+                $options[] = ['id' => $value, 'label' => $clean((string)($opt['label'] ?? '')) ?? ''];
+            }
+        };
+        $flatten($raw, $flatten);
+    } catch (\Throwable $e) {
+        $options = []; // a source model that needs a store/registry context: skip, never fail
+    }
+
     $fields[] = [
         'path'          => $path,
         'elementId'     => str_replace('/', '_', $path),
@@ -79,6 +107,8 @@ $recordField = static function ($field, string $path) use (&$fields, $structure,
         'frontendModel' => isset($data['frontend_model']) ? trim((string)$data['frontend_model']) : null,
         'depends'       => $depends,
         'scope'         => $scope,
+        'validation'    => isset($data['validate']) ? (trim((string)$data['validate']) ?: null) : null,
+        'options'       => $options,
     ];
 };
 

@@ -1,0 +1,99 @@
+{
+  "cataloginventory_options_can_subtract": {
+    "summary": "Whether placing an order immediately reduces a product's stock quantity.",
+    "usage": "<p>Controls whether Magento subtracts ordered quantities from stock the moment an order is placed. In most setups this should stay <strong>Yes</strong> so available quantity reflects open orders; set it to <strong>No</strong> only when an external system owns stock levels.</p>",
+    "values": [
+      {"id": "1", "label": "Yes", "description": "Ordered quantities are subtracted from stock when the order is placed."},
+      {"id": "0", "label": "No", "description": "Stock is left unchanged when an order is placed; quantities must be adjusted elsewhere."}
+    ]
+  },
+  "cataloginventory_options_can_back_in_stock": {
+    "summary": "Whether cancelling an order can flip a product back to \"In Stock\".",
+    "usage": "<p>When an order is cancelled and its items return to stock, this decides whether a product that had dropped to <strong>Out of Stock</strong> is automatically set back to <strong>In Stock</strong>. Applies only while stock is being managed.</p>",
+    "values": [
+      {"id": "1", "label": "Yes", "description": "A cancelled order's returned quantity can move the product back to In Stock."},
+      {"id": "0", "label": "No", "description": "Stock status is left unchanged; the product stays Out of Stock until set manually."}
+    ]
+  },
+  "cataloginventory_options_show_out_of_stock": {
+    "summary": "Whether out-of-stock products appear in category listings and search results.",
+    "usage": "<p>When <strong>Yes</strong>, products with no available stock still appear in category pages, search and layered navigation. When <strong>No</strong>, they are hidden from listings but remain reachable by their direct product URL.</p><p>Changing this invalidates the catalog and search indexes, so the storefront keeps the previous behaviour until reindexing completes.</p>",
+    "values": [
+      {"id": "1", "label": "Yes", "description": "Out-of-stock products are listed and searchable."},
+      {"id": "0", "label": "No", "description": "Out-of-stock products are hidden from listings, but still reachable by direct URL."}
+    ]
+  },
+  "cataloginventory_options_stock_threshold_qty": {
+    "summary": "Quantity at or below which the storefront shows an \"Only X left\" message.",
+    "usage": "<p>Sets the low-stock quantity that triggers the <em>Only X left</em> urgency message on the product page. Set it to <code>0</code> to turn the message off entirely.</p>"
+  },
+  "cataloginventory_options_display_product_stock_status": {
+    "summary": "Whether the storefront shows a product's \"In Stock\" / \"Out of Stock\" availability.",
+    "usage": "<p>Controls whether the stock-availability label is shown to shoppers on product pages. Setting it to <strong>No</strong> hides the availability line without changing how stock is tracked.</p>",
+    "values": [
+      {"id": "1", "label": "Yes", "description": "Shoppers see the In Stock / Out of Stock label."},
+      {"id": "0", "label": "No", "description": "The availability label is hidden from the storefront."}
+    ]
+  },
+  "cataloginventory_options_not_available_message": {
+    "summary": "Which message shoppers see when they request more than the available quantity.",
+    "usage": "<p>Chooses the wording shown when a customer tries to add more of a product than is in stock.</p>",
+    "values": [
+      {"id": "1", "label": "Only X of Y available", "description": "Tells the shopper exactly how many units are available."},
+      {"id": "2", "label": "Not enough items for sale", "description": "Shows a generic shortage message without naming the number available."}
+    ]
+  },
+  "cataloginventory_item_options_manage_stock": {
+    "summary": "Master switch for whether Magento tracks inventory quantities at all.",
+    "usage": "<p>When <strong>Yes</strong>, Magento tracks quantities and enforces stock status for products that use the default settings. When <strong>No</strong>, products are always treated as available and quantity is ignored.</p><p>Changing this reprocesses the whole catalog, so it can take some time.</p>",
+    "values": [
+      {"id": "1", "label": "Yes", "description": "Inventory is tracked and stock status is enforced."},
+      {"id": "0", "label": "No", "description": "Stock is not tracked; products are always purchasable."}
+    ]
+  },
+  "cataloginventory_item_options_backorders": {
+    "summary": "Whether customers can order more than the quantity in stock.",
+    "usage": "<p>Controls what happens when a shopper orders beyond available stock. Allowing backorders lets quantity fall below zero so the order is still accepted.</p><p>Changing this reprocesses the whole catalog, so it can take some time.</p>",
+    "values": [
+      {"id": "0", "label": "No Backorders", "description": "Orders cannot exceed available stock."},
+      {"id": "1", "label": "Allow Qty Below 0", "description": "Stock may go negative; orders are accepted with no notice to the customer."},
+      {"id": "2", "label": "Allow Qty Below 0 and Notify Customer", "description": "Backorders are accepted and the shopper is told the item is backordered."}
+    ]
+  },
+  "cataloginventory_item_options_max_sale_qty": {
+    "summary": "The largest quantity of a single product a customer may buy in one order.",
+    "usage": "<p>Caps how many of one product can be placed in the cart. Applies to products using the default inventory settings; a per-product value overrides it.</p>"
+  },
+  "cataloginventory_item_options_min_qty": {
+    "summary": "The quantity at which a product is considered out of stock.",
+    "usage": "<p>When available stock drops to this number, the product is marked <strong>Out of Stock</strong>. A negative value — together with backorders — lets stock fall below zero while the product stays sellable.</p>"
+  },
+  "cataloginventory_item_options_min_sale_qty": {
+    "summary": "The smallest quantity of a product a customer must buy in one order.",
+    "usage": "<p>Sets the minimum quantity required to add a product to the cart. Can be set per customer group, and overridden per product.</p>"
+  },
+  "cataloginventory_item_options_notify_stock_qty": {
+    "summary": "The stock level at or below which a product is flagged as low on admin reports.",
+    "usage": "<p>Sets the quantity that marks a product as low on stock for the admin <em>Low Stock</em> report and notifications. It does not affect whether the product can be sold.</p>"
+  },
+  "cataloginventory_item_options_auto_return": {
+    "summary": "Whether refunding an item automatically returns its quantity to stock.",
+    "usage": "<p>When <strong>Yes</strong>, the <em>Return to Stock</em> option is ticked by default when a credit memo is created, so refunded quantities go back into inventory. Staff can still change it per credit memo.</p>",
+    "values": [
+      {"id": "1", "label": "Yes", "description": "Refunded quantities are returned to stock by default."},
+      {"id": "0", "label": "No", "description": "Refunded quantities are not returned unless chosen on the credit memo."}
+    ]
+  },
+  "cataloginventory_item_options_enable_qty_increments": {
+    "summary": "Whether products must be purchased in fixed multiples.",
+    "usage": "<p>Turns on quantity increments, forcing shoppers to buy in multiples of the <em>Qty Increments</em> value below — for example, in packs of 6.</p>",
+    "values": [
+      {"id": "1", "label": "Yes", "description": "Quantities are restricted to multiples of the increment."},
+      {"id": "0", "label": "No", "description": "Any quantity may be ordered (subject to min and max)."}
+    ]
+  },
+  "cataloginventory_item_options_qty_increments": {
+    "summary": "The multiple in which a product must be purchased when increments are enabled.",
+    "usage": "<p>The step size shoppers must order in — for example <code>6</code> means quantities of 6, 12, 18 and so on. Only applies when <em>Enable Qty Increments</em> is set to <strong>Yes</strong>.</p>"
+  }
+}
