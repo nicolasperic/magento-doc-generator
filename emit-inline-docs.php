@@ -362,6 +362,19 @@ $defaults = buildDefaultsMap([
 ]);
 fwrite(STDERR, sprintf("defaults: %d config_path defaults from config.xml\n", count($defaults)));
 
+// Per-option descriptions keyed by source-model class, reused across every field
+// that uses the source model. Written once in generated-help/value-descriptions.json.
+$valueDescriptions = [];
+$vdFile = $dir . '/value-descriptions.json';
+if (is_file($vdFile)) {
+    foreach ((array)json_decode(file_get_contents($vdFile), true) as $src => $map) {
+        if (is_array($map)) {
+            $valueDescriptions[$src] = $map;
+        }
+    }
+}
+fwrite(STDERR, sprintf("value-descriptions: %d source models described\n", count($valueDescriptions)));
+
 if (is_file($liveFile)) {
     $live = json_decode(file_get_contents($liveFile), true) ?: [];
     $liveById = [];
@@ -414,8 +427,13 @@ if (is_file($liveFile)) {
                 $opts = $lf['options'];
                 $src = $lf['sourceModel'] ?? null;
                 if (count($opts) >= 2 && count($opts) <= $VALUES_CAP && !isDynamicSource($src)) {
+                    $descMap = $valueDescriptions[$src] ?? [];
                     $e['values'] = array_map(
-                        static fn($o) => ['id' => (string)$o['id'], 'label' => (string)$o['label']],
+                        static fn($o) => [
+                            'id'          => (string)$o['id'],
+                            'label'       => (string)$o['label'],
+                            'description' => (string)($descMap[(string)$o['id']] ?? ''),
+                        ],
                         $opts
                     );
                     $stat['values']++;

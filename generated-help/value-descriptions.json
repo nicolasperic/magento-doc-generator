@@ -1,0 +1,302 @@
+{
+  "_comment": "Per-option descriptions keyed by source-model class (exact string as the live extractor reports it, including any ::method). Reused across every field that uses the source model. Self-explanatory enums (units, GET/POST, light/dark, sandbox/prod) are intentionally omitted — their label is the meaning.",
+
+  "Magento\\Payment\\Model\\Config\\Source\\Allspecificcountries": {
+    "0": "Offer this method in every country your store already allows.",
+    "1": "Limit this method to the specific countries you pick below."
+  },
+  "Magento\\Shipping\\Model\\Config\\Source\\Allspecificcountries": {
+    "0": "Offer this method in every country your store already allows.",
+    "1": "Limit this method to the specific countries you pick below."
+  },
+  "Magento\\Paypal\\Model\\Config::getApiAuthenticationMethods": {
+    "0": "Authenticate to PayPal with an API signature (username, password, signature).",
+    "1": "Authenticate to PayPal with an uploaded API certificate instead of a signature."
+  },
+  "Magento\\Paypal\\Model\\System\\Config\\Source\\Yesnoshortcut": {
+    "1": "Show the PayPal shortcut button (PayPal's recommended choice).",
+    "0": "Hide the PayPal shortcut button."
+  },
+  "Magento\\Paypal\\Model\\Config::getExpressCheckoutSolutionTypes": {
+    "Sole": "Let shoppers pay without a PayPal account (guest checkout allowed).",
+    "Mark": "Require shoppers to sign in to a PayPal account to pay."
+  },
+  "Magento\\Paypal\\Model\\Config::getExpressCheckoutBASignupOptions": {
+    "auto": "Create a billing agreement automatically where one is possible.",
+    "ask": "Ask the customer whether to set up a billing agreement.",
+    "never": "Never offer a billing agreement at checkout."
+  },
+  "Magento\\Config\\Model\\Config\\Source\\Email\\Identity": {
+    "general": "Send as the General Contact store identity.",
+    "sales": "Send as the Sales Representative store identity.",
+    "support": "Send as the Customer Support store identity.",
+    "custom1": "Send as the Custom Email 1 store identity.",
+    "custom2": "Send as the Custom Email 2 store identity."
+  },
+  "Magento\\Config\\Model\\Config\\Source\\Email\\Method": {
+    "bcc": "Send one email and blind-copy the extra recipients.",
+    "copy": "Send each recipient a separate copy of the email."
+  },
+  "Magento\\Paypal\\Model\\System\\Config\\Source\\DisableFundingOptions": {
+    "CREDIT": "Hide the PayPal Credit funding option at checkout.",
+    "VENMO": "Hide the Venmo funding option at checkout.",
+    "CARD": "Hide the guest credit-card (unbranded card) option at checkout.",
+    "ELV": "Hide the German ELV direct-debit funding option at checkout."
+  },
+  "Magento\\ReCaptchaAdminUi\\Model\\OptionSource\\Type": {
+    "recaptcha": "Visible \"I'm not a robot\" checkbox (reCAPTCHA v2).",
+    "invisible": "Invisible badge that challenges only suspicious visitors (reCAPTCHA v2 Invisible).",
+    "recaptcha_v3": "Scores every request silently with no challenge (reCAPTCHA v3)."
+  },
+  "Magento\\Sales\\Model\\Config\\Source\\Order\\Status\\Newprocessing": {
+    "pending": "Place new orders in the Pending status.",
+    "processing": "Place new orders straight into Processing.",
+    "fraud": "Flag new orders as Suspected Fraud for manual review."
+  },
+  "Magento\\Config\\Model\\Config\\Source\\Nooptreq": {
+    "no": "Do not show this field.",
+    "opt": "Show the field but let shoppers leave it blank.",
+    "req": "Show the field and require it to be filled in."
+  },
+  "Magento\\Tax\\Model\\System\\Config\\Source\\Tax\\Display\\Type": {
+    "1": "Show prices with tax left out.",
+    "2": "Show prices with tax already included.",
+    "3": "Show both the tax-excluded and tax-included price."
+  },
+  "Magento\\Tax\\Model\\System\\Config\\Source\\PriceType": {
+    "0": "Prices you enter are treated as not including tax.",
+    "1": "Prices you enter are treated as already including tax."
+  },
+  "Magento\\Tax\\Model\\Config\\Source\\Basedon": {
+    "shipping": "Calculate tax from the customer's shipping address.",
+    "billing": "Calculate tax from the customer's billing address.",
+    "origin": "Calculate tax from the store's shipping origin."
+  },
+  "Magento\\Tax\\Model\\System\\Config\\Source\\Apply": {
+    "0": "Apply tax to the price before any discount.",
+    "1": "Apply tax to the price after the discount."
+  },
+  "Magento\\Tax\\Model\\Config\\Source\\Apply\\On": {
+    "0": "Tax the custom price when one is set, otherwise the original.",
+    "1": "Always tax the original price, ignoring custom prices."
+  },
+  "Magento\\Tax\\Model\\System\\Config\\Source\\Algorithm": {
+    "UNIT_BASE_CALCULATION": "Round tax on each unit, then multiply by quantity.",
+    "ROW_BASE_CALCULATION": "Round tax once per line (row total).",
+    "TOTAL_BASE_CALCULATION": "Round tax once on the order total."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\Price\\Scope": {
+    "0": "One price per product across the whole catalog.",
+    "1": "Allow a different price per website."
+  },
+  "Magento\\Weee\\Model\\Config\\Source\\Display": {
+    "0": "Show the price including the fixed product tax, with no separate line.",
+    "1": "Show the price including the fee, plus a line describing it.",
+    "2": "Show the price without the fee, plus the fee description and final price.",
+    "3": "Show the price with the fixed product tax left out."
+  },
+  "Magento\\Sitemap\\Model\\Config\\Source\\Frequency": {
+    "always": "Hint to crawlers that the page changes every visit.",
+    "hourly": "Hint that the page changes about hourly.",
+    "daily": "Hint that the page changes about daily.",
+    "weekly": "Hint that the page changes about weekly.",
+    "monthly": "Hint that the page changes about monthly.",
+    "yearly": "Hint that the page changes about yearly.",
+    "never": "Hint that the page is archived and won't change."
+  },
+  "Magento\\Sitemap\\Model\\Config\\Source\\GenerationMethod": {
+    "standard": "Build the whole sitemap in memory in one pass.",
+    "batch": "Build the sitemap in smaller batches to use less memory on large catalogs."
+  },
+  "Magento\\Cron\\Model\\Config\\Source\\Frequency": {
+    "D": "Run once a day.",
+    "W": "Run once a week.",
+    "M": "Run once a month."
+  },
+  "Magento\\Security\\Model\\Config\\Source\\ResetMethod": {
+    "1": "Rate-limit password resets by both IP address and email.",
+    "2": "Rate-limit password resets by IP address.",
+    "3": "Rate-limit password resets by email address.",
+    "0": "Do not rate-limit password resets."
+  },
+  "Magento\\Captcha\\Model\\Config\\Mode": {
+    "always": "Always show the CAPTCHA.",
+    "after_fail": "Show the CAPTCHA only after a number of failed attempts."
+  },
+  "Magento\\Shipping\\Model\\Source\\HandlingType": {
+    "F": "Add a fixed handling amount.",
+    "P": "Add handling as a percentage of the rate."
+  },
+  "Magento\\Shipping\\Model\\Source\\HandlingAction": {
+    "O": "Apply the handling fee once per order.",
+    "P": "Apply the handling fee to each package."
+  },
+  "Magento\\Shipping\\Model\\Config\\Source\\Online\\Requesttype": {
+    "0": "Split the cart into equal weights and send one rate request.",
+    "1": "Use the real package weight and send a request per package."
+  },
+  "Magento\\OfflineShipping\\Model\\Config\\Source\\Flatrate": {
+    "O": "Charge the flat rate once per order.",
+    "I": "Charge the flat rate for each item."
+  },
+  "Magento\\OfflineShipping\\Model\\Config\\Source\\Tablerate": {
+    "package_weight": "Look up the rate by weight and destination.",
+    "package_value_with_discount": "Look up the rate by order value and destination.",
+    "package_qty": "Look up the rate by number of items and destination."
+  },
+  "Magento\\PageCache\\Model\\System\\Config\\Source\\Application": {
+    "1": "Use Magento's built-in PHP full-page cache.",
+    "2": "Use Varnish as the full-page cache (recommended for production)."
+  },
+  "Magento\\Checkout\\Model\\Config\\Source\\Cart\\Summary": {
+    "0": "Show the count of line items in the mini-cart.",
+    "1": "Show the total quantity of units in the mini-cart."
+  },
+  "Magento\\Wishlist\\Model\\Config\\Source\\Summary": {
+    "0": "Show the count of items in the wish-list summary.",
+    "1": "Show the total quantity of units in the wish-list summary."
+  },
+  "Magento\\Checkout\\Model\\Config\\Source\\CartMergePreference": {
+    "guest": "When carts merge at login, keep the guest cart's quantities.",
+    "customer": "When carts merge at login, keep the saved customer cart's quantities.",
+    "merge": "When carts merge at login, add the quantities together."
+  },
+  "Magento\\Checkout\\Model\\Adminhtml\\BillingAddressDisplayOptions": {
+    "0": "Collect the billing address on the payment step.",
+    "1": "Collect the billing address on its own page."
+  },
+  "Magento\\Search\\Model\\Adminhtml\\System\\Config\\Source\\Engine": {
+    "elasticsearch8": "Index and search with Elasticsearch 8 (deprecated).",
+    "opensearch": "Index and search with OpenSearch."
+  },
+  "Magento\\Config\\Model\\Config\\Source\\Web\\Redirect": {
+    "0": "Do not redirect between base URLs.",
+    "1": "Redirect with a temporary 302 (Found).",
+    "301": "Redirect with a permanent 301 (Moved Permanently)."
+  },
+  "Magento\\Developer\\Model\\Config\\Source\\WorkflowType": {
+    "client_side_compilation": "Compile LESS in the browser — convenient for development.",
+    "server_side_compilation": "Compile LESS on the server — correct for production."
+  },
+  "Magento\\Translation\\Model\\Js\\Config\\Source\\Strategy": {
+    "dictionary": "Translate JavaScript strings on the storefront from a dictionary file.",
+    "embedded": "Embed translations at render time on the server side."
+  },
+  "Magento\\Msrp\\Model\\Product\\Attribute\\Source\\Type": {
+    "1": "Reveal the price when the shopper acts (hover/click gesture).",
+    "2": "Reveal the price only once the product is in the cart.",
+    "3": "Reveal the price just before order confirmation."
+  },
+  "Magento\\SendFriend\\Model\\Source\\Checktype": {
+    "1": "Count send-to-friend limits by IP address.",
+    "0": "Count send-to-friend limits by cookie (can be cleared — less safe)."
+  },
+  "Magento\\TwoFactorAuth\\Model\\Config\\Source\\Provider": {
+    "google": "Time-based codes via Google Authenticator.",
+    "duo_security": "Push/approval via Duo Security.",
+    "authy": "Codes or push via Authy.",
+    "u2fkey": "Hardware security key (U2F — YubiKey and similar)."
+  },
+  "Magento\\InventoryIndexer\\Model\\ReindexStrategyOptions": {
+    "sync": "Update stock indexes immediately as changes happen.",
+    "async": "Update stock indexes in the background via the queue."
+  },
+  "Magento\\GoogleAdwords\\Model\\Config\\Source\\ValueType": {
+    "1": "Report the actual order value for conversions.",
+    "0": "Report a fixed constant value for conversions."
+  },
+  "Magento\\NewRelicReporting\\Model\\Config\\Source\\ApiMode": {
+    "v2_rest": "Send data through the legacy v2 REST API.",
+    "nerdgraph": "Send data through the NerdGraph (GraphQL) API (recommended)."
+  },
+  "Magento\\User\\Model\\System\\Config\\Source\\Password": {
+    "0": "Admins are prompted to change their password but not forced.",
+    "1": "Admins are forced to change their password on the schedule."
+  },
+  "Magento\\Directory\\Model\\Currency\\Import\\Source\\Service": {
+    "fixerio": "Import rates from Fixer.io (legacy endpoint).",
+    "fixerio_apilayer": "Import rates from Fixer via APILayer.",
+    "currencyconverterapi": "Import rates from Currency Converter API."
+  },
+  "Magento\\Config\\Model\\Config\\Source\\Yesnocustom": {
+    "1": "On.",
+    "0": "Off.",
+    "2": "Use the custom value specified below."
+  },
+  "Magento\\CatalogUrlRewrite\\Model\\System\\Config\\Source\\UrlRewriteContext": {
+    "website": "Generate product URL rewrites per website.",
+    "store_view": "Generate product URL rewrites per store view."
+  },
+  "Magento\\Cms\\Model\\Config\\Source\\Wysiwyg\\Enabled": {
+    "enabled": "Editor is on by default and can be toggled off.",
+    "hidden": "Editor is off by default but can be toggled on.",
+    "disabled": "Editor is turned off completely."
+  },
+  "Magento\\LoginAsCustomerAdminUi\\Model\\Config\\Source\\StoreViewLogin": {
+    "0": "Pick the store view automatically when logging in as a customer.",
+    "1": "Let the admin choose the store view manually."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\ListMode": {
+    "grid": "Show products as a grid only.",
+    "list": "Show products as a list only.",
+    "grid-list": "Grid by default, with a toggle to list.",
+    "list-grid": "List by default, with a toggle to grid."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\ListSort": {
+    "position": "Default sort by the position set in the category.",
+    "name": "Default sort by product name.",
+    "price": "Default sort by price."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\Price\\Step": {
+    "auto": "Build price ranges with equal spans automatically.",
+    "improved": "Build price ranges with roughly equal product counts.",
+    "manual": "Use the fixed price step you set."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\Web\\CatalogMediaUrlFormat": {
+    "image_optimization_parameters": "Serve image variants via query parameters (CDN-friendly).",
+    "hash": "Serve each variant as a uniquely hashed file (legacy)."
+  },
+  "Magento\\MediaStorage\\Model\\Config\\Source\\Storage\\Media\\Storage": {
+    "0": "Store media files on the file system.",
+    "1": "Store media files in the database (deprecated)."
+  },
+  "Magento\\Downloadable\\Model\\System\\Config\\Source\\Contentdisposition": {
+    "attachment": "Force downloadable files to download.",
+    "inline": "Let the browser open downloadable files in place."
+  },
+  "Magento\\Downloadable\\Model\\System\\Config\\Source\\Orderitemstatus": {
+    "1": "Grant access to downloads once the order is Pending.",
+    "9": "Grant access to downloads only after the order is Invoiced."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\TimeFormat": {
+    "12h": "Show times in 12-hour AM/PM format.",
+    "24h": "Show times in 24-hour format."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\SortOrder": {
+    "ASC": "Sort ascending (A–Z, low–high).",
+    "DESC": "Sort descending (Z–A, high–low)."
+  },
+  "Magento\\Config\\Model\\Config\\Source\\Reports\\Scope": {
+    "website": "Aggregate report data per website.",
+    "group": "Aggregate report data per store.",
+    "store": "Aggregate report data per store view."
+  },
+  "Magento\\Catalog\\Model\\Config\\Source\\Product\\Thumbnail": {
+    "itself": "Use each product's own thumbnail in the cart.",
+    "parent": "Use the parent (configurable/grouped) product's thumbnail."
+  },
+  "Magento\\SalesRule\\Model\\System\\Config\\Source\\Coupon\\Format": {
+    "alphanum": "Generate codes with letters and digits.",
+    "alpha": "Generate codes with letters only.",
+    "num": "Generate codes with digits only."
+  },
+  "Magento\\CardinalCommerce\\Model\\Adminhtml\\Source\\Environment": {
+    "sandbox": "Use the Cardinal sandbox for testing.",
+    "production": "Use the live Cardinal environment."
+  },
+  "Magento\\Quote\\Model\\Backpressure\\Config\\PeriodSource": {
+    "60": "Measure the request limit per minute.",
+    "3600": "Measure the request limit per hour.",
+    "86400": "Measure the request limit per day."
+  }
+}
