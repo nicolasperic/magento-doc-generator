@@ -1,0 +1,94 @@
+{
+  "checkout_cart_cart_merge_preference": {
+    "summary": "How a guest cart merges with the saved cart at login.",
+    "usage": "<p>When a guest signs in and both carts hold the same product, this decides whose quantity wins — or whether the two are added together.</p>"
+  },
+  "checkout_cart_configurable_product_image": {
+    "summary": "Which image represents a configurable product in the cart.",
+    "usage": "<p>Whether the cart shows the chosen variation's own thumbnail or the parent configurable product's thumbnail.</p>"
+  },
+  "checkout_cart_crosssell_enabled": {
+    "summary": "Show cross-sell products on the cart page.",
+    "usage": "<p>When <strong>Yes</strong>, the shopping cart displays cross-sell product suggestions.</p>"
+  },
+  "checkout_cart_delete_quote_after": {
+    "summary": "How long an abandoned cart (quote) is kept (days).",
+    "usage": "<p>The number of days an inactive quote is retained before the cron job clears it.</p>"
+  },
+  "checkout_cart_enable_clear_shopping_cart": {
+    "summary": "Show a \"Clear Shopping Cart\" button.",
+    "usage": "<p>When <strong>Yes</strong>, shoppers get a button to empty the whole cart at once.</p>"
+  },
+  "checkout_cart_grouped_product_image": {
+    "summary": "Which image represents a grouped product in the cart.",
+    "usage": "<p>Whether the cart shows each associated item's own thumbnail or the parent grouped product's thumbnail.</p>"
+  },
+  "checkout_cart_number_items_to_display_pager": {
+    "summary": "Cart items shown before pagination kicks in.",
+    "usage": "<p>The number of line items displayed on the cart page before a pager appears.</p>"
+  },
+  "checkout_cart_redirect_to_cart": {
+    "summary": "Send shoppers to the cart after adding a product.",
+    "usage": "<p>When <strong>Yes</strong>, adding a product redirects to the cart page. When <strong>No</strong>, the shopper stays on the current page.</p>"
+  },
+  "checkout_cart_link_use_qty": {
+    "summary": "What the header cart link counts.",
+    "usage": "<p>Whether the cart link in the header shows the number of distinct items or the total quantity of units.</p>"
+  },
+  "checkout_options_display_billing_address_on": {
+    "summary": "Where the billing address is collected during checkout.",
+    "usage": "<p>Whether the billing address appears on the payment step or on its own dedicated checkout page.</p>"
+  },
+  "checkout_options_enable_agreements": {
+    "summary": "Require shoppers to accept terms and conditions.",
+    "usage": "<p>When <strong>Yes</strong>, the configured checkout agreements (terms &amp; conditions) must be accepted before an order can be placed.</p>"
+  },
+  "checkout_options_enable_guest_checkout_login": {
+    "summary": "Let guests check whether an email already has an account.",
+    "usage": "<p>When <strong>Yes</strong>, unauthenticated shoppers can query whether an email is already registered. Turning it off helps prevent account enumeration.</p>"
+  },
+  "checkout_options_guest_checkout": {
+    "summary": "Allow ordering without creating an account.",
+    "usage": "<p>When <strong>Yes</strong>, customers can check out as a guest. When <strong>No</strong>, they must register or sign in to place an order.</p>"
+  },
+  "checkout_options_max_items_display_count": {
+    "summary": "Maximum order items shown on the checkout review.",
+    "usage": "<p>Caps how many line items are listed in the order summary during checkout.</p>"
+  },
+  "checkout_options_onepage_checkout_enabled": {
+    "summary": "Enable the standard one-page checkout.",
+    "usage": "<p>When <strong>Yes</strong>, the built-in one-page checkout is available. Turning it off is usually done only when a custom checkout replaces it.</p>"
+  },
+  "checkout_payment_failed_copy_method": {
+    "summary": "How copies of payment-failed emails are sent.",
+    "usage": "<p>Whether additional recipients are blind-copied on one email or each sent a separate copy.</p>"
+  },
+  "checkout_payment_failed_copy_to": {
+    "summary": "Extra recipients of payment-failed notifications.",
+    "usage": "<p>Comma-separated email addresses that also receive payment-failure notices.</p>"
+  },
+  "checkout_payment_failed_identity": {
+    "summary": "The store identity payment-failed emails are sent from.",
+    "usage": "<p>Which store email identity (sender) is used for payment-failure emails.</p>"
+  },
+  "checkout_payment_failed_receiver": {
+    "summary": "The store contact that receives payment-failed emails.",
+    "usage": "<p>Which store identity is notified when a customer's payment fails.</p>"
+  },
+  "checkout_payment_failed_template": {
+    "summary": "The email template for payment-failed notifications.",
+    "usage": "<p>The transactional template used when a payment attempt fails at checkout.</p>"
+  },
+  "checkout_sidebar_count": {
+    "summary": "How many items the mini-cart lists.",
+    "usage": "<p>The number of recent items shown in the mini-cart dropdown.</p>"
+  },
+  "checkout_sidebar_display": {
+    "summary": "Show the mini-cart in the header.",
+    "usage": "<p>When <strong>Yes</strong>, the mini-cart dropdown is available from the header cart icon.</p>"
+  },
+  "checkout_sidebar_max_items_display_count": {
+    "summary": "Maximum items shown in the mini-cart before scrolling.",
+    "usage": "<p>Caps how many items the mini-cart displays before the list scrolls.</p>"
+  }
+}
