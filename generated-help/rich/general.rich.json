@@ -1,0 +1,98 @@
+{
+  "general_country_allow": {
+    "summary": "The countries customers may register and order from.",
+    "usage": "<p>The set of countries offered in address country dropdowns across the store.</p>"
+  },
+  "general_country_default": {
+    "summary": "The country selected by default on address forms.",
+    "usage": "<p>The pre-selected country for new addresses and the default used when guessing a visitor's region.</p>"
+  },
+  "general_country_destinations": {
+    "summary": "Countries shown at the top of country dropdowns.",
+    "usage": "<p>Priority countries listed first, above a separator, in country selectors for quicker selection.</p>"
+  },
+  "general_country_eu_countries": {
+    "summary": "Which countries are treated as part of the EU.",
+    "usage": "<p>The countries Magento considers EU members, used for VAT and tax rules.</p>"
+  },
+  "general_country_optional_zip_countries": {
+    "summary": "Countries where the postal code is optional.",
+    "usage": "<p>Countries for which a ZIP / postal code is not required on address forms.</p>"
+  },
+  "general_locale_code": {
+    "summary": "The store's language and locale.",
+    "usage": "<p>The locale that sets the storefront language along with date and number formats.</p>"
+  },
+  "general_locale_firstday": {
+    "summary": "The first day of the week in calendars.",
+    "usage": "<p>Which day date pickers and calendars start the week on.</p>"
+  },
+  "general_locale_timezone": {
+    "summary": "The store's time zone.",
+    "usage": "<p>The time zone used for order timestamps, reports and scheduled (cron) tasks.</p>"
+  },
+  "general_locale_weekend": {
+    "summary": "Which days count as the weekend.",
+    "usage": "<p>The days treated as the weekend in sales reports and statistics.</p>"
+  },
+  "general_locale_weight_unit": {
+    "summary": "The unit used for product weights.",
+    "usage": "<p>Whether product weights are expressed in pounds or kilograms.</p>"
+  },
+  "general_region_display_all": {
+    "summary": "Show the state/region field for all countries.",
+    "usage": "<p>When <strong>Yes</strong>, the state/region selector is shown even for countries that have no predefined region list.</p>"
+  },
+  "general_region_state_required": {
+    "summary": "Countries where a state/region is mandatory.",
+    "usage": "<p>The countries for which customers must provide a state or region on address forms.</p>"
+  },
+  "general_single_store_mode_enabled": {
+    "summary": "Hide multi-store controls for a single-store setup.",
+    "usage": "<p>When <strong>Yes</strong>, store and website scope switchers are hidden to simplify the admin. Ignored if the installation has more than one store.</p>"
+  },
+  "general_store_information_name": {
+    "summary": "Your store or company name.",
+    "usage": "<p>The business name shown on invoices, emails and other documents.</p>"
+  },
+  "general_store_information_phone": {
+    "summary": "Your store contact phone number.",
+    "usage": "<p>The phone number shown to customers and on documents.</p>"
+  },
+  "general_store_information_hours": {
+    "summary": "Your store's opening hours.",
+    "usage": "<p>Business hours shown to customers wherever store information is displayed.</p>"
+  },
+  "general_store_information_country_id": {
+    "summary": "The country your business is located in.",
+    "usage": "<p>Your business country, shown on documents and used in some tax and VAT logic.</p>"
+  },
+  "general_store_information_region_id": {
+    "summary": "The state or region your business is in.",
+    "usage": "<p>Your business state/region, shown on documents.</p>"
+  },
+  "general_store_information_postcode": {
+    "summary": "Your business postal code.",
+    "usage": "<p>The postal code of your business address, shown on documents.</p>"
+  },
+  "general_store_information_city": {
+    "summary": "Your business city.",
+    "usage": "<p>The city of your business address, shown on documents.</p>"
+  },
+  "general_store_information_street_line1": {
+    "summary": "Your business street address.",
+    "usage": "<p>The first line of your business street address, shown on documents.</p>"
+  },
+  "general_store_information_street_line2": {
+    "summary": "Additional business street address line.",
+    "usage": "<p>An optional second line for your business street address.</p>"
+  },
+  "general_store_information_merchant_vat_number": {
+    "summary": "Your business VAT number.",
+    "usage": "<p>The merchant VAT number shown on documents and used for EU VAT validation.</p>"
+  },
+  "general_store_information_validate_vat_number": {
+    "summary": "Check your VAT number against the EU service.",
+    "usage": "<p>Validates the merchant VAT number entered above against the EU VIES service.</p>"
+  }
+}
