@@ -39,9 +39,14 @@ bold `summary` + `usage` + "Accepted values" + "Technical details" + footer (mod
 - [x] **Per-value descriptions (reusable)** — generated-help/value-descriptions.json: 65 semantic
       source models described once each, reused across every field (Yes/No + PayPal visual styling
       skipped on purpose). Wired into emit's value backfill; propagates to ~500 fields' value lists.
-- [ ] **Tier 2 summary/usage at scale** — the remaining per-field prose. Existing notes are decent;
-      lift to pilot depth section by section (priority: Sales, Catalog, Customer, Checkout, Payment,
-      Shipping, General, Web). Large; batched and reviewable per section.
+- [x] **Tier 2 summary/usage — priority sections done** — lifted to full depth, section by section,
+      each in generated-help/rich/<section>.rich.json (grounded by reading the real source classes):
+      Inventory (pilot), Sales (37), Catalog (103), Customer (65), Checkout (23), Payment core-offline
+      (44), Shipping+carriers (192), General (24), Web (38). ~535 fields hand-authored.
+      Scope notes: Payment excludes PayPal/Braintree + region-multiplied payment_* (kept brief) and
+      the third-party Orangecat group; dynamic store-data selects stay value-less throughout.
+- [ ] **Remaining sections** keep their original brief-but-grounded notes + the structured card,
+      technical facts and accepted values. Lift any to full depth on demand with the same flow.
 
 ## Rendering contract (block keys JS consumes)
 summary, usage(HTML, client-sanitized), values[{id,label,description}], technical[{label,value}],
