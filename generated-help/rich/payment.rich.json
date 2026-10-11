@@ -1,0 +1,183 @@
+{
+  "payment_account_merchant_country": {
+    "summary": "The merchant country used to decide which payment solutions are offered.",
+    "usage": "<p>Your business's country. Payment providers such as PayPal use it to decide which solutions are available. Defaults to the store's general country when left unset.</p>"
+  },
+
+  "payment_banktransfer_active": {
+    "summary": "Offer Bank Transfer as a payment option at checkout.",
+    "usage": "<p>When <strong>Yes</strong>, Bank Transfer is available to customers at checkout.</p>"
+  },
+  "payment_banktransfer_title": {
+    "summary": "The name shown to shoppers for Bank Transfer.",
+    "usage": "<p>The label customers see for this method at checkout.</p>"
+  },
+  "payment_banktransfer_instructions": {
+    "summary": "Payment instructions shown for Bank Transfer.",
+    "usage": "<p>The instructions displayed to the shopper who chooses Bank Transfer — typically the bank account details to send payment to.</p>"
+  },
+  "payment_banktransfer_order_status": {
+    "summary": "The status new Bank Transfer orders are set to.",
+    "usage": "<p>The order status applied when an order is placed with Bank Transfer.</p>"
+  },
+  "payment_banktransfer_allowspecific": {
+    "summary": "Whether Bank Transfer is limited to specific countries.",
+    "usage": "<p>Offer Bank Transfer in all allowed countries, or restrict it to the specific countries chosen below.</p>"
+  },
+  "payment_banktransfer_specificcountry": {
+    "summary": "The countries Bank Transfer is offered in.",
+    "usage": "<p>The countries where Bank Transfer is available, used when it is limited to specific countries.</p>"
+  },
+  "payment_banktransfer_min_order_total": {
+    "summary": "Smallest order total that can use Bank Transfer.",
+    "usage": "<p>Orders below this total cannot use Bank Transfer.</p>"
+  },
+  "payment_banktransfer_max_order_total": {
+    "summary": "Largest order total that can use Bank Transfer.",
+    "usage": "<p>Orders above this total cannot use Bank Transfer.</p>"
+  },
+  "payment_banktransfer_sort_order": {
+    "summary": "The position of Bank Transfer among payment methods.",
+    "usage": "<p>Controls where Bank Transfer appears in the list of payment options. Lower numbers appear first.</p>"
+  },
+
+  "payment_cashondelivery_active": {
+    "summary": "Offer Cash On Delivery as a payment option at checkout.",
+    "usage": "<p>When <strong>Yes</strong>, Cash On Delivery is available to customers at checkout.</p>"
+  },
+  "payment_cashondelivery_title": {
+    "summary": "The name shown to shoppers for Cash On Delivery.",
+    "usage": "<p>The label customers see for this method at checkout.</p>"
+  },
+  "payment_cashondelivery_instructions": {
+    "summary": "Payment instructions shown for Cash On Delivery.",
+    "usage": "<p>The instructions displayed to the shopper who chooses Cash On Delivery.</p>"
+  },
+  "payment_cashondelivery_order_status": {
+    "summary": "The status new Cash On Delivery orders are set to.",
+    "usage": "<p>The order status applied when an order is placed with Cash On Delivery.</p>"
+  },
+  "payment_cashondelivery_allowspecific": {
+    "summary": "Whether Cash On Delivery is limited to specific countries.",
+    "usage": "<p>Offer Cash On Delivery in all allowed countries, or restrict it to the specific countries chosen below.</p>"
+  },
+  "payment_cashondelivery_specificcountry": {
+    "summary": "The countries Cash On Delivery is offered in.",
+    "usage": "<p>The countries where Cash On Delivery is available, used when it is limited to specific countries.</p>"
+  },
+  "payment_cashondelivery_min_order_total": {
+    "summary": "Smallest order total that can use Cash On Delivery.",
+    "usage": "<p>Orders below this total cannot use Cash On Delivery.</p>"
+  },
+  "payment_cashondelivery_max_order_total": {
+    "summary": "Largest order total that can use Cash On Delivery.",
+    "usage": "<p>Orders above this total cannot use Cash On Delivery.</p>"
+  },
+  "payment_cashondelivery_sort_order": {
+    "summary": "The position of Cash On Delivery among payment methods.",
+    "usage": "<p>Controls where Cash On Delivery appears in the list of payment options. Lower numbers appear first.</p>"
+  },
+
+  "payment_checkmo_active": {
+    "summary": "Offer Check / Money Order as a payment option at checkout.",
+    "usage": "<p>When <strong>Yes</strong>, Check / Money Order is available to customers at checkout.</p>"
+  },
+  "payment_checkmo_title": {
+    "summary": "The name shown to shoppers for Check / Money Order.",
+    "usage": "<p>The label customers see for this method at checkout.</p>"
+  },
+  "payment_checkmo_payable_to": {
+    "summary": "Who customers should make the check payable to.",
+    "usage": "<p>The payee name shown to customers paying by check or money order.</p>"
+  },
+  "payment_checkmo_mailing_address": {
+    "summary": "The address customers mail their check to.",
+    "usage": "<p>The mailing address shown to customers paying by check or money order.</p>"
+  },
+  "payment_checkmo_order_status": {
+    "summary": "The status new Check / Money Order orders are set to.",
+    "usage": "<p>The order status applied when an order is placed with Check / Money Order.</p>"
+  },
+  "payment_checkmo_allowspecific": {
+    "summary": "Whether Check / Money Order is limited to specific countries.",
+    "usage": "<p>Offer Check / Money Order in all allowed countries, or restrict it to the specific countries chosen below.</p>"
+  },
+  "payment_checkmo_specificcountry": {
+    "summary": "The countries Check / Money Order is offered in.",
+    "usage": "<p>The countries where Check / Money Order is available, used when it is limited to specific countries.</p>"
+  },
+  "payment_checkmo_min_order_total": {
+    "summary": "Smallest order total that can use Check / Money Order.",
+    "usage": "<p>Orders below this total cannot use Check / Money Order.</p>"
+  },
+  "payment_checkmo_max_order_total": {
+    "summary": "Largest order total that can use Check / Money Order.",
+    "usage": "<p>Orders above this total cannot use Check / Money Order.</p>"
+  },
+  "payment_checkmo_sort_order": {
+    "summary": "The position of Check / Money Order among payment methods.",
+    "usage": "<p>Controls where Check / Money Order appears in the list of payment options. Lower numbers appear first.</p>"
+  },
+
+  "payment_free_active": {
+    "summary": "Enable Zero Subtotal Checkout for free orders.",
+    "usage": "<p>When <strong>Yes</strong>, orders whose total comes to zero — fully discounted or free — can be placed without a paid payment method.</p>"
+  },
+  "payment_free_title": {
+    "summary": "The name shown to shoppers for Zero Subtotal Checkout.",
+    "usage": "<p>The label customers see for this method when the order total is zero.</p>"
+  },
+  "payment_free_order_status": {
+    "summary": "The status new zero-total orders are set to.",
+    "usage": "<p>The order status applied when an order is placed through Zero Subtotal Checkout.</p>"
+  },
+  "payment_free_payment_action": {
+    "summary": "How payment is handled for zero-total orders.",
+    "usage": "<p>With a zero total there is nothing to charge, so the order is authorized and captured automatically.</p>"
+  },
+  "payment_free_allowspecific": {
+    "summary": "Whether Zero Subtotal Checkout is limited to specific countries.",
+    "usage": "<p>Offer Zero Subtotal Checkout in all allowed countries, or restrict it to the specific countries chosen below.</p>"
+  },
+  "payment_free_specificcountry": {
+    "summary": "The countries Zero Subtotal Checkout is offered in.",
+    "usage": "<p>The countries where Zero Subtotal Checkout is available, used when it is limited to specific countries.</p>"
+  },
+  "payment_free_sort_order": {
+    "summary": "The position of Zero Subtotal Checkout among payment methods.",
+    "usage": "<p>Controls where Zero Subtotal Checkout appears in the list of payment options. Lower numbers appear first.</p>"
+  },
+
+  "payment_purchaseorder_active": {
+    "summary": "Offer Purchase Order as a payment option at checkout.",
+    "usage": "<p>When <strong>Yes</strong>, Purchase Order is available to customers at checkout — typically for B2B buyers paying against a PO number.</p>"
+  },
+  "payment_purchaseorder_title": {
+    "summary": "The name shown to shoppers for Purchase Order.",
+    "usage": "<p>The label customers see for this method at checkout.</p>"
+  },
+  "payment_purchaseorder_order_status": {
+    "summary": "The status new Purchase Order orders are set to.",
+    "usage": "<p>The order status applied when an order is placed with Purchase Order.</p>"
+  },
+  "payment_purchaseorder_allowspecific": {
+    "summary": "Whether Purchase Order is limited to specific countries.",
+    "usage": "<p>Offer Purchase Order in all allowed countries, or restrict it to the specific countries chosen below.</p>"
+  },
+  "payment_purchaseorder_specificcountry": {
+    "summary": "The countries Purchase Order is offered in.",
+    "usage": "<p>The countries where Purchase Order is available, used when it is limited to specific countries.</p>"
+  },
+  "payment_purchaseorder_min_order_total": {
+    "summary": "Smallest order total that can use Purchase Order.",
+    "usage": "<p>Orders below this total cannot use Purchase Order.</p>"
+  },
+  "payment_purchaseorder_max_order_total": {
+    "summary": "Largest order total that can use Purchase Order.",
+    "usage": "<p>Orders above this total cannot use Purchase Order.</p>"
+  },
+  "payment_purchaseorder_sort_order": {
+    "summary": "The position of Purchase Order among payment methods.",
+    "usage": "<p>Controls where Purchase Order appears in the list of payment options. Lower numbers appear first.</p>"
+  }
+}
