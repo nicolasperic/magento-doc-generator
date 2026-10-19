@@ -45,8 +45,31 @@ bold `summary` + `usage` + "Accepted values" + "Technical details" + footer (mod
       (44), Shipping+carriers (192), General (24), Web (38). ~535 fields hand-authored.
       Scope notes: Payment excludes PayPal/Braintree + region-multiplied payment_* (kept brief) and
       the third-party Orangecat group; dynamic store-data selects stay value-less throughout.
-- [ ] **Remaining sections** keep their original brief-but-grounded notes + the structured card,
-      technical facts and accepted values. Lift any to full depth on demand with the same flow.
+- [ ] **Remaining sections** keep their original brief-but-grounded notes + the card. Lift any to
+      full depth on demand with the same flow.
+
+## Mage-OS review (Paul H.) — direction correction
+Feedback: the card carried too much low-signal, drift-prone content ("battle AI slop"). Specifics:
+accepted-values just restated the dropdown and showed internal ids (0/1); value descriptions would
+drift from the real source models; technical block (source/backend model, config path shown twice)
+got too much visual weight; uppercase headers + uppercased module string aren't in the design system.
+
+**Tier 1 — DONE (structural simplification):**
+- [x] Dropped `<values>` and `<technical>` from XSD, Converter, InlineDocProvider, JS, CSS, emitter.
+- [x] Config path → a copy-to-clipboard button in the card header (was a pill shown twice).
+- [x] Module footer shown verbatim (`Magento_CatalogInventory`), no `text-transform: uppercase`.
+- [x] Removed uppercase section headers (gone with the sections). Card = title + summary + usage + footer.
+- [x] inline_docs.xml regenerated: 7,397 fields, summary + usage + path only. 8.0M → 4.4M. Validates.
+- Deleted dead generator inputs' effect: value-descriptions.json / values/ no longer emitted (kept on
+  disk but unused); emitter simplified to path-only live backfill.
+
+**Tier 2 — prose quality pass (pending, gated on Paul's bar):**
+- [ ] Tighten each summary/usage to only the non-obvious fact (e.g. show_out_of_stock = direct-URL
+      access when off; drop what the label already implies). Draft 3-4 before/after samples for Paul
+      to confirm the bar before the full pass.
+
+**Future (v2, separate feature):** rich dropdown — put option descriptions in the actual <select>
+instead of a popover (frontend-render territory; only helps dropdowns). Don't let it block the above.
 
 ## Rendering contract (block keys JS consumes)
 summary, usage(HTML, client-sanitized), values[{id,label,description}], technical[{label,value}],
