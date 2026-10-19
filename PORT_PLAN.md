@@ -63,10 +63,17 @@ got too much visual weight; uppercase headers + uppercased module string aren't 
 - Deleted dead generator inputs' effect: value-descriptions.json / values/ no longer emitted (kept on
   disk but unused); emitter simplified to path-only live backfill.
 
-**Tier 2 — prose quality pass (pending, gated on Paul's bar):**
-- [ ] Tighten each summary/usage to only the non-obvious fact (e.g. show_out_of_stock = direct-URL
-      access when off; drop what the label already implies). Draft 3-4 before/after samples for Paul
-      to confirm the bar before the full pass.
+**Tier 2 — prose quality pass — DONE across all 7,397 fields:**
+- [x] Catalog Inventory hand-tightened to the bar (lead with the non-obvious fact; usage only for a
+      real second beat). Reviewed live.
+- [x] Long tail (~6,850 non-curated fields): generated `usage` dropped at emit — it mostly restated
+      the label or added scope boilerplate. Every long-tail field is now a single grounded summary line.
+- [x] The 8 remaining hand-authored sections: `usage` kept only where it carries a genuine gotcha
+      (deprecated/legacy, security warning, dependency, destructive change, real trade-off) — 41 of 526;
+      the other 485 restatement usages dropped. Dead inline `values` stripped from the rich files.
+- Net: 7,397 fields, 7,397 one-line summaries, 42 `usage` bodies total. inline_docs.xml 8.0M → 2.8M.
+- Not done (acceptable): the ~1,400 bulk *summaries* are the generated one-liners as-is — grounded and
+  short, but not individually hand-polished. Lift any section's summaries on demand with a rich file.
 
 **Future (v2, separate feature):** rich dropdown — put option descriptions in the actual <select>
 instead of a popover (frontend-render territory; only helps dropdowns). Don't let it block the above.

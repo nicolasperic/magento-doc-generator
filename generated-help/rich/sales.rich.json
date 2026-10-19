@@ -1,147 +1,114 @@
 {
   "sales_backpressure_enabled": {
-    "summary": "Throttle how many orders a shopper can place in a short window.",
-    "usage": "<p>Guards checkout against bursts of order attempts — bots, double-clicks, or abuse. When <strong>Yes</strong>, order placement is rate-limited per shopper using the limits below. When <strong>No</strong>, no limit is applied.</p>"
+    "summary": "Throttle how many orders a shopper can place in a short window."
   },
   "sales_backpressure_guest_limit": {
-    "summary": "Maximum order attempts a single guest may make per period.",
-    "usage": "<p>The number of order-placement requests allowed from one guest within each counter window (set by <em>Counter resets in a…</em>). Guests are identified by IP address.</p>"
+    "summary": "Maximum order attempts a single guest may make per period."
   },
   "sales_backpressure_limit": {
-    "summary": "Maximum order attempts a signed-in customer may make per period.",
-    "usage": "<p>The number of order-placement requests allowed from one authenticated customer within each counter window.</p>"
+    "summary": "Maximum order attempts a signed-in customer may make per period."
   },
   "sales_backpressure_period": {
-    "summary": "The window over which order-placement attempts are counted.",
-    "usage": "<p>How often the rate-limit counter resets. A shorter window allows fewer attempts before the limit takes effect.</p>"
+    "summary": "The window over which order-placement attempts are counted."
   },
   "sales_cancellation_enabled": {
-    "summary": "Let customers cancel their own orders through the GraphQL API.",
-    "usage": "<p>When <strong>Yes</strong>, storefront (headless / PWA) customers can cancel eligible orders through GraphQL, choosing one of the reasons below. When <strong>No</strong>, self-service cancellation is off.</p>"
+    "summary": "Let customers cancel their own orders through the GraphQL API."
   },
   "sales_cancellation_reasons": {
-    "summary": "The list of reasons a customer can pick when cancelling an order.",
-    "usage": "<p>Defines the selectable cancellation reasons offered to customers when they cancel an order from the storefront.</p>"
+    "summary": "The list of reasons a customer can pick when cancelling an order."
   },
   "sales_dashboard_use_aggregated_data": {
     "summary": "Use pre-aggregated statistics for the admin dashboard charts.",
     "usage": "<p>When <strong>Yes</strong>, the dashboard reads from aggregated report tables — much faster, but the figures are only as fresh as the last statistics refresh. When <strong>No</strong>, it queries live data, which is accurate but slower on large stores.</p>"
   },
   "sales_general_hide_customer_ip": {
-    "summary": "Hide the customer's IP address on order documents.",
-    "usage": "<p>When <strong>Yes</strong>, the customer IP is not shown on orders, invoices, shipments or credit memos — useful for privacy and GDPR. When <strong>No</strong>, the IP is recorded and visible to admins.</p>"
+    "summary": "Hide the customer's IP address on order documents."
   },
   "sales_gift_options_allow_items": {
-    "summary": "Let shoppers add a gift message to individual order items.",
-    "usage": "<p>When <strong>Yes</strong>, customers can attach a gift message to each item in the order.</p>"
+    "summary": "Let shoppers add a gift message to individual order items."
   },
   "sales_gift_options_allow_order": {
-    "summary": "Let shoppers add a single gift message to the whole order.",
-    "usage": "<p>When <strong>Yes</strong>, customers can attach one gift message that covers the entire order.</p>"
+    "summary": "Let shoppers add a single gift message to the whole order."
   },
   "sales_identity_address": {
-    "summary": "The store address printed on invoices, shipments and credit memos.",
-    "usage": "<p>The address block shown on PDF and HTML sales documents. Leave blank to omit it.</p>"
+    "summary": "The store address printed on invoices, shipments and credit memos."
   },
   "sales_identity_logo": {
-    "summary": "The logo printed on PDF sales documents.",
-    "usage": "<p>The logo used on PDF invoices, shipments and credit memos. Accepts JPEG, TIFF or PNG; use a high-resolution image for crisp print output.</p>"
+    "summary": "The logo printed on PDF sales documents."
   },
   "sales_identity_logo_html": {
-    "summary": "The logo shown on the HTML (on-screen) print view.",
-    "usage": "<p>The logo used for the HTML print view only. If left empty, the PDF logo is used. Accepts JPEG, GIF or PNG.</p>"
+    "summary": "The logo shown on the HTML (on-screen) print view."
   },
   "sales_instant_purchase_active": {
-    "summary": "Offer one-click Instant Purchase using a stored payment method.",
-    "usage": "<p>When <strong>Yes</strong>, customers with a saved (vaulted) payment method and address see an Instant Purchase button that places the order in a single step. Requires a payment method that supports vault and instant purchase.</p>"
+    "summary": "Offer one-click Instant Purchase using a stored payment method."
   },
   "sales_instant_purchase_button_text": {
-    "summary": "The label shown on the Instant Purchase button.",
-    "usage": "<p>The call-to-action text for the Instant Purchase button on the storefront.</p>"
+    "summary": "The label shown on the Instant Purchase button."
   },
   "sales_minimum_order_active": {
-    "summary": "Require orders to reach a minimum amount before checkout.",
-    "usage": "<p>When <strong>Yes</strong>, customers cannot place an order below the <em>Minimum Amount</em> set below.</p>"
+    "summary": "Require orders to reach a minimum amount before checkout."
   },
   "sales_minimum_order_amount": {
     "summary": "The smallest order value a customer may check out with.",
     "usage": "<p>The minimum order value required to place an order, measured as the subtotal after discount. Applies only when the minimum-order rule is enabled.</p>"
   },
   "sales_minimum_order_description": {
-    "summary": "The cart message shown while an order is below the minimum.",
-    "usage": "<p>Shown in the shopping cart when the subtotal is still below the minimum, prompting the shopper to add more.</p>"
+    "summary": "The cart message shown while an order is below the minimum."
   },
   "sales_minimum_order_error_message": {
-    "summary": "The error shown when a below-minimum order is attempted.",
-    "usage": "<p>The message displayed in the cart when a customer tries to proceed with an order under the minimum.</p>"
+    "summary": "The error shown when a below-minimum order is attempted."
   },
   "sales_minimum_order_include_discount_amount": {
-    "summary": "Measure the minimum against the subtotal after discounts.",
-    "usage": "<p>When <strong>Yes</strong>, the minimum is checked against the subtotal <em>after</em> discounts. When <strong>No</strong>, it is checked against the subtotal before discounts.</p>"
+    "summary": "Measure the minimum against the subtotal after discounts."
   },
   "sales_minimum_order_multi_address": {
-    "summary": "Apply the minimum to each address in multi-address checkout.",
-    "usage": "<p>When <strong>Yes</strong>, each shipping address in a multi-address order must meet the minimum on its own. When <strong>No</strong>, the minimum applies to the order as a whole.</p>"
+    "summary": "Apply the minimum to each address in multi-address checkout."
   },
   "sales_minimum_order_multi_address_description": {
-    "summary": "The cart message for below-minimum multi-address orders.",
-    "usage": "<p>Shown in the cart for multi-address checkout when an address is below the minimum. Leave empty to reuse the standard description above.</p>"
+    "summary": "The cart message for below-minimum multi-address orders."
   },
   "sales_minimum_order_multi_address_error_message": {
-    "summary": "The error for below-minimum multi-address orders.",
-    "usage": "<p>The error shown for multi-address checkout when an address is below the minimum. Leave empty to reuse the standard error above.</p>"
+    "summary": "The error for below-minimum multi-address orders."
   },
   "sales_minimum_order_tax_including": {
-    "summary": "Count tax toward the minimum order amount.",
-    "usage": "<p>When <strong>Yes</strong>, tax is included when checking the minimum order amount. When <strong>No</strong>, only the pre-tax subtotal counts.</p>"
+    "summary": "Count tax toward the minimum order amount."
   },
   "sales_msrp_display_price_type": {
-    "summary": "When to reveal the actual price on products that use MAP.",
-    "usage": "<p>Controls where a product's real price appears when Minimum Advertised Price hides it — on a shopper gesture, once it is in the cart, or just before order confirmation.</p>"
+    "summary": "When to reveal the actual price on products that use MAP."
   },
   "sales_msrp_enabled": {
     "summary": "Turn on Minimum Advertised Price handling store-wide.",
     "usage": "<p>When <strong>Yes</strong>, products can hide their price under MAP rules and reveal it later. <strong>Warning:</strong> enabling MAP by default hides every storefront price until each product is configured.</p>"
   },
   "sales_msrp_explanation_message": {
-    "summary": "The popup text explaining why a price is hidden.",
-    "usage": "<p>The message shown in the MAP popup that explains why the price is not displayed.</p>"
+    "summary": "The popup text explaining why a price is hidden."
   },
   "sales_msrp_explanation_message_whats_this": {
-    "summary": "The text behind the MAP \"What's this?\" link.",
-    "usage": "<p>The explanatory text revealed by the <em>What's this?</em> link next to a MAP-hidden price.</p>"
+    "summary": "The text behind the MAP \"What's this?\" link."
   },
   "sales_orders_delete_pending_after": {
-    "summary": "How long an unpaid pending order survives before cancellation.",
-    "usage": "<p>The number of minutes a pending-payment order is kept before the cron job cancels it and releases its reserved stock.</p>"
+    "summary": "How long an unpaid pending order survives before cancellation."
   },
   "sales_reorder_allow": {
-    "summary": "Let customers reorder a past order from their account.",
-    "usage": "<p>When <strong>Yes</strong>, a Reorder button appears in the customer account, adding a previous order's items back to the cart.</p>"
+    "summary": "Let customers reorder a past order from their account."
   },
   "sales_totals_sort_subtotal": {
-    "summary": "The position of the Subtotal line in the totals block.",
-    "usage": "<p>Sort order of the <em>Subtotal</em> row among the cart and checkout totals. Lower numbers appear higher in the list.</p>"
+    "summary": "The position of the Subtotal line in the totals block."
   },
   "sales_totals_sort_discount": {
-    "summary": "The position of the Discount line in the totals block.",
-    "usage": "<p>Sort order of the <em>Discount</em> row among the totals. Lower numbers appear higher in the list.</p>"
+    "summary": "The position of the Discount line in the totals block."
   },
   "sales_totals_sort_shipping": {
-    "summary": "The position of the Shipping line in the totals block.",
-    "usage": "<p>Sort order of the <em>Shipping</em> row among the totals. Lower numbers appear higher in the list.</p>"
+    "summary": "The position of the Shipping line in the totals block."
   },
   "sales_totals_sort_tax": {
-    "summary": "The position of the Tax line in the totals block.",
-    "usage": "<p>Sort order of the <em>Tax</em> row among the totals. Lower numbers appear higher in the list.</p>"
+    "summary": "The position of the Tax line in the totals block."
   },
   "sales_totals_sort_weee": {
-    "summary": "The position of the Fixed Product Tax line in the totals block.",
-    "usage": "<p>Sort order of the <em>Fixed Product Tax</em> (FPT / WEEE) row among the totals. Lower numbers appear higher in the list.</p>"
+    "summary": "The position of the Fixed Product Tax line in the totals block."
   },
   "sales_totals_sort_grand_total": {
-    "summary": "The position of the Grand Total line in the totals block.",
-    "usage": "<p>Sort order of the <em>Grand Total</em> row among the totals. Lower numbers appear higher in the list.</p>"
+    "summary": "The position of the Grand Total line in the totals block."
   },
   "sales_zerograndtotal_creditmemo_allow_zero_grandtotal": {
     "summary": "Allow credit memos whose total is zero.",

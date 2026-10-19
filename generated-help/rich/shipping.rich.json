@@ -1,202 +1,584 @@
 {
-  "shipping_origin_country_id": { "summary": "The country goods ship from.", "usage": "<p>Your shipping origin country, used as the From address when calculating carrier rates and taxes.</p>" },
-  "shipping_origin_region_id": { "summary": "The state or region goods ship from.", "usage": "<p>The origin state/region used in carrier rate requests.</p>" },
-  "shipping_origin_postcode": { "summary": "The postal code goods ship from.", "usage": "<p>Your shipping origin postcode — the From ZIP carriers rate against.</p>" },
-  "shipping_origin_city": { "summary": "The city goods ship from.", "usage": "<p>The origin city used in carrier rate and label requests.</p>" },
-  "shipping_origin_street_line1": { "summary": "The street address goods ship from.", "usage": "<p>The first line of the shipping origin street address.</p>" },
-  "shipping_origin_street_line2": { "summary": "Additional origin street address line.", "usage": "<p>An optional second line for the shipping origin street address.</p>" },
-  "shipping_shipping_policy_enable_shipping_policy": { "summary": "Show a shipping policy during checkout.", "usage": "<p>When <strong>Yes</strong>, the shipping-policy text below is shown to customers at checkout.</p>" },
-  "shipping_shipping_policy_shipping_policy_content": { "summary": "The shipping policy text shown to customers.", "usage": "<p>The shipping-policy content displayed at checkout when the policy is enabled.</p>" },
-
-  "carriers_flatrate_active": { "summary": "Offer a single flat shipping rate.", "usage": "<p>When <strong>Yes</strong>, Flat Rate shipping is available at checkout.</p>" },
-  "carriers_flatrate_name": { "summary": "The method name shown for Flat Rate.", "usage": "<p>The shipping method label customers see, for example \"Fixed\".</p>" },
-  "carriers_flatrate_title": { "summary": "The carrier heading shown for Flat Rate.", "usage": "<p>The group title shown above the Flat Rate method at checkout.</p>" },
-  "carriers_flatrate_price": { "summary": "The flat shipping amount charged.", "usage": "<p>The fixed shipping price, applied per order or per item depending on the type below.</p>" },
-  "carriers_flatrate_type": { "summary": "Whether the flat rate is charged per order or per item.", "usage": "<p>Whether the flat price is charged once per order or multiplied by the number of items.</p>" },
-  "carriers_flatrate_handling_type": { "summary": "Whether the Flat Rate handling fee is fixed or a percentage.", "usage": "<p>Whether the handling fee is a fixed amount or a percentage of the rate.</p>" },
-  "carriers_flatrate_handling_fee": { "summary": "A handling fee added to the Flat Rate price.", "usage": "<p>An extra amount added on top of the flat shipping price.</p>" },
-  "carriers_flatrate_sallowspecific": { "summary": "Whether Flat Rate is limited to specific countries.", "usage": "<p>Offer Flat Rate in all allowed countries, or restrict it to the countries chosen below.</p>" },
-  "carriers_flatrate_specificcountry": { "summary": "The countries Flat Rate ships to.", "usage": "<p>The countries where Flat Rate is offered, used when it is limited to specific countries.</p>" },
-  "carriers_flatrate_showmethod": { "summary": "Show Flat Rate even when it doesn't apply.", "usage": "<p>When <strong>Yes</strong>, the method is shown (with its error message) instead of being hidden when unavailable.</p>" },
-  "carriers_flatrate_specificerrmsg": { "summary": "Message shown when Flat Rate is unavailable.", "usage": "<p>The text shown to customers when Flat Rate can't be offered for their order.</p>" },
-  "carriers_flatrate_sort_order": { "summary": "Position of Flat Rate among shipping methods.", "usage": "<p>Controls where Flat Rate appears in the list of shipping options. Lower numbers appear first.</p>" },
-
-  "carriers_freeshipping_active": { "summary": "Offer free shipping above a subtotal.", "usage": "<p>When <strong>Yes</strong>, Free Shipping is available once the order meets the minimum subtotal below.</p>" },
-  "carriers_freeshipping_free_shipping_subtotal": { "summary": "Minimum order subtotal that qualifies for free shipping.", "usage": "<p>Orders at or above this subtotal are eligible for Free Shipping.</p>" },
-  "carriers_freeshipping_name": { "summary": "The method name shown for Free Shipping.", "usage": "<p>The shipping method label customers see.</p>" },
-  "carriers_freeshipping_title": { "summary": "The carrier heading shown for Free Shipping.", "usage": "<p>The group title shown above the Free Shipping method at checkout.</p>" },
-  "carriers_freeshipping_tax_including": { "summary": "Compare the subtotal including tax.", "usage": "<p>When <strong>Yes</strong>, tax is counted toward the free-shipping subtotal threshold.</p>" },
-  "carriers_freeshipping_sallowspecific": { "summary": "Whether Free Shipping is limited to specific countries.", "usage": "<p>Offer Free Shipping in all allowed countries, or restrict it to the countries chosen below.</p>" },
-  "carriers_freeshipping_specificcountry": { "summary": "The countries Free Shipping is offered in.", "usage": "<p>The countries where Free Shipping is available, used when it is limited to specific countries.</p>" },
-  "carriers_freeshipping_showmethod": { "summary": "Show Free Shipping even when it doesn't apply.", "usage": "<p>When <strong>Yes</strong>, the method is shown (with its error message) instead of being hidden when unavailable.</p>" },
-  "carriers_freeshipping_specificerrmsg": { "summary": "Message shown when Free Shipping is unavailable.", "usage": "<p>The text shown to customers when Free Shipping can't be offered for their order.</p>" },
-  "carriers_freeshipping_sort_order": { "summary": "Position of Free Shipping among shipping methods.", "usage": "<p>Controls where Free Shipping appears in the list of shipping options. Lower numbers appear first.</p>" },
-
-  "carriers_tablerate_active": { "summary": "Offer rates from an imported rate table.", "usage": "<p>When <strong>Yes</strong>, Table Rates shipping is available, pricing orders from the imported rate table.</p>" },
-  "carriers_tablerate_condition_name": { "summary": "What the rate table is keyed on.", "usage": "<p>Whether table rates are looked up by weight, order price, or item count — each versus destination.</p>" },
-  "carriers_tablerate_export": { "summary": "Download the current rate table as CSV.", "usage": "<p>Exports the configured table rates for this scope to a CSV file.</p>" },
-  "carriers_tablerate_import": { "summary": "Upload a rate table from CSV.", "usage": "<p>Imports table rates from a CSV file, replacing the current rates for this scope.</p>" },
-  "carriers_tablerate_handling_type": { "summary": "Whether the Table Rates handling fee is fixed or a percentage.", "usage": "<p>Whether the handling fee is a fixed amount or a percentage of the rate.</p>" },
-  "carriers_tablerate_handling_fee": { "summary": "A handling fee added to table rates.", "usage": "<p>An extra amount added on top of the looked-up table rate.</p>" },
-  "carriers_tablerate_include_virtual_price": { "summary": "Count virtual products in the rate calculation.", "usage": "<p>When <strong>Yes</strong>, virtual products count toward the table-rate condition (price, weight, or quantity).</p>" },
-  "carriers_tablerate_name": { "summary": "The method name shown for Table Rates.", "usage": "<p>The shipping method label customers see.</p>" },
-  "carriers_tablerate_title": { "summary": "The carrier heading shown for Table Rates.", "usage": "<p>The group title shown above the Table Rates method at checkout.</p>" },
-  "carriers_tablerate_sallowspecific": { "summary": "Whether Table Rates is limited to specific countries.", "usage": "<p>Offer Table Rates in all allowed countries, or restrict it to the countries chosen below.</p>" },
-  "carriers_tablerate_specificcountry": { "summary": "The countries Table Rates ships to.", "usage": "<p>The countries where Table Rates is offered, used when it is limited to specific countries.</p>" },
-  "carriers_tablerate_showmethod": { "summary": "Show Table Rates even when no rate matches.", "usage": "<p>When <strong>Yes</strong>, the method is shown (with its error message) instead of being hidden when no rate applies.</p>" },
-  "carriers_tablerate_specificerrmsg": { "summary": "Message shown when Table Rates is unavailable.", "usage": "<p>The text shown to customers when no table rate matches their order.</p>" },
-  "carriers_tablerate_sort_order": { "summary": "Position of Table Rates among shipping methods.", "usage": "<p>Controls where Table Rates appears in the list of shipping options. Lower numbers appear first.</p>" },
-
-  "carriers_instore_active": { "summary": "Offer in-store pickup as a shipping method.", "usage": "<p>When <strong>Yes</strong>, the In-Store Delivery method is available at checkout.</p>" },
-  "carriers_instore_name": { "summary": "The method name shown for In-Store Delivery.", "usage": "<p>The shipping method label customers see.</p>" },
-  "carriers_instore_title": { "summary": "The carrier heading shown for In-Store Delivery.", "usage": "<p>The group title shown above the In-Store Delivery method at checkout.</p>" },
-  "carriers_instore_price": { "summary": "The amount charged for in-store delivery.", "usage": "<p>The shipping price applied when the customer selects in-store pickup.</p>" },
-  "carriers_instore_search_radius": { "summary": "How far to search for pickup locations.", "usage": "<p>The radius within which nearby pickup/source locations are offered to the customer.</p>" },
-  "carriers_instore_specificerrmsg": { "summary": "Message shown when In-Store Delivery is unavailable.", "usage": "<p>The text shown to customers when in-store pickup can't be offered.</p>" },
-
-  "carriers_dhl_active": { "summary": "Offer live DHL rates at checkout.", "usage": "<p>When <strong>Yes</strong>, DHL shipping rates are requested and offered to customers.</p>" },
-  "carriers_dhl_title": { "summary": "The carrier heading shown for DHL.", "usage": "<p>The group title shown above DHL's rates at checkout.</p>" },
-  "carriers_dhl_account": { "summary": "Your DHL account number.", "usage": "<p>The DHL account used for rating and shipping.</p>" },
-  "carriers_dhl_id": { "summary": "Your DHL API site/user ID.", "usage": "<p>Credential identifying your account to the DHL API.</p>" },
-  "carriers_dhl_password": { "summary": "Your DHL API password.", "usage": "<p>Credential used to authenticate to the DHL API.</p>" },
-  "carriers_dhl_api_key": { "summary": "Your DHL REST API key.", "usage": "<p>Credential for the DHL REST API.</p>" },
-  "carriers_dhl_api_secret": { "summary": "Your DHL REST API secret.", "usage": "<p>Credential paired with the API key for the DHL REST API.</p>" },
-  "carriers_dhl_type": { "summary": "Which DHL API to use.", "usage": "<p>Whether rates are fetched through DHL's XML or REST API.</p>" },
-  "carriers_dhl_content_type": { "summary": "Whether shipments are documents or goods.", "usage": "<p>Classifies DHL shipments as documents or non-document goods, which changes the services available.</p>" },
-  "carriers_dhl_debug": { "summary": "Log DHL API requests and responses.", "usage": "<p>When <strong>Yes</strong>, DHL API traffic is written to the debug log for troubleshooting.</p>" },
-  "carriers_dhl_sandbox_mode": { "summary": "Use the DHL test environment.", "usage": "<p>When <strong>Yes</strong>, requests go to DHL's sandbox instead of production.</p>" },
-  "carriers_dhl_divide_order_weight": { "summary": "Split heavy orders into multiple packages.", "usage": "<p>When <strong>Yes</strong>, orders over DHL's weight limit are divided into several packages for rating.</p>" },
-  "carriers_dhl_doc_methods": { "summary": "DHL document services offered.", "usage": "<p>The DHL services available for document shipments.</p>" },
-  "carriers_dhl_nondoc_methods": { "summary": "DHL non-document services offered.", "usage": "<p>The DHL services available for non-document (goods) shipments.</p>" },
-  "carriers_dhl_free_method_doc": { "summary": "DHL document service used for free shipping.", "usage": "<p>The document service applied when an order qualifies for free shipping.</p>" },
-  "carriers_dhl_free_method_nondoc": { "summary": "DHL non-document service used for free shipping.", "usage": "<p>The goods service applied when an order qualifies for free shipping.</p>" },
-  "carriers_dhl_free_shipping_enable": { "summary": "Offer free DHL shipping above a subtotal.", "usage": "<p>When enabled, DHL shipping is free once the order meets the subtotal below.</p>" },
-  "carriers_dhl_free_shipping_subtotal": { "summary": "Order subtotal that qualifies for free DHL shipping.", "usage": "<p>Orders at or above this subtotal ship free via the chosen DHL free method.</p>" },
-  "carriers_dhl_handling_type": { "summary": "Whether the DHL handling fee is fixed or a percentage.", "usage": "<p>Whether the handling fee is a fixed amount or a percentage of the rate.</p>" },
-  "carriers_dhl_handling_fee": { "summary": "A handling fee added to DHL rates.", "usage": "<p>An extra amount added on top of DHL's returned rate.</p>" },
-  "carriers_dhl_handling_action": { "summary": "Whether DHL handling applies per order or per package.", "usage": "<p>Whether the handling fee is charged once per order or for each package.</p>" },
-  "carriers_dhl_height": { "summary": "Default package height sent to DHL.", "usage": "<p>The package height used in DHL rate requests when specific dimensions are enabled.</p>" },
-  "carriers_dhl_width": { "summary": "Default package width sent to DHL.", "usage": "<p>The package width used in DHL rate requests when specific dimensions are enabled.</p>" },
-  "carriers_dhl_depth": { "summary": "Default package depth sent to DHL.", "usage": "<p>The package depth used in DHL rate requests when specific dimensions are enabled.</p>" },
-  "carriers_dhl_size": { "summary": "Whether to send specific package dimensions.", "usage": "<p>Whether DHL rates use a regular package or the specific height/width/depth entered above.</p>" },
-  "carriers_dhl_ready_time": { "summary": "Hours until the shipment is ready for pickup.", "usage": "<p>How long after an order DHL should expect the package to be ready.</p>" },
-  "carriers_dhl_unit_of_measure": { "summary": "Weight unit sent to DHL.", "usage": "<p>Whether package weights are sent to DHL in pounds or kilograms.</p>" },
-  "carriers_dhl_sallowspecific": { "summary": "Whether DHL is limited to specific countries.", "usage": "<p>Offer DHL in all allowed countries, or restrict it to the countries chosen below.</p>" },
-  "carriers_dhl_specificcountry": { "summary": "The countries DHL ships to.", "usage": "<p>The countries where DHL is offered, used when it is limited to specific countries.</p>" },
-  "carriers_dhl_showmethod": { "summary": "Show DHL even when it returns no rates.", "usage": "<p>When <strong>Yes</strong>, DHL is shown (with its error message) instead of being hidden when it can't return rates.</p>" },
-  "carriers_dhl_specificerrmsg": { "summary": "Message shown when DHL is unavailable.", "usage": "<p>The text shown to customers when DHL can't return a rate.</p>" },
-  "carriers_dhl_sort_order": { "summary": "Position of DHL among shipping methods.", "usage": "<p>Controls where DHL appears in the list of shipping options. Lower numbers appear first.</p>" },
-
-  "carriers_fedex_active": { "summary": "Offer live FedEx rates at checkout.", "usage": "<p>When <strong>Yes</strong>, FedEx shipping rates are requested and offered to customers.</p>" },
-  "carriers_fedex_title": { "summary": "The carrier heading shown for FedEx.", "usage": "<p>The group title shown above FedEx's rates at checkout.</p>" },
-  "carriers_fedex_account": { "summary": "Your FedEx account number.", "usage": "<p>The FedEx account used for rating and shipping.</p>" },
-  "carriers_fedex_api_key": { "summary": "Your FedEx API key.", "usage": "<p>Credential for the FedEx rating API.</p>" },
-  "carriers_fedex_secret_key": { "summary": "Your FedEx API secret key.", "usage": "<p>Credential paired with the API key for the FedEx rating API.</p>" },
-  "carriers_fedex_tracking_api_key": { "summary": "Your FedEx tracking API key.", "usage": "<p>Credential for the FedEx tracking API.</p>" },
-  "carriers_fedex_tracking_api_secret_key": { "summary": "Your FedEx tracking API secret.", "usage": "<p>Credential paired with the tracking API key.</p>" },
-  "carriers_fedex_enabled_tracking_api": { "summary": "Use the FedEx tracking API.", "usage": "<p>When <strong>Yes</strong>, shipment tracking is retrieved via the FedEx tracking API, using its own credentials.</p>" },
-  "carriers_fedex_allowed_methods": { "summary": "Which FedEx services are offered.", "usage": "<p>The FedEx services customers can choose from at checkout.</p>" },
-  "carriers_fedex_free_method": { "summary": "FedEx service used for free shipping.", "usage": "<p>The FedEx service applied when an order qualifies for free shipping.</p>" },
-  "carriers_fedex_free_shipping_enable": { "summary": "Offer free FedEx shipping above a subtotal.", "usage": "<p>When enabled, FedEx shipping is free once the order meets the subtotal below.</p>" },
-  "carriers_fedex_free_shipping_subtotal": { "summary": "Order subtotal that qualifies for free FedEx shipping.", "usage": "<p>Orders at or above this subtotal ship free via the chosen FedEx free method.</p>" },
-  "carriers_fedex_packaging": { "summary": "The default FedEx packaging type.", "usage": "<p>The package type assumed when requesting FedEx rates.</p>" },
-  "carriers_fedex_pickup_type": { "summary": "How packages are handed to FedEx.", "usage": "<p>The drop-off or pickup arrangement used, which can affect rates.</p>" },
-  "carriers_fedex_residence_delivery": { "summary": "Rate as residential delivery.", "usage": "<p>When <strong>Yes</strong>, FedEx rates assume delivery to a residential address.</p>" },
-  "carriers_fedex_max_package_weight": { "summary": "Heaviest package FedEx will rate.", "usage": "<p>Orders over this weight are split into multiple packages for rating.</p>" },
-  "carriers_fedex_shipment_requesttype": { "summary": "How multi-package orders are requested.", "usage": "<p>Whether the order is divided into equal weights (one request) or rated from the origin weight.</p>" },
-  "carriers_fedex_smartpost_hubid": { "summary": "Your FedEx SmartPost hub ID.", "usage": "<p>The SmartPost hub identifier required for SmartPost services.</p>" },
-  "carriers_fedex_production_webservices_url": { "summary": "FedEx production API endpoint.", "usage": "<p>The live FedEx web-services URL rates are requested from.</p>" },
-  "carriers_fedex_sandbox_webservices_url": { "summary": "FedEx sandbox API endpoint.", "usage": "<p>The test FedEx web-services URL used in sandbox mode.</p>" },
-  "carriers_fedex_sandbox_mode": { "summary": "Use the FedEx test environment.", "usage": "<p>When <strong>Yes</strong>, requests go to FedEx's sandbox instead of production.</p>" },
-  "carriers_fedex_debug": { "summary": "Log FedEx API requests and responses.", "usage": "<p>When <strong>Yes</strong>, FedEx API traffic is written to the debug log.</p>" },
-  "carriers_fedex_handling_type": { "summary": "Whether the FedEx handling fee is fixed or a percentage.", "usage": "<p>Whether the handling fee is a fixed amount or a percentage of the rate.</p>" },
-  "carriers_fedex_handling_fee": { "summary": "A handling fee added to FedEx rates.", "usage": "<p>An extra amount added on top of FedEx's returned rate.</p>" },
-  "carriers_fedex_handling_action": { "summary": "Whether FedEx handling applies per order or per package.", "usage": "<p>Whether the handling fee is charged once per order or for each package.</p>" },
-  "carriers_fedex_unit_of_measure": { "summary": "Weight unit sent to FedEx.", "usage": "<p>Whether package weights are sent to FedEx in pounds or kilograms.</p>" },
-  "carriers_fedex_sallowspecific": { "summary": "Whether FedEx is limited to specific countries.", "usage": "<p>Offer FedEx in all allowed countries, or restrict it to the countries chosen below.</p>" },
-  "carriers_fedex_specificcountry": { "summary": "The countries FedEx ships to.", "usage": "<p>The countries where FedEx is offered, used when it is limited to specific countries.</p>" },
-  "carriers_fedex_showmethod": { "summary": "Show FedEx even when it returns no rates.", "usage": "<p>When <strong>Yes</strong>, FedEx is shown (with its error message) instead of being hidden when it can't return rates.</p>" },
-  "carriers_fedex_specificerrmsg": { "summary": "Message shown when FedEx is unavailable.", "usage": "<p>The text shown to customers when FedEx can't return a rate.</p>" },
-  "carriers_fedex_sort_order": { "summary": "Position of FedEx among shipping methods.", "usage": "<p>Controls where FedEx appears in the list of shipping options. Lower numbers appear first.</p>" },
-
-  "carriers_ups_active": { "summary": "Offer live UPS rates at checkout.", "usage": "<p>When <strong>Yes</strong>, UPS shipping rates are requested and offered to customers.</p>" },
-  "carriers_ups_title": { "summary": "The carrier heading shown for UPS.", "usage": "<p>The group title shown above UPS's rates at checkout.</p>" },
-  "carriers_ups_type": { "summary": "Which UPS API to use.", "usage": "<p>Selects the UPS integration — the modern REST API or the legacy XML API.</p>" },
-  "carriers_ups_access_license_number": { "summary": "Your UPS access license (API) number.", "usage": "<p>Credential issued by UPS for API access.</p>" },
-  "carriers_ups_username": { "summary": "Your UPS API username.", "usage": "<p>Credential used to authenticate to the UPS API.</p>" },
-  "carriers_ups_password": { "summary": "Your UPS API password.", "usage": "<p>Credential used to authenticate to the UPS API.</p>" },
-  "carriers_ups_shipper_number": { "summary": "Your UPS shipper (account) number.", "usage": "<p>The UPS account number, required for negotiated rates.</p>" },
-  "carriers_ups_is_account_live": { "summary": "Use the live UPS account.", "usage": "<p>When <strong>Yes</strong>, the production UPS account is used instead of a test account.</p>" },
-  "carriers_ups_mode_xml": { "summary": "Use the UPS development or live endpoint.", "usage": "<p>Whether the legacy XML API talks to UPS's development or live servers.</p>" },
-  "carriers_ups_allowed_methods": { "summary": "Which UPS services are offered.", "usage": "<p>The UPS services customers can choose from at checkout.</p>" },
-  "carriers_ups_free_method": { "summary": "UPS service used for free shipping.", "usage": "<p>The UPS service applied when an order qualifies for free shipping.</p>" },
-  "carriers_ups_free_shipping_enable": { "summary": "Offer free UPS shipping above a subtotal.", "usage": "<p>When enabled, UPS shipping is free once the order meets the subtotal below.</p>" },
-  "carriers_ups_free_shipping_subtotal": { "summary": "Order subtotal that qualifies for free UPS shipping.", "usage": "<p>Orders at or above this subtotal ship free via the chosen UPS free method.</p>" },
-  "carriers_ups_container": { "summary": "The default UPS packaging type.", "usage": "<p>The package type assumed when requesting UPS rates.</p>" },
-  "carriers_ups_dest_type": { "summary": "Rate to a residential or commercial address.", "usage": "<p>Whether UPS rates assume a residential or a commercial destination.</p>" },
-  "carriers_ups_pickup": { "summary": "How packages are given to UPS.", "usage": "<p>The pickup arrangement used, which can affect the rates returned.</p>" },
-  "carriers_ups_origin_shipment": { "summary": "The UPS origin/shipment region.", "usage": "<p>The region your shipments originate from, which determines the available UPS services.</p>" },
-  "carriers_ups_negotiated_active": { "summary": "Use your negotiated UPS rates.", "usage": "<p>When <strong>Yes</strong>, UPS returns your account's negotiated rates instead of published rates (requires a shipper number).</p>" },
-  "carriers_ups_include_taxes": { "summary": "Include taxes in UPS rates.", "usage": "<p>When <strong>Yes</strong>, any taxes UPS returns are included in the quoted rate.</p>" },
-  "carriers_ups_shipment_requesttype": { "summary": "How multi-package orders are requested.", "usage": "<p>Whether the order is divided into equal weights (one request) or rated from the origin weight.</p>" },
-  "carriers_ups_max_package_weight": { "summary": "Heaviest package UPS will rate.", "usage": "<p>Orders over this weight are split into multiple packages for rating.</p>" },
-  "carriers_ups_min_package_weight": { "summary": "Lightest package UPS will rate.", "usage": "<p>The minimum weight sent to UPS for a package.</p>" },
-  "carriers_ups_unit_of_measure": { "summary": "Weight unit sent to UPS.", "usage": "<p>Whether package weights are sent to UPS in pounds or kilograms.</p>" },
-  "carriers_ups_gateway_url": { "summary": "UPS rating endpoint (legacy XML).", "usage": "<p>The UPS XML API URL used to request rates.</p>" },
-  "carriers_ups_gateway_xml_url": { "summary": "UPS XML rate gateway URL.", "usage": "<p>The endpoint for legacy XML rate requests.</p>" },
-  "carriers_ups_gateway_rest_url": { "summary": "UPS REST rating endpoint.", "usage": "<p>The UPS REST API URL used to request rates.</p>" },
-  "carriers_ups_tracking_url": { "summary": "UPS tracking endpoint (legacy XML).", "usage": "<p>The UPS XML API URL used to track shipments.</p>" },
-  "carriers_ups_tracking_rest_url": { "summary": "UPS REST tracking endpoint.", "usage": "<p>The UPS REST API URL used to track shipments.</p>" },
-  "carriers_ups_handling_type": { "summary": "Whether the UPS handling fee is fixed or a percentage.", "usage": "<p>Whether the handling fee is a fixed amount or a percentage of the rate.</p>" },
-  "carriers_ups_handling_fee": { "summary": "A handling fee added to UPS rates.", "usage": "<p>An extra amount added on top of UPS's returned rate.</p>" },
-  "carriers_ups_handling_action": { "summary": "Whether UPS handling applies per order or per package.", "usage": "<p>Whether the handling fee is charged once per order or for each package.</p>" },
-  "carriers_ups_debug": { "summary": "Log UPS API requests and responses.", "usage": "<p>When <strong>Yes</strong>, UPS API traffic is written to the debug log.</p>" },
-  "carriers_ups_sallowspecific": { "summary": "Whether UPS is limited to specific countries.", "usage": "<p>Offer UPS in all allowed countries, or restrict it to the countries chosen below.</p>" },
-  "carriers_ups_specificcountry": { "summary": "The countries UPS ships to.", "usage": "<p>The countries where UPS is offered, used when it is limited to specific countries.</p>" },
-  "carriers_ups_showmethod": { "summary": "Show UPS even when it returns no rates.", "usage": "<p>When <strong>Yes</strong>, UPS is shown (with its error message) instead of being hidden when it can't return rates.</p>" },
-  "carriers_ups_specificerrmsg": { "summary": "Message shown when UPS is unavailable.", "usage": "<p>The text shown to customers when UPS can't return a rate.</p>" },
-  "carriers_ups_sort_order": { "summary": "Position of UPS among shipping methods.", "usage": "<p>Controls where UPS appears in the list of shipping options. Lower numbers appear first.</p>" },
-
-  "carriers_usps_active": { "summary": "Offer live USPS rates at checkout.", "usage": "<p>When <strong>Yes</strong>, USPS shipping rates are requested and offered to customers.</p>" },
-  "carriers_usps_title": { "summary": "The carrier heading shown for USPS.", "usage": "<p>The group title shown above USPS's rates at checkout.</p>" },
-  "carriers_usps_usps_type": { "summary": "Which USPS API to use.", "usage": "<p>Selects the USPS integration — the modern REST APIs or the legacy Web Tools API.</p>" },
-  "carriers_usps_userid": { "summary": "Your USPS Web Tools user ID.", "usage": "<p>Credential for the legacy USPS Web Tools API.</p>" },
-  "carriers_usps_password": { "summary": "Your USPS Web Tools password.", "usage": "<p>Credential for the legacy USPS Web Tools API.</p>" },
-  "carriers_usps_client_id": { "summary": "Your USPS REST client ID.", "usage": "<p>Credential for the USPS REST API.</p>" },
-  "carriers_usps_client_secret": { "summary": "Your USPS REST client secret.", "usage": "<p>Credential paired with the client ID for the USPS REST API.</p>" },
-  "carriers_usps_account_number": { "summary": "Your USPS payment account number.", "usage": "<p>The USPS account used to pay for labels.</p>" },
-  "carriers_usps_account_type": { "summary": "The type of USPS payment account.", "usage": "<p>Whether the account is an EPS or PERMIT account.</p>" },
-  "carriers_usps_crid": { "summary": "Your USPS Customer Registration ID (CRID).", "usage": "<p>The USPS CRID tied to your business account.</p>" },
-  "carriers_usps_mid": { "summary": "Your USPS Mailer ID (MID).", "usage": "<p>The USPS Mailer ID used on shipments.</p>" },
-  "carriers_usps_mmid": { "summary": "Your USPS Manifest Mailer ID.", "usage": "<p>The Mailer ID used for manifesting shipments.</p>" },
-  "carriers_usps_aesitn": { "summary": "AES / ITN exemption code for customs.", "usage": "<p>The AES Internal Transaction Number or exemption code sent on international shipments.</p>" },
-  "carriers_usps_mode": { "summary": "Use the USPS development or live endpoint.", "usage": "<p>Whether requests go to USPS's development or production servers.</p>" },
-  "carriers_usps_allowed_methods": { "summary": "Which USPS services are offered (legacy API).", "usage": "<p>The USPS services customers can choose from when using the Web Tools API.</p>" },
-  "carriers_usps_rest_allowed_methods": { "summary": "Which USPS services are offered (REST API).", "usage": "<p>The USPS services customers can choose from when using the REST API.</p>" },
-  "carriers_usps_free_method": { "summary": "USPS service used for free shipping.", "usage": "<p>The USPS service applied when an order qualifies for free shipping.</p>" },
-  "carriers_usps_free_shipping_enable": { "summary": "Offer free USPS shipping above a subtotal.", "usage": "<p>When enabled, USPS shipping is free once the order meets the subtotal below.</p>" },
-  "carriers_usps_free_shipping_subtotal": { "summary": "Order subtotal that qualifies for free USPS shipping.", "usage": "<p>Orders at or above this subtotal ship free via the chosen USPS free method.</p>" },
-  "carriers_usps_container": { "summary": "The default USPS container type.", "usage": "<p>The package/container type assumed when requesting USPS rates.</p>" },
-  "carriers_usps_size": { "summary": "The USPS package size class.", "usage": "<p>Whether the package is Regular or Large by USPS size rules.</p>" },
-  "carriers_usps_machinable": { "summary": "Whether packages are machinable.", "usage": "<p>Whether packages can be processed by USPS machines; non-machinable items may cost more.</p>" },
-  "carriers_usps_price_type": { "summary": "Use commercial or retail USPS pricing.", "usage": "<p>Whether rates use commercial (account) pricing or retail pricing.</p>" },
-  "carriers_usps_width": { "summary": "Default package width sent to USPS.", "usage": "<p>The package width used in USPS rate requests.</p>" },
-  "carriers_usps_length": { "summary": "Default package length sent to USPS.", "usage": "<p>The package length used in USPS rate requests.</p>" },
-  "carriers_usps_height": { "summary": "Default package height sent to USPS.", "usage": "<p>The package height used in USPS rate requests.</p>" },
-  "carriers_usps_girth": { "summary": "Default package girth sent to USPS.", "usage": "<p>The package girth used for USPS rates on non-rectangular parcels.</p>" },
-  "carriers_usps_max_package_weight": { "summary": "Heaviest package USPS will rate.", "usage": "<p>Orders over this weight are split into multiple packages for rating.</p>" },
-  "carriers_usps_shipment_requesttype": { "summary": "How multi-package orders are requested.", "usage": "<p>Whether the order is divided into equal weights (one request) or rated from the origin weight.</p>" },
-  "carriers_usps_gateway_url": { "summary": "USPS rating endpoint (legacy Web Tools).", "usage": "<p>The USPS Web Tools URL used to request rates.</p>" },
-  "carriers_usps_gateway_secure_url": { "summary": "USPS secure endpoint (legacy Web Tools).", "usage": "<p>The secure USPS Web Tools URL used for authenticated requests.</p>" },
-  "carriers_usps_gateway_rest_dev_url": { "summary": "USPS REST development endpoint.", "usage": "<p>The USPS REST API URL used in development mode.</p>" },
-  "carriers_usps_gateway_rest_prod_url": { "summary": "USPS REST production endpoint.", "usage": "<p>The USPS REST API URL used in production.</p>" },
-  "carriers_usps_handling_type": { "summary": "Whether the USPS handling fee is fixed or a percentage.", "usage": "<p>Whether the handling fee is a fixed amount or a percentage of the rate.</p>" },
-  "carriers_usps_handling_fee": { "summary": "A handling fee added to USPS rates.", "usage": "<p>An extra amount added on top of USPS's returned rate.</p>" },
-  "carriers_usps_handling_action": { "summary": "Whether USPS handling applies per order or per package.", "usage": "<p>Whether the handling fee is charged once per order or for each package.</p>" },
-  "carriers_usps_debug": { "summary": "Log USPS API requests and responses.", "usage": "<p>When <strong>Yes</strong>, USPS API traffic is written to the debug log.</p>" },
-  "carriers_usps_sallowspecific": { "summary": "Whether USPS is limited to specific countries.", "usage": "<p>Offer USPS in all allowed countries, or restrict it to the countries chosen below.</p>" },
-  "carriers_usps_specificcountry": { "summary": "The countries USPS ships to.", "usage": "<p>The countries where USPS is offered, used when it is limited to specific countries.</p>" },
-  "carriers_usps_showmethod": { "summary": "Show USPS even when it returns no rates.", "usage": "<p>When <strong>Yes</strong>, USPS is shown (with its error message) instead of being hidden when it can't return rates.</p>" },
-  "carriers_usps_specificerrmsg": { "summary": "Message shown when USPS is unavailable.", "usage": "<p>The text shown to customers when USPS can't return a rate.</p>" },
-  "carriers_usps_sort_order": { "summary": "Position of USPS among shipping methods.", "usage": "<p>Controls where USPS appears in the list of shipping options. Lower numbers appear first.</p>" }
+  "shipping_origin_country_id": {
+    "summary": "The country goods ship from."
+  },
+  "shipping_origin_region_id": {
+    "summary": "The state or region goods ship from."
+  },
+  "shipping_origin_postcode": {
+    "summary": "The postal code goods ship from."
+  },
+  "shipping_origin_city": {
+    "summary": "The city goods ship from."
+  },
+  "shipping_origin_street_line1": {
+    "summary": "The street address goods ship from."
+  },
+  "shipping_origin_street_line2": {
+    "summary": "Additional origin street address line."
+  },
+  "shipping_shipping_policy_enable_shipping_policy": {
+    "summary": "Show a shipping policy during checkout."
+  },
+  "shipping_shipping_policy_shipping_policy_content": {
+    "summary": "The shipping policy text shown to customers."
+  },
+  "carriers_flatrate_active": {
+    "summary": "Offer a single flat shipping rate."
+  },
+  "carriers_flatrate_name": {
+    "summary": "The method name shown for Flat Rate."
+  },
+  "carriers_flatrate_title": {
+    "summary": "The carrier heading shown for Flat Rate."
+  },
+  "carriers_flatrate_price": {
+    "summary": "The flat shipping amount charged."
+  },
+  "carriers_flatrate_type": {
+    "summary": "Whether the flat rate is charged per order or per item."
+  },
+  "carriers_flatrate_handling_type": {
+    "summary": "Whether the Flat Rate handling fee is fixed or a percentage."
+  },
+  "carriers_flatrate_handling_fee": {
+    "summary": "A handling fee added to the Flat Rate price."
+  },
+  "carriers_flatrate_sallowspecific": {
+    "summary": "Whether Flat Rate is limited to specific countries."
+  },
+  "carriers_flatrate_specificcountry": {
+    "summary": "The countries Flat Rate ships to."
+  },
+  "carriers_flatrate_showmethod": {
+    "summary": "Show Flat Rate even when it doesn't apply."
+  },
+  "carriers_flatrate_specificerrmsg": {
+    "summary": "Message shown when Flat Rate is unavailable."
+  },
+  "carriers_flatrate_sort_order": {
+    "summary": "Position of Flat Rate among shipping methods."
+  },
+  "carriers_freeshipping_active": {
+    "summary": "Offer free shipping above a subtotal."
+  },
+  "carriers_freeshipping_free_shipping_subtotal": {
+    "summary": "Minimum order subtotal that qualifies for free shipping."
+  },
+  "carriers_freeshipping_name": {
+    "summary": "The method name shown for Free Shipping."
+  },
+  "carriers_freeshipping_title": {
+    "summary": "The carrier heading shown for Free Shipping."
+  },
+  "carriers_freeshipping_tax_including": {
+    "summary": "Compare the subtotal including tax."
+  },
+  "carriers_freeshipping_sallowspecific": {
+    "summary": "Whether Free Shipping is limited to specific countries."
+  },
+  "carriers_freeshipping_specificcountry": {
+    "summary": "The countries Free Shipping is offered in."
+  },
+  "carriers_freeshipping_showmethod": {
+    "summary": "Show Free Shipping even when it doesn't apply."
+  },
+  "carriers_freeshipping_specificerrmsg": {
+    "summary": "Message shown when Free Shipping is unavailable."
+  },
+  "carriers_freeshipping_sort_order": {
+    "summary": "Position of Free Shipping among shipping methods."
+  },
+  "carriers_tablerate_active": {
+    "summary": "Offer rates from an imported rate table."
+  },
+  "carriers_tablerate_condition_name": {
+    "summary": "What the rate table is keyed on."
+  },
+  "carriers_tablerate_export": {
+    "summary": "Download the current rate table as CSV."
+  },
+  "carriers_tablerate_import": {
+    "summary": "Upload a rate table from CSV."
+  },
+  "carriers_tablerate_handling_type": {
+    "summary": "Whether the Table Rates handling fee is fixed or a percentage."
+  },
+  "carriers_tablerate_handling_fee": {
+    "summary": "A handling fee added to table rates."
+  },
+  "carriers_tablerate_include_virtual_price": {
+    "summary": "Count virtual products in the rate calculation."
+  },
+  "carriers_tablerate_name": {
+    "summary": "The method name shown for Table Rates."
+  },
+  "carriers_tablerate_title": {
+    "summary": "The carrier heading shown for Table Rates."
+  },
+  "carriers_tablerate_sallowspecific": {
+    "summary": "Whether Table Rates is limited to specific countries."
+  },
+  "carriers_tablerate_specificcountry": {
+    "summary": "The countries Table Rates ships to."
+  },
+  "carriers_tablerate_showmethod": {
+    "summary": "Show Table Rates even when no rate matches."
+  },
+  "carriers_tablerate_specificerrmsg": {
+    "summary": "Message shown when Table Rates is unavailable."
+  },
+  "carriers_tablerate_sort_order": {
+    "summary": "Position of Table Rates among shipping methods."
+  },
+  "carriers_instore_active": {
+    "summary": "Offer in-store pickup as a shipping method."
+  },
+  "carriers_instore_name": {
+    "summary": "The method name shown for In-Store Delivery."
+  },
+  "carriers_instore_title": {
+    "summary": "The carrier heading shown for In-Store Delivery."
+  },
+  "carriers_instore_price": {
+    "summary": "The amount charged for in-store delivery."
+  },
+  "carriers_instore_search_radius": {
+    "summary": "How far to search for pickup locations."
+  },
+  "carriers_instore_specificerrmsg": {
+    "summary": "Message shown when In-Store Delivery is unavailable."
+  },
+  "carriers_dhl_active": {
+    "summary": "Offer live DHL rates at checkout."
+  },
+  "carriers_dhl_title": {
+    "summary": "The carrier heading shown for DHL."
+  },
+  "carriers_dhl_account": {
+    "summary": "Your DHL account number."
+  },
+  "carriers_dhl_id": {
+    "summary": "Your DHL API site/user ID."
+  },
+  "carriers_dhl_password": {
+    "summary": "Your DHL API password."
+  },
+  "carriers_dhl_api_key": {
+    "summary": "Your DHL REST API key."
+  },
+  "carriers_dhl_api_secret": {
+    "summary": "Your DHL REST API secret."
+  },
+  "carriers_dhl_type": {
+    "summary": "Which DHL API to use."
+  },
+  "carriers_dhl_content_type": {
+    "summary": "Whether shipments are documents or goods."
+  },
+  "carriers_dhl_debug": {
+    "summary": "Log DHL API requests and responses."
+  },
+  "carriers_dhl_sandbox_mode": {
+    "summary": "Use the DHL test environment."
+  },
+  "carriers_dhl_divide_order_weight": {
+    "summary": "Split heavy orders into multiple packages."
+  },
+  "carriers_dhl_doc_methods": {
+    "summary": "DHL document services offered."
+  },
+  "carriers_dhl_nondoc_methods": {
+    "summary": "DHL non-document services offered."
+  },
+  "carriers_dhl_free_method_doc": {
+    "summary": "DHL document service used for free shipping."
+  },
+  "carriers_dhl_free_method_nondoc": {
+    "summary": "DHL non-document service used for free shipping."
+  },
+  "carriers_dhl_free_shipping_enable": {
+    "summary": "Offer free DHL shipping above a subtotal."
+  },
+  "carriers_dhl_free_shipping_subtotal": {
+    "summary": "Order subtotal that qualifies for free DHL shipping."
+  },
+  "carriers_dhl_handling_type": {
+    "summary": "Whether the DHL handling fee is fixed or a percentage."
+  },
+  "carriers_dhl_handling_fee": {
+    "summary": "A handling fee added to DHL rates."
+  },
+  "carriers_dhl_handling_action": {
+    "summary": "Whether DHL handling applies per order or per package."
+  },
+  "carriers_dhl_height": {
+    "summary": "Default package height sent to DHL."
+  },
+  "carriers_dhl_width": {
+    "summary": "Default package width sent to DHL."
+  },
+  "carriers_dhl_depth": {
+    "summary": "Default package depth sent to DHL."
+  },
+  "carriers_dhl_size": {
+    "summary": "Whether to send specific package dimensions."
+  },
+  "carriers_dhl_ready_time": {
+    "summary": "Hours until the shipment is ready for pickup."
+  },
+  "carriers_dhl_unit_of_measure": {
+    "summary": "Weight unit sent to DHL."
+  },
+  "carriers_dhl_sallowspecific": {
+    "summary": "Whether DHL is limited to specific countries."
+  },
+  "carriers_dhl_specificcountry": {
+    "summary": "The countries DHL ships to."
+  },
+  "carriers_dhl_showmethod": {
+    "summary": "Show DHL even when it returns no rates."
+  },
+  "carriers_dhl_specificerrmsg": {
+    "summary": "Message shown when DHL is unavailable."
+  },
+  "carriers_dhl_sort_order": {
+    "summary": "Position of DHL among shipping methods."
+  },
+  "carriers_fedex_active": {
+    "summary": "Offer live FedEx rates at checkout."
+  },
+  "carriers_fedex_title": {
+    "summary": "The carrier heading shown for FedEx."
+  },
+  "carriers_fedex_account": {
+    "summary": "Your FedEx account number."
+  },
+  "carriers_fedex_api_key": {
+    "summary": "Your FedEx API key."
+  },
+  "carriers_fedex_secret_key": {
+    "summary": "Your FedEx API secret key."
+  },
+  "carriers_fedex_tracking_api_key": {
+    "summary": "Your FedEx tracking API key."
+  },
+  "carriers_fedex_tracking_api_secret_key": {
+    "summary": "Your FedEx tracking API secret."
+  },
+  "carriers_fedex_enabled_tracking_api": {
+    "summary": "Use the FedEx tracking API."
+  },
+  "carriers_fedex_allowed_methods": {
+    "summary": "Which FedEx services are offered."
+  },
+  "carriers_fedex_free_method": {
+    "summary": "FedEx service used for free shipping."
+  },
+  "carriers_fedex_free_shipping_enable": {
+    "summary": "Offer free FedEx shipping above a subtotal."
+  },
+  "carriers_fedex_free_shipping_subtotal": {
+    "summary": "Order subtotal that qualifies for free FedEx shipping."
+  },
+  "carriers_fedex_packaging": {
+    "summary": "The default FedEx packaging type."
+  },
+  "carriers_fedex_pickup_type": {
+    "summary": "How packages are handed to FedEx."
+  },
+  "carriers_fedex_residence_delivery": {
+    "summary": "Rate as residential delivery."
+  },
+  "carriers_fedex_max_package_weight": {
+    "summary": "Heaviest package FedEx will rate."
+  },
+  "carriers_fedex_shipment_requesttype": {
+    "summary": "How multi-package orders are requested."
+  },
+  "carriers_fedex_smartpost_hubid": {
+    "summary": "Your FedEx SmartPost hub ID."
+  },
+  "carriers_fedex_production_webservices_url": {
+    "summary": "FedEx production API endpoint."
+  },
+  "carriers_fedex_sandbox_webservices_url": {
+    "summary": "FedEx sandbox API endpoint."
+  },
+  "carriers_fedex_sandbox_mode": {
+    "summary": "Use the FedEx test environment."
+  },
+  "carriers_fedex_debug": {
+    "summary": "Log FedEx API requests and responses."
+  },
+  "carriers_fedex_handling_type": {
+    "summary": "Whether the FedEx handling fee is fixed or a percentage."
+  },
+  "carriers_fedex_handling_fee": {
+    "summary": "A handling fee added to FedEx rates."
+  },
+  "carriers_fedex_handling_action": {
+    "summary": "Whether FedEx handling applies per order or per package."
+  },
+  "carriers_fedex_unit_of_measure": {
+    "summary": "Weight unit sent to FedEx."
+  },
+  "carriers_fedex_sallowspecific": {
+    "summary": "Whether FedEx is limited to specific countries."
+  },
+  "carriers_fedex_specificcountry": {
+    "summary": "The countries FedEx ships to."
+  },
+  "carriers_fedex_showmethod": {
+    "summary": "Show FedEx even when it returns no rates."
+  },
+  "carriers_fedex_specificerrmsg": {
+    "summary": "Message shown when FedEx is unavailable."
+  },
+  "carriers_fedex_sort_order": {
+    "summary": "Position of FedEx among shipping methods."
+  },
+  "carriers_ups_active": {
+    "summary": "Offer live UPS rates at checkout."
+  },
+  "carriers_ups_title": {
+    "summary": "The carrier heading shown for UPS."
+  },
+  "carriers_ups_type": {
+    "summary": "Which UPS API to use.",
+    "usage": "<p>Selects the UPS integration — the modern REST API or the legacy XML API.</p>"
+  },
+  "carriers_ups_access_license_number": {
+    "summary": "Your UPS access license (API) number."
+  },
+  "carriers_ups_username": {
+    "summary": "Your UPS API username."
+  },
+  "carriers_ups_password": {
+    "summary": "Your UPS API password."
+  },
+  "carriers_ups_shipper_number": {
+    "summary": "Your UPS shipper (account) number."
+  },
+  "carriers_ups_is_account_live": {
+    "summary": "Use the live UPS account."
+  },
+  "carriers_ups_mode_xml": {
+    "summary": "Use the UPS development or live endpoint.",
+    "usage": "<p>Whether the legacy XML API talks to UPS's development or live servers.</p>"
+  },
+  "carriers_ups_allowed_methods": {
+    "summary": "Which UPS services are offered."
+  },
+  "carriers_ups_free_method": {
+    "summary": "UPS service used for free shipping."
+  },
+  "carriers_ups_free_shipping_enable": {
+    "summary": "Offer free UPS shipping above a subtotal."
+  },
+  "carriers_ups_free_shipping_subtotal": {
+    "summary": "Order subtotal that qualifies for free UPS shipping."
+  },
+  "carriers_ups_container": {
+    "summary": "The default UPS packaging type."
+  },
+  "carriers_ups_dest_type": {
+    "summary": "Rate to a residential or commercial address."
+  },
+  "carriers_ups_pickup": {
+    "summary": "How packages are given to UPS."
+  },
+  "carriers_ups_origin_shipment": {
+    "summary": "The UPS origin/shipment region."
+  },
+  "carriers_ups_negotiated_active": {
+    "summary": "Use your negotiated UPS rates."
+  },
+  "carriers_ups_include_taxes": {
+    "summary": "Include taxes in UPS rates."
+  },
+  "carriers_ups_shipment_requesttype": {
+    "summary": "How multi-package orders are requested."
+  },
+  "carriers_ups_max_package_weight": {
+    "summary": "Heaviest package UPS will rate."
+  },
+  "carriers_ups_min_package_weight": {
+    "summary": "Lightest package UPS will rate."
+  },
+  "carriers_ups_unit_of_measure": {
+    "summary": "Weight unit sent to UPS."
+  },
+  "carriers_ups_gateway_url": {
+    "summary": "UPS rating endpoint (legacy XML)."
+  },
+  "carriers_ups_gateway_xml_url": {
+    "summary": "UPS XML rate gateway URL.",
+    "usage": "<p>The endpoint for legacy XML rate requests.</p>"
+  },
+  "carriers_ups_gateway_rest_url": {
+    "summary": "UPS REST rating endpoint."
+  },
+  "carriers_ups_tracking_url": {
+    "summary": "UPS tracking endpoint (legacy XML)."
+  },
+  "carriers_ups_tracking_rest_url": {
+    "summary": "UPS REST tracking endpoint."
+  },
+  "carriers_ups_handling_type": {
+    "summary": "Whether the UPS handling fee is fixed or a percentage."
+  },
+  "carriers_ups_handling_fee": {
+    "summary": "A handling fee added to UPS rates."
+  },
+  "carriers_ups_handling_action": {
+    "summary": "Whether UPS handling applies per order or per package."
+  },
+  "carriers_ups_debug": {
+    "summary": "Log UPS API requests and responses."
+  },
+  "carriers_ups_sallowspecific": {
+    "summary": "Whether UPS is limited to specific countries."
+  },
+  "carriers_ups_specificcountry": {
+    "summary": "The countries UPS ships to."
+  },
+  "carriers_ups_showmethod": {
+    "summary": "Show UPS even when it returns no rates."
+  },
+  "carriers_ups_specificerrmsg": {
+    "summary": "Message shown when UPS is unavailable."
+  },
+  "carriers_ups_sort_order": {
+    "summary": "Position of UPS among shipping methods."
+  },
+  "carriers_usps_active": {
+    "summary": "Offer live USPS rates at checkout."
+  },
+  "carriers_usps_title": {
+    "summary": "The carrier heading shown for USPS."
+  },
+  "carriers_usps_usps_type": {
+    "summary": "Which USPS API to use.",
+    "usage": "<p>Selects the USPS integration — the modern REST APIs or the legacy Web Tools API.</p>"
+  },
+  "carriers_usps_userid": {
+    "summary": "Your USPS Web Tools user ID.",
+    "usage": "<p>Credential for the legacy USPS Web Tools API.</p>"
+  },
+  "carriers_usps_password": {
+    "summary": "Your USPS Web Tools password.",
+    "usage": "<p>Credential for the legacy USPS Web Tools API.</p>"
+  },
+  "carriers_usps_client_id": {
+    "summary": "Your USPS REST client ID."
+  },
+  "carriers_usps_client_secret": {
+    "summary": "Your USPS REST client secret."
+  },
+  "carriers_usps_account_number": {
+    "summary": "Your USPS payment account number."
+  },
+  "carriers_usps_account_type": {
+    "summary": "The type of USPS payment account."
+  },
+  "carriers_usps_crid": {
+    "summary": "Your USPS Customer Registration ID (CRID)."
+  },
+  "carriers_usps_mid": {
+    "summary": "Your USPS Mailer ID (MID)."
+  },
+  "carriers_usps_mmid": {
+    "summary": "Your USPS Manifest Mailer ID."
+  },
+  "carriers_usps_aesitn": {
+    "summary": "AES / ITN exemption code for customs."
+  },
+  "carriers_usps_mode": {
+    "summary": "Use the USPS development or live endpoint."
+  },
+  "carriers_usps_allowed_methods": {
+    "summary": "Which USPS services are offered (legacy API)."
+  },
+  "carriers_usps_rest_allowed_methods": {
+    "summary": "Which USPS services are offered (REST API)."
+  },
+  "carriers_usps_free_method": {
+    "summary": "USPS service used for free shipping."
+  },
+  "carriers_usps_free_shipping_enable": {
+    "summary": "Offer free USPS shipping above a subtotal."
+  },
+  "carriers_usps_free_shipping_subtotal": {
+    "summary": "Order subtotal that qualifies for free USPS shipping."
+  },
+  "carriers_usps_container": {
+    "summary": "The default USPS container type."
+  },
+  "carriers_usps_size": {
+    "summary": "The USPS package size class."
+  },
+  "carriers_usps_machinable": {
+    "summary": "Whether packages are machinable."
+  },
+  "carriers_usps_price_type": {
+    "summary": "Use commercial or retail USPS pricing."
+  },
+  "carriers_usps_width": {
+    "summary": "Default package width sent to USPS."
+  },
+  "carriers_usps_length": {
+    "summary": "Default package length sent to USPS."
+  },
+  "carriers_usps_height": {
+    "summary": "Default package height sent to USPS."
+  },
+  "carriers_usps_girth": {
+    "summary": "Default package girth sent to USPS."
+  },
+  "carriers_usps_max_package_weight": {
+    "summary": "Heaviest package USPS will rate."
+  },
+  "carriers_usps_shipment_requesttype": {
+    "summary": "How multi-package orders are requested."
+  },
+  "carriers_usps_gateway_url": {
+    "summary": "USPS rating endpoint (legacy Web Tools)."
+  },
+  "carriers_usps_gateway_secure_url": {
+    "summary": "USPS secure endpoint (legacy Web Tools)."
+  },
+  "carriers_usps_gateway_rest_dev_url": {
+    "summary": "USPS REST development endpoint."
+  },
+  "carriers_usps_gateway_rest_prod_url": {
+    "summary": "USPS REST production endpoint."
+  },
+  "carriers_usps_handling_type": {
+    "summary": "Whether the USPS handling fee is fixed or a percentage."
+  },
+  "carriers_usps_handling_fee": {
+    "summary": "A handling fee added to USPS rates."
+  },
+  "carriers_usps_handling_action": {
+    "summary": "Whether USPS handling applies per order or per package."
+  },
+  "carriers_usps_debug": {
+    "summary": "Log USPS API requests and responses."
+  },
+  "carriers_usps_sallowspecific": {
+    "summary": "Whether USPS is limited to specific countries."
+  },
+  "carriers_usps_specificcountry": {
+    "summary": "The countries USPS ships to."
+  },
+  "carriers_usps_showmethod": {
+    "summary": "Show USPS even when it returns no rates."
+  },
+  "carriers_usps_specificerrmsg": {
+    "summary": "Message shown when USPS is unavailable."
+  },
+  "carriers_usps_sort_order": {
+    "summary": "Position of USPS among shipping methods."
+  }
 }

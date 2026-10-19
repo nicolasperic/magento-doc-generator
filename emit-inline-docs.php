@@ -28,30 +28,6 @@ if (!is_dir($dir)) {
     exit(2);
 }
 
-/**
- * Convert the small Markdown subset the notes use into inline HTML for <usage>.
- * HTML is escaped first, so nothing in the note can inject markup; then `code`,
- * **bold**, *italic* and bare links are marked up and blank lines become <p>.
- */
-function mdToHtml(string $src): string
-{
-    $src = trim($src);
-    if ($src === '') {
-        return '';
-    }
-    $esc = htmlspecialchars($src, ENT_QUOTES, 'UTF-8');
-    $esc = preg_replace('/`([^`]+)`/', '<code>$1</code>', $esc);
-    $esc = preg_replace('/\*\*([^*]+)\*\*/', '<strong>$1</strong>', $esc);
-    $esc = preg_replace('/(^|[\s(])\*([^*\n]+)\*/', '$1<em>$2</em>', $esc);
-    $esc = preg_replace('#(https?://[^\s<)]+)#', '<a href="$1">$1</a>', $esc);
-    $paras = preg_split('/\n{2,}/', $esc);
-    $html = array_map(
-        static fn($p) => '<p>' . str_replace("\n", ' ', trim($p)) . '</p>',
-        array_filter(array_map('trim', $paras), static fn($p) => $p !== '')
-    );
-    return implode('', $html);
-}
-
 // Build elementId -> extracted facts (module, section, path) from the extracts.
 $meta = [];
 foreach (glob("$dir/*.doc.json") ?: [] as $docFile) {
@@ -95,7 +71,11 @@ foreach ($helpFiles as $helpFile) {
         }
         $entries[$id] = [
             'summary' => $summary,
-            'usage'   => mdToHtml((string)($h['modal'] ?? '')),
+            // Generated `usage` (from the old `modal`) is intentionally dropped: for
+            // the long tail it mostly restated the label or added scope boilerplate.
+            // A crisp one-line summary is the note; a fuller `usage` is kept only
+            // where a human curated one (generated-help/rich/*). See PORT_PLAN.md.
+            'usage'   => '',
             'module'  => $meta[$id]['module'] ?? '',
             'section' => $meta[$id]['section'] ?? '',
             'path'    => $meta[$id]['path'] ?? '',
@@ -123,7 +103,7 @@ foreach ($aliasGroups as $group) {
             $cp = trim((string)($h['configPath'] ?? ''));
             $summary = trim((string)($h['comment'] ?? ''));
             if ($cp !== '' && $summary !== '') {
-                $cfgHelp[$cp] = ['summary' => $summary, 'usage' => mdToHtml((string)($h['modal'] ?? ''))];
+                $cfgHelp[$cp] = ['summary' => $summary];
             }
         }
     }
@@ -142,7 +122,7 @@ foreach ($aliasGroups as $group) {
             }
             $entries[$elementId] = [
                 'summary' => $h['summary'],
-                'usage'   => $h['usage'],
+                'usage'   => '', // long-tail: one-line summary only (see note above)
                 'module'  => $module,
                 'section' => $section,
                 'path'    => '',
@@ -153,10 +133,11 @@ foreach ($aliasGroups as $group) {
     fwrite(STDERR, sprintf("[%s] expanded %d config-path entries to %d alias element ids\n", $group['dir'], count($cfgHelp), $expanded));
 }
 
-// Tier-2 curated cards: generated-help/rich/*.rich.json carry a clean summary and an
-// authored inline-HTML usage body. Where a field has one, it overrides the
-// comment/modal-derived prose; usage is used as authored (already HTML, so NOT run
-// through mdToHtml). Facts (path/module/section) still come from the extracts.
+// Tier-2 curated cards: generated-help/rich/*.rich.json carry a clean summary and,
+// where a human judged a second beat worth keeping, an authored inline-HTML usage
+// body. This is the ONLY source of <usage> — the long tail is summary-only. A rich
+// entry overrides the generated summary; facts (path/module/section) come from the
+// extracts.
 foreach (glob("$dir/rich/*.rich.json") ?: [] as $rf) {
     $rich = json_decode(file_get_contents($rf), true);
     if (!is_array($rich)) {

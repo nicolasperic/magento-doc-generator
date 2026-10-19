@@ -1,59 +1,47 @@
 {
   "web_browser_capabilities_cookies": {
-    "summary": "Warn visitors whose browser blocks cookies.",
-    "usage": "<p>When <strong>Yes</strong>, customers whose browser has cookies disabled are shown a notice, since the store needs cookies to work.</p>"
+    "summary": "Warn visitors whose browser blocks cookies."
   },
   "web_browser_capabilities_javascript": {
-    "summary": "Warn visitors whose browser has JavaScript off.",
-    "usage": "<p>When <strong>Yes</strong>, a notice is shown to customers with JavaScript disabled.</p>"
+    "summary": "Warn visitors whose browser has JavaScript off."
   },
   "web_browser_capabilities_local_storage": {
-    "summary": "Warn visitors whose browser blocks local storage.",
-    "usage": "<p>When <strong>Yes</strong>, a notice is shown to customers whose browser has local storage disabled.</p>"
+    "summary": "Warn visitors whose browser blocks local storage."
   },
   "web_cookie_cookie_domain": {
-    "summary": "The domain cookies are set for.",
-    "usage": "<p>The domain used when setting cookies. Leave blank to use the current domain, or set it (e.g. <code>.example.com</code>) to share cookies across subdomains.</p>"
+    "summary": "The domain cookies are set for."
   },
   "web_cookie_cookie_httponly": {
     "summary": "Mark cookies as HTTP-only (recommended).",
     "usage": "<p>When <strong>Yes</strong>, cookies cannot be read by JavaScript, which protects them from theft. <strong>Do not set to No</strong> — it weakens security.</p>"
   },
   "web_cookie_cookie_lifetime": {
-    "summary": "How long cookies live (seconds).",
-    "usage": "<p>The lifetime of session and other cookies, in seconds.</p>"
+    "summary": "How long cookies live (seconds)."
   },
   "web_cookie_cookie_path": {
-    "summary": "The path cookies are scoped to.",
-    "usage": "<p>The URL path cookies apply to. Use <code>/</code> for the whole site, or a subpath to limit them.</p>"
+    "summary": "The path cookies are scoped to."
   },
   "web_cookie_cookie_restriction": {
-    "summary": "Enable cookie-consent restriction mode.",
-    "usage": "<p>When <strong>Yes</strong>, Cookie Restriction Mode asks visitors to consent before non-essential cookies are set, for privacy compliance.</p>"
+    "summary": "Enable cookie-consent restriction mode."
   },
   "web_default_cms_home_page": {
-    "summary": "The CMS page used as the storefront home page.",
-    "usage": "<p>Which CMS page is shown at the store's root URL.</p>"
+    "summary": "The CMS page used as the storefront home page."
   },
   "web_default_cms_no_cookies": {
     "summary": "The CMS page shown when cookies are disabled.",
     "usage": "<p>Which CMS page is displayed to visitors whose browser blocks cookies.</p>"
   },
   "web_default_cms_no_route": {
-    "summary": "The CMS page shown for 404 (not found).",
-    "usage": "<p>Which CMS page is displayed when a requested URL doesn't exist.</p>"
+    "summary": "The CMS page shown for 404 (not found)."
   },
   "web_default_front": {
-    "summary": "The default route loaded at the store root.",
-    "usage": "<p>The action path loaded at the store root (default <code>cms</code>), before the home page resolves.</p>"
+    "summary": "The default route loaded at the store root."
   },
   "web_default_no_route": {
-    "summary": "The route that handles not-found URLs.",
-    "usage": "<p>The action path (for example <code>cms/noroute/index</code>) used when no route matches a request.</p>"
+    "summary": "The route that handles not-found URLs."
   },
   "web_default_show_cms_breadcrumbs": {
-    "summary": "Show breadcrumbs on CMS pages.",
-    "usage": "<p>When <strong>Yes</strong>, breadcrumb navigation is shown on CMS pages.</p>"
+    "summary": "Show breadcrumbs on CMS pages."
   },
   "web_default_layouts_default_category_layout": {
     "summary": "The default page layout for category pages.",
@@ -68,84 +56,66 @@
     "usage": "<p>The column layout applied to product pages unless an individual product overrides it.</p>"
   },
   "web_secure_base_url": {
-    "summary": "The store's secure (HTTPS) base URL.",
-    "usage": "<p>The root HTTPS URL of the store. Specify a full URL or a placeholder such as <code>{{base_url}}</code>.</p>"
+    "summary": "The store's secure (HTTPS) base URL."
   },
   "web_secure_base_link_url": {
-    "summary": "The secure base URL used for links.",
-    "usage": "<p>The HTTPS base used when building links. May start with <code>{{secure_base_url}}</code> or <code>{{unsecure_base_url}}</code>.</p>"
+    "summary": "The secure base URL used for links."
   },
   "web_secure_base_media_url": {
-    "summary": "The secure base URL for media files.",
-    "usage": "<p>The HTTPS base for product and other media. Leave empty to derive it from the secure base URL.</p>"
+    "summary": "The secure base URL for media files."
   },
   "web_secure_base_static_url": {
-    "summary": "The secure base URL for static files.",
-    "usage": "<p>The HTTPS base for compiled static assets (CSS/JS). Leave empty to derive it from the secure base URL.</p>"
+    "summary": "The secure base URL for static files."
   },
   "web_secure_use_in_frontend": {
-    "summary": "Serve the storefront over HTTPS.",
-    "usage": "<p>When <strong>Yes</strong>, secure (HTTPS) URLs are used on the storefront.</p>"
+    "summary": "Serve the storefront over HTTPS."
   },
   "web_secure_use_in_adminhtml": {
-    "summary": "Serve the admin over HTTPS.",
-    "usage": "<p>When <strong>Yes</strong>, secure (HTTPS) URLs are used in the admin.</p>"
+    "summary": "Serve the admin over HTTPS."
   },
   "web_secure_enable_hsts": {
     "summary": "Send the HSTS security header.",
     "usage": "<p>When <strong>Yes</strong>, the store sends HTTP Strict Transport Security, telling browsers to always use HTTPS. Make sure HTTPS works everywhere first.</p>"
   },
   "web_secure_enable_upgrade_insecure": {
-    "summary": "Upgrade insecure requests to HTTPS.",
-    "usage": "<p>When <strong>Yes</strong>, the store asks browsers to automatically load any HTTP resources over HTTPS instead.</p>"
+    "summary": "Upgrade insecure requests to HTTPS."
   },
   "web_secure_offloader_header": {
-    "summary": "Header used to detect SSL termination upstream.",
-    "usage": "<p>The request header a load balancer or proxy sets to signal that SSL was terminated before Magento (for example <code>X-Forwarded-Proto</code>).</p>"
+    "summary": "Header used to detect SSL termination upstream."
   },
   "web_seo_use_rewrites": {
-    "summary": "Use clean URLs without index.php.",
-    "usage": "<p>When <strong>Yes</strong>, server rewrites remove <code>index.php</code> from URLs. Requires the web server to support URL rewrites.</p>"
+    "summary": "Use clean URLs without index.php."
   },
   "web_session_use_http_user_agent": {
-    "summary": "Validate the session against the User-Agent.",
-    "usage": "<p>When <strong>Yes</strong>, a session is tied to the browser's User-Agent, adding a check against session hijacking.</p>"
+    "summary": "Validate the session against the User-Agent."
   },
   "web_session_use_http_via": {
-    "summary": "Validate the session against the Via header.",
-    "usage": "<p>When <strong>Yes</strong>, the Via header is included in session validation. May cause problems behind some proxies.</p>"
+    "summary": "Validate the session against the Via header."
   },
   "web_session_use_http_x_forwarded_for": {
-    "summary": "Validate the session against X-Forwarded-For.",
-    "usage": "<p>When <strong>Yes</strong>, the X-Forwarded-For header is included in session validation. May cause problems behind some proxies or CDNs.</p>"
+    "summary": "Validate the session against X-Forwarded-For."
   },
   "web_session_use_remote_addr": {
-    "summary": "Validate the session against the client IP.",
-    "usage": "<p>When <strong>Yes</strong>, a session is tied to the client's IP address. May break for users whose IP changes mid-session.</p>"
+    "summary": "Validate the session against the client IP."
   },
   "web_unsecure_base_url": {
-    "summary": "The store's base (HTTP) URL.",
-    "usage": "<p>The root URL of the store. Specify a full URL or a placeholder such as <code>{{base_url}}</code>.</p>"
+    "summary": "The store's base (HTTP) URL."
   },
   "web_unsecure_base_link_url": {
-    "summary": "The base URL used for links.",
-    "usage": "<p>The base used when building links. May start with <code>{{unsecure_base_url}}</code>.</p>"
+    "summary": "The base URL used for links."
   },
   "web_unsecure_base_media_url": {
-    "summary": "The base URL for media files.",
-    "usage": "<p>The base for product and other media. Leave empty to derive it from the base URL.</p>"
+    "summary": "The base URL for media files."
   },
   "web_unsecure_base_static_url": {
-    "summary": "The base URL for static files.",
-    "usage": "<p>The base for compiled static assets (CSS/JS). Leave empty to derive it from the base URL.</p>"
+    "summary": "The base URL for static files."
   },
   "web_url_catalog_media_url_format": {
     "summary": "How catalog image URLs are formed.",
     "usage": "<p>Whether product image variants are served via query parameters (CDN-friendly) or as uniquely hashed files (legacy mode).</p>"
   },
   "web_url_redirect_to_base": {
-    "summary": "Redirect unrecognized hosts to the base URL.",
-    "usage": "<p>Whether requests to a non-base host are redirected to the configured base URL, and with which redirect code.</p>"
+    "summary": "Redirect unrecognized hosts to the base URL."
   },
   "web_url_use_store": {
     "summary": "Put the store code in URLs.",

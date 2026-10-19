@@ -1,75 +1,59 @@
 {
   "catalog_custom_options_date_fields_order": {
-    "summary": "The order of day, month and year in custom date option inputs.",
-    "usage": "<p>Sets how date-type custom options are laid out on the storefront — for example day/month/year versus month/day/year.</p>"
+    "summary": "The order of day, month and year in custom date option inputs."
   },
   "catalog_custom_options_time_format": {
-    "summary": "Whether custom time options use 12- or 24-hour format.",
-    "usage": "<p>Controls the clock format shown for date/time custom options on product pages.</p>"
+    "summary": "Whether custom time options use 12- or 24-hour format."
   },
   "catalog_custom_options_use_calendar": {
-    "summary": "Show a calendar picker for date custom options.",
-    "usage": "<p>When <strong>Yes</strong>, date custom options use a calendar widget instead of plain dropdowns.</p>"
+    "summary": "Show a calendar picker for date custom options."
   },
   "catalog_custom_options_year_range": {
-    "summary": "The range of years offered in date custom options.",
-    "usage": "<p>Limits the selectable years for date custom options, entered as a four-digit <code>from,to</code> range. Leave blank for the default range.</p>"
+    "summary": "The range of years offered in date custom options."
   },
   "catalog_downloadable_content_disposition": {
-    "summary": "Whether downloadable files download or open in the browser.",
-    "usage": "<p>Sets the Content-Disposition for downloadable links — force a download, or open the file inline in the browser.</p>"
+    "summary": "Whether downloadable files download or open in the browser."
   },
   "catalog_downloadable_disable_guest_checkout": {
     "summary": "Require an account when the cart has downloadable items.",
     "usage": "<p>When <strong>Yes</strong>, orders containing downloadable products require a customer account (guest checkout is blocked), unless the product's links are shareable.</p>"
   },
   "catalog_downloadable_downloads_number": {
-    "summary": "Default number of downloads allowed per purchased link.",
-    "usage": "<p>The default download limit applied to new downloadable links. Leave blank or <code>0</code> for unlimited.</p>"
+    "summary": "Default number of downloads allowed per purchased link."
   },
   "catalog_downloadable_links_target_new_window": {
-    "summary": "Open downloadable links in a new browser window.",
-    "usage": "<p>When <strong>Yes</strong>, download links open in a new tab or window.</p>"
+    "summary": "Open downloadable links in a new browser window."
   },
   "catalog_downloadable_links_title": {
-    "summary": "Default heading shown above a product's downloadable links.",
-    "usage": "<p>The default title for the Links section on downloadable product pages (for example, \"Links\").</p>"
+    "summary": "Default heading shown above a product's downloadable links."
   },
   "catalog_downloadable_order_item_status": {
-    "summary": "When a purchased download becomes available.",
-    "usage": "<p>Whether access to downloads is granted once the order is Pending, or only after it is Invoiced (paid).</p>"
+    "summary": "When a purchased download becomes available."
   },
   "catalog_downloadable_samples_title": {
-    "summary": "Default heading shown above a product's sample files.",
-    "usage": "<p>The default title for the Samples section on downloadable product pages (for example, \"Samples\").</p>"
+    "summary": "Default heading shown above a product's sample files."
   },
   "catalog_downloadable_shareable": {
-    "summary": "Allow downloadable links to be used without signing in.",
-    "usage": "<p>When <strong>Yes</strong>, downloadable links are shareable and can be accessed without a customer account, which also permits guest checkout for them.</p>"
+    "summary": "Allow downloadable links to be used without signing in."
   },
   "catalog_fields_masks_meta_description": {
-    "summary": "Template for auto-generating a product's meta description.",
-    "usage": "<p>Pattern used to build the meta description when a product has none. Supports placeholders such as <code>{{name}}</code> and <code>{{description}}</code>.</p>"
+    "summary": "Template for auto-generating a product's meta description."
   },
   "catalog_fields_masks_meta_keyword": {
-    "summary": "Template for auto-generating a product's meta keywords.",
-    "usage": "<p>Pattern used to build meta keywords when a product has none. Supports placeholders such as <code>{{name}}</code> and <code>{{sku}}</code>.</p>"
+    "summary": "Template for auto-generating a product's meta keywords."
   },
   "catalog_fields_masks_meta_title": {
-    "summary": "Template for auto-generating a product's meta title.",
-    "usage": "<p>Pattern used to build the meta title when a product has none. Supports the <code>{{name}}</code> placeholder.</p>"
+    "summary": "Template for auto-generating a product's meta title."
   },
   "catalog_fields_masks_sku": {
-    "summary": "Template for auto-generating a product SKU.",
-    "usage": "<p>Pattern used to build a SKU when none is entered. Supports the <code>{{name}}</code> placeholder.</p>"
+    "summary": "Template for auto-generating a product SKU."
   },
   "catalog_frontend_default_sort_by": {
     "summary": "The default product sort order on category pages.",
     "usage": "<p>Which sort shoppers see first on category listings, unless an individual category overrides it.</p>"
   },
   "catalog_frontend_default_sort_by_order": {
-    "summary": "Direction of the default category sort.",
-    "usage": "<p>Whether the default category sort runs ascending or descending.</p>"
+    "summary": "Direction of the default category sort."
   },
   "catalog_frontend_flat_catalog_category": {
     "summary": "Use the flat category index on the storefront.",
@@ -84,184 +68,141 @@
     "usage": "<p>The pre-selected \"per page\" count for grid view. Must be one of the allowed values below.</p>"
   },
   "catalog_frontend_grid_per_page_values": {
-    "summary": "The selectable per-page counts for grid mode.",
-    "usage": "<p>Comma-separated list of \"products per page\" choices offered to shoppers in grid view.</p>"
+    "summary": "The selectable per-page counts for grid mode."
   },
   "catalog_frontend_list_allow_all": {
-    "summary": "Offer an \"All\" option in the per-page dropdown.",
-    "usage": "<p>When <strong>Yes</strong>, shoppers can choose to show every product on one page. Use with care on large categories.</p>"
+    "summary": "Offer an \"All\" option in the per-page dropdown."
   },
   "catalog_frontend_list_mode": {
-    "summary": "Which view modes (grid/list) category pages offer.",
-    "usage": "<p>Sets whether category pages show a grid, a list, or both with one as the default.</p>"
+    "summary": "Which view modes (grid/list) category pages offer."
   },
   "catalog_frontend_list_per_page": {
     "summary": "Default number of products per page in list mode.",
     "usage": "<p>The pre-selected \"per page\" count for list view. Must be one of the allowed values below.</p>"
   },
   "catalog_frontend_list_per_page_values": {
-    "summary": "The selectable per-page counts for list mode.",
-    "usage": "<p>Comma-separated list of \"products per page\" choices offered to shoppers in list view.</p>"
+    "summary": "The selectable per-page counts for list mode."
   },
   "catalog_frontend_remember_pagination": {
-    "summary": "Remember each shopper's page-size and sort choices.",
-    "usage": "<p>When <strong>Yes</strong>, pagination and sort selections persist for the shopper across pages. May affect SEO and increase the number of cached page variations.</p>"
+    "summary": "Remember each shopper's page-size and sort choices."
   },
   "catalog_frontend_show_swatch_tooltip": {
-    "summary": "Show a preview tooltip when hovering a swatch.",
-    "usage": "<p>When <strong>Yes</strong>, hovering a colour or image swatch shows an enlarged preview tooltip.</p>"
+    "summary": "Show a preview tooltip when hovering a swatch."
   },
   "catalog_frontend_show_swatches_in_product_list": {
-    "summary": "Show configurable swatches on category listings.",
-    "usage": "<p>When <strong>Yes</strong>, swatches appear on product tiles in category and search results, not only on the product page.</p>"
+    "summary": "Show configurable swatches on category listings."
   },
   "catalog_frontend_swatches_per_product": {
-    "summary": "Maximum swatches shown per product in listings.",
-    "usage": "<p>Caps how many swatches are displayed on a product tile in listings before the rest are truncated.</p>"
+    "summary": "Maximum swatches shown per product in listings."
   },
   "catalog_layered_navigation_display_category": {
-    "summary": "Show the category filter in layered navigation.",
-    "usage": "<p>When <strong>Yes</strong>, a category filter appears in layered navigation on listing pages.</p>"
+    "summary": "Show the category filter in layered navigation."
   },
   "catalog_layered_navigation_display_product_count": {
-    "summary": "Show the product count next to each filter option.",
-    "usage": "<p>When <strong>Yes</strong>, each layered-navigation option shows how many products match it.</p>"
+    "summary": "Show the product count next to each filter option."
   },
   "catalog_layered_navigation_interval_division_limit": {
-    "summary": "Minimum products before a price range is subdivided.",
-    "usage": "<p>Price intervals holding fewer products than this are not split further in layered navigation.</p>"
+    "summary": "Minimum products before a price range is subdivided."
   },
   "catalog_layered_navigation_one_price_interval": {
-    "summary": "Collapse identical prices into a single interval.",
-    "usage": "<p>When <strong>Yes</strong>, products that all share one price are grouped into a single price filter rather than a range.</p>"
+    "summary": "Collapse identical prices into a single interval."
   },
   "catalog_layered_navigation_price_range_calculation": {
-    "summary": "How price-filter ranges are calculated.",
-    "usage": "<p>Whether layered-navigation price ranges are built automatically (by equal spans or equal product counts) or from a fixed manual step.</p>"
+    "summary": "How price-filter ranges are calculated."
   },
   "catalog_layered_navigation_price_range_max_intervals": {
-    "summary": "Maximum number of price intervals shown.",
-    "usage": "<p>Caps how many price ranges layered navigation displays (up to 100).</p>"
+    "summary": "Maximum number of price intervals shown."
   },
   "catalog_layered_navigation_price_range_step": {
-    "summary": "The fixed price step used for manual ranges.",
-    "usage": "<p>The width of each price interval when the range calculation is set to Manual.</p>"
+    "summary": "The fixed price step used for manual ranges."
   },
   "catalog_navigation_max_depth": {
-    "summary": "How many category levels appear in the top menu.",
-    "usage": "<p>The maximum category depth rendered in the storefront top navigation. <code>0</code> means no limit.</p>"
+    "summary": "How many category levels appear in the top menu."
   },
   "catalog_placeholder_placeholder": {
-    "summary": "Fallback image shown when a product has no image.",
-    "usage": "<p>The default placeholder used wherever a product is missing its own image, set per image role (base, small, thumbnail, swatch).</p>"
+    "summary": "Fallback image shown when a product has no image."
   },
   "catalog_price_scope": {
     "summary": "Whether product prices are global or set per website.",
     "usage": "<p>Sets the scope of catalog prices. <strong>Global</strong> uses one price everywhere; <strong>Website</strong> allows a different price per website. Changing it can affect existing prices and must line up with your base-currency scope.</p>"
   },
   "catalog_product_video_play_if_base": {
-    "summary": "Autoplay the base video on the product page.",
-    "usage": "<p>When <strong>Yes</strong>, the product's base video plays automatically when the page opens.</p>"
+    "summary": "Autoplay the base video on the product page."
   },
   "catalog_product_video_show_related": {
-    "summary": "Show related YouTube videos after playback.",
-    "usage": "<p>When <strong>Yes</strong>, YouTube may display related videos when a product video finishes.</p>"
+    "summary": "Show related YouTube videos after playback."
   },
   "catalog_product_video_video_auto_restart": {
-    "summary": "Loop product videos when they finish.",
-    "usage": "<p>When <strong>Yes</strong>, a product video restarts automatically after it ends.</p>"
+    "summary": "Loop product videos when they finish."
   },
   "catalog_product_video_youtube_api_key": {
-    "summary": "YouTube Data API key used to embed product videos.",
-    "usage": "<p>The API key required to load and play YouTube videos on product pages.</p>"
+    "summary": "YouTube Data API key used to embed product videos."
   },
   "catalog_productalert_allow_price": {
-    "summary": "Let customers subscribe to price-drop alerts.",
-    "usage": "<p>When <strong>Yes</strong>, a \"notify me when the price drops\" option appears on product pages.</p>"
+    "summary": "Let customers subscribe to price-drop alerts."
   },
   "catalog_productalert_allow_stock": {
-    "summary": "Let customers subscribe to back-in-stock alerts.",
-    "usage": "<p>When <strong>Yes</strong>, a \"notify me when back in stock\" option appears on out-of-stock products.</p>"
+    "summary": "Let customers subscribe to back-in-stock alerts."
   },
   "catalog_productalert_email_identity": {
-    "summary": "The store identity price/stock alert emails are sent from.",
-    "usage": "<p>Which store email identity (sender) is used for product-alert emails.</p>"
+    "summary": "The store identity price/stock alert emails are sent from."
   },
   "catalog_productalert_email_price_template": {
-    "summary": "The email template used for price-drop alerts.",
-    "usage": "<p>The transactional template used when sending price-alert emails.</p>"
+    "summary": "The email template used for price-drop alerts."
   },
   "catalog_productalert_email_stock_template": {
-    "summary": "The email template used for back-in-stock alerts.",
-    "usage": "<p>The transactional template used when sending stock-alert emails.</p>"
+    "summary": "The email template used for back-in-stock alerts."
   },
   "catalog_productalert_cron_error_email": {
-    "summary": "Address that receives product-alert cron error reports.",
-    "usage": "<p>The email notified if the product-alert cron job fails.</p>"
+    "summary": "Address that receives product-alert cron error reports."
   },
   "catalog_productalert_cron_error_email_identity": {
-    "summary": "The sender identity for cron error emails.",
-    "usage": "<p>Which store email identity sends product-alert cron error notifications.</p>"
+    "summary": "The sender identity for cron error emails."
   },
   "catalog_productalert_cron_error_email_template": {
-    "summary": "The template for product-alert cron error emails.",
-    "usage": "<p>The transactional template used to report product-alert cron failures.</p>"
+    "summary": "The template for product-alert cron error emails."
   },
   "catalog_productalert_cron_frequency": {
-    "summary": "How often product-alert emails are sent.",
-    "usage": "<p>The schedule on which the product-alert cron job runs and sends queued price and stock alerts.</p>"
+    "summary": "How often product-alert emails are sent."
   },
   "catalog_productalert_cron_time": {
-    "summary": "Time of day the product-alert cron runs.",
-    "usage": "<p>The clock time at which the product-alert job runs on its scheduled days.</p>"
+    "summary": "Time of day the product-alert cron runs."
   },
   "catalog_recently_products_compared_count": {
-    "summary": "How many compared products to keep per shopper.",
-    "usage": "<p>The maximum number of items retained in a shopper's \"recently compared\" list.</p>"
+    "summary": "How many compared products to keep per shopper."
   },
   "catalog_recently_products_recently_compared_lifetime": {
-    "summary": "How long recently-compared entries are kept (seconds).",
-    "usage": "<p>Lifetime, in seconds, of a shopper's recently-compared product records.</p>"
+    "summary": "How long recently-compared entries are kept (seconds)."
   },
   "catalog_recently_products_recently_viewed_lifetime": {
-    "summary": "How long recently-viewed entries are kept (seconds).",
-    "usage": "<p>Lifetime, in seconds, of a shopper's recently-viewed product records.</p>"
+    "summary": "How long recently-viewed entries are kept (seconds)."
   },
   "catalog_recently_products_scope": {
-    "summary": "The scope recently viewed/compared lists are shared across.",
-    "usage": "<p>Whether a shopper's recently viewed and compared products are shared per website, per store, or per store view.</p>"
+    "summary": "The scope recently viewed/compared lists are shared across."
   },
   "catalog_recently_products_synchronize_with_backend": {
-    "summary": "Persist recently viewed/compared lists server-side.",
-    "usage": "<p>When <strong>Yes</strong>, these lists are saved on the server so they follow a signed-in customer across devices.</p>"
+    "summary": "Persist recently viewed/compared lists server-side."
   },
   "catalog_recently_products_viewed_count": {
-    "summary": "How many viewed products to keep per shopper.",
-    "usage": "<p>The maximum number of items retained in a shopper's \"recently viewed\" list.</p>"
+    "summary": "How many viewed products to keep per shopper."
   },
   "catalog_review_active": {
-    "summary": "Enable product reviews on the storefront.",
-    "usage": "<p>When <strong>Yes</strong>, customers can read and submit product reviews.</p>"
+    "summary": "Enable product reviews on the storefront."
   },
   "catalog_review_allow_guest": {
-    "summary": "Let guests submit product reviews.",
-    "usage": "<p>When <strong>Yes</strong>, shoppers can post reviews without an account. When <strong>No</strong>, only signed-in customers can.</p>"
+    "summary": "Let guests submit product reviews."
   },
   "catalog_search_autocomplete_limit": {
-    "summary": "Maximum suggestions shown in search autocomplete.",
-    "usage": "<p>Caps how many suggestions appear in the search-box dropdown as a shopper types.</p>"
+    "summary": "Maximum suggestions shown in search autocomplete."
   },
   "catalog_search_engine": {
-    "summary": "The search engine powering catalog search.",
-    "usage": "<p>Selects the backend used for product search and indexing. If left unset, the default engine is used.</p>"
+    "summary": "The search engine powering catalog search."
   },
   "catalog_search_enable_eav_indexer": {
-    "summary": "Use the product EAV indexer to speed up indexing.",
-    "usage": "<p>When <strong>Yes</strong>, the product EAV indexer is enabled to speed up indexation. Make sure your search engine is configured to support it.</p>"
+    "summary": "Use the product EAV indexer to speed up indexing."
   },
   "catalog_search_max_count_cacheable_search_terms": {
-    "summary": "How many popular search terms are cached.",
-    "usage": "<p>The number of popular search terms kept in cache for faster responses.</p>"
+    "summary": "How many popular search terms are cached."
   },
   "catalog_search_max_query_length": {
     "summary": "Maximum length of a search query.",
@@ -272,143 +213,114 @@
     "usage": "<p>Queries shorter than this are ignored. Must be compatible with the matching setting in your search engine.</p>"
   },
   "catalog_search_search_recommendations_count": {
-    "summary": "How many search recommendations to show.",
-    "usage": "<p>The number of recommended terms displayed for a search.</p>"
+    "summary": "How many search recommendations to show."
   },
   "catalog_search_search_recommendations_count_results_enabled": {
-    "summary": "Show result counts next to search recommendations.",
-    "usage": "<p>When <strong>Yes</strong>, each recommendation shows how many results it would return.</p>"
+    "summary": "Show result counts next to search recommendations."
   },
   "catalog_search_search_recommendations_enabled": {
     "summary": "Offer alternative-term recommendations for searches.",
     "usage": "<p>When <strong>Yes</strong>, searches suggest related terms. May slow the site on large catalogs.</p>"
   },
   "catalog_search_search_suggestion_count": {
-    "summary": "How many search suggestions to show.",
-    "usage": "<p>The number of \"did you mean\" suggestions offered for a search.</p>"
+    "summary": "How many search suggestions to show."
   },
   "catalog_search_search_suggestion_count_results_enabled": {
-    "summary": "Show result counts next to search suggestions.",
-    "usage": "<p>When <strong>Yes</strong>, each suggestion shows how many results it would return.</p>"
+    "summary": "Show result counts next to search suggestions."
   },
   "catalog_search_search_suggestion_enabled": {
     "summary": "Offer spelling suggestions for searches.",
     "usage": "<p>When <strong>Yes</strong>, misspelled searches receive \"did you mean\" suggestions. May slow the site on large catalogs.</p>"
   },
   "catalog_search_elasticsearch8_enable_auth": {
-    "summary": "Require authentication to connect to Elasticsearch 8.",
-    "usage": "<p>When <strong>Yes</strong>, Magento sends the username and password below when connecting to Elasticsearch.</p>"
+    "summary": "Require authentication to connect to Elasticsearch 8."
   },
   "catalog_search_elasticsearch8_index_prefix": {
-    "summary": "Prefix for the Elasticsearch indexes Magento creates.",
-    "usage": "<p>Namespaces this installation's indexes so several stores can share one Elasticsearch cluster without clashing.</p>"
+    "summary": "Prefix for the Elasticsearch indexes Magento creates."
   },
   "catalog_search_elasticsearch8_minimum_should_match": {
     "summary": "The minimum-should-match rule for Elasticsearch queries.",
     "usage": "<p>Controls how many query terms must match. Uses Elasticsearch's minimum_should_match syntax.</p>"
   },
   "catalog_search_elasticsearch8_password": {
-    "summary": "Password for the Elasticsearch connection.",
-    "usage": "<p>The password Magento uses when Elasticsearch authentication is enabled.</p>"
+    "summary": "Password for the Elasticsearch connection."
   },
   "catalog_search_elasticsearch8_server_hostname": {
-    "summary": "Hostname of the Elasticsearch server.",
-    "usage": "<p>The host Magento connects to for Elasticsearch.</p>"
+    "summary": "Hostname of the Elasticsearch server."
   },
   "catalog_search_elasticsearch8_server_port": {
-    "summary": "Port of the Elasticsearch server.",
-    "usage": "<p>The TCP port Magento uses to reach Elasticsearch.</p>"
+    "summary": "Port of the Elasticsearch server."
   },
   "catalog_search_elasticsearch8_server_timeout": {
-    "summary": "Connection timeout for Elasticsearch, in seconds.",
-    "usage": "<p>How long Magento waits for Elasticsearch to respond before giving up.</p>"
+    "summary": "Connection timeout for Elasticsearch, in seconds."
   },
   "catalog_search_elasticsearch8_test_connect_wizard": {
-    "summary": "Test the connection to Elasticsearch.",
-    "usage": "<p>Runs a live check that Magento can reach Elasticsearch with the settings above.</p>"
+    "summary": "Test the connection to Elasticsearch."
   },
   "catalog_search_elasticsearch8_username": {
-    "summary": "Username for the Elasticsearch connection.",
-    "usage": "<p>The username Magento uses when Elasticsearch authentication is enabled.</p>"
+    "summary": "Username for the Elasticsearch connection."
   },
   "catalog_search_opensearch_enable_auth": {
-    "summary": "Require authentication to connect to OpenSearch.",
-    "usage": "<p>When <strong>Yes</strong>, Magento sends the username and password below when connecting to OpenSearch.</p>"
+    "summary": "Require authentication to connect to OpenSearch."
   },
   "catalog_search_opensearch_index_prefix": {
-    "summary": "Prefix for the OpenSearch indexes Magento creates.",
-    "usage": "<p>Namespaces this installation's indexes so several stores can share one OpenSearch cluster without clashing.</p>"
+    "summary": "Prefix for the OpenSearch indexes Magento creates."
   },
   "catalog_search_opensearch_minimum_should_match": {
     "summary": "The minimum-should-match rule for OpenSearch queries.",
     "usage": "<p>Controls how many query terms must match. Uses OpenSearch's minimum_should_match syntax.</p>"
   },
   "catalog_search_opensearch_password": {
-    "summary": "Password for the OpenSearch connection.",
-    "usage": "<p>The password Magento uses when OpenSearch authentication is enabled.</p>"
+    "summary": "Password for the OpenSearch connection."
   },
   "catalog_search_opensearch_server_hostname": {
-    "summary": "Hostname of the OpenSearch server.",
-    "usage": "<p>The host Magento connects to for OpenSearch.</p>"
+    "summary": "Hostname of the OpenSearch server."
   },
   "catalog_search_opensearch_server_port": {
-    "summary": "Port of the OpenSearch server.",
-    "usage": "<p>The TCP port Magento uses to reach OpenSearch.</p>"
+    "summary": "Port of the OpenSearch server."
   },
   "catalog_search_opensearch_server_timeout": {
-    "summary": "Connection timeout for OpenSearch, in seconds.",
-    "usage": "<p>How long Magento waits for OpenSearch to respond before giving up.</p>"
+    "summary": "Connection timeout for OpenSearch, in seconds."
   },
   "catalog_search_opensearch_test_connect_wizard": {
-    "summary": "Test the connection to OpenSearch.",
-    "usage": "<p>Runs a live check that Magento can reach OpenSearch with the settings above.</p>"
+    "summary": "Test the connection to OpenSearch."
   },
   "catalog_search_opensearch_username": {
-    "summary": "Username for the OpenSearch connection.",
-    "usage": "<p>The username Magento uses when OpenSearch authentication is enabled.</p>"
+    "summary": "Username for the OpenSearch connection."
   },
   "catalog_seo_category_canonical_tag": {
-    "summary": "Add a canonical link tag to category pages.",
-    "usage": "<p>When <strong>Yes</strong>, category pages emit a canonical URL to reduce duplicate-content issues in search engines.</p>"
+    "summary": "Add a canonical link tag to category pages."
   },
   "catalog_seo_category_url_suffix": {
-    "summary": "Suffix appended to category URLs (e.g. .html).",
-    "usage": "<p>The suffix added to category URL keys. Refresh the cache after changing it.</p>"
+    "summary": "Suffix appended to category URLs (e.g. .html)."
   },
   "catalog_seo_generate_category_product_rewrites": {
     "summary": "Generate URL rewrites for products under categories.",
     "usage": "<p>When <strong>Yes</strong>, products get category-path URLs. <strong>Warning:</strong> turning this off permanently removes existing category/product URL rewrites.</p>"
   },
   "catalog_seo_product_canonical_tag": {
-    "summary": "Add a canonical link tag to product pages.",
-    "usage": "<p>When <strong>Yes</strong>, product pages emit a canonical URL to reduce duplicate-content issues in search engines.</p>"
+    "summary": "Add a canonical link tag to product pages."
   },
   "catalog_seo_product_rewrite_context": {
-    "summary": "Scope used when generating product URL rewrites.",
-    "usage": "<p>Whether product URL rewrites are generated at the website or the store-view level when a product is edited.</p>"
+    "summary": "Scope used when generating product URL rewrites."
   },
   "catalog_seo_product_url_suffix": {
-    "summary": "Suffix appended to product URLs (e.g. .html).",
-    "usage": "<p>The suffix added to product URL keys. Refresh the cache after changing it.</p>"
+    "summary": "Suffix appended to product URLs (e.g. .html)."
   },
   "catalog_seo_product_url_transliteration": {
-    "summary": "Transliterate accented characters in product URLs.",
-    "usage": "<p>When <strong>Yes</strong>, non-ASCII characters in URL keys are converted to ASCII equivalents.</p>"
+    "summary": "Transliterate accented characters in product URLs."
   },
   "catalog_seo_product_use_categories": {
-    "summary": "Include the category path in product URLs.",
-    "usage": "<p>When <strong>Yes</strong>, product URLs include their category path (for example <code>/category/product</code>).</p>"
+    "summary": "Include the category path in product URLs."
   },
   "catalog_seo_save_rewrites_history": {
     "summary": "Keep a redirect when a URL key changes.",
     "usage": "<p>When <strong>Yes</strong>, changing a product or category URL key creates a permanent (301) redirect from the old URL.</p>"
   },
   "catalog_seo_search_terms": {
-    "summary": "Make the storefront search-terms page available.",
-    "usage": "<p>When <strong>Enabled</strong>, the popular-search-terms page is accessible to shoppers and search-engine crawlers.</p>"
+    "summary": "Make the storefront search-terms page available."
   },
   "catalog_seo_title_separator": {
-    "summary": "Character separating the parts of page titles.",
-    "usage": "<p>The separator placed between segments of SEO page titles — for example a dash or a pipe.</p>"
+    "summary": "Character separating the parts of page titles."
   }
 }

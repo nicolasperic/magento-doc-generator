@@ -1,262 +1,202 @@
 {
   "customer_account_information_change_email_and_password_template": {
-    "summary": "Email template sent when a customer changes both email and password.",
-    "usage": "<p>The transactional template used to confirm a combined email-and-password change on the account.</p>"
+    "summary": "Email template sent when a customer changes both email and password."
   },
   "customer_account_information_change_email_template": {
-    "summary": "Email template sent when a customer changes their email address.",
-    "usage": "<p>The transactional template used to confirm an email-address change on the account.</p>"
+    "summary": "Email template sent when a customer changes their email address."
   },
   "customer_account_information_confirm": {
-    "summary": "Require email confirmation before a new account can sign in.",
-    "usage": "<p>When <strong>Yes</strong>, new customers must click a confirmation link in an email before they can log in.</p>"
+    "summary": "Require email confirmation before a new account can sign in."
   },
   "customer_account_information_graphql_share_customer_group": {
-    "summary": "Expose the customer's group through the GraphQL API.",
-    "usage": "<p>When <strong>No</strong>, customer group details are withheld from GraphQL responses — useful when group names are commercially sensitive.</p>"
+    "summary": "Expose the customer's group through the GraphQL API."
   },
   "customer_account_share_scope": {
-    "summary": "Whether customer accounts are shared across all websites or per website.",
-    "usage": "<p><strong>Global</strong> lets a customer sign in on any website with one account; <strong>Per Website</strong> scopes each account to the website where it was created.</p>"
+    "summary": "Whether customer accounts are shared across all websites or per website."
   },
   "customer_address_company_show": {
-    "summary": "Whether the Company field is shown and required.",
-    "usage": "<p>Controls the Company field on customer and address forms — optional, required, or hidden.</p>"
+    "summary": "Whether the Company field is shown and required."
   },
   "customer_address_dob_show": {
-    "summary": "Whether the Date of Birth field is shown and required.",
-    "usage": "<p>Controls the Date of Birth field on customer forms — optional, required, or hidden.</p>"
+    "summary": "Whether the Date of Birth field is shown and required."
   },
   "customer_address_fax_show": {
-    "summary": "Whether the Fax field is shown and required.",
-    "usage": "<p>Controls the Fax field on address forms — optional, required, or hidden.</p>"
+    "summary": "Whether the Fax field is shown and required."
   },
   "customer_address_gender_show": {
-    "summary": "Whether the Gender field is shown and required.",
-    "usage": "<p>Controls the Gender field on customer forms — optional, required, or hidden.</p>"
+    "summary": "Whether the Gender field is shown and required."
   },
   "customer_address_middlename_show": {
-    "summary": "Show the Middle Name/Initial field.",
-    "usage": "<p>When <strong>Yes</strong>, a Middle Name/Initial field appears on name forms. It is always optional.</p>"
+    "summary": "Show the Middle Name/Initial field."
   },
   "customer_address_prefix_options": {
-    "summary": "The selectable name prefixes (Mr., Mrs., …).",
-    "usage": "<p>Semicolon-separated list of name prefixes offered as a dropdown. Leave empty to show a free-text field instead.</p>"
+    "summary": "The selectable name prefixes (Mr., Mrs., …)."
   },
   "customer_address_prefix_show": {
-    "summary": "Whether the name Prefix field is shown and required.",
-    "usage": "<p>Controls the Prefix field — the title before a name, such as Mr. or Mrs. — optional, required, or hidden.</p>"
+    "summary": "Whether the name Prefix field is shown and required."
   },
   "customer_address_street_lines": {
-    "summary": "How many street address lines to show (1–4).",
-    "usage": "<p>The number of street-address input lines on address forms. Valid range is 1 to 4.</p>"
+    "summary": "How many street address lines to show (1–4)."
   },
   "customer_address_suffix_options": {
-    "summary": "The selectable name suffixes (Jr., Sr., …).",
-    "usage": "<p>Semicolon-separated list of name suffixes offered as a dropdown. Leave empty to show a free-text field instead.</p>"
+    "summary": "The selectable name suffixes (Jr., Sr., …)."
   },
   "customer_address_suffix_show": {
-    "summary": "Whether the name Suffix field is shown and required.",
-    "usage": "<p>Controls the Suffix field — the part after a name, such as Jr. or Sr. — optional, required, or hidden.</p>"
+    "summary": "Whether the name Suffix field is shown and required."
   },
   "customer_address_taxvat_show": {
-    "summary": "Whether the Tax/VAT Number field is shown and required.",
-    "usage": "<p>Controls the Tax/VAT number field on customer and address forms — optional, required, or hidden.</p>"
+    "summary": "Whether the Tax/VAT Number field is shown and required."
   },
   "customer_address_telephone_show": {
-    "summary": "Whether the Phone Number field is shown and required.",
-    "usage": "<p>Controls the Phone Number field on address forms — optional, required, or hidden.</p>"
+    "summary": "Whether the Phone Number field is shown and required."
   },
   "customer_address_templates_html": {
-    "summary": "The HTML layout used to render a customer address.",
-    "usage": "<p>Template that formats addresses in HTML contexts such as account pages and emails. Supports a limited set of tags (<code>b</code>, <code>br</code>, <code>p</code>, <code>strong</code>, …).</p>"
+    "summary": "The HTML layout used to render a customer address."
   },
   "customer_address_templates_oneline": {
-    "summary": "The single-line format used to render an address.",
-    "usage": "<p>Template that renders an address on one line, used in grids and summaries.</p>"
+    "summary": "The single-line format used to render an address."
   },
   "customer_address_templates_pdf": {
-    "summary": "The layout used to render addresses in PDF documents.",
-    "usage": "<p>Template that formats addresses on PDF invoices, shipments and credit memos.</p>"
+    "summary": "The layout used to render addresses in PDF documents."
   },
   "customer_address_templates_text": {
-    "summary": "The plain-text format used to render an address.",
-    "usage": "<p>Template that renders an address as plain text, used in plain-text emails.</p>"
+    "summary": "The plain-text format used to render an address."
   },
   "customer_captcha_case_sensitive": {
     "summary": "Make CAPTCHA answers case-sensitive.",
     "usage": "<p>When <strong>Yes</strong>, the customer must match the letter case of the CAPTCHA exactly.</p>"
   },
   "customer_captcha_enable": {
-    "summary": "Turn on CAPTCHA for storefront customer forms.",
-    "usage": "<p>When <strong>Yes</strong>, a CAPTCHA is shown on the storefront forms selected below.</p>"
+    "summary": "Turn on CAPTCHA for storefront customer forms."
   },
   "customer_captcha_failed_attempts_login": {
-    "summary": "Failed logins before CAPTCHA appears on the login form.",
-    "usage": "<p>The number of failed attempts after which CAPTCHA is required on login. <code>0</code> makes it always show.</p>"
+    "summary": "Failed logins before CAPTCHA appears on the login form."
   },
   "customer_captcha_font": {
-    "summary": "The font used to render the CAPTCHA image.",
-    "usage": "<p>The typeface used when drawing CAPTCHA characters.</p>"
+    "summary": "The font used to render the CAPTCHA image."
   },
   "customer_captcha_forms": {
-    "summary": "Which storefront forms show a CAPTCHA.",
-    "usage": "<p>The customer-facing forms protected by CAPTCHA — login, create account, forgot password, and so on.</p>"
+    "summary": "Which storefront forms show a CAPTCHA."
   },
   "customer_captcha_length": {
-    "summary": "How many characters the CAPTCHA contains.",
-    "usage": "<p>The CAPTCHA length, up to 8 characters. A range such as <code>3-5</code> picks a random length each time.</p>"
+    "summary": "How many characters the CAPTCHA contains."
   },
   "customer_captcha_mode": {
-    "summary": "When the CAPTCHA is shown.",
-    "usage": "<p>Whether the CAPTCHA appears on every attempt, or only after a number of failed attempts.</p>"
+    "summary": "When the CAPTCHA is shown."
   },
   "customer_captcha_symbols": {
-    "summary": "The character set CAPTCHAs are drawn from.",
-    "usage": "<p>The pool of characters used to build CAPTCHAs — letters (a–z, A–Z) and digits (0–9).</p>"
+    "summary": "The character set CAPTCHAs are drawn from."
   },
   "customer_captcha_timeout": {
     "summary": "How long a CAPTCHA stays valid (minutes).",
     "usage": "<p>The number of minutes a generated CAPTCHA remains valid before it must be refreshed.</p>"
   },
   "customer_create_account_auto_group_assign": {
-    "summary": "Assign a customer group automatically from VAT validation.",
-    "usage": "<p>When <strong>Yes</strong>, customers are placed into a group automatically based on their VAT number validation result, using the group mappings below.</p>"
+    "summary": "Assign a customer group automatically from VAT validation."
   },
   "customer_create_account_confirm": {
     "summary": "Require email confirmation for newly created accounts.",
     "usage": "<p>When <strong>Yes</strong>, new accounts must be confirmed through an emailed link before the customer can sign in.</p>"
   },
   "customer_create_account_default_group": {
-    "summary": "The customer group new accounts are assigned to.",
-    "usage": "<p>The default group applied to newly created customer accounts.</p>"
+    "summary": "The customer group new accounts are assigned to."
   },
   "customer_create_account_email_confirmation_template": {
-    "summary": "Email template asking a new customer to confirm their account.",
-    "usage": "<p>The transactional template that carries the account-confirmation link.</p>"
+    "summary": "Email template asking a new customer to confirm their account."
   },
   "customer_create_account_email_confirmed_template": {
-    "summary": "Email template sent once an account is confirmed.",
-    "usage": "<p>Sent instead of the welcome email after a customer confirms their account.</p>"
+    "summary": "Email template sent once an account is confirmed."
   },
   "customer_create_account_email_domain": {
-    "summary": "Default domain for the sender of new-account emails.",
-    "usage": "<p>The email domain used in the from-address of account emails — typically the store's domain.</p>"
+    "summary": "Default domain for the sender of new-account emails."
   },
   "customer_create_account_email_identity": {
-    "summary": "The store identity new-account emails are sent from.",
-    "usage": "<p>Which store email identity (sender) is used for account-creation emails.</p>"
+    "summary": "The store identity new-account emails are sent from."
   },
   "customer_create_account_email_no_password_template": {
-    "summary": "Welcome email for accounts created without a password.",
-    "usage": "<p>Sent instead of the default welcome email when an account is created without a password, so the customer can set one via the link.</p>"
+    "summary": "Welcome email for accounts created without a password."
   },
   "customer_create_account_email_required_create_order": {
-    "summary": "Require an email address when creating an order in the admin.",
-    "usage": "<p>When <strong>Yes</strong>, the Email field is mandatory while an admin creates an order.</p>"
+    "summary": "Require an email address when creating an order in the admin."
   },
   "customer_create_account_email_template": {
-    "summary": "The welcome email template for new accounts.",
-    "usage": "<p>The default transactional template sent when a customer account is created.</p>"
+    "summary": "The welcome email template for new accounts."
   },
   "customer_create_account_generate_human_friendly_id": {
-    "summary": "Generate readable customer increment IDs.",
-    "usage": "<p>When <strong>Yes</strong>, customers receive human-friendly sequential IDs rather than raw entity IDs.</p>"
+    "summary": "Generate readable customer increment IDs."
   },
   "customer_create_account_tax_calculation_address_type": {
-    "summary": "Which address is used for VAT validation at registration.",
-    "usage": "<p>Whether the billing or the shipping address is used when validating a customer's VAT number and assigning a group.</p>"
+    "summary": "Which address is used for VAT validation at registration."
   },
   "customer_create_account_vat_frontend_visibility": {
-    "summary": "Show the VAT Number field on the storefront.",
-    "usage": "<p>When <strong>Yes</strong>, customers can enter a VAT number on account and address forms.</p>"
+    "summary": "Show the VAT Number field on the storefront."
   },
   "customer_create_account_viv_disable_auto_group_assign_default": {
-    "summary": "Disable automatic VAT-based group assignment by default.",
-    "usage": "<p>When <strong>Yes</strong>, automatic group assignment from VAT validation is off unless explicitly enabled.</p>"
+    "summary": "Disable automatic VAT-based group assignment by default."
   },
   "customer_create_account_viv_domestic_group": {
-    "summary": "Group for customers with a valid domestic VAT ID.",
-    "usage": "<p>The group assigned when a customer's VAT number is valid and from the store's own country.</p>"
+    "summary": "Group for customers with a valid domestic VAT ID."
   },
   "customer_create_account_viv_error_group": {
-    "summary": "Group used when VAT validation cannot be completed.",
-    "usage": "<p>The group assigned when the VAT validation service is unavailable or returns an error.</p>"
+    "summary": "Group used when VAT validation cannot be completed."
   },
   "customer_create_account_viv_intra_union_group": {
-    "summary": "Group for customers with a valid intra-EU VAT ID.",
-    "usage": "<p>The group assigned when a customer's VAT number is valid and from another EU country.</p>"
+    "summary": "Group for customers with a valid intra-EU VAT ID."
   },
   "customer_create_account_viv_invalid_group": {
-    "summary": "Group for customers whose VAT ID is invalid.",
-    "usage": "<p>The group assigned when a customer's VAT number fails validation.</p>"
+    "summary": "Group for customers whose VAT ID is invalid."
   },
   "customer_create_account_viv_on_each_transaction": {
-    "summary": "Re-validate VAT on every order, not just at registration.",
-    "usage": "<p>When <strong>Yes</strong>, the customer's VAT number is re-checked on each transaction and their group updated accordingly.</p>"
+    "summary": "Re-validate VAT on every order, not just at registration."
   },
   "customer_online_customers_online_minutes_interval": {
-    "summary": "How long a customer counts as \"online\" (minutes).",
-    "usage": "<p>The window during which a customer is considered online after their last activity. Leave empty for the default of 15 minutes.</p>"
+    "summary": "How long a customer counts as \"online\" (minutes)."
   },
   "customer_online_customers_section_data_lifetime": {
-    "summary": "How long private customer section data is cached (minutes).",
-    "usage": "<p>The lifetime, in minutes, of the private customer-section data cached in the browser (cart, account state).</p>"
+    "summary": "How long private customer section data is cached (minutes)."
   },
   "customer_password_autocomplete_on_storefront": {
-    "summary": "Allow browser autocomplete on storefront password fields.",
-    "usage": "<p>When <strong>Yes</strong>, browsers may autofill login and password fields on the storefront.</p>"
+    "summary": "Allow browser autocomplete on storefront password fields."
   },
   "customer_password_forgot_email_identity": {
-    "summary": "The store identity password-reset emails are sent from.",
-    "usage": "<p>Which store email identity (sender) is used for forgot-password emails.</p>"
+    "summary": "The store identity password-reset emails are sent from."
   },
   "customer_password_forgot_email_template": {
-    "summary": "The email template for forgot-password requests.",
-    "usage": "<p>The transactional template carrying the password-reset link.</p>"
+    "summary": "The email template for forgot-password requests."
   },
   "customer_password_lockout_failures": {
-    "summary": "Failed logins before an account is locked.",
-    "usage": "<p>The number of consecutive failed logins that locks a customer account. Use <code>0</code> to disable locking.</p>"
+    "summary": "Failed logins before an account is locked."
   },
   "customer_password_lockout_threshold": {
-    "summary": "How long a locked account stays locked (minutes).",
-    "usage": "<p>The time, in minutes, after which a locked account is automatically unlocked.</p>"
+    "summary": "How long a locked account stays locked (minutes)."
   },
   "customer_password_max_number_password_reset_requests": {
-    "summary": "Maximum password-reset requests allowed per hour.",
-    "usage": "<p>Caps how many reset requests one account or IP can make each hour. Use <code>0</code> to disable the limit.</p>"
+    "summary": "Maximum password-reset requests allowed per hour."
   },
   "customer_password_min_time_between_password_reset_requests": {
-    "summary": "Minimum delay between password-reset requests (minutes).",
-    "usage": "<p>The enforced wait between consecutive reset requests. Use <code>0</code> to disable.</p>"
+    "summary": "Minimum delay between password-reset requests (minutes)."
   },
   "customer_password_minimum_password_length": {
     "summary": "Minimum number of characters in a customer password.",
     "usage": "<p>The shortest password a customer may set. Must be 1 or greater.</p>"
   },
   "customer_password_password_reset_protection_type": {
-    "summary": "How password-reset requests are rate-limited.",
-    "usage": "<p>Whether reset-request limits are tracked by IP, by email, by both, or not enforced at all.</p>"
+    "summary": "How password-reset requests are rate-limited."
   },
   "customer_password_remind_email_template": {
-    "summary": "The email template for password reminders.",
-    "usage": "<p>The transactional template used to remind a customer of their password.</p>"
+    "summary": "The email template for password reminders."
   },
   "customer_password_required_character_classes_number": {
-    "summary": "How many character types a password must include.",
-    "usage": "<p>The number of distinct character classes — lowercase, uppercase, digits, special — a password must contain.</p>"
+    "summary": "How many character types a password must include."
   },
   "customer_password_reset_link_expiration_period": {
     "summary": "How long a password-reset link stays valid (hours).",
     "usage": "<p>The lifetime of a reset link before it expires. Must be 1 or greater.</p>"
   },
   "customer_password_reset_password_template": {
-    "summary": "The email template confirming a password reset.",
-    "usage": "<p>The transactional template sent to confirm a successful password reset.</p>"
+    "summary": "The email template confirming a password reset."
   },
   "customer_startup_redirect_dashboard": {
-    "summary": "Send customers to their dashboard right after login.",
-    "usage": "<p>When <strong>Yes</strong>, customers land on their account dashboard after signing in. When <strong>No</strong>, they stay on the page they were on.</p>"
+    "summary": "Send customers to their dashboard right after login."
   }
 }
